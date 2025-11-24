@@ -1,0 +1,13 @@
+langgraph==0.2.45
+langchain-ollama==0.2.0
+langchain-core==0.3.15
+langchain==0.3.7
+streamlit==1.38.0
+
+PyPDF2==3.0.1
+python-docx==1.1.2
+pandas==2.2.2
+tiktoken==0.7.0
+# Use faiss-gpu instead of faiss-cpu if you have CUDA and want faster similarity search
+# faiss-gpu==1.8.0.post1
+langchain-community==0.3.1

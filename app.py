@@ -593,9 +593,15 @@ app = graph.compile()
 CONVERSATIONS_DIR = "conversations"
 
 def get_chat_path(chat_id):
+    if chat_id is None:
+        return None
     return os.path.join(CONVERSATIONS_DIR, chat_id)
 
 def save_chat(chat_id):
+    # Don't save if chat_id is None (no chat created yet)
+    if chat_id is None:
+        return
+    
     path = get_chat_path(chat_id)
     os.makedirs(path, exist_ok=True)
     
@@ -617,6 +623,10 @@ def save_chat(chat_id):
         st.session_state.vectorstore.save_local(os.path.join(path, "faiss_index"))
 
 def load_chat(chat_id):
+    # Don't load if chat_id is None
+    if chat_id is None:
+        return
+    
     path = get_chat_path(chat_id)
     
     # Load messages
@@ -710,8 +720,7 @@ st.set_page_config(page_title="Multi-Agent System", page_icon="🤖", layout="wi
 
 # === Session State Initialization ===
 if "current_chat_id" not in st.session_state:
-    st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
+    st.session_state.current_chat_id = None  # Don't create chat until first message
     st.session_state.messages = []
     st.session_state.dataframes = []
     st.session_state.vectorstore = None
@@ -720,9 +729,10 @@ if "current_chat_id" not in st.session_state:
     # Pagination State
     st.session_state.active_df = None
     st.session_state.active_page = 0
-else:
-    # Ensure the chat is loaded (in case of rerun)
-    load_chat(st.session_state.current_chat_id)
+elif st.session_state.current_chat_id:
+    # Only load if chat exists
+    if os.path.exists(get_chat_path(st.session_state.current_chat_id)):
+        load_chat(st.session_state.current_chat_id)
 
 # === Sidebar ===
 # === Sidebar ===
@@ -786,40 +796,48 @@ with st.sidebar:
     
     st.markdown("---")
     st.subheader("💬 Chats")
-    if st.button("➕ New Chat"):
-        save_chat(st.session_state.current_chat_id)  # Save current before new
-        new_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        st.session_state.current_chat_id = new_id
-        os.makedirs(get_chat_path(new_id), exist_ok=True)
-        st.session_state.messages = []
-        st.session_state.dataframes = []
-        st.session_state.vectorstore = None
-        st.session_state.rag_chain = None
-        st.session_state.last_agent = None
-        st.session_state.active_df = None
-        st.session_state.active_page = 0
-        st.rerun()
+    # Only show New Chat button if there's an active chat
+    if st.session_state.current_chat_id is not None:
+        if st.button("➕ New Chat"):
+            save_chat(st.session_state.current_chat_id)  # Save current before new
+            st.session_state.current_chat_id = None  # Don't create until first message
+            st.session_state.messages = []
+            st.session_state.dataframes = []
+            st.session_state.vectorstore = None
+            st.session_state.rag_chain = None
+            st.session_state.last_agent = None
+            st.session_state.active_df = None
+            st.session_state.active_page = 0
+            st.rerun()
     
-    # List previous chats
+    # List previous chats (only show non-empty chats)
     chat_dirs = [d for d in os.listdir(CONVERSATIONS_DIR) if os.path.isdir(os.path.join(CONVERSATIONS_DIR, d))]
     for cid in sorted(chat_dirs, reverse=True):  # Newest first
         msg_path = os.path.join(CONVERSATIONS_DIR, cid, "messages.json")
-        name = cid.replace("_", " ").replace("-", "/")
+        
+        # Only show chats that have messages
         if os.path.exists(msg_path):
             with open(msg_path, "r") as f:
                 try:
                     msgs = json.load(f)
                 except:
                     msgs = []
-            if msgs:
-                first_content = msgs[0]["content"]
-                name = first_content[:30] + "..." if len(first_content) > 30 else first_content
-        if cid != st.session_state.current_chat_id:
-            if st.button(name, key=f"chat_{cid}"):
-                save_chat(st.session_state.current_chat_id)  # Save current
-                st.session_state.current_chat_id = cid
-                load_chat(cid)
-                st.rerun()
+            
+            # Skip empty chats
+            if not msgs:
+                continue
+                
+            # Generate proper title from first user message
+            first_content = msgs[0]["content"]
+            name = first_content[:40] + "..." if len(first_content) > 40 else first_content
+            
+            # Only show if not the current chat
+            if cid != st.session_state.current_chat_id:
+                if st.button(name, key=f"chat_{cid}"):
+                    save_chat(st.session_state.current_chat_id)  # Save current
+                    st.session_state.current_chat_id = cid
+                    load_chat(cid)
+                    st.rerun()
 
 # === Main Interface Logic ===
 user_input = None
@@ -873,33 +891,56 @@ st.markdown("""
         padding: 10px 15px !important;
     }
     
-    /* Upload button styling */
+    /* Upload button styling - match Streamlit default */
     [data-testid="stPopover"] button {
         height: 45px !important;
         border-radius: 10px !important;
         font-size: 24px !important;
-        background-color: #1f1f1f !important;
-        border: 1px solid #444 !important;
+        padding: 0.25rem 0.75rem !important;
     }
     
-    [data-testid="stPopover"] button:hover {
-        background-color: #2d2d2d !important;
-        border-color: #666 !important;
-    }
-    
-    /* Input wrapper to keep elements together at bottom */
-    .input-wrapper {
-        position: sticky !important;
+    /* Target Streamlit's bottom container to fix it at bottom */
+    [data-testid="stBottom"] {
+        position: fixed !important;
         bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
         background-color: #0e1117 !important;
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-        z-index: 100 !important;
+        padding: 1rem 3rem !important;
+        z-index: 999 !important;
         border-top: 1px solid #262730 !important;
+        margin: 0 !important;
+    }
+    
+    /* Alternative: target the input wrapper class */
+    .input-wrapper {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background-color: #0e1117 !important;
+        padding: 1rem 3rem !important;
+        z-index: 999 !important;
+        border-top: 1px solid #262730 !important;
+        margin: 0 !important;
+    }
+    
+    /* Add padding to main content to prevent overlap */
+    .main .block-container {
+        padding-bottom: 150px !important;
+    }
+    
+    /* Ensure the stChatInput container is also fixed */
+    [data-testid="stChatInput"] {
+        position: relative !important;
+        margin-bottom: 0 !important;
     }
     
     /* Make popover button match chat input height */
-    .input-wrapper [data-testid="stPopover"] button {
+    .input-wrapper [data-testid="stPopover"] button,
+    [data-testid="stBottom"] [data-testid="stPopover"] button {
         height: 50px !important;
         min-height: 50px !important;
         border-radius: 12px !important;
@@ -910,14 +951,14 @@ st.markdown("""
         justify-content: center !important;
     }
     
-    /* Remove expander styles since we're using popover now */
+    /* Remove expander styles */
     [data-testid="stExpander"] {
         border: none !important;
     }
     
-    /* Ensure chat input stays at bottom */
-    [data-testid="stChatInput"] {
-        margin-bottom: 0 !important;
+    /* Make columns in input area align properly */
+    .stColumns {
+        gap: 0.5rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -970,6 +1011,11 @@ if not st.session_state.messages:
             
             val = st.session_state.get("landing_input", "")
             if val:
+                # Create chat ID if this is the first message
+                if st.session_state.current_chat_id is None:
+                    st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                    os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
+                
                 st.session_state.messages.append(HumanMessage(content=val))
                 save_chat(st.session_state.current_chat_id) # Save before rerun to prevent data loss
                 st.rerun()
@@ -989,31 +1035,25 @@ else:
 
     display_paginated_data()
     
-    # Create a container for the input area
-    st.markdown('<div class="input-wrapper">', unsafe_allow_html=True)
+    # Upload button above the input (compact)
+    with st.expander("➕ Upload Files", expanded=False):
+        uploaded_files = st.file_uploader(
+            "Add files",
+            type=["pdf", "docx", "doc", "csv"],
+            accept_multiple_files=True,
+            key="chat_uploader",
+            label_visibility="collapsed"
+        )
     
-    # Place upload button and chat input on the same line
-    col_upload, col_input = st.columns([0.06, 0.94])
-    
-    with col_upload:
-        # Compact upload button using popover
-        with st.popover("➕", use_container_width=True):
-            st.markdown("**📎 Upload Files**")
-            uploaded_files = st.file_uploader(
-                "Add files",
-                type=["pdf", "docx", "doc", "csv"],
-                accept_multiple_files=True,
-                key="chat_uploader",
-                label_visibility="collapsed"
-            )
-    
-    with col_input:
-        # Chat input
-        if prompt := st.chat_input("Ask me anything..."):
-            st.session_state.messages.append(HumanMessage(content=prompt))
-            user_input = prompt
-    
-    st.markdown('</div>', unsafe_allow_html=True)
+    # Chat input (Streamlit keeps this at bottom automatically)
+    if prompt := st.chat_input("Ask me anything..."):
+        # Create chat ID if this is the first message
+        if st.session_state.current_chat_id is None:
+            st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
+        
+        st.session_state.messages.append(HumanMessage(content=prompt))
+        user_input = prompt
 
 # Ensure uploaded_files is defined
 if 'uploaded_files' not in locals():

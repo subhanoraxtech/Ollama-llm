@@ -29,7 +29,7 @@ import uuid
 
 # === Models ===
 llm = ChatOllama(
-    model="gpt-oss:latest",
+    model="gpt-oss:20b",
     temperature=0.7,
     options={
         "num_gpu": 999,
@@ -39,7 +39,7 @@ llm = ChatOllama(
 )
 
 code_llm = ChatOllama(
-    model="gpt-oss:latest",
+    model="gpt-oss:20b",
     temperature=0,
     options={
         "num_gpu": 999,

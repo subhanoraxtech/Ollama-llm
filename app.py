@@ -213,21 +213,35 @@ SAMPLE DATA:
 
 TASK: Write Python code to extract exactly what the user asked for.
 
-INSTRUCTIONS:
-1. Carefully analyze what the user wants
-2. Identify the relevant columns (look for similar names if exact match not found)
-3. Write clean, working pandas code
-4. Store the result in variable 'result'
-5. Return a DataFrame when selecting/filtering data
+CRITICAL INSTRUCTIONS:
+1. Carefully analyze what the user wants - if they mention MULTIPLE fields (name, email, state, address), SELECT ALL OF THEM
+2. Identify ALL relevant columns mentioned in the request
+3. **IMPORTANT**: If user says "name", find ALL name-related columns (e.g., 'First Name', 'Last Name', 'Full Name')
+4. **IMPORTANT**: If user says "address", find ALL address columns (e.g., 'Street Address', 'Address Line 1', 'Address Line 2')
+5. **BE FLEXIBLE**: Handle typos and partial matches (e.g., "emal" → "Email", "nam" → "Name", "addres" → "Address")
+6. Look for similar column names if exact match not found (e.g., 'CustomerEmail' for 'email', 'FullName' for 'name')
+7. Write clean, working pandas code
+8. Store the result in variable 'result'
+9. Return a DataFrame with ALL requested columns
 
 EXAMPLES:
 
-Request: "give me 50 customer emails"
-Analysis: User wants email addresses, limit to 50
-Code: result = df[['Email']].head(50)
+Request: "show 30 defendants with their name, state, address, and email"
+Available columns: ['First Name', 'Last Name', 'State', 'Street Address', 'Email']
+Analysis: User wants name (First Name + Last Name), state, address (Street Address), email. Limit to 30 rows.
+Code: result = df[['First Name', 'Last Name', 'State', 'Street Address', 'Email']].head(30)
+
+Request: "give me 50 customers with name and email"
+Available columns: ['CustomerFirstName', 'CustomerLastName', 'CustomerEmail']
+Analysis: User wants name (both first and last) and email. Limit to 50.
+Code: result = df[['CustomerFirstName', 'CustomerLastName', 'CustomerEmail']].head(50)
+
+Request: "list users from California with their email and phone"
+Analysis: Filter by state AND select email and phone columns
+Code: result = df[df['State'] == 'California'][['Email', 'Phone']]
 
 Request: "show users from California"  
-Analysis: Filter by state/location column
+Analysis: Filter by state/location column, show all columns
 Code: result = df[df['State'] == 'California']
 
 Request: "find all orders above 1000"
@@ -306,24 +320,152 @@ YOUR RESPONSE:"""
         # Smart fallback
         return smart_fallback_query(df, question)
 
+def fuzzy_match_columns(df: pd.DataFrame, user_keywords: list) -> list:
+    """
+    Intelligently match user keywords to actual dataframe columns using fuzzy matching.
+    Handles typos, partial matches, and variations.
+    
+    Examples:
+    - "nam" matches "Name", "First Name", "Last Name"
+    - "emal" matches "Email", "CustomerEmail"
+    - "addres" matches "Address", "Street Address"
+    """
+    matched_cols = []
+    
+    def similarity_score(keyword: str, column: str) -> float:
+        """Calculate similarity between keyword and column name (0-1 scale)"""
+        keyword = keyword.lower()
+        column = column.lower()
+        
+        # Exact match
+        if keyword == column:
+            return 1.0
+        
+        # Keyword is substring of column
+        if keyword in column:
+            return 0.9
+        
+        # Column is substring of keyword (partial typing)
+        if column in keyword:
+            return 0.85
+        
+        # Check if keyword is partial match (e.g., "nam" in "name")
+        if len(keyword) >= 3:
+            for i in range(len(column) - len(keyword) + 1):
+                if column[i:i+len(keyword)] == keyword:
+                    return 0.8
+        
+        # Simple character overlap ratio
+        common_chars = sum(1 for c in keyword if c in column)
+        overlap_ratio = common_chars / max(len(keyword), len(column))
+        
+        # Levenshtein-like: count differences
+        if len(keyword) > 2 and len(column) > 2:
+            max_len = max(len(keyword), len(column))
+            differences = abs(len(keyword) - len(column))
+            for i in range(min(len(keyword), len(column))):
+                if keyword[i] != column[i]:
+                    differences += 1
+            similarity = 1 - (differences / max_len)
+            return max(overlap_ratio, similarity)
+        
+        return overlap_ratio
+    
+    # For each keyword, find best matching columns
+    for keyword in user_keywords:
+        best_matches = []
+        for col in df.columns:
+            score = similarity_score(keyword, col)
+            if score >= 0.6:  # Threshold for fuzzy match
+                best_matches.append((col, score))
+        
+        # Sort by score and add top matches
+        best_matches.sort(key=lambda x: x[1], reverse=True)
+        for col, score in best_matches:
+            if col not in matched_cols:
+                matched_cols.append(col)
+    
+    return matched_cols
+
 def smart_fallback_query(df: pd.DataFrame, question: str) -> dict:
-    """Intelligent fallback when code generation fails"""
+    """Intelligent fallback with FUZZY MATCHING for typos and partial words"""
     q_lower = question.lower()
     
     # Extract number from query
     numbers = re.findall(r'\d+', question)
     n = int(numbers[0]) if numbers else 10
     
-    # Pattern matching
-    if 'email' in q_lower:
-        for col in df.columns:
-            if 'email' in col.lower():
-                result = df[[col]].head(n)
-                examples = '\n'.join([f"• {email}" for email in result[col].head(3)])
-                answer = f"Found {len(result)} emails:\n\n{examples}\n\nShowing all in the table below."
-                return {"messages": [AIMessage(content=answer)], "filtered_df": result}
+    # Extract potential column keywords from user's question
+    # Remove common words and extract meaningful terms
+    stop_words = {'show', 'give', 'me', 'get', 'list', 'find', 'with', 'their', 'the', 'a', 'an', 'and', 'or', 'of', 'to', 'from', 'in', 'for', 'on'}
+    words = re.findall(r'\b\w+\b', q_lower)
+    potential_keywords = [w for w in words if w not in stop_words and len(w) >= 3 and not w.isdigit()]
     
-    # Default: show first N rows
+    # Enhanced keyword mapping with fuzzy-friendly terms
+    column_keywords = {
+        'name': ['name', 'nam', 'fullname', 'customer', 'defendant', 'user', 'person'],
+        'email': ['email', 'emal', 'mail', 'e-mail', 'emailaddress'],
+        'state': ['state', 'stat', 'province', 'region'],
+        'address': ['address', 'addres', 'addr', 'street', 'location'],
+        'phone': ['phone', 'phon', 'telephone', 'mobile', 'cell', 'contact'],
+        'city': ['city', 'town', 'cty'],
+        'zip': ['zip', 'postal', 'postcode', 'zipcode']
+    }
+    
+    # Step 1: Try keyword-based matching first
+    requested_cols = []
+    user_mentioned_fields = []
+    
+    for field, keywords in column_keywords.items():
+        if any(kw in q_lower for kw in keywords):
+            user_mentioned_fields.append(field)
+            # Find ALL matching columns in dataframe (not just first one!)
+            for col in df.columns:
+                if any(kw in col.lower() for kw in keywords):
+                    if col not in requested_cols:
+                        requested_cols.append(col)
+    
+    # Step 2: If keyword matching didn't work well, try FUZZY MATCHING
+    if len(requested_cols) == 0 and len(potential_keywords) > 0:
+        # Use fuzzy matching on extracted keywords
+        fuzzy_matched = fuzzy_match_columns(df, potential_keywords)
+        requested_cols.extend([col for col in fuzzy_matched if col not in requested_cols])
+    
+    # Step 3: If we STILL have nothing, try matching common field names
+    if len(requested_cols) == 0:
+        # Look for common columns that users typically want
+        common_patterns = ['name', 'email', 'phone', 'address', 'state', 'city', 'id']
+        for pattern in common_patterns:
+            for col in df.columns:
+                if pattern in col.lower() and col not in requested_cols:
+                    requested_cols.append(col)
+                    if len(requested_cols) >= 5:  # Limit to 5 columns
+                        break
+            if len(requested_cols) >= 5:
+                break
+    
+    # If we found specific columns, use them
+    if requested_cols:
+        result = df[requested_cols].head(n)
+        
+        # Generate a nice response showing what we found
+        sample_rows = []
+        for idx, row in result.head(3).iterrows():
+            row_str = " | ".join([f"{col}: {row[col]}" for col in requested_cols[:4]])  # Show first 4 cols
+            sample_rows.append(f"• {row_str}")
+        
+        examples = '\n'.join(sample_rows)
+        
+        # Smart response based on what we matched
+        if user_mentioned_fields:
+            fields_str = ", ".join(user_mentioned_fields)
+            answer = f"✅ Found {len(result)} records matching your request for **{fields_str}**!\n\n**Columns:** {', '.join(requested_cols)}\n\n**Sample data:**\n{examples}\n\nShowing all in the table below."
+        else:
+            answer = f"Found {len(result)} records with {len(requested_cols)} columns ({', '.join(requested_cols)}):\n\n{examples}\n\nShowing all in the table below."
+        
+        return {"messages": [AIMessage(content=answer)], "filtered_df": result}
+    
+    # Default: show first N rows with all columns
     result = df.head(n)
     return {
         "messages": [AIMessage(content=f"Here are the first {n} rows from the dataset (columns: {', '.join(df.columns[:5])}):")],
@@ -843,25 +985,37 @@ with st.sidebar:
 user_input = None
 
 # ═══════════════════════════════════════════════════════════════════
-# REPLACE YOUR ENTIRE CSS BLOCK WITH THIS ONE (keep everything else!)
+# FINAL & PERFECT FIXED BOTTOM CHAT INPUT (2025 Streamlit)
 # ═══════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-    .main .block-container { padding-bottom: 100px !important; }
+    /* Give space for the fixed bar */
+    .main > .block-container {
+        padding-bottom: 100px !important;
+    }
 
-    .fixed-chat-input {
+    /* Completely hide Streamlit's default bottom bar (we'll style it ourselves) */
+    section[data-testid="stBottom"] {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    /* Our custom fixed input bar */
+    .custom-chat-bar {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
         background: var(--background-color);
         border-top: 1px solid var(--secondary-background-color);
-        padding: 14px 20px;
+        padding: 12px 16px;
         z-index: 9999;
-        box-shadow: 0 -8px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 -6px 20px rgba(0,0,0,0.1);
     }
 
-    .fixed-chat-inner {
+    .custom-chat-bar .inner {
         max-width: 1100px;
         margin: 0 auto;
         display: flex;
@@ -869,36 +1023,73 @@ st.markdown("""
         gap: 12px;
     }
 
-    /* Ensure stBottom is visible but transparent so it doesn't block our custom bar */
-    [data-testid="stBottom"] {
-        background-color: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        pointer-events: none !important;
+    /* Attachment button - perfect circle */
+    .attach-btn {
+        background: var(--secondary-background-color);
+        border: 1px solid #444;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        font-size: 20px;
     }
 
-    /* Make the input visible and styled to fit */
-    [data-testid="stChatInput"] {
-        display: block !important;
-        pointer-events: auto !important;
+    /* Chat input - clean, full width, no weird padding */
+    .custom-chat-bar [data-testid="stChatInput"] {
+        flex: 1;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .custom-chat-bar [data-testid="stChatInput"] > div {
+        margin: 0 !important;
+        padding: 0 !important;
         background: transparent !important;
     }
 
-    /* Style the actual input box to match the theme */
-    [data-testid="stChatInput"] textarea {
+    .custom-chat-bar textarea {
         background: var(--secondary-background-color) !important;
-        color: var(--text-color) !important;
-        border: 1px solid var(--secondary-background-color) !important;
+        border: 1px solid #444 !important;
+        border-radius: 24px !important;
+        padding: 14px 56px 14px 18px !important;
+        font-size: 16px !important;
+        height: 48px !important;
+        resize: none !important;
+        box-shadow: none !important;
     }
 
-    /* Make expander button look nice */
-    .fixed-chat-input .stExpander > div > label {
-        background: var(--secondary-background-color) !important;
-        border: 1px solid var(--secondary-background-color) !important;
-        border-radius: 12px !important;
-        padding: 12px !important;
-        font-size: 14px !important;
-        color: var(--text-color) !important;
+    .custom-chat-bar textarea:focus {
+        border-color: var(--primary-color) !important;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.25) !important;
+    }
+
+    /* Send button - perfectly centered on the right */
+    .custom-chat-bar button[kind="primary"] {
+        position: absolute !important;
+        right: 8px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background: var(--primary-color) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+    }
+
+    .custom-chat-bar button[kind="primary"] svg {
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: 2px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -908,8 +1099,8 @@ if not st.session_state.messages:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div style='height: 20vh;'></div>", unsafe_allow_html=True) # Spacer
-        st.markdown("<h1 style='text-align: center;'>What can I help with?</h1>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: #888;'>Multi-Agent RAG System</p>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center;'>Bailbooks AI</h1>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: #888;'>Your Fastest Path To Defendant Data </p>", unsafe_allow_html=True)
         
         # File Uploader in Center
         uploaded_files = st.file_uploader(
@@ -973,29 +1164,35 @@ else:
 
     display_paginated_data()
 
-    # ──────────────────────── FIXED BOTTOM INPUT (PERFECT) ────────────────────────
-    st.markdown('<div class="fixed-chat-input"><div class="fixed-chat-inner">', unsafe_allow_html=True)
+    # ———————————————————— ACTUAL INPUT BAR (BEAUTIFUL & FIXED) ————————————————————
+    st.markdown('<div class="custom-chat-bar"><div class="inner">', unsafe_allow_html=True)
 
-    col_upload, col_input, col_spacer = st.columns([1, 8, 1])
+    # Attachment button (paperclip)
+    col1, col2 = st.columns([1, 12])
 
-    with col_upload:
-        with st.expander("Attachment", expanded=False):
-            uploaded_files = st.file_uploader(
-                "Upload CSV, PDF, DOCX",
-                type=["csv", "pdf", "docx", "doc"],
-                accept_multiple_files=True,
-                key="bottom_uploader",
-                label_visibility="collapsed"
-            )
+    with col1:
+        if st.button("📎", key="attach_btn", help="Upload files"):
+            st.session_state.show_uploader = not st.session_state.get("show_uploader", False)
 
-    with col_input:
-        prompt = st.chat_input("Type your message here...", key="perfect_bottom_input")
-
-    with col_spacer:
-        st.markdown("<div style='height:56px'></div>", unsafe_allow_html=True)  # matches input height
+    with col2:
+        prompt = st.chat_input("Type your message...", key="perfect_chat_input")
 
     st.markdown('</div></div>', unsafe_allow_html=True)
-    # ─────────────────────────────────────────────────────────────────────────────
+
+    # Optional: Pop-up uploader when Attach is clicked
+    if st.session_state.get("show_uploader"):
+        with st.expander("📁 Upload files", expanded=True):
+            uploaded_files = st.file_uploader(
+                "Drop CSV, PDF, DOCX here",
+                type=["csv", "pdf", "docx", "doc"],
+                accept_multiple_files=True,
+                key="popup_uploader"
+            )
+            if st.button("✕ Close", key="close_uploader"):
+                st.session_state.show_uploader = False
+                st.rerun()
+    else:
+        uploaded_files = None
 
     # Simple auto-scroll (optional)
     st.markdown("<script>window.scrollTo(0,document.body.scrollHeight);</script>", unsafe_allow_html=True)

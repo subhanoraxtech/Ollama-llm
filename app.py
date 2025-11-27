@@ -29,7 +29,7 @@ import uuid
 
 # === Models ===
 llm = ChatOllama(
-    model="gpt-oss",
+    model="gpt-oss:latest",
     temperature=0.7,
     options={
         "num_gpu": 999,
@@ -39,7 +39,7 @@ llm = ChatOllama(
 )
 
 code_llm = ChatOllama(
-    model="gpt-oss",
+    model="gpt-oss:latest",
     temperature=0,
     options={
         "num_gpu": 999,
@@ -842,123 +842,63 @@ with st.sidebar:
 # === Main Interface Logic ===
 user_input = None
 
-# Custom CSS for Centering and Chat Alignment
+# ═══════════════════════════════════════════════════════════════════
+# REPLACE YOUR ENTIRE CSS BLOCK WITH THIS ONE (keep everything else!)
+# ═══════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-    .center-container {
+    .main .block-container { padding-bottom: 100px !important; }
+
+    .fixed-chat-input {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--background-color);
+        border-top: 1px solid var(--secondary-background-color);
+        padding: 14px 20px;
+        z-index: 9999;
+        box-shadow: 0 -8px 25px rgba(0,0,0,0.1);
+    }
+
+    .fixed-chat-inner {
+        max-width: 1100px;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 60vh;
-        text-align: center;
+        align-items: flex-end;
+        gap: 12px;
     }
-    .center-text {
-        text-align: center;
-    }
-    
-    /* User message container - RIGHT SIDE */
-    .user-message-container {
-        display: flex !important;
-        justify-content: flex-end !important;
-        width: 100% !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .user-message-container [data-testid="stChatMessage"] {
-        max-width: 75% !important;
-        margin-left: auto !important;
-        margin-right: 0 !important;
-        background-color: #007bff20 !important;
-        border-radius: 15px !important;
-        padding: 10px 15px !important;
-    }
-    
-    /* Assistant message container - LEFT SIDE */
-    .assistant-message-container {
-        display: flex !important;
-        justify-content: flex-start !important;
-        width: 100% !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .assistant-message-container [data-testid="stChatMessage"] {
-        max-width: 75% !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-        background-color: #2d2d2d !important;
-        border-radius: 15px !important;
-        padding: 10px 15px !important;
-    }
-    
-    /* Upload button styling - match Streamlit default */
-    [data-testid="stPopover"] button {
-        height: 45px !important;
-        border-radius: 10px !important;
-        font-size: 24px !important;
-        padding: 0.25rem 0.75rem !important;
-    }
-    
-    /* Target Streamlit's bottom container to fix it at bottom */
+
+    /* Ensure stBottom is visible but transparent so it doesn't block our custom bar */
     [data-testid="stBottom"] {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        background-color: #0e1117 !important;
-        padding: 1rem 3rem !important;
-        z-index: 999 !important;
-        border-top: 1px solid #262730 !important;
-        margin: 0 !important;
-    }
-    
-    /* Alternative: target the input wrapper class */
-    .input-wrapper {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        background-color: #0e1117 !important;
-        padding: 1rem 3rem !important;
-        z-index: 999 !important;
-        border-top: 1px solid #262730 !important;
-        margin: 0 !important;
-    }
-    
-    /* Add padding to main content to prevent overlap */
-    .main .block-container {
-        padding-bottom: 150px !important;
-    }
-    
-    /* Ensure the stChatInput container is also fixed */
-    [data-testid="stChatInput"] {
-        position: relative !important;
-        margin-bottom: 0 !important;
-    }
-    
-    /* Make popover button match chat input height */
-    .input-wrapper [data-testid="stPopover"] button,
-    [data-testid="stBottom"] [data-testid="stPopover"] button {
-        height: 50px !important;
-        min-height: 50px !important;
-        border-radius: 12px !important;
-        font-size: 22px !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    /* Remove expander styles */
-    [data-testid="stExpander"] {
+        background-color: transparent !important;
         border: none !important;
+        box-shadow: none !important;
+        pointer-events: none !important;
     }
-    
-    /* Make columns in input area align properly */
-    .stColumns {
-        gap: 0.5rem !important;
+
+    /* Make the input visible and styled to fit */
+    [data-testid="stChatInput"] {
+        display: block !important;
+        pointer-events: auto !important;
+        background: transparent !important;
+    }
+
+    /* Style the actual input box to match the theme */
+    [data-testid="stChatInput"] textarea {
+        background: var(--secondary-background-color) !important;
+        color: var(--text-color) !important;
+        border: 1px solid var(--secondary-background-color) !important;
+    }
+
+    /* Make expander button look nice */
+    .fixed-chat-input .stExpander > div > label {
+        background: var(--secondary-background-color) !important;
+        border: 1px solid var(--secondary-background-color) !important;
+        border-radius: 12px !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+        color: var(--text-color) !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -1021,32 +961,47 @@ if not st.session_state.messages:
                 st.rerun()
 
 else:
-    # === Standard Chat View ===
+    # === Your normal chat messages (keep exactly as you had) ===
     st.markdown("---")
-    
     for msg in st.session_state.messages:
         is_user = isinstance(msg, HumanMessage)
-        # Wrap in custom container for styling
         container_class = "user-message-container" if is_user else "assistant-message-container"
         st.markdown(f'<div class="{container_class}">', unsafe_allow_html=True)
         with st.chat_message("user" if is_user else "assistant"):
-            st.markdown(msg.content)
+            st.markdown(msg.content, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     display_paginated_data()
-    
-    # Upload button above the input (compact)
-    with st.expander("➕ Upload Files", expanded=False):
-        uploaded_files = st.file_uploader(
-            "Add files",
-            type=["pdf", "docx", "doc", "csv"],
-            accept_multiple_files=True,
-            key="chat_uploader",
-            label_visibility="collapsed"
-        )
-    
-    # Chat input (Streamlit keeps this at bottom automatically)
-    if prompt := st.chat_input("Ask me anything..."):
+
+    # ──────────────────────── FIXED BOTTOM INPUT (PERFECT) ────────────────────────
+    st.markdown('<div class="fixed-chat-input"><div class="fixed-chat-inner">', unsafe_allow_html=True)
+
+    col_upload, col_input, col_spacer = st.columns([1, 8, 1])
+
+    with col_upload:
+        with st.expander("Attachment", expanded=False):
+            uploaded_files = st.file_uploader(
+                "Upload CSV, PDF, DOCX",
+                type=["csv", "pdf", "docx", "doc"],
+                accept_multiple_files=True,
+                key="bottom_uploader",
+                label_visibility="collapsed"
+            )
+
+    with col_input:
+        prompt = st.chat_input("Type your message here...", key="perfect_bottom_input")
+
+    with col_spacer:
+        st.markdown("<div style='height:56px'></div>", unsafe_allow_html=True)  # matches input height
+
+    st.markdown('</div></div>', unsafe_allow_html=True)
+    # ─────────────────────────────────────────────────────────────────────────────
+
+    # Simple auto-scroll (optional)
+    st.markdown("<script>window.scrollTo(0,document.body.scrollHeight);</script>", unsafe_allow_html=True)
+
+    # Capture input from the new chat_input
+    if prompt:
         # Create chat ID if this is the first message
         if st.session_state.current_chat_id is None:
             st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

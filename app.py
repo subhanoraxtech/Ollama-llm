@@ -35,6 +35,9 @@ from agents.visualization_agent import VisualizationAgent
 from agents.export_agent import ExportAgent
 from agents.advanced_analytics_agent import AdvancedAnalyticsAgent
 
+# Import CSV Intelligence System
+from enhanced_prompts import enhance_query_prompt, enhance_export_prompt, enhance_analysis_prompt
+
 # === Models ===
 llm = ChatOllama(
     model="gpt-oss:20b",
@@ -206,126 +209,57 @@ def data_query_agent(state: State) -> dict:
     if df is None:
         return {"messages": [AIMessage(content="❌ No dataset loaded. Please upload a CSV file first to query data.")]}
     
-    # Analyze the query first
-    col_info = ", ".join(df.columns[:10])
-    sample_data = df.head(3).to_string()
-    
-    code_prompt = f"""You are a data analysis expert. Generate precise pandas code to answer the user's query.
-
-USER'S QUESTION: "{question}"
-
-DATASET INFORMATION:
-- Total Rows: {len(df):,}
-- Columns: {col_info}
-
-SAMPLE DATA:
-{sample_data}
-
-TASK: Write Python code to extract exactly what the user asked for.
-
-CRITICAL INSTRUCTIONS:
-1. Carefully analyze what the user wants - if they mention MULTIPLE fields (name, email, state, address), SELECT ALL OF THEM
-2. Identify ALL relevant columns mentioned in the request
-3. **IMPORTANT**: If user says "name", find ALL name-related columns (e.g., 'First Name', 'Last Name', 'Full Name')
-4. **IMPORTANT**: If user says "address", find ALL address columns (e.g., 'Street Address', 'Address Line 1', 'Address Line 2')
-5. **BE FLEXIBLE**: Handle typos and partial matches (e.g., "emal" → "Email", "nam" → "Name", "addres" → "Address")
-6. Look for similar column names if exact match not found (e.g., 'CustomerEmail' for 'email', 'FullName' for 'name')
-7. Write clean, working pandas code
-8. Store the result in variable 'result'
-9. Return a DataFrame with ALL requested columns
-
-EXAMPLES:
-
-Request: "show 30 defendants with their name, state, address, and email"
-Available columns: ['First Name', 'Last Name', 'State', 'Street Address', 'Email']
-Analysis: User wants name (First Name + Last Name), state, address (Street Address), email. Limit to 30 rows.
-Code: result = df[['First Name', 'Last Name', 'State', 'Street Address', 'Email']].head(30)
-
-Request: "give me 50 customers with name and email"
-Available columns: ['CustomerFirstName', 'CustomerLastName', 'CustomerEmail']
-Analysis: User wants name (both first and last) and email. Limit to 50.
-Code: result = df[['CustomerFirstName', 'CustomerLastName', 'CustomerEmail']].head(50)
-
-Request: "list users from California with their email and phone"
-Analysis: Filter by state AND select email and phone columns
-Code: result = df[df['State'] == 'California'][['Email', 'Phone']]
-
-Request: "show users from California"  
-Analysis: Filter by state/location column, show all columns
-Code: result = df[df['State'] == 'California']
-
-Request: "find all orders above 1000"
-Analysis: Filter numeric column
-Code: result = df[df['Amount'] > 1000]
-
-Request: "list customers named John"
-Analysis: Search in name column
-Code: result = df[df['Name'].str.contains('John', case=False, na=False)]
-
-Now generate code for: "{question}"
-
-WRITE ONLY THE CODE (no explanations):"""
+    # Use enhanced schema-aware prompt
+    code_prompt = enhance_query_prompt(df, question)
 
     try:
         response = code_llm.invoke(code_prompt)
-        code = response.content if hasattr(response, 'content') else str(response)
+        full_response = response.content if hasattr(response, 'content') else str(response)
         
-        # Clean code
-        code = code.strip()
-        if "```python" in code:
-            code = code.split("```python")[1].split("```")[0]
-        elif "```" in code:
-            code = code.split("```")[1].split("```")[0]
+        # Extract Thought
+        thought = ""
+        if "Thought:" in full_response:
+            parts = full_response.split("Thought:")
+            if len(parts) > 1:
+                thought_part = parts[1]
+                if "Action:" in thought_part:
+                    thought = thought_part.split("Action:")[0].strip()
+                else:
+                    thought = thought_part.split("\n")[0].strip()
         
-        # Extract result line
-        code_lines = [l.strip() for l in code.split('\n') if l.strip() and not l.strip().startswith('#')]
-        code = '\n'.join([l for l in code_lines if 'result' in l])
-        
-        if not code:
-            raise ValueError("No valid code generated")
+        # Extract Code
+        code = full_response
+        if "```" in full_response:
+            code = full_response.split("```")[1]
+            if "python" in code.split("\n")[0]:
+                code = "\n".join(code.split("\n")[1:])
+            code = code.strip("`").strip()
         
         # Execute
         namespace = {"df": df, "pd": pd, "np": np}
-        exec(code, namespace)
+        exec(code, {}, namespace)
         result = namespace.get("result")
         
         if isinstance(result, pd.DataFrame) and len(result) > 0:
-            # Generate natural language response
-            response_prompt = f"""Generate a friendly, conversational response.
-
-USER ASKED: "{question}"
-
-YOU RETRIEVED: {len(result)} rows with columns: {', '.join(result.columns)}
-
-Sample of data:
-{result.head(3).to_string()}
-
-Write a natural response that:
-1. Confirms what you found
-2. Gives 2-3 specific examples from the data
-3. Mentions the total count
-4. Is helpful and conversational like ChatGPT
-
-Example response:
-"I found 50 customer emails in the dataset! Here are a few examples:
-• john.doe@example.com
-• jane.smith@company.com  
-• mike.wilson@email.com
-
-I've displayed all 50 emails in the table below for you."
-
-YOUR RESPONSE:"""
-
-            natural_resp = llm.invoke(response_prompt)
-            answer = natural_resp.content if hasattr(natural_resp, 'content') else f"Found {len(result)} matching records."
+            # Check if we have the columns user asked for
+            requested_cols = result.columns.tolist()
             
-            return {
-                "messages": [AIMessage(content=answer)],
-                "filtered_df": result
-            }
+            # Generate a nice response showing what we found
+            sample_rows = []
+            for idx, row in result.head(3).iterrows():
+                row_str = " | ".join([f"{col}: {row[col]}" for col in requested_cols[:4]])  # Show first 4 cols
+                sample_rows.append(f"• {row_str}")
+            
+            examples = '\n'.join(sample_rows)
+            
+            thought_display = f"**🧠 Thought:** _{thought}_\n\n" if thought else ""
+            
+            answer = f"{thought_display}Found {len(result)} records with {len(requested_cols)} columns ({', '.join(requested_cols)}):\n\n{examples}\n\nShowing all in the table below."
+            
+            return {"messages": [AIMessage(content=answer)], "filtered_df": result}
         else:
-            return {"messages": [AIMessage(content="No matching data found for your query. Try rephrasing or check the column names.")]}
-            
+             return {"messages": [AIMessage(content=f"Result: {result}")]}
+
     except Exception as e:
         # Smart fallback
         return smart_fallback_query(df, question)
@@ -419,7 +353,9 @@ def smart_fallback_query(df: pd.DataFrame, question: str) -> dict:
         'address': ['address', 'addres', 'addr', 'street', 'location'],
         'phone': ['phone', 'phon', 'telephone', 'mobile', 'cell', 'contact'],
         'city': ['city', 'town', 'cty'],
-        'zip': ['zip', 'postal', 'postcode', 'zipcode']
+        'zip': ['zip', 'postal', 'postcode', 'zipcode'],
+        'payment': ['payment', 'pay', 'due', 'amount', 'balance', 'cost', 'price'],
+        'date': ['date', 'time', 'when', 'due', 'deadline']
     }
     
     # Step 1: Try keyword-based matching first
@@ -429,11 +365,27 @@ def smart_fallback_query(df: pd.DataFrame, question: str) -> dict:
     for field, keywords in column_keywords.items():
         if any(kw in q_lower for kw in keywords):
             user_mentioned_fields.append(field)
-            # Find ALL matching columns in dataframe (not just first one!)
+            
+            # Find matching columns with scoring
+            matches = []
             for col in df.columns:
-                if any(kw in col.lower() for kw in keywords):
-                    if col not in requested_cols:
-                        requested_cols.append(col)
+                col_lower = col.lower()
+                for kw in keywords:
+                    if kw in col_lower:
+                        # Score: 1.0 for exact match, 0.8 for starts with, 0.5 for contains
+                        score = 0.5
+                        if col_lower == kw: score = 1.0
+                        elif col_lower.startswith(kw): score = 0.8
+                        elif kw in col_lower: score = 0.6
+                        
+                        matches.append((col, score))
+                        break # Count each column only once per field
+            
+            # Sort by score and take top 2
+            matches.sort(key=lambda x: x[1], reverse=True)
+            for col, score in matches[:2]:
+                if col not in requested_cols:
+                    requested_cols.append(col)
     
     # Step 2: If keyword matching didn't work well, try FUZZY MATCHING
     if len(requested_cols) == 0 and len(potential_keywords) > 0:
@@ -490,51 +442,28 @@ def csv_export_agent(state: State) -> dict:
     if df is None:
         return {"messages": [AIMessage(content="No dataset loaded. Please upload a CSV file first.")]}
     
-    # Enhanced prompt with strict instructions
-    export_prompt = f"""You are a precise CSV export specialist.
-
-USER REQUEST: "{question}"
-
-DATASET COLUMNS: {', '.join(df.columns.tolist())}
-
-TASK: Generate EXACT pandas code to export ONLY what the user asked for.
-
-CRITICAL RULES:
-- If user specifies columns (like "email", "name", "state"), SELECT ONLY THOSE
-- If user says "only X, Y, Z" or "just name and email" → use ONLY those columns
-- If user specifies number (e.g. "200 customers") → use .head(200) or sample(200)
-- Always assign final DataFrame to variable: result
-- NEVER return full df unless explicitly asked "all columns" or "everything"
-
-EXAMPLES:
-
-User: "create csv with 200 customers only name email and state"
-→ result = df[['Name', 'Email', 'State']].head(200)
-   OR if exact column names unknown:
-   → Find closest matching columns!
-
-User: "export first 100 rows with just product and price"
-→ result = df[['Product Name', 'Price']].head(100)
-
-User: "download all users from Texas"
-→ result = df[df['State'] == 'Texas']
-
-User: "give me 50 random emails"
-→ result = df['Email'].sample(50).to_frame()
-
-Now generate precise code for:
-"{question}"
-
-Return ONLY valid Python code. No explanations."""
+    # Use enhanced schema-aware prompt
+    export_prompt = enhance_export_prompt(df, question)
     
     try:
         response = code_llm.invoke(export_prompt)
-        raw_code = response.content
+        full_response = response.content if hasattr(response, 'content') else str(response)
         
-        # Better code extraction
-        code = raw_code.strip()
-        if "```" in code:
-            code = code.split("```")[1]
+        # Extract Thought
+        thought = ""
+        if "Thought:" in full_response:
+            parts = full_response.split("Thought:")
+            if len(parts) > 1:
+                thought_part = parts[1]
+                if "Action:" in thought_part:
+                    thought = thought_part.split("Action:")[0].strip()
+                else:
+                    thought = thought_part.split("\n")[0].strip()
+        
+        # Extract Code
+        code = full_response
+        if "```" in full_response:
+            code = full_response.split("```")[1]
             if "python" in code.split("\n")[0]:
                 code = "\n".join(code.split("\n")[1:])
             code = code.strip("`").strip()
@@ -552,20 +481,12 @@ Return ONLY valid Python code. No explanations."""
         if isinstance(result, pd.Series):
             result = result.to_frame()
             
-        # FINAL VALIDATION: Did we actually select the right columns?
-        requested_cols_hint = re.findall(r'(?:only|just|with)\s+([a-zA-Z\s,_&and]+)', question.lower())
-        if requested_cols_hint:
-            hint = requested_cols_hint[0].lower()
-            selected = set([col.lower() for col in result.columns])
-            expected_keywords = [word.strip() for word in hint.replace(" and ", ",").split(",") if word.strip()]
-            
-            if not any(kw in " ".join(selected) for kw in expected_keywords):
-                st.warning(f"Note: Exported columns: {', '.join(result.columns)}. Make sure spelling matches your data.")
-
         csv_data = result.to_csv(index=False)
         filename = f"export_{len(result)}_records.csv"
         
-        answer = f"""**CSV Export Ready!**
+        thought_display = f"**🧠 Thought:** _{thought}_\n\n" if thought else ""
+        
+        answer = f"""{thought_display}**CSV Export Ready!**
 
 **Rows:** {len(result):,}  
 **Columns:** {len(result.columns)} → `{', '.join(result.columns)}`
@@ -630,43 +551,30 @@ def analysis_agent(state: State) -> dict:
     if df is None:
         return {"messages": [AIMessage(content="❌ No dataset loaded. Please upload a CSV file first.")]}
     
-    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
-    
-    analysis_prompt = f"""You are a data analyst. Generate code to calculate what the user asked for.
-
-USER REQUEST: "{question}"
-
-NUMERIC COLUMNS: {', '.join(numeric_cols) if numeric_cols else "None"}
-ALL COLUMNS: {', '.join(df.columns)}
-TOTAL ROWS: {len(df):,}
-
-EXAMPLES:
-
-Request: "what's the average age"
-Code: result = df['Age'].mean()
-
-Request: "total sales amount"
-Code: result = df['Sales'].sum()
-
-Request: "count how many customers"
-Code: result = len(df)
-
-Request: "maximum price"
-Code: result = df['Price'].max()
-
-Generate code for: "{question}"
-
-CODE:"""
+    # Use enhanced schema-aware prompt
+    analysis_prompt = enhance_analysis_prompt(df, question)
 
     try:
         response = code_llm.invoke(analysis_prompt)
-        code = response.content if hasattr(response, 'content') else str(response)
+        full_response = response.content if hasattr(response, 'content') else str(response)
         
-        # Clean
-        if "```python" in code:
-            code = code.split("```python")[1].split("```")[0]
-        elif "```" in code:
-            code = code.split("```")[1].split("```")[0]
+        # Extract Thought
+        thought = ""
+        if "Thought:" in full_response:
+            parts = full_response.split("Thought:")
+            if len(parts) > 1:
+                thought_part = parts[1]
+                if "Action:" in thought_part:
+                    thought = thought_part.split("Action:")[0].strip()
+                else:
+                    thought = thought_part.split("\n")[0].strip()
+        
+        # Extract Code
+        code = full_response
+        if "```python" in full_response:
+            code = full_response.split("```python")[1].split("```")[0]
+        elif "```" in full_response:
+            code = full_response.split("```")[1].split("```")[0]
         
         code = '\n'.join([l.strip() for l in code.split('\n') if l.strip() and 'result' in l])
         
@@ -682,7 +590,9 @@ CODE:"""
             else:
                 formatted = str(result)
             
-            answer = f"""📊 **Analysis Complete!**
+            thought_display = f"**🧠 Thought:** _{thought}_\n\n" if thought else ""
+            
+            answer = f"""{thought_display}📊 **Analysis Complete!**
 
 **Your Question:** {question}
 

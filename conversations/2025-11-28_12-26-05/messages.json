@@ -1,1 +1,0 @@
-[{"type": "human", "content": "merge all of these two csv file and give me one csv "}, {"type": "ai", "content": "\u274c Merge failed: Error in merge_csvs: No common columns to perform merge on. Merge options: left_on=None, right_on=None, left_index=False, right_index=False"}]

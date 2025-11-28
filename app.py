@@ -184,23 +184,17 @@ YOUR DECISION (one word only):"""
         
         # Extract agent name
         valid_agents = ['csv_export_agent', 'data_query_agent', 'analysis_agent', 'document_agent', 'general_agent']
+        
+        # Find matching agent
         for agent in valid_agents:
             if agent in agent_name:
                 return {"agent_decision": agent}
         
-        # Fallback logic based on keywords
-        q_lower = question.lower()
-        if any(word in q_lower for word in ['csv', 'export', 'download', 'file', 'save', 'create file']):
-            return {"agent_decision": "csv_export_agent"}
-        elif any(word in q_lower for word in ['average', 'sum', 'count', 'calculate', 'analyze', 'mean']):
-            return {"agent_decision": "analysis_agent"}
-        elif any(word in q_lower for word in ['show', 'display', 'get', 'give', 'find', 'list']):
-            return {"agent_decision": "data_query_agent"}
-        elif has_docs and any(word in q_lower for word in ['document', 'pdf', 'what', 'summarize']):
-            return {"agent_decision": "document_agent"}
-        else:
-            return {"agent_decision": "general_agent"}
-    except:
+        # Default to general agent if no match
+        return {"agent_decision": "general_agent"}
+        
+    except Exception as e:
+        # Fallback to general agent on error
         return {"agent_decision": "general_agent"}
 
 # Agent 2: Data Query Agent - Retrieves and displays data

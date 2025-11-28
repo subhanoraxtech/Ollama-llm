@@ -1,0 +1,1 @@
+[{"type": "human", "content": "remove duplicates from these two csv files and give me one csv file"}, {"type": "ai", "content": "Try: 'merge all files', 'filter [file] where...', 'sort by [column]'"}]

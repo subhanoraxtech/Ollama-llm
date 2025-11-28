@@ -750,6 +750,14 @@ def save_chat(chat_id):
     if st.session_state.dataframes:
         st.session_state.dataframes[-1].to_csv(os.path.join(path, "dataframe.csv"), index=False)
     
+    # Save filtered_df (CRITICAL for showing tables in loaded chats)
+    if st.session_state.get("filtered_df") is not None:
+        st.session_state.filtered_df.to_csv(os.path.join(path, "filtered_df.csv"), index=False)
+    
+    # Save active_df (for table display)
+    if st.session_state.get("active_df") is not None:
+        st.session_state.active_df.to_csv(os.path.join(path, "active_df.csv"), index=False)
+    
     # Save vectorstore
     if st.session_state.vectorstore:
         st.session_state.vectorstore.save_local(os.path.join(path, "faiss_index"))
@@ -783,6 +791,21 @@ def load_chat(chat_id):
         st.session_state.dataframes = [df]
     else:
         st.session_state.dataframes = []
+    
+    # Load filtered_df (CRITICAL for showing tables)
+    filtered_df_path = os.path.join(path, "filtered_df.csv")
+    if os.path.exists(filtered_df_path):
+        st.session_state.filtered_df = pd.read_csv(filtered_df_path)
+        # Also set as active_df for display
+        st.session_state.active_df = st.session_state.filtered_df
+    else:
+        st.session_state.filtered_df = None
+        st.session_state.active_df = None
+    
+    # Load active_df (for table display)
+    active_df_path = os.path.join(path, "active_df.csv")
+    if os.path.exists(active_df_path):
+        st.session_state.active_df = pd.read_csv(active_df_path)
     
     # Load vectorstore
     faiss_path = os.path.join(path, "faiss_index")

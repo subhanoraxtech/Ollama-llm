@@ -38,6 +38,9 @@ from agents.advanced_analytics_agent import AdvancedAnalyticsAgent
 # Import CSV Intelligence System
 from enhanced_prompts import enhance_query_prompt, enhance_export_prompt, enhance_analysis_prompt
 
+# Import Query Rephraser for RAFT
+from query_rephraser import QueryRephraser
+
 # === Models ===
 llm = ChatOllama(
     model="gpt-oss:20b",
@@ -60,6 +63,9 @@ code_llm = ChatOllama(
 )
 
 embed_model = OllamaEmbeddings(model="mxbai-embed-large")
+
+# Initialize Query Rephraser for RAFT
+query_rephraser = QueryRephraser(llm)
 
 # Initialize Data Analysis Agents
 cleaning_agent = CleaningAgent()
@@ -96,23 +102,60 @@ def parse_file(file):
         os.unlink(tmp_path)
     return None
 
-# === RAG Chain ===
-def create_rag_chain(vectorstore):
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-    template = """You are a helpful assistant. Use the context below to answer the question accurately.
+# === RAG Chain with RAFT ===
+def create_raft_chain(vectorstore):
+    """RAFT-enhanced RAG chain with multi-query retrieval and chain-of-thought"""
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
+    
+    def raft_retrieval(question: str) -> str:
+        """Multi-query retrieval with relevance filtering"""
+        # Generate query variations
+        query_variations = query_rephraser.rephrase_for_documents(question)
+        
+        # Retrieve documents for each variation
+        all_docs = []
+        seen_content = set()
+        
+        for query_var in query_variations:
+            docs = retriever.get_relevant_documents(query_var)
+            for doc in docs:
+                content_hash = hash(doc.page_content[:100])
+                if content_hash not in seen_content:
+                    seen_content.add(content_hash)
+                    all_docs.append(doc)
+        
+        # Filter for relevance
+        relevant_docs = []
+        for doc in all_docs[:15]:
+            q_terms = set(question.lower().split())
+            doc_terms = set(doc.page_content.lower().split())
+            if len(q_terms & doc_terms) >= 2:
+                relevant_docs.append(doc)
+        
+        context = "\n\n---\n\n".join([doc.page_content for doc in relevant_docs[:5]])
+        return context if context else "No relevant information found."
+    
+    template = """You are a helpful assistant analyzing documents. Follow this process:
+
+**Think**: Analyze the context and identify relevant information
+**Answer**: Provide a clear, accurate answer
 
 Context:
 {context}
 
 Question: {question}
 
-Provide a clear, detailed answer based on the context. If the information isn't in the context, say so clearly.
+Response Format:
+**Thought**: [Your analysis]
+**Answer**: [Your detailed answer]
 
-Answer:"""
+If the context doesn't contain relevant information, say so clearly.
+
+Your Response:"""
+    
     prompt = ChatPromptTemplate.from_template(template)
     chain = (
-        {"context": retriever | (lambda docs: "\n\n".join(doc.page_content for doc in docs)),
-         "question": RunnablePassthrough()}
+        {"context": raft_retrieval, "question": RunnablePassthrough()}
         | prompt | llm | StrOutputParser()
     )
     return chain
@@ -609,13 +652,40 @@ def analysis_agent(state: State) -> dict:
 
 # Agent 5: Document Agent
 def document_agent(state: State) -> dict:
-    """Handles document queries using RAG"""
+    """Handles document queries using RAG with query rephrasing"""
     question = state["messages"][-1].content
     rag_chain = st.session_state.get("rag_chain")
     
     if rag_chain and st.session_state.vectorstore:
+        # Rephrase query for better retrieval
+        rephrased_queries = query_rephraser.rephrase_for_documents(question)
+        
+        # Show rephrased queries to user for transparency
+        rephrased_display = "\n".join([f"{i+1}. {q}" for i, q in enumerate(rephrased_queries)])
+        
+        # Get answer from RAFT chain
         answer = rag_chain.invoke(question)
-        return {"messages": [AIMessage(content=answer)]}
+        
+        # Extract Thought and Answer from RAFT response
+        thought = ""
+        final_answer = answer
+        
+        if "**Thought**:" in answer:
+            parts = answer.split("**Answer**:")
+            if len(parts) >= 2:
+                thought_part = parts[0].replace("**Thought**:", "").strip()
+                final_answer = parts[1].strip()
+                thought = thought_part
+        
+        # Build response with rephrased queries
+        response = f"🔍 **Query Variations Used:**\n{rephrased_display}\n\n"
+        
+        if thought:
+            response += f"💭 **Analysis:** {thought}\n\n"
+        
+        response += final_answer
+        
+        return {"messages": [AIMessage(content=response)]}
     else:
         return {"messages": [AIMessage(content="❌ No documents loaded. Please upload PDF or DOCX files to ask questions about them.")]}
 
@@ -718,7 +788,7 @@ def load_chat(chat_id):
     faiss_path = os.path.join(path, "faiss_index")
     if os.path.exists(faiss_path) and os.path.exists(os.path.join(faiss_path, "index.faiss")):
         st.session_state.vectorstore = FAISS.load_local(faiss_path, embed_model, allow_dangerous_deserialization=True)
-        st.session_state.rag_chain = create_rag_chain(st.session_state.vectorstore)
+        st.session_state.rag_chain = create_raft_chain(st.session_state.vectorstore)
     else:
         st.session_state.vectorstore = None
         st.session_state.rag_chain = None
@@ -1311,7 +1381,7 @@ if uploaded_files:
         if texts:
             chunks = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=600).create_documents(texts)
             st.session_state.vectorstore = FAISS.from_documents(chunks, embed_model)
-            st.session_state.rag_chain = create_rag_chain(st.session_state.vectorstore)
+            st.session_state.rag_chain = create_raft_chain(st.session_state.vectorstore)
             st.success("✅ Documents indexed!")
         
         save_chat(st.session_state.current_chat_id)

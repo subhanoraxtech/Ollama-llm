@@ -8,9 +8,29 @@ import pandas as pd
 
 
 def enhance_query_prompt(df: pd.DataFrame, question: str) -> str:
-    """Generate enhanced prompt for data query operations"""
+    """Generate enhanced prompt for data query operations with query preprocessing"""
     analyzer = CSVSchemaAnalyzer(df)
     suggested_cols = analyzer.suggest_columns_for_query(question)
+    
+    # Preprocess query to map user terms to column names
+    q_lower = question.lower()
+    column_hints = []
+    
+    # Map common user terms to actual columns
+    term_mappings = {
+        'payment': ['payment', 'pay', 'due', 'amount', 'balance'],
+        'name': ['name', 'first', 'last', 'customer'],
+        'email': ['email', 'mail', 'e-mail'],
+        'date': ['date', 'time', 'when', 'due', 'deadline']
+    }
+    
+    for term, keywords in term_mappings.items():
+        if any(kw in q_lower for kw in keywords):
+            matching_cols = [col for col in df.columns if any(kw in col.lower() for kw in keywords)]
+            if matching_cols:
+                column_hints.append(f"For '{term}': use {', '.join(matching_cols[:3])}")
+    
+    hint_text = "\n".join(column_hints) if column_hints else "Use exact column names from schema"
     
     prompt = f"""You are a data analysis expert. Follow this ReAct (Reasoning + Acting) process:
 
@@ -22,6 +42,9 @@ USER QUERY: "{question}"
 {analyzer.get_prompt_context(max_columns=15)}
 
 **Suggested Columns:** {', '.join(suggested_cols) if suggested_cols else 'Choose appropriate columns'}
+
+**Column Mapping Hints:**
+{hint_text}
 
 **RULES:**
 1. Use EXACT column names from schema (case-sensitive!)

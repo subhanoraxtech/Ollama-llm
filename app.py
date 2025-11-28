@@ -27,6 +27,14 @@ import datetime
 import shutil
 import uuid
 
+# Import Data Analysis Agents
+from agents.cleaning_agent import CleaningAgent
+from agents.transformation_agent import TransformationAgent
+from agents.analysis_agent import AnalysisAgent as DataAnalysisAgent
+from agents.visualization_agent import VisualizationAgent
+from agents.export_agent import ExportAgent
+from agents.advanced_analytics_agent import AdvancedAnalyticsAgent
+
 # === Models ===
 llm = ChatOllama(
     model="gpt-oss:20b",
@@ -49,6 +57,14 @@ code_llm = ChatOllama(
 )
 
 embed_model = OllamaEmbeddings(model="mxbai-embed-large")
+
+# Initialize Data Analysis Agents
+cleaning_agent = CleaningAgent()
+transformation_agent = TransformationAgent()
+data_analysis_agent = DataAnalysisAgent()
+visualization_agent = VisualizationAgent()
+export_agent = ExportAgent()
+advanced_analytics_agent = AdvancedAnalyticsAgent()
 
 # === State ===
 class State(TypedDict):
@@ -980,6 +996,167 @@ with st.sidebar:
                     st.session_state.current_chat_id = cid
                     load_chat(cid)
                     st.rerun()
+    
+    # === Data Analysis Operations ===
+    if st.session_state.dataframes:
+        st.markdown("---")
+        st.subheader("🔧 Data Analysis Tools")
+        
+        df = st.session_state.dataframes[-1]
+        
+        # Category tabs
+        analysis_category = st.selectbox(
+            "Select Operation Category:",
+            ["Data Cleaning", "Data Transformation", "Data Analysis", 
+             "Visualization", "Export", "Advanced Analytics"],
+            key="analysis_category"
+        )
+        
+        if analysis_category == "Data Cleaning":
+            st.markdown("**🧹 Cleaning Operations**")
+            operation = st.selectbox(
+                "Operation:",
+                ["Remove Duplicates", "Fix Email Formatting", "Fix Phone Formatting", 
+                 "Fix Name Formatting", "Trim Whitespace", "Normalize Case",
+                 "Handle Missing Values", "Standardize Columns"],
+                key="cleaning_op"
+            )
+            
+            if operation == "Remove Duplicates":
+                if st.button("🧹 Remove Duplicates", key="clean_dupes"):
+                    result = cleaning_agent.remove_duplicates(df)
+                    if result['success']:
+                        st.session_state.dataframes[-1] = result['data']
+                        st.success(result['message'])
+                        st.rerun()
+            
+            elif operation == "Trim Whitespace":
+                if st.button("✂️ Trim Whitespace", key="clean_whitespace"):
+                    result = cleaning_agent.trim_whitespace(df)
+                    if result['success']:
+                        st.session_state.dataframes[-1] = result['data']
+                        st.success(result['message'])
+                        st.rerun()
+            
+            elif operation == "Standardize Columns":
+                if st.button("📝 Standardize Column Names", key="clean_cols"):
+                    result = cleaning_agent.standardize_columns(df)
+                    if result['success']:
+                        st.session_state.dataframes[-1] = result['data']
+                        st.success(result['message'])
+                        st.info(f"Renamed: {list(result['metadata']['column_mapping'].items())[:3]}")
+                        st.rerun()
+        
+        elif analysis_category == "Data Analysis":
+            st.markdown("**📊 Analysis Operations**")
+            operation = st.selectbox(
+                "Operation:",
+                ["Statistical Summary", "Value Counts", "Correlation Analysis"],
+                key="analysis_op"
+            )
+            
+            if operation == "Statistical Summary":
+                if st.button("📊 Generate Summary", key="stat_summary"):
+                    result = data_analysis_agent.statistical_summary(df)
+                    if result['success']:
+                        st.dataframe(result['data'])
+                        with st.expander("📋 Detailed Stats"):
+                            st.json(result['metadata']['detailed_summary'])
+            
+            elif operation == "Value Counts":
+                column = st.selectbox("Select Column:", df.columns.tolist(), key="vc_col")
+                top_n = st.number_input("Top N:", min_value=5, value=10, key="vc_n")
+                if st.button("🔢 Count Values", key="value_counts"):
+                    result = data_analysis_agent.value_counts(df, column, int(top_n))
+                    if result['success']:
+                        st.dataframe(result['data'])
+        
+        elif analysis_category == "Visualization":
+            st.markdown("**📈 Visualization**")
+            chart_type = st.selectbox(
+                "Chart Type:",
+                ["Bar Chart", "Pie Chart", "Histogram", "Heatmap"],
+                key="viz_type"
+            )
+            
+            if chart_type == "Bar Chart":
+                x_col = st.selectbox("X-axis:", df.columns.tolist(), key="bar_x")
+                if st.button("📊 Create Bar Chart", key="create_bar"):
+                    result = visualization_agent.create_bar_chart(df, x_col, interactive=False)
+                    if result['success'] and result['data'].get('type') == 'matplotlib':
+                        import base64
+                        img_data = base64.b64decode(result['data']['image_base64'])
+                        st.image(img_data)
+            
+            elif chart_type == "Histogram":
+                numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+                if numeric_cols:
+                    col = st.selectbox("Column:", numeric_cols, key="hist_col")
+                    if st.button("📈 Create Histogram", key="create_hist"):
+                        result = visualization_agent.create_histogram(df, col, interactive=False)
+                        if result['success'] and result['data'].get('type') == 'matplotlib':
+                            import base64
+                            img_data = base64.b64decode(result['data']['image_base64'])
+                            st.image(img_data)
+        
+        elif analysis_category == "Export":
+            st.markdown("**💾 Export Operations**")
+            export_format = st.selectbox(
+                "Format:",
+                ["CSV", "Excel", "JSON"],
+                key="export_format"
+            )
+            filename = st.text_input("Filename:", value="export", key="export_filename")
+            
+            if st.button(f"💾 Export to {export_format}", key="do_export"):
+                file_path = f"exports/{filename}.{export_format.lower()}"
+                
+                if export_format == "CSV":
+                    result = export_agent.export_to_csv(df, file_path)
+                elif export_format == "Excel":
+                    result = export_agent.export_to_excel(df, file_path)
+                elif export_format == "JSON":
+                    result = export_agent.export_to_json(df, file_path)
+                
+                if result['success']:
+                    st.success(result['message'])
+                    try:
+                        with open(file_path, 'rb') as f:
+                            st.download_button(
+                                f"⬇️ Download {export_format}",
+                                f,
+                                file_name=f"{filename}.{export_format.lower()}",
+                                key=f"download_{export_format}"
+                            )
+                    except:
+                        pass
+        
+        elif analysis_category == "Advanced Analytics":
+            st.markdown("**🎯 Advanced Operations**")
+            operation = st.selectbox(
+                "Operation:",
+                ["Detect Outliers", "Validate Emails", "Validate Phones"],
+                key="advanced_op"
+            )
+            
+            if operation == "Detect Outliers":
+                method = st.selectbox("Method:", ["iqr", "zscore"], key="outlier_method")
+                if st.button("🔍 Detect Outliers", key="detect_outliers"):
+                    result = advanced_analytics_agent.detect_outliers(df, method=method)
+                    if result['success']:
+                        st.dataframe(result['data'])
+                        st.info(f"Total outlier rows: {result['metadata']['total_outlier_rows']}")
+            
+            elif operation == "Validate Emails":
+                email_cols = [col for col in df.columns if 'email' in col.lower() or 'mail' in col.lower()]
+                if email_cols:
+                    col = st.selectbox("Email Column:", email_cols, key="email_col")
+                    if st.button("✅ Validate Emails", key="validate_emails"):
+                        result = advanced_analytics_agent.validate_emails(df, col)
+                        if result['success']:
+                            st.dataframe(result['data'])
+                            st.info(f"Valid: {result['metadata']['valid_count']}, Invalid: {result['metadata']['invalid_count']}")
+
 
 # === Main Interface Logic ===
 user_input = None

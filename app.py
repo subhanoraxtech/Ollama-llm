@@ -37,6 +37,8 @@ from agents.advanced_analytics_agent import AdvancedAnalyticsAgent
 
 # Import CSV Intelligence System
 from enhanced_prompts import enhance_query_prompt, enhance_export_prompt, enhance_analysis_prompt
+from csv_intelligence import CSVSchemaAnalyzer
+from csv_comparator import CSVComparator
 
 # Import Query Rephraser for RAFT
 from query_rephraser import QueryRephraser
@@ -167,6 +169,7 @@ def router_agent(state: State) -> dict:
     """Analyzes the user's question and routes to appropriate agent"""
     question = state["messages"][-1].content
     has_csv = len(state.get("dataframes", [])) > 0
+    has_multiple_csv = len(state.get("dataframes", [])) > 1
     has_docs = st.session_state.get("vectorstore") is not None
     
     decision_prompt = f"""You are an intelligent routing system. Analyze the user's request carefully and select the best agent.
@@ -174,51 +177,73 @@ def router_agent(state: State) -> dict:
 USER REQUEST: "{question}"
 
 AVAILABLE DATA:
-- CSV Dataset: {"YES" if has_csv else "NO"}
+- CSV Datasets: {len(state.get("dataframes", []))} files loaded
 - Documents (PDF/DOCX): {"YES" if has_docs else "NO"}
 
 AGENTS AND THEIR SPECIALTIES:
 
-1. **csv_export_agent** - Use when user wants to:
-   - Create, generate, make, or export a CSV file
-   - Download data as a file
-   - Save data to CSV
-   - Keywords: "create csv", "export", "download", "make file", "save as csv"
+1. **cleaning_agent** - Use when user wants to:
+   - Remove duplicates, fix formatting, clean data
+   - Handle missing values, trim whitespace
+   - Standardize columns, fix emails/phones
+   - Keywords: "clean", "remove duplicates", "fix", "standardize", "missing values"
 
-2. **data_query_agent** - Use when user wants to:
+2. **transformation_agent** - Use when user wants to:
+   - Merge/join CSV files, filter, sort, rename columns
+   - Add/combine/split columns, pivot/melt data
+   - Keywords: "merge", "join", "filter", "sort", "rename", "pivot"
+
+3. **analysis_agent** - Use when user wants to:
+   - Statistical analysis, grouping, correlation
+   - Compare datasets, detect duplicates across files
+   - Keywords: "statistics", "group by", "correlation", "compare", "analyze"
+
+4. **visualization_agent** - Use when user wants to:
+   - Create charts, graphs, plots, heatmaps
+   - Visualize data
+   - Keywords: "chart", "graph", "plot", "visualize", "heatmap", "histogram"
+
+5. **advanced_analytics_agent** - Use when user wants to:
+   - Customer segmentation, outlier detection
+   - Validate emails/phones, churn prediction
+   - Keywords: "segment", "cluster", "outliers", "validate", "churn", "high-value"
+
+6. **export_agent** - Use when user wants to:
+   - Export to CSV/Excel/JSON, generate reports
+   - Keywords: "export", "download", "save", "report", "pdf", "excel"
+
+7. **data_query_agent** - Use when user wants to:
    - View, show, display, or list data
-   - Filter or search for specific records
    - Get specific rows or columns
    - Keywords: "show", "display", "give me", "find", "get", "list"
 
-3. **analysis_agent** - Use when user wants to:
-   - Calculate statistics (average, sum, mean, median, count)
-   - Analyze trends or patterns
-   - Perform mathematical operations
-   - Keywords: "average", "calculate", "sum", "count", "analyze", "statistics"
-
-4. **document_agent** - Use when user asks about:
+8. **document_agent** - Use when user asks about:
    - Content from uploaded PDF or DOCX files
-   - Information from documents
-   - Summarization of documents
    - Keywords: "document", "pdf", "what does it say", "summarize"
 
-5. **general_agent** - Use when:
+9. **general_agent** - Use when:
    - User is having casual conversation
-   - Asking general questions not related to data
    - Greeting or chatting
 
 RULES:
-- If request mentions "csv", "export", "file", "download" → csv_export_agent
-- If request is about viewing/showing data → data_query_agent
-- If request involves calculations → analysis_agent
-- If request is about documents → document_agent
-- Otherwise → general_agent
+- Clean/fix data → cleaning_agent
+- Merge/transform/filter → transformation_agent  
+- Statistics/analysis → analysis_agent
+- Charts/graphs → visualization_agent
+- ML/segmentation → advanced_analytics_agent
+- Export/save → export_agent
+- Show/display data → data_query_agent
+- Documents → document_agent
+- Chat → general_agent
 
 Respond with ONLY ONE of these agent names:
-csv_export_agent
-data_query_agent
+cleaning_agent
+transformation_agent
 analysis_agent
+visualization_agent
+advanced_analytics_agent
+export_agent
+data_query_agent
 document_agent
 general_agent
 
@@ -229,7 +254,8 @@ YOUR DECISION (one word only):"""
         agent_name = response.content.strip().lower() if hasattr(response, 'content') else "general_agent"
         
         # Extract agent name
-        valid_agents = ['csv_export_agent', 'data_query_agent', 'analysis_agent', 'document_agent', 'general_agent']
+        valid_agents = ['cleaning_agent', 'transformation_agent', 'analysis_agent', 'visualization_agent', 
+                       'advanced_analytics_agent', 'export_agent', 'data_query_agent', 'document_agent', 'general_agent']
         
         # Find matching agent
         for agent in valid_agents:
@@ -247,13 +273,89 @@ YOUR DECISION (one word only):"""
 def data_query_agent(state: State) -> dict:
     """Handles data retrieval queries with intelligent analysis"""
     question = state["messages"][-1].content
-    df = state["dataframes"][-1] if state["dataframes"] else None
+    
+    # CRITICAL: Use filtered_df if available (from previous operations), otherwise use original dataframe
+    df = state.get("filtered_df")
+    using_filtered = df is not None
+    
+    # Get all available dataframes
+    dataframes = state.get("dataframes", [])
+    
+    # Determine execution mode
+    multi_csv_mode = False
+    if df is None:
+        if not dataframes:
+            return {"messages": [AIMessage(content="❌ No dataset loaded. Please upload a CSV file first to query data.")]}
+        
+        if len(dataframes) > 1:
+            multi_csv_mode = True
+            # Default to the last one for single-df operations, but we'll expose all
+            df = dataframes[-1]
+        else:
+            df = dataframes[0]
     
     if df is None:
         return {"messages": [AIMessage(content="❌ No dataset loaded. Please upload a CSV file first to query data.")]}
     
-    # Use enhanced schema-aware prompt
-    code_prompt = enhance_query_prompt(df, question)
+    # Get chat history for context
+    recent_context = []
+    if len(state["messages"]) > 1:
+        for msg in state["messages"][-3:-1]:
+            if hasattr(msg, 'content'):
+                role = "User" if isinstance(msg, HumanMessage) else "Assistant"
+                recent_context.append(f"{role}: {msg.content[:100]}")
+    
+    context_note = "\n".join(recent_context) if recent_context else ""
+    
+    # Generate Prompt
+    if multi_csv_mode and not using_filtered:
+        # MULTI-CSV PROMPT GENERATION
+        prompt_context = ""
+        for i, d in enumerate(dataframes):
+            analyzer = CSVSchemaAnalyzer(d)
+            prompt_context += f"\n\n--- DataFrame {i} (variable: dataframes[{i}]) ---\n"
+            prompt_context += analyzer.get_prompt_context(max_columns=15)
+            
+        code_prompt = f"""You are a data analysis expert. You have access to {len(dataframes)} datasets.
+        
+DATASETS AVAILABLE:
+{prompt_context}
+
+USER QUERY: "{question}"
+
+CONTEXT:
+{context_note}
+
+INSTRUCTIONS:
+1. You have access to a list of dataframes named `dataframes`.
+2. `dataframes[0]` is the first file, `dataframes[1]` is the second, etc.
+3. Analyze the user's request to decide which dataframe(s) to use.
+4. Write Python code to answer the query.
+5. Store the final result (dataframe or value) in a variable named `result`.
+
+Response Format:
+**Thought**: [Your analysis]
+**Action**: [Python code]
+```python
+# Your code here
+result = ...
+```
+"""
+    else:
+        # SINGLE CSV / FILTERED DF PROMPT
+        enhanced_question = question
+        if context_note:
+            enhanced_question = f"""CONTEXT: 
+Recent conversation:
+{context_note}
+
+CURRENT REQUEST: {question}
+"""
+            if using_filtered:
+                enhanced_question += f"\nNote: Use the current filtered dataset (df) which has {len(df)} rows."
+        
+        # Use enhanced schema-aware prompt
+        code_prompt = enhance_query_prompt(df, enhanced_question)
 
     try:
         response = code_llm.invoke(code_prompt)
@@ -279,7 +381,8 @@ def data_query_agent(state: State) -> dict:
             code = code.strip("`").strip()
         
         # Execute
-        namespace = {"df": df, "pd": pd, "np": np}
+        # CRITICAL: Pass 'dataframes' to namespace so code can access all files
+        namespace = {"df": df, "dataframes": dataframes, "pd": pd, "np": np}
         exec(code, {}, namespace)
         result = namespace.get("result")
         
@@ -689,7 +792,169 @@ def document_agent(state: State) -> dict:
     else:
         return {"messages": [AIMessage(content="❌ No documents loaded. Please upload PDF or DOCX files to ask questions about them.")]}
 
-# Agent 6: General Agent
+# NEW AGENT WRAPPERS - Use agents from agents folder
+
+def use_cleaning_agent(state: State) -> dict:
+    """Use CleaningAgent from agents folder"""
+    question = state["messages"][-1].content.lower()
+    df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
+    
+    if df is None:
+        return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
+    
+    # Detect operation
+    if "duplicate" in question:
+        result = cleaning_agent.remove_duplicates(df)
+    elif "email" in question:
+        # Find email column
+        email_col = next((c for c in df.columns if 'email' in c.lower()), None)
+        if email_col:
+            result = cleaning_agent.fix_email_formatting(df, email_col)
+        else:
+            return {"messages": [AIMessage(content="❌ No email column found.")]}
+    elif "phone" in question:
+        phone_col = next((c for c in df.columns if 'phone' in c.lower()), None)
+        if phone_col:
+            result = cleaning_agent.fix_phone_formatting(df, phone_col)
+        else:
+            return {"messages": [AIMessage(content="❌ No phone column found.")]}
+    elif "missing" in question or "null" in question:
+        result = cleaning_agent.handle_missing_values(df, strategy='drop')
+    elif "whitespace" in question or "trim" in question:
+        result = cleaning_agent.trim_whitespace(df)
+    elif "standardize" in question and "column" in question:
+        result = cleaning_agent.standardize_columns(df)
+    else:
+        result = cleaning_agent.remove_duplicates(df)
+    
+    if result['success']:
+        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
+    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+
+def use_transformation_agent(state: State) -> dict:
+    """Use TransformationAgent from agents folder"""
+    question = state["messages"][-1].content.lower()
+    dataframes = state.get("dataframes", [])
+    
+    if not dataframes:
+        return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
+    
+    df = dataframes[-1]
+    
+    # Detect operation
+    if ("merge" in question or "join" in question or "combine" in question or "concat" in question) and len(dataframes) >= 2:
+        # Find common columns
+        common = list(set(dataframes[0].columns) & set(dataframes[1].columns))
+        
+        # If NO common columns, do CONCAT (stack rows) instead of merge
+        if not common:
+            # Stack files side by side (add all columns from both)
+            result_df = pd.concat(dataframes, axis=1, ignore_index=False)
+            # Remove completely empty columns
+            result_df = result_df.dropna(axis=1, how='all')
+            return {
+                "messages": [AIMessage(content=f"✅ Combined {len(dataframes)} files side-by-side (no common columns)\n\n**Result:** {len(result_df)} rows, {len(result_df.columns)} columns")],
+                "filtered_df": result_df
+            }
+        # Use OUTER join to keep all data from both files
+        on_col = common[0]
+        result = transformation_agent.merge_csvs(dataframes[0], dataframes[1], how='outer', on=on_col)
+        # Remove empty columns after merge
+        if result['success'] and isinstance(result['data'], pd.DataFrame):
+            result['data'] = result['data'].dropna(axis=1, how='all')
+    elif "filter" in question:
+        # Simple filter example - you'd parse conditions from question
+        result = {"success": True, "data": df, "message": "Showing data"}
+    elif "sort" in question:
+        sort_col = df.columns[0]
+        result = transformation_agent.sort_data(df, by=sort_col)
+    else:
+        result = {"success": True, "data": df, "message": "Showing data"}
+    
+    if result['success']:
+        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
+    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+
+def use_analysis_agent_wrapper(state: State) -> dict:
+    """Use AnalysisAgent from agents folder"""
+    question = state["messages"][-1].content.lower()
+    df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
+    
+    if df is None:
+        return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
+    
+    # Detect operation
+    if "summary" in question or "statistics" in question:
+        result = data_analysis_agent.statistical_summary(df)
+    elif "correlation" in question:
+        result = data_analysis_agent.correlation_analysis(df)
+    elif "group" in question:
+        # Example grouping
+        result = {"success": True, "data": df, "message": "Analysis complete"}
+    else:
+        result = data_analysis_agent.statistical_summary(df)
+    
+    if result['success']:
+        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
+    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+
+def use_visualization_agent_wrapper(state: State) -> dict:
+    """Use VisualizationAgent from agents folder"""
+    df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
+    
+    if df is None:
+        return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
+    
+    return {"messages": [AIMessage(content="📊 Visualization feature - charts will be displayed in future updates.")]}
+
+def use_advanced_analytics_agent_wrapper(state: State) -> dict:
+    """Use AdvancedAnalyticsAgent from agents folder"""
+    question = state["messages"][-1].content.lower()
+    df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
+    
+    if df is None:
+        return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
+    
+    # Detect operation
+    if "segment" in question or "cluster" in question:
+        numeric_cols = df.select_dtypes(include=['number']).columns[:3].tolist()
+        if numeric_cols:
+            result = advanced_analytics_agent.customer_segmentation(df, features=numeric_cols, n_clusters=3)
+        else:
+            return {"messages": [AIMessage(content="❌ No numeric columns for clustering.")]}
+    elif "outlier" in question:
+        result = advanced_analytics_agent.detect_outliers(df)
+    elif "email" in question and "validate" in question:
+        email_col = next((c for c in df.columns if 'email' in c.lower()), None)
+        if email_col:
+            result = advanced_analytics_agent.validate_emails(df, email_col)
+        else:
+            return {"messages": [AIMessage(content="❌ No email column found.")]}
+    else:
+        result = advanced_analytics_agent.detect_outliers(df)
+    
+    if result['success']:
+        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
+    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+
+def use_export_agent_wrapper(state: State) -> dict:
+    """Use ExportAgent from agents folder"""
+    df = state.get("filtered_df") or (state.get("dataframes", [None])[-1] if state.get("dataframes") else None)
+    
+    if df is None:
+        return {"messages": [AIMessage(content="❌ No dataset to export.")]}
+    
+    # Clean up: remove completely empty columns before export
+    df_clean = df.dropna(axis=1, how='all')
+    
+    # Generate CSV
+    csv_data = df_clean.to_csv(index=False)
+    return {
+        "messages": [AIMessage(content=f"✅ Export ready: {len(df_clean)} rows, {len(df_clean.columns)} columns")],
+        "csv_files": [{"name": f"export_{len(df_clean)}_rows.csv", "data": csv_data, "rows": len(df_clean)}]
+    }
+
+# Agent 7: General Agent
 def general_agent(state: State) -> dict:
     """Handles general conversation"""
     response = llm.invoke(state["messages"])
@@ -705,9 +970,13 @@ def chatbot(state: State) -> dict:
     st.session_state.last_agent = agent_decision
     
     agents = {
+        "cleaning_agent": use_cleaning_agent,
+        "transformation_agent": use_transformation_agent,
+        "analysis_agent": use_analysis_agent_wrapper,
+        "visualization_agent": use_visualization_agent_wrapper,
+        "advanced_analytics_agent": use_advanced_analytics_agent_wrapper,
+        "export_agent": use_export_agent_wrapper,
         "data_query_agent": data_query_agent,
-        "csv_export_agent": csv_export_agent,
-        "analysis_agent": analysis_agent,
         "document_agent": document_agent,
         "general_agent": general_agent
     }
@@ -746,8 +1015,13 @@ def save_chat(chat_id):
         with open(os.path.join(path, "messages.json"), "w") as f:
             json.dump(saved_msgs, f)
     
-    # Save dataframe
+    # Save dataframes (Multi-CSV support)
     if st.session_state.dataframes:
+        # Save each dataframe with index
+        for i, df in enumerate(st.session_state.dataframes):
+            df.to_csv(os.path.join(path, f"dataframe_{i}.csv"), index=False)
+        
+        # Also save the last one as 'dataframe.csv' for backward compatibility
         st.session_state.dataframes[-1].to_csv(os.path.join(path, "dataframe.csv"), index=False)
     
     # Save filtered_df (CRITICAL for showing tables in loaded chats)
@@ -784,20 +1058,40 @@ def load_chat(chat_id):
     else:
         st.session_state.messages = []
     
-    # Load dataframe
-    df_path = os.path.join(path, "dataframe.csv")
-    if os.path.exists(df_path):
-        df = pd.read_csv(df_path)
-        st.session_state.dataframes = [df]
-    else:
-        st.session_state.dataframes = []
+    # Load dataframes (Multi-CSV support)
+    loaded_dfs = []
+    
+    # Try loading indexed dataframes (dataframe_0.csv, dataframe_1.csv, ...)
+    i = 0
+    while True:
+        df_path = os.path.join(path, f"dataframe_{i}.csv")
+        if os.path.exists(df_path):
+            try:
+                loaded_dfs.append(pd.read_csv(df_path))
+                i += 1
+            except Exception:
+                break
+        else:
+            break
+    
+    # Fallback: if no indexed files found, try loading old 'dataframe.csv'
+    if not loaded_dfs:
+        legacy_path = os.path.join(path, "dataframe.csv")
+        if os.path.exists(legacy_path):
+            try:
+                loaded_dfs.append(pd.read_csv(legacy_path))
+            except Exception:
+                pass
+    
+    st.session_state.dataframes = loaded_dfs
     
     # Load filtered_df (CRITICAL for showing tables)
     filtered_df_path = os.path.join(path, "filtered_df.csv")
     if os.path.exists(filtered_df_path):
         st.session_state.filtered_df = pd.read_csv(filtered_df_path)
-        # Also set as active_df for display
-        st.session_state.active_df = st.session_state.filtered_df
+        # Also set as active_df for display if not explicitly saved
+        if not os.path.exists(os.path.join(path, "active_df.csv")):
+            st.session_state.active_df = st.session_state.filtered_df
     else:
         st.session_state.filtered_df = None
         st.session_state.active_df = None
@@ -930,12 +1224,15 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("🤖 AI Agents")
     agents_list = [
-        "🧭 Router (Analyzes queries)",
-        "🔍 Data Query (Shows data)",
-        "📥 CSV Export (Creates files)",
-        "📊 Analysis (Calculations)",
-        "📄 Document (PDF/DOCX)",
-        "💬 General (Conversation)"
+        "🧭 Router",
+        "🧹 Cleaning",
+        "🔄 Transformation",
+        "📊 Analysis",
+        "📈 Visualization",
+        "🤖 Advanced Analytics",
+        "📥 Export",
+        "🔍 Data Query",
+        "📄 Document"
     ]
     for agent in agents_list:
         st.text(agent)
@@ -945,9 +1242,12 @@ with st.sidebar:
     
     if st.session_state.dataframes:
         st.markdown("---")
-        df = st.session_state.dataframes[-1]
-        st.metric("📊 Rows", f"{len(df):,}")
-        st.metric("📋 Columns", len(df.columns))
+        st.subheader("📊 Datasets")
+        for i, df in enumerate(st.session_state.dataframes):
+            with st.expander(f"File {i+1} ({len(df)} rows)", expanded=True):
+                st.metric("Rows", f"{len(df):,}")
+                st.metric("Columns", len(df.columns))
+                st.text(f"Cols: {', '.join(df.columns[:3])}...")
     
     st.markdown("---")
     st.subheader("💬 Chats")
@@ -994,165 +1294,9 @@ with st.sidebar:
                     load_chat(cid)
                     st.rerun()
     
-    # === Data Analysis Operations ===
-    if st.session_state.dataframes:
-        st.markdown("---")
-        st.subheader("🔧 Data Analysis Tools")
+    # === Main Chat Interface ===
         
-        df = st.session_state.dataframes[-1]
-        
-        # Category tabs
-        analysis_category = st.selectbox(
-            "Select Operation Category:",
-            ["Data Cleaning", "Data Transformation", "Data Analysis", 
-             "Visualization", "Export", "Advanced Analytics"],
-            key="analysis_category"
-        )
-        
-        if analysis_category == "Data Cleaning":
-            st.markdown("**🧹 Cleaning Operations**")
-            operation = st.selectbox(
-                "Operation:",
-                ["Remove Duplicates", "Fix Email Formatting", "Fix Phone Formatting", 
-                 "Fix Name Formatting", "Trim Whitespace", "Normalize Case",
-                 "Handle Missing Values", "Standardize Columns"],
-                key="cleaning_op"
-            )
-            
-            if operation == "Remove Duplicates":
-                if st.button("🧹 Remove Duplicates", key="clean_dupes"):
-                    result = cleaning_agent.remove_duplicates(df)
-                    if result['success']:
-                        st.session_state.dataframes[-1] = result['data']
-                        st.success(result['message'])
-                        st.rerun()
-            
-            elif operation == "Trim Whitespace":
-                if st.button("✂️ Trim Whitespace", key="clean_whitespace"):
-                    result = cleaning_agent.trim_whitespace(df)
-                    if result['success']:
-                        st.session_state.dataframes[-1] = result['data']
-                        st.success(result['message'])
-                        st.rerun()
-            
-            elif operation == "Standardize Columns":
-                if st.button("📝 Standardize Column Names", key="clean_cols"):
-                    result = cleaning_agent.standardize_columns(df)
-                    if result['success']:
-                        st.session_state.dataframes[-1] = result['data']
-                        st.success(result['message'])
-                        st.info(f"Renamed: {list(result['metadata']['column_mapping'].items())[:3]}")
-                        st.rerun()
-        
-        elif analysis_category == "Data Analysis":
-            st.markdown("**📊 Analysis Operations**")
-            operation = st.selectbox(
-                "Operation:",
-                ["Statistical Summary", "Value Counts", "Correlation Analysis"],
-                key="analysis_op"
-            )
-            
-            if operation == "Statistical Summary":
-                if st.button("📊 Generate Summary", key="stat_summary"):
-                    result = data_analysis_agent.statistical_summary(df)
-                    if result['success']:
-                        st.dataframe(result['data'])
-                        with st.expander("📋 Detailed Stats"):
-                            st.json(result['metadata']['detailed_summary'])
-            
-            elif operation == "Value Counts":
-                column = st.selectbox("Select Column:", df.columns.tolist(), key="vc_col")
-                top_n = st.number_input("Top N:", min_value=5, value=10, key="vc_n")
-                if st.button("🔢 Count Values", key="value_counts"):
-                    result = data_analysis_agent.value_counts(df, column, int(top_n))
-                    if result['success']:
-                        st.dataframe(result['data'])
-        
-        elif analysis_category == "Visualization":
-            st.markdown("**📈 Visualization**")
-            chart_type = st.selectbox(
-                "Chart Type:",
-                ["Bar Chart", "Pie Chart", "Histogram", "Heatmap"],
-                key="viz_type"
-            )
-            
-            if chart_type == "Bar Chart":
-                x_col = st.selectbox("X-axis:", df.columns.tolist(), key="bar_x")
-                if st.button("📊 Create Bar Chart", key="create_bar"):
-                    result = visualization_agent.create_bar_chart(df, x_col, interactive=False)
-                    if result['success'] and result['data'].get('type') == 'matplotlib':
-                        import base64
-                        img_data = base64.b64decode(result['data']['image_base64'])
-                        st.image(img_data)
-            
-            elif chart_type == "Histogram":
-                numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
-                if numeric_cols:
-                    col = st.selectbox("Column:", numeric_cols, key="hist_col")
-                    if st.button("📈 Create Histogram", key="create_hist"):
-                        result = visualization_agent.create_histogram(df, col, interactive=False)
-                        if result['success'] and result['data'].get('type') == 'matplotlib':
-                            import base64
-                            img_data = base64.b64decode(result['data']['image_base64'])
-                            st.image(img_data)
-        
-        elif analysis_category == "Export":
-            st.markdown("**💾 Export Operations**")
-            export_format = st.selectbox(
-                "Format:",
-                ["CSV", "Excel", "JSON"],
-                key="export_format"
-            )
-            filename = st.text_input("Filename:", value="export", key="export_filename")
-            
-            if st.button(f"💾 Export to {export_format}", key="do_export"):
-                file_path = f"exports/{filename}.{export_format.lower()}"
-                
-                if export_format == "CSV":
-                    result = export_agent.export_to_csv(df, file_path)
-                elif export_format == "Excel":
-                    result = export_agent.export_to_excel(df, file_path)
-                elif export_format == "JSON":
-                    result = export_agent.export_to_json(df, file_path)
-                
-                if result['success']:
-                    st.success(result['message'])
-                    try:
-                        with open(file_path, 'rb') as f:
-                            st.download_button(
-                                f"⬇️ Download {export_format}",
-                                f,
-                                file_name=f"{filename}.{export_format.lower()}",
-                                key=f"download_{export_format}"
-                            )
-                    except:
-                        pass
-        
-        elif analysis_category == "Advanced Analytics":
-            st.markdown("**🎯 Advanced Operations**")
-            operation = st.selectbox(
-                "Operation:",
-                ["Detect Outliers", "Validate Emails", "Validate Phones"],
-                key="advanced_op"
-            )
-            
-            if operation == "Detect Outliers":
-                method = st.selectbox("Method:", ["iqr", "zscore"], key="outlier_method")
-                if st.button("🔍 Detect Outliers", key="detect_outliers"):
-                    result = advanced_analytics_agent.detect_outliers(df, method=method)
-                    if result['success']:
-                        st.dataframe(result['data'])
-                        st.info(f"Total outlier rows: {result['metadata']['total_outlier_rows']}")
-            
-            elif operation == "Validate Emails":
-                email_cols = [col for col in df.columns if 'email' in col.lower() or 'mail' in col.lower()]
-                if email_cols:
-                    col = st.selectbox("Email Column:", email_cols, key="email_col")
-                    if st.button("✅ Validate Emails", key="validate_emails"):
-                        result = advanced_analytics_agent.validate_emails(df, col)
-                        if result['success']:
-                            st.dataframe(result['data'])
-                            st.info(f"Valid: {result['metadata']['valid_count']}, Invalid: {result['metadata']['invalid_count']}")
+
 
 
 # === Main Interface Logic ===
@@ -1389,12 +1533,14 @@ if 'uploaded_files' not in locals():
 if uploaded_files:
     with st.spinner("Processing..."):
         texts = []
+        csv_count = 0
         for file in uploaded_files:
             res = parse_file(file)
             if res and res["type"] == "csv":
                 df = res["data"]
-                st.session_state.dataframes = [df]
-                st.success(f"✅ Loaded: {file.name}")
+                st.session_state.dataframes.append(df)
+                csv_count += 1
+                st.success(f"✅ Loaded CSV {csv_count}: {file.name}")
                 with st.expander(f"Preview {file.name}"):
                     st.dataframe(df.head(10), use_container_width=True)
             elif res:

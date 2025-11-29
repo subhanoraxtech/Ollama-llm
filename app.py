@@ -36,7 +36,17 @@ from agents.export_agent import ExportAgent
 from agents.advanced_analytics_agent import AdvancedAnalyticsAgent
 
 # Import CSV Intelligence System
-from enhanced_prompts import enhance_query_prompt, enhance_export_prompt, enhance_analysis_prompt
+import importlib
+import enhanced_prompts
+importlib.reload(enhanced_prompts)
+
+# Bind functions from the reloaded module
+enhance_query_prompt = enhanced_prompts.enhance_query_prompt
+enhance_export_prompt = enhanced_prompts.enhance_export_prompt
+enhance_analysis_prompt = enhanced_prompts.enhance_analysis_prompt
+enhance_cleaning_prompt = enhanced_prompts.enhance_cleaning_prompt
+enhance_transformation_prompt = enhanced_prompts.enhance_transformation_prompt
+enhance_advanced_analytics_prompt = enhanced_prompts.enhance_advanced_analytics_prompt
 from csv_intelligence import CSVSchemaAnalyzer
 from csv_comparator import CSVComparator
 
@@ -803,45 +813,44 @@ def document_agent(state: State) -> dict:
 # NEW AGENT WRAPPERS - Use agents from agents folder
 
 def use_cleaning_agent(state: State) -> dict:
-    """Use CleaningAgent from agents folder"""
-    question = state["messages"][-1].content.lower()
+    """Use CleaningAgent with LLM-driven code generation for complex tasks"""
+    question = state["messages"][-1].content
     df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
     
     if df is None:
         return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
     
-    # Detect operation
-    if "duplicate" in question:
-        result = cleaning_agent.remove_duplicates(df)
-    elif "email" in question:
-        # Find email column
-        email_col = next((c for c in df.columns if 'email' in c.lower()), None)
-        if email_col:
-            result = cleaning_agent.fix_email_formatting(df, email_col)
-        else:
-            return {"messages": [AIMessage(content="❌ No email column found.")]}
-    elif "phone" in question:
-        phone_col = next((c for c in df.columns if 'phone' in c.lower()), None)
-        if phone_col:
-            result = cleaning_agent.fix_phone_formatting(df, phone_col)
-        else:
-            return {"messages": [AIMessage(content="❌ No phone column found.")]}
-    elif "missing" in question or "null" in question:
-        result = cleaning_agent.handle_missing_values(df, strategy='drop')
-    elif "whitespace" in question or "trim" in question:
-        result = cleaning_agent.trim_whitespace(df)
-    elif "standardize" in question and "column" in question:
-        result = cleaning_agent.standardize_columns(df)
-    else:
-        result = cleaning_agent.remove_duplicates(df)
+    # Use enhanced prompt for cleaning
+    prompt = enhance_cleaning_prompt(df, question)
     
-    if result['success']:
-        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
-    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+    try:
+        response = code_llm.invoke(prompt)
+        full_response = response.content if hasattr(response, 'content') else str(response)
+        
+        # Extract Code
+        code = full_response
+        if "```" in full_response:
+            code = full_response.split("```")[1]
+            if "python" in code.split("\n")[0]:
+                code = "\n".join(code.split("\n")[1:])
+            code = code.strip("`").strip()
+            
+        # Execute
+        namespace = {"df": df, "pd": pd, "np": np}
+        exec(code, {}, namespace)
+        result = namespace.get("result")
+        
+        if isinstance(result, pd.DataFrame):
+            return {"messages": [AIMessage(content=f"✅ Cleaning complete! Modified {len(result)} rows.")], "filtered_df": result}
+        else:
+            return {"messages": [AIMessage(content=f"✅ Operation complete. Result: {result}")]}
+            
+    except Exception as e:
+        return {"messages": [AIMessage(content=f"❌ Cleaning failed: {str(e)}")]}
 
 def use_transformation_agent(state: State) -> dict:
-    """Use TransformationAgent from agents folder"""
-    question = state["messages"][-1].content.lower()
+    """Use TransformationAgent with LLM-driven code generation"""
+    question = state["messages"][-1].content
     dataframes = state.get("dataframes", [])
     
     if not dataframes:
@@ -849,39 +858,33 @@ def use_transformation_agent(state: State) -> dict:
     
     df = dataframes[-1]
     
-    # Detect operation
-    if ("merge" in question or "join" in question or "combine" in question or "concat" in question) and len(dataframes) >= 2:
-        # Find common columns
-        common = list(set(dataframes[0].columns) & set(dataframes[1].columns))
-        
-        # If NO common columns, do CONCAT (stack rows) instead of merge
-        if not common:
-            # Stack files side by side (add all columns from both)
-            result_df = pd.concat(dataframes, axis=1, ignore_index=False)
-            # Remove completely empty columns
-            result_df = result_df.dropna(axis=1, how='all')
-            return {
-                "messages": [AIMessage(content=f"✅ Combined {len(dataframes)} files side-by-side (no common columns)\n\n**Result:** {len(result_df)} rows, {len(result_df.columns)} columns")],
-                "filtered_df": result_df
-            }
-        # Use OUTER join to keep all data from both files
-        on_col = common[0]
-        result = transformation_agent.merge_csvs(dataframes[0], dataframes[1], how='outer', on=on_col)
-        # Remove empty columns after merge
-        if result['success'] and isinstance(result['data'], pd.DataFrame):
-            result['data'] = result['data'].dropna(axis=1, how='all')
-    elif "filter" in question:
-        # Simple filter example - you'd parse conditions from question
-        result = {"success": True, "data": df, "message": "Showing data"}
-    elif "sort" in question:
-        sort_col = df.columns[0]
-        result = transformation_agent.sort_data(df, by=sort_col)
-    else:
-        result = {"success": True, "data": df, "message": "Showing data"}
+    # Use enhanced prompt for transformation
+    prompt = enhance_transformation_prompt(df, question)
     
-    if result['success']:
-        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
-    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+    try:
+        response = code_llm.invoke(prompt)
+        full_response = response.content if hasattr(response, 'content') else str(response)
+        
+        # Extract Code
+        code = full_response
+        if "```" in full_response:
+            code = full_response.split("```")[1]
+            if "python" in code.split("\n")[0]:
+                code = "\n".join(code.split("\n")[1:])
+            code = code.strip("`").strip()
+            
+        # Execute
+        namespace = {"df": df, "pd": pd, "np": np}
+        exec(code, {}, namespace)
+        result = namespace.get("result")
+        
+        if isinstance(result, pd.DataFrame):
+            return {"messages": [AIMessage(content=f"✅ Transformation complete! Result has {len(result)} rows.")], "filtered_df": result}
+        else:
+            return {"messages": [AIMessage(content=f"✅ Operation complete. Result: {result}")]}
+            
+    except Exception as e:
+        return {"messages": [AIMessage(content=f"❌ Transformation failed: {str(e)}")]}
 
 def use_analysis_agent_wrapper(state: State) -> dict:
     """Use AnalysisAgent from agents folder"""
@@ -916,34 +919,42 @@ def use_visualization_agent_wrapper(state: State) -> dict:
     return {"messages": [AIMessage(content="📊 Visualization feature - charts will be displayed in future updates.")]}
 
 def use_advanced_analytics_agent_wrapper(state: State) -> dict:
-    """Use AdvancedAnalyticsAgent from agents folder"""
-    question = state["messages"][-1].content.lower()
+    """Use AdvancedAnalyticsAgent with LLM-driven code generation"""
+    question = state["messages"][-1].content
     df = state.get("dataframes", [None])[-1] if state.get("dataframes") else None
     
     if df is None:
         return {"messages": [AIMessage(content="❌ No dataset loaded.")]}
     
-    # Detect operation
-    if "segment" in question or "cluster" in question:
-        numeric_cols = df.select_dtypes(include=['number']).columns[:3].tolist()
-        if numeric_cols:
-            result = advanced_analytics_agent.customer_segmentation(df, features=numeric_cols, n_clusters=3)
-        else:
-            return {"messages": [AIMessage(content="❌ No numeric columns for clustering.")]}
-    elif "outlier" in question:
-        result = advanced_analytics_agent.detect_outliers(df)
-    elif "email" in question and "validate" in question:
-        email_col = next((c for c in df.columns if 'email' in c.lower()), None)
-        if email_col:
-            result = advanced_analytics_agent.validate_emails(df, email_col)
-        else:
-            return {"messages": [AIMessage(content="❌ No email column found.")]}
-    else:
-        result = advanced_analytics_agent.detect_outliers(df)
+    # Use enhanced prompt for advanced analytics
+    prompt = enhance_advanced_analytics_prompt(df, question)
     
-    if result['success']:
-        return {"messages": [AIMessage(content=f"✅ {result['message']}")], "filtered_df": result['data']}
-    return {"messages": [AIMessage(content=f"❌ {result['message']}")]}
+    try:
+        response = code_llm.invoke(prompt)
+        full_response = response.content if hasattr(response, 'content') else str(response)
+        
+        # Extract Code
+        code = full_response
+        if "```" in full_response:
+            code = full_response.split("```")[1]
+            if "python" in code.split("\n")[0]:
+                code = "\n".join(code.split("\n")[1:])
+            code = code.strip("`").strip()
+            
+        # Execute
+        namespace = {"df": df, "pd": pd, "np": np, "KMeans": KMeans, "StandardScaler": StandardScaler}
+        exec(code, {}, namespace)
+        result = namespace.get("result")
+        
+        if isinstance(result, pd.DataFrame):
+            return {"messages": [AIMessage(content=f"✅ Analytics complete! Result has {len(result)} rows.")], "filtered_df": result}
+        elif isinstance(result, (pd.Series, dict, str, int, float)):
+             return {"messages": [AIMessage(content=f"✅ Analysis Result:\n\n{result}")]}
+        else:
+            return {"messages": [AIMessage(content=f"✅ Operation complete.")]}
+            
+    except Exception as e:
+        return {"messages": [AIMessage(content=f"❌ Analytics failed: {str(e)}")]}
 
 def use_export_agent_wrapper(state: State) -> dict:
     """Use ExportAgent from agents folder"""

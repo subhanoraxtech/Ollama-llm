@@ -32,6 +32,13 @@ def enhance_query_prompt(df: pd.DataFrame, question: str) -> str:
     
     hint_text = "\n".join(column_hints) if column_hints else "Use exact column names from schema"
     
+    # Determine if we should show suggestions
+    show_suggestions = True
+    if any(w in q_lower for w in ['all', 'every', 'full', 'everything']):
+        show_suggestions = False
+        
+    suggestions_text = ', '.join(suggested_cols) if suggested_cols and show_suggestions else 'None (Select ALL columns)'
+    
     prompt = f"""You are a data analysis expert. Follow this ReAct (Reasoning + Acting) process:
 
 1. **Thought**: Analyze the user's request and the dataset schema. Decide which columns to use and what operations to perform.
@@ -41,14 +48,16 @@ USER QUERY: "{question}"
 
 {analyzer.get_prompt_context(max_columns=15)}
 
-**Suggested Columns:** {', '.join(suggested_cols) if suggested_cols else 'Choose appropriate columns'}
+**Suggested Columns:** {suggestions_text}
 
 **Column Mapping Hints:**
 {hint_text}
 
+**IMPORTANT:** If the user query contains "all", "every", or "full", you MUST select ALL columns (use `df` or `df[:]`), unless they explicitly ask to "show only [columns]".
+
 **RULES:**
 1. Use EXACT column names from schema (case-sensitive!)
-2. **SELECT ONLY** the columns explicitly requested by the user. Do not include extra columns.
+2. DEFAULT to selecting ALL columns (e.g. `result = df[...]`). Only restrict columns if the user says "show ONLY [x]" or "just [x]".
 3. Store result in variable 'result'
 4. Handle missing values with .dropna() or .fillna()
 5. For text search: use .str.contains('term', case=False, na=False)

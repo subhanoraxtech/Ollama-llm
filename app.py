@@ -503,6 +503,14 @@ def smart_fallback_query(df: pd.DataFrame, question: str) -> dict:
         'payment': ['payment', 'pay', 'due', 'amount', 'balance', 'cost', 'price'],
         'date': ['date', 'time', 'when', 'due', 'deadline']
     }
+    # Check if user wants ALL columns
+    if any(w in q_lower for w in ['all', 'every', 'full', 'everything']):
+        # Skip column filtering and return all columns
+        result = df.head(n)
+        return {
+            "messages": [AIMessage(content=f"Here are the first {n} rows with ALL columns:")],
+            "filtered_df": result
+        }
     
     # Step 1: Try keyword-based matching first
     requested_cols = []

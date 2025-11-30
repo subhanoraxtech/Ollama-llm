@@ -57,21 +57,17 @@ from query_rephraser import QueryRephraser
 llm = ChatOllama(
     model="gpt-oss:20b",
     temperature=0.7,
-    options={
-        "num_gpu": 999,
-        "num_thread": 8,
-        "num_ctx": 8192,
-    }
+    num_gpu=999,
+    num_thread=8,
+    num_ctx=8192,
 )
 
 code_llm = ChatOllama(
     model="gpt-oss:20b",
     temperature=0,
-    options={
-        "num_gpu": 999,
-        "num_thread": 8,
-        "num_ctx": 8192,
-    }
+    num_gpu=999,
+    num_thread=8,
+    num_ctx=8192,
 )
 
 embed_model = OllamaEmbeddings(model="mxbai-embed-large")

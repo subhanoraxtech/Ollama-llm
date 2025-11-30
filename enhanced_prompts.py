@@ -143,8 +143,43 @@ result = df_clean
     return prompt
 
 
-def enhance_transformation_prompt(df: pd.DataFrame, question: str) -> str:
+def enhance_transformation_prompt(df: pd.DataFrame, question: str, dataframes: list[pd.DataFrame] = None) -> str:
     """Generate enhanced prompt for data transformation operations"""
+    
+    # Handle Multi-CSV Context
+    if dataframes and len(dataframes) > 1:
+        context_str = ""
+        for i, d in enumerate(dataframes):
+            analyzer = CSVSchemaAnalyzer(d)
+            context_str += f"\n\n--- DataFrame {i} (variable: `dataframes[{i}]`) ---\n"
+            context_str += analyzer.get_prompt_context(max_columns=15)
+            
+        prompt = f"""You are a data transformation expert. You have access to {len(dataframes)} datasets.
+
+USER REQUEST: "{question}"
+
+DATASETS AVAILABLE:
+{context_str}
+
+**Smart Column Hints:**
+{get_domain_mappings(dataframes[-1], question)}
+
+**RULES:**
+1. **Access**: Use `dataframes[0]`, `dataframes[1]`, etc. to access datasets.
+2. **Merging**: `pd.merge(dataframes[0], dataframes[1], on='ID')` or `pd.concat([dataframes[0], dataframes[1]])`.
+3. **Result**: Store the final transformed dataframe in `result`.
+
+**Response Format:**
+Thought: [Reasoning]
+Action:
+```python
+# Merge example
+result = pd.merge(dataframes[0], dataframes[1], on='ID', how='inner')
+```
+"""
+        return prompt
+
+    # Single CSV Context (Fallback)
     analyzer = CSVSchemaAnalyzer(df)
     hint_text = get_domain_mappings(df, question)
     

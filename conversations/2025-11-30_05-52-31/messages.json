@@ -1,0 +1,1 @@
+[{"type": "human", "content": "merge these two csv into one"}, {"type": "ai", "content": "\u274c Transformation failed: [Errno 2] No such file or directory: 'file1.csv'"}]

@@ -231,10 +231,6 @@ AGENTS AND THEIR SPECIALTIES:
    - Content from uploaded PDF or DOCX files
    - Keywords: "document", "pdf", "what does it say", "summarize"
 
-9. **general_agent** - Use when:
-   - User is having casual conversation
-   - Greeting or chatting
-
 RULES:
 - Clean/fix data → cleaning_agent
 - Merge/transform/filter → transformation_agent  
@@ -244,7 +240,6 @@ RULES:
 - Export/save → export_agent
 - Show/display data → data_query_agent
 - Documents → document_agent
-- Chat → general_agent
 
 Respond with ONLY ONE of these agent names:
 cleaning_agent
@@ -255,29 +250,28 @@ advanced_analytics_agent
 export_agent
 data_query_agent
 document_agent
-general_agent
 
 YOUR DECISION (one word only):"""
 
     try:
         response = llm.invoke(decision_prompt)
-        agent_name = response.content.strip().lower() if hasattr(response, 'content') else "general_agent"
+        agent_name = response.content.strip().lower() if hasattr(response, 'content') else "data_query_agent"
         
         # Extract agent name
         valid_agents = ['cleaning_agent', 'transformation_agent', 'analysis_agent', 'visualization_agent', 
-                       'advanced_analytics_agent', 'export_agent', 'data_query_agent', 'document_agent', 'general_agent']
+                       'advanced_analytics_agent', 'export_agent', 'data_query_agent', 'document_agent']
         
         # Find matching agent
         for agent in valid_agents:
             if agent in agent_name:
                 return {"agent_decision": agent}
         
-        # Default to general agent if no match
-        return {"agent_decision": "general_agent"}
+        # Default to data_query_agent if no match
+        return {"agent_decision": "data_query_agent"}
         
     except Exception as e:
-        # Fallback to general agent on error
-        return {"agent_decision": "general_agent"}
+        # Fallback to data_query_agent on error
+        return {"agent_decision": "data_query_agent"}
 
 # Agent 2: Data Query Agent - Retrieves and displays data
 def data_query_agent(state: State) -> dict:
@@ -858,8 +852,8 @@ def use_transformation_agent(state: State) -> dict:
     
     df = dataframes[-1]
     
-    # Use enhanced prompt for transformation
-    prompt = enhance_transformation_prompt(df, question)
+    # Use enhanced prompt for transformation (Pass ALL dataframes)
+    prompt = enhance_transformation_prompt(df, question, dataframes=dataframes)
     
     try:
         response = code_llm.invoke(prompt)
@@ -874,7 +868,8 @@ def use_transformation_agent(state: State) -> dict:
             code = code.strip("`").strip()
             
         # Execute
-        namespace = {"df": df, "pd": pd, "np": np}
+        # CRITICAL: Pass 'dataframes' to namespace so code can access all files
+        namespace = {"df": df, "dataframes": dataframes, "pd": pd, "np": np}
         exec(code, {}, namespace)
         result = namespace.get("result")
         
@@ -974,12 +969,6 @@ def use_export_agent_wrapper(state: State) -> dict:
     }
 
 # Agent 7: General Agent
-def general_agent(state: State) -> dict:
-    """Handles general conversation"""
-    response = llm.invoke(state["messages"])
-    answer = response.content if hasattr(response, 'content') else str(response)
-    return {"messages": [AIMessage(content=answer)]}
-
 # === Main Chatbot ===
 def chatbot(state: State) -> dict:
     """Routes to appropriate agent based on query analysis"""
@@ -996,11 +985,10 @@ def chatbot(state: State) -> dict:
         "advanced_analytics_agent": use_advanced_analytics_agent_wrapper,
         "export_agent": use_export_agent_wrapper,
         "data_query_agent": data_query_agent,
-        "document_agent": document_agent,
-        "general_agent": general_agent
+        "document_agent": document_agent
     }
     
-    return agents.get(agent_decision, general_agent)(state)
+    return agents.get(agent_decision, data_query_agent)(state)
 
 # === Graph ===
 graph = StateGraph(State)
@@ -1204,114 +1192,9 @@ elif st.session_state.current_chat_id:
 
 # === Sidebar ===
 # === Sidebar ===
-with st.sidebar:
-    
-    if st.button("🗑️ Clear All Chats"):
-        # 1. Clear Session State FIRST to release file handles
-        st.session_state.messages = []
-        st.session_state.dataframes = []
-        st.session_state.vectorstore = None
-        st.session_state.rag_chain = None
-        st.session_state.last_agent = None
-        st.session_state.active_df = None
-        st.session_state.active_page = 0
-        
-        # Force garbage collection to release file locks (crucial for Windows)
-        import gc
-        gc.collect()
-        
-        # 2. Define error handler for Windows read-only files
-        def remove_readonly(func, path, excinfo):
-            os.chmod(path, 0o777)
-            func(path)
-            
-        # 3. Clear ALL conversations with robust error handling
-        if os.path.exists(CONVERSATIONS_DIR):
-            try:
-                shutil.rmtree(CONVERSATIONS_DIR, onerror=remove_readonly)
-            except Exception as e:
-                st.error(f"Error clearing chats: {e}")
-                
-        os.makedirs(CONVERSATIONS_DIR, exist_ok=True)
-        
-        # Reset current chat ID
-        st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
-        
-        st.rerun()
-    
-    st.markdown("---")
-    st.subheader("🤖 AI Agents")
-    agents_list = [
-        "🧭 Router",
-        "🧹 Cleaning",
-        "🔄 Transformation",
-        "📊 Analysis",
-        "📈 Visualization",
-        "🤖 Advanced Analytics",
-        "📥 Export",
-        "🔍 Data Query",
-        "📄 Document"
-    ]
-    for agent in agents_list:
-        st.text(agent)
-    
-    if st.session_state.last_agent:
-        st.success(f"**Active:** {st.session_state.last_agent.replace('_', ' ').title()}")
-    
-    if st.session_state.dataframes:
-        st.markdown("---")
-        st.subheader("📊 Datasets")
-        for i, df in enumerate(st.session_state.dataframes):
-            with st.expander(f"File {i+1} ({len(df)} rows)", expanded=True):
-                st.metric("Rows", f"{len(df):,}")
-                st.metric("Columns", len(df.columns))
-                st.text(f"Cols: {', '.join(df.columns[:3])}...")
-    
-    st.markdown("---")
-    st.subheader("💬 Chats")
-    # Only show New Chat button if there's an active chat
-    if st.session_state.current_chat_id is not None:
-        if st.button("➕ New Chat"):
-            save_chat(st.session_state.current_chat_id)  # Save current before new
-            st.session_state.current_chat_id = None  # Don't create until first message
-            st.session_state.messages = []
-            st.session_state.dataframes = []
-            st.session_state.vectorstore = None
-            st.session_state.rag_chain = None
-            st.session_state.last_agent = None
-            st.session_state.active_df = None
-            st.session_state.active_page = 0
-            st.rerun()
-    
-    # List previous chats (only show non-empty chats)
-    chat_dirs = [d for d in os.listdir(CONVERSATIONS_DIR) if os.path.isdir(os.path.join(CONVERSATIONS_DIR, d))]
-    for cid in sorted(chat_dirs, reverse=True):  # Newest first
-        msg_path = os.path.join(CONVERSATIONS_DIR, cid, "messages.json")
-        
-        # Only show chats that have messages
-        if os.path.exists(msg_path):
-            with open(msg_path, "r") as f:
-                try:
-                    msgs = json.load(f)
-                except:
-                    msgs = []
-            
-            # Skip empty chats
-            if not msgs:
-                continue
-                
-            # Generate proper title from first user message
-            first_content = msgs[0]["content"]
-            name = first_content[:40] + "..." if len(first_content) > 40 else first_content
-            
-            # Only show if not the current chat
-            if cid != st.session_state.current_chat_id:
-                if st.button(name, key=f"chat_{cid}"):
-                    save_chat(st.session_state.current_chat_id)  # Save current
-                    st.session_state.current_chat_id = cid
-                    load_chat(cid)
-                    st.rerun()
+# === Sidebar Removed ===
+# The sidebar functionality has been removed as requested.
+
     
     # === Main Chat Interface ===
         

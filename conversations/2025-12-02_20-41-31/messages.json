@@ -1,0 +1,1 @@
+[{"type": "human", "content": "list down defendants whose are from TX only and whose payment amount is due "}, {"type": "ai", "content": "Result: Empty DataFrame\nColumns: [Index, Customer Id, First Name, Last Name, Company, City, Country, Phone 1, Phone 2, Email, Subscription Date, Website]\nIndex: []"}]

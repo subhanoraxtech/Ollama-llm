@@ -50,6 +50,9 @@ enhance_advanced_analytics_prompt = enhanced_prompts.enhance_advanced_analytics_
 from csv_intelligence import CSVSchemaAnalyzer
 from csv_comparator import CSVComparator
 
+# Import PDF Generator
+from pdf_generator import generate_pdf_report, generate_summary_pdf
+
 # Import Query Rephraser for RAFT
 from query_rephraser import QueryRephraser
 
@@ -221,7 +224,9 @@ AGENTS AND THEIR SPECIALTIES:
 7. **data_query_agent** - Use when user wants to:
    - View, show, display, or list data
    - Get specific rows or columns
-   - Keywords: "show", "display", "give me", "find", "get", "list"
+   - Filter data with conditions (natural language queries)
+   - Keywords: "show", "display", "give me", "find", "get", "list", "who has", "where", "from state", "over $", "more than", "less than", "contains", "in [location]"
+   - **ALWAYS prefer this for natural language data queries!**
 
 8. **document_agent** - Use when user asks about:
    - Content from uploaded PDF or DOCX files
@@ -948,7 +953,7 @@ def use_advanced_analytics_agent_wrapper(state: State) -> dict:
         return {"messages": [AIMessage(content=f"❌ Analytics failed: {str(e)}")]}
 
 def use_export_agent_wrapper(state: State) -> dict:
-    """Use ExportAgent from agents folder"""
+    """Use ExportAgent from agents folder - generates both CSV and PDF"""
     df = state.get("filtered_df") or (state.get("dataframes", [None])[-1] if state.get("dataframes") else None)
     
     if df is None:
@@ -959,9 +964,20 @@ def use_export_agent_wrapper(state: State) -> dict:
     
     # Generate CSV
     csv_data = df_clean.to_csv(index=False)
+    
+    # Generate PDF
+    pdf_bytes = generate_pdf_report(
+        df_clean,
+        title="Data Export Report",
+        filename=f"export_{len(df_clean)}_rows.pdf"
+    )
+    
     return {
-        "messages": [AIMessage(content=f"✅ Export ready: {len(df_clean)} rows, {len(df_clean.columns)} columns")],
-        "csv_files": [{"name": f"export_{len(df_clean)}_rows.csv", "data": csv_data, "rows": len(df_clean)}]
+        "messages": [AIMessage(content=f"✅ Export ready: {len(df_clean)} rows, {len(df_clean.columns)} columns\n\n📥 Download available in CSV and PDF formats")],
+        "csv_files": [
+            {"name": f"export_{len(df_clean)}_rows.csv", "data": csv_data, "rows": len(df_clean)},
+            {"name": f"export_{len(df_clean)}_rows.pdf", "data": pdf_bytes, "rows": len(df_clean), "type": "pdf"}
+        ]
     }
 
 # Agent 7: General Agent
@@ -1156,14 +1172,32 @@ def display_paginated_data():
             
             st.caption(f"Showing rows {start_idx + 1} to {end_idx} of {total_rows}")
             
-            # Download Button
-            st.download_button(
-                "📥 Download CSV",
-                df.to_csv(index=False),
-                f"export_{len(df)}_rows.csv",
-                "text/csv",
-                key="persistent_csv_download"
-            )
+            # Download Buttons (CSV and PDF)
+            col_csv, col_pdf = st.columns(2)
+            
+            with col_csv:
+                st.download_button(
+                    "📥 Download CSV",
+                    df.to_csv(index=False),
+                    f"export_{len(df)}_rows.csv",
+                    "text/csv",
+                    key="persistent_csv_download"
+                )
+            
+            with col_pdf:
+                # Generate PDF
+                pdf_bytes = generate_pdf_report(
+                    df, 
+                    title="Data Export Report",
+                    filename=f"export_{len(df)}_rows.pdf"
+                )
+                st.download_button(
+                    "📄 Download PDF",
+                    pdf_bytes,
+                    f"export_{len(df)}_rows.pdf",
+                    "application/pdf",
+                    key="persistent_pdf_download"
+                )
 
 # ========================= STREAMLIT UI =========================
 st.set_page_config(page_title="Multi-Agent System", page_icon="🤖", layout="wide")
@@ -1514,12 +1548,18 @@ if user_input or (st.session_state.messages and isinstance(st.session_state.mess
                 if "csv_files" in final_state and final_state["csv_files"]:
                     for csv_file in final_state["csv_files"]:
                         st.success(f"✅ Ready: {csv_file['name']}")
+                        
+                        # Determine file type
+                        file_type = csv_file.get('type', 'csv')
+                        mime_type = "application/pdf" if file_type == 'pdf' else "text/csv"
+                        button_icon = "📄" if file_type == 'pdf' else "📥"
+                        
                         st.download_button(
-                            f"📥 Download {csv_file['name']}",
+                            f"{button_icon} Download {csv_file['name']}",
                             csv_file["data"],
                             csv_file["name"],
-                            "text/csv",
-                            key=f"csv_dl_{uuid.uuid4()}"
+                            mime_type,
+                            key=f"file_dl_{uuid.uuid4()}"
                         )
 
                 # Save final message

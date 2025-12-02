@@ -61,7 +61,7 @@ def get_domain_mappings(df: pd.DataFrame, question: str) -> str:
 
 
 def enhance_query_prompt(df: pd.DataFrame, question: str) -> str:
-    """Generate enhanced prompt for data query operations"""
+    """Generate enhanced prompt for data query operations with Text-to-SQL capabilities"""
     analyzer = CSVSchemaAnalyzer(df)
     suggested_cols = analyzer.suggest_columns_for_query(question)
     hint_text = get_domain_mappings(df, question)
@@ -74,10 +74,11 @@ def enhance_query_prompt(df: pd.DataFrame, question: str) -> str:
         
     suggestions_text = ', '.join(suggested_cols) if suggested_cols and show_suggestions else 'None (Select ALL columns)'
     
-    prompt = f"""You are a high-performance data analysis assistant.
+    prompt = f"""You are an expert data analyst. Convert natural language to ROBUST pandas code.
 
 USER QUERY: "{question}"
 
+DATASET SCHEMA:
 {analyzer.get_prompt_context(max_columns=25)}
 
 **Suggested Columns:** {suggestions_text}
@@ -85,24 +86,76 @@ USER QUERY: "{question}"
 **Smart Column Hints:**
 {hint_text}
 
-**INTERPRETATION RULES (Handle Vague Queries):**
-1. **"Payment Due" / "Owe"**: Check `Balance > 0` OR `Status == 'Unpaid'`.
-2. **"From [State]"**: Filter by State column (handle abbreviations like TX->Texas).
-3. **"In [Year]"**: Use string matching `.astype(str).str.contains('2025')` for safety.
-4. **"Fix/Clean"**: If user asks to fix/clean in a query, just SHOW the bad data (don't delete).
-5. **Typos**: Handle "defandant", "texes", "balence" by mapping to correct columns.
+**MANDATORY MATCHING PATTERN (ALWAYS FOLLOW THIS):**
 
-**PERFORMANCE RULES:**
-1. **Vectorization**: Use vectorized pandas operations. NEVER use loops.
-2. **Select ALL**: Return full dataframe unless specific columns requested.
-3. **Result**: Store final result in `result`.
+For ANY text/string filtering, you MUST use this exact pattern:
+```python
+df[df['ColumnName'].astype(str).str.strip().str.contains('value', case=False, na=False)]
+```
+
+BREAKDOWN:
+1. `.astype(str)` - Convert to string (handles mixed types)
+2. `.str.strip()` - Remove leading/trailing whitespace
+3. `.str.contains('value', case=False, na=False)` - Fuzzy match, case-insensitive, ignore NaN
+
+**NEVER use `==` for text columns!** It's too strict and will miss matches.
+
+**CORRECT EXAMPLES:**
+
+Example 1: "Show customers from Texas"
+```python
+# CORRECT - Robust matching
+result = df[df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)]
+```
+
+Example 2: "Find emails with gmail"
+```python
+# CORRECT - Handles case and whitespace
+result = df[df['Email'].astype(str).str.strip().str.contains('gmail', case=False, na=False)]
+```
+
+Example 3: "Customers in California with balance over 1000"
+```python
+# CORRECT - Combine text and numeric filters
+mask_state = df['State'].astype(str).str.strip().str.contains('CA|California', case=False, na=False)
+mask_balance = df['Balance'] > 1000
+result = df[mask_state & mask_balance]
+```
+
+Example 4: "Show all customers" (no filtering)
+```python
+# CORRECT - Return all rows
+result = df
+```
+
+Example 5: "Top 10 by balance"
+```python
+# CORRECT - No text filtering needed
+result = df.nlargest(10, 'Balance')
+```
+
+**WRONG EXAMPLES (DO NOT DO THIS):**
+
+❌ `df[df['State'] == 'TX']` - Too strict! Will miss " TX", "tx", "Texas"
+❌ `df[df['State'].str.contains('TX')]` - Missing astype(str), strip(), case=False, na=False
+❌ `df[df['Email'] == 'test@gmail.com']` - Exact match only, will miss whitespace
+
+**RULES:**
+1. **Text columns**: ALWAYS use `.astype(str).str.strip().str.contains(..., case=False, na=False)`
+2. **Numeric columns**: Use direct comparison (`>`, `<`, `==`)
+3. **Multiple conditions**: Use `&` (and) or `|` (or) with masks
+4. **State names**: Include both abbreviation and full name: `'TX|Texas'`, `'CA|California'`
+5. **Result**: Always assign to `result`
 
 **Response Format:**
-Thought: [Reasoning]
+Thought: [Brief reasoning]
 Action:
 ```python
-result = ...
+# Your robust code here
+result = df[...]
 ```
+
+Write ROBUST code following the MANDATORY PATTERN above:
 """
     return prompt
 

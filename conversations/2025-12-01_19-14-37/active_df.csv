@@ -1,0 +1,2441 @@
+DefendantID,CustomersFirstName,CustomersLastName,CustomersAddress1,CustomersCity,CustomersState,CustomersZIP,TotalBilled,TotalReceived,AccountBalance
+2700004,Nancy,White,4471 Ridgeway Dr,Houston,TX,77001,9000,188,8812
+2700006,John,Lewis,8523 Lakeview Dr,Dallas,TX,75201,1000,234,766
+2700012,William,Johnson,8618 2nd St,El Paso,TX,79901,12000,3114,8886
+2700016,Margaret,Anderson,6311 Ridgeway Dr,San Antonio,TX,78201,4500,1111,3389
+2700035,Elizabeth,Martin,9568 Court St,San Antonio,TX,78201,1000,991,9
+2700036,Richard,Williams,1603 Court St,San Antonio,TX,78201,12000,10769,1231
+2700038,David,Garcia,1543 Spruce St,Houston,TX,77001,4500,170,4330
+2700046,David,Garcia,6118 Court St,Dallas,TX,75201,6000,3167,2833
+2700048,Richard,Robinson,4364 Walnut St,San Antonio,TX,78201,6000,4241,1759
+2700067,John,Lopez,3800 Hillcrest Rd,El Paso,TX,79901,2500,1625,875
+2700071,Jennifer,Gonzalez,9535 Lakeview Dr,Austin,TX,73301,6000,2573,3427
+2700074,Jennifer,Lee,578 4th St,San Antonio,TX,78201,4500,1511,2989
+2700075,Margaret,Anderson,9769 Pine Ave,El Paso,TX,79901,3000,1441,1559
+2700087,Anthony,Ramirez,4166 Forest Ave,Fort Worth,TX,76101,1000,220,780
+2700088,James,Williams,2210 Pine Ave,Austin,TX,73301,2500,307,2193
+2700094,William,Perez,1671 Oak St,Fort Worth,TX,76101,9000,8849,151
+2700097,Linda,Johnson,6202 Main St,Austin,TX,73301,3000,2828,172
+2700098,Robert,Harris,2946 Washington St,San Antonio,TX,78201,9000,6609,2391
+2700099,Richard,Johnson,3726 Lakeview Dr,El Paso,TX,79901,2500,112,2388
+2700100,David,Rodriguez,4378 Hillcrest Rd,San Antonio,TX,78201,6000,522,5478
+2700110,Michael,Brown,3222 Ridgeway Dr,Houston,TX,77001,12000,3209,8791
+2700115,Betty,Taylor,4956 Washington St,Austin,TX,73301,3000,2106,894
+2700119,Anthony,Jackson,700 2nd St,Dallas,TX,75201,9000,511,8489
+2700123,Karen,Jackson,6415 Cedar Ln,Houston,TX,77001,3000,1857,1143
+2700124,Betty,White,7071 Cedar Ln,Dallas,TX,75201,3000,2412,588
+2700126,John,Rodriguez,718 Birch St,Fort Worth,TX,76101,4500,722,3778
+2700145,Sarah,Thomas,6270 3rd St,El Paso,TX,79901,9000,4237,4763
+2700154,Sarah,Sanchez,3396 Hillcrest Rd,Dallas,TX,75201,3000,1432,1568
+2700158,Susan,Gonzalez,5926 Hillcrest Rd,Austin,TX,73301,1000,88,912
+2700161,Sarah,Martinez,3305 Washington St,El Paso,TX,79901,1800,927,873
+2700162,Richard,Wilson,7880 Cedar Ln,San Antonio,TX,78201,4500,3326,1174
+2700165,Robert,Martin,6377 Lakeview Dr,El Paso,TX,79901,3000,345,2655
+2700167,Karen,Lee,2228 Birch St,El Paso,TX,79901,2000,1946,54
+2700173,Matthew,Brown,3984 Spruce St,San Antonio,TX,78201,3000,942,2058
+2700176,Thomas,Johnson,8987 3rd St,San Antonio,TX,78201,4500,2727,1773
+2700188,Jessica,Brown,9936 Hillcrest Rd,El Paso,TX,79901,1500,671,829
+2700190,Patricia,Harris,8164 Walnut St,San Antonio,TX,78201,12000,10211,1789
+2700191,Mary,Gonzalez,5879 Hillcrest Rd,Austin,TX,73301,1800,1037,763
+2700193,Charles,Hernandez,7886 Spruce St,San Antonio,TX,78201,12000,1552,10448
+2700199,Daniel,Ramirez,7127 4th St,Dallas,TX,75201,2000,536,1464
+2700201,Robert,Williams,2423 Sunset Blvd,Houston,TX,77001,3000,1917,1083
+2700203,Elizabeth,Perez,6220 3rd St,Houston,TX,77001,3000,106,2894
+2700205,Jennifer,Wilson,762 Court St,Austin,TX,73301,3000,2514,486
+2700210,Michael,Moore,4373 Forest Ave,El Paso,TX,79901,2500,961,1539
+2700212,James,Thompson,5642 Ridgeway Dr,Fort Worth,TX,76101,1800,1577,223
+2700224,William,Robinson,5281 Main St,Fort Worth,TX,76101,2000,96,1904
+2700229,Betty,Martin,2466 Cedar Ln,San Antonio,TX,78201,1800,1079,721
+2700235,Thomas,Smith,6507 Elm St,Houston,TX,77001,1000,377,623
+2700239,Christopher,Miller,6572 Spruce St,Houston,TX,77001,3000,2302,698
+2700247,Anthony,Hernandez,849 Ridgeway Dr,El Paso,TX,79901,1000,653,347
+2700248,Nancy,Moore,2892 Pine Ave,Houston,TX,77001,1500,987,513
+2700249,Betty,Davis,4867 Pine Ave,Houston,TX,77001,9000,7159,1841
+2700259,Linda,White,7450 Elm St,El Paso,TX,79901,9000,5653,3347
+2700266,Matthew,Taylor,6667 4th St,Dallas,TX,75201,1800,896,904
+2700268,Jennifer,Lee,2769 Elm St,Fort Worth,TX,76101,6000,5975,25
+2700271,Robert,Williams,6408 Forest Ave,Austin,TX,73301,4500,2281,2219
+2700275,John,Miller,3175 2nd St,San Antonio,TX,78201,9000,1744,7256
+2700277,Margaret,Martinez,1641 Walnut St,Austin,TX,73301,1800,1569,231
+2700278,Barbara,Williams,7474 Sunset Blvd,El Paso,TX,79901,9000,5138,3862
+2700280,Anthony,Johnson,4964 Elm St,San Antonio,TX,78201,2500,753,1747
+2700282,Joseph,Wilson,8992 Spruce St,Fort Worth,TX,76101,1500,360,1140
+2700287,Richard,Robinson,3342 Sunset Blvd,Fort Worth,TX,76101,4500,4199,301
+2700288,Anthony,Lewis,6625 Main St,Houston,TX,77001,2500,2473,27
+2700296,Joseph,Thomas,4316 Cherry Ln,Dallas,TX,75201,2500,1374,1126
+2700297,Mark,Robinson,4446 Forest Ave,Austin,TX,73301,2500,2231,269
+2700299,Nancy,Harris,6920 2nd St,San Antonio,TX,78201,12000,2280,9720
+2700305,Margaret,White,582 Elm St,Austin,TX,73301,1500,76,1424
+2700306,Jennifer,Perez,8229 Washington St,San Antonio,TX,78201,1500,697,803
+2700311,Michael,Gonzalez,8824 Oak St,El Paso,TX,79901,1000,229,771
+2700319,Matthew,Brown,2410 Maple Ave,San Antonio,TX,78201,2500,2482,18
+2700320,Lisa,Perez,3744 Pine Ave,Austin,TX,73301,1800,570,1230
+2700324,David,Robinson,906 Court St,San Antonio,TX,78201,1500,1443,57
+2700332,Sandra,Smith,4604 Cherry Ln,Fort Worth,TX,76101,2500,2059,441
+2700333,Joseph,Lee,1697 2nd St,Dallas,TX,75201,1500,114,1386
+2700341,Thomas,Lopez,8865 Forest Ave,Houston,TX,77001,12000,7377,4623
+2700343,Richard,Smith,7201 Maple Ave,San Antonio,TX,78201,2500,1730,770
+2700349,Robert,Robinson,4433 Maple Ave,Austin,TX,73301,4500,2783,1717
+2700357,Joseph,Davis,3360 Sunset Blvd,Dallas,TX,75201,1800,657,1143
+2700359,Joseph,Lee,9551 Cedar Ln,San Antonio,TX,78201,3000,2180,820
+2700360,Jennifer,Taylor,2768 Washington St,Houston,TX,77001,1500,190,1310
+2700362,Mary,Moore,2881 Elm St,Houston,TX,77001,1800,834,966
+2700378,Betty,Harris,8743 Oak St,San Antonio,TX,78201,2500,2038,462
+2700379,Michael,Thomas,841 Birch St,San Antonio,TX,78201,1500,1462,38
+2700383,John,Smith,4727 4th St,Fort Worth,TX,76101,12000,8938,3062
+2700385,Susan,Garcia,6423 3rd St,El Paso,TX,79901,4500,4239,261
+2700394,Elizabeth,Lee,7128 4th St,Houston,TX,77001,6000,106,5894
+2700397,Karen,Anderson,4581 Walnut St,Dallas,TX,75201,4500,1285,3215
+2700399,Matthew,Davis,5334 Ridgeway Dr,Fort Worth,TX,76101,1000,224,776
+2700401,Sarah,Martin,1372 4th St,Houston,TX,77001,6000,3933,2067
+2700411,James,Martinez,7970 Washington St,San Antonio,TX,78201,12000,8692,3308
+2700413,Jessica,Hernandez,4222 Sunset Blvd,Dallas,TX,75201,1500,1416,84
+2700418,David,Lopez,4862 Lakeview Dr,Fort Worth,TX,76101,2000,446,1554
+2700425,Mary,Martinez,6954 3rd St,San Antonio,TX,78201,2000,85,1915
+2700430,Mary,Clark,8252 Walnut St,El Paso,TX,79901,1500,100,1400
+2700431,James,Lee,5624 Main St,Houston,TX,77001,1000,789,211
+2700432,Elizabeth,Lewis,9595 Sunset Blvd,Fort Worth,TX,76101,6000,2168,3832
+2700433,Jessica,Smith,2869 Hillcrest Rd,El Paso,TX,79901,2000,1938,62
+2700435,Lisa,Thompson,9233 Walnut St,Fort Worth,TX,76101,6000,4803,1197
+2700438,John,Hernandez,375 Cherry Ln,San Antonio,TX,78201,9000,4056,4944
+2700439,Daniel,Wilson,123 Maple Ave,Fort Worth,TX,76101,12000,2042,9958
+2700440,Nancy,Miller,6476 Forest Ave,San Antonio,TX,78201,2500,1816,684
+2700445,William,Miller,840 Elm St,San Antonio,TX,78201,1000,683,317
+2700453,Nancy,Garcia,1486 Cherry Ln,Fort Worth,TX,76101,3000,2226,774
+2700455,Sandra,Harris,5464 Birch St,Houston,TX,77001,1500,171,1329
+2700459,Linda,Lee,974 Maple Ave,El Paso,TX,79901,1000,217,783
+2700473,Sandra,Clark,2800 Oak St,San Antonio,TX,78201,12000,1220,10780
+2700485,Elizabeth,Smith,8698 Cedar Ln,Austin,TX,73301,1500,184,1316
+2700491,Lisa,Martinez,1731 Cedar Ln,San Antonio,TX,78201,12000,9118,2882
+2700496,Susan,Smith,5013 Pine Ave,San Antonio,TX,78201,12000,1116,10884
+2700498,Sarah,Wilson,4179 3rd St,Fort Worth,TX,76101,4500,2171,2329
+2700499,Nancy,White,9197 Birch St,San Antonio,TX,78201,1500,865,635
+2700506,John,Thomas,7478 2nd St,Houston,TX,77001,3000,2819,181
+2700508,John,Thompson,7210 Birch St,Houston,TX,77001,1000,16,984
+2700509,Sandra,Garcia,5497 3rd St,Fort Worth,TX,76101,6000,3311,2689
+2700512,Joseph,Martinez,8099 Hillcrest Rd,Fort Worth,TX,76101,6000,3986,2014
+2700514,John,Brown,3016 Walnut St,Houston,TX,77001,9000,966,8034
+2700518,Mark,Davis,7680 Court St,Fort Worth,TX,76101,12000,1666,10334
+2700519,James,Garcia,1393 Ridgeway Dr,Houston,TX,77001,3000,243,2757
+2700520,Matthew,Clark,6533 Hillcrest Rd,El Paso,TX,79901,2000,1364,636
+2700538,Richard,Garcia,6188 Oak St,Fort Worth,TX,76101,4500,468,4032
+2700539,David,White,6023 Ridgeway Dr,Dallas,TX,75201,4500,518,3982
+2700540,Elizabeth,Williams,7145 4th St,Fort Worth,TX,76101,1500,306,1194
+2700547,Michael,Clark,648 Lakeview Dr,San Antonio,TX,78201,2500,751,1749
+2700553,Richard,Ramirez,8940 Washington St,San Antonio,TX,78201,12000,10584,1416
+2700557,Mary,Gonzalez,115 Oak St,Fort Worth,TX,76101,9000,8802,198
+2700561,Barbara,Lewis,8756 Cherry Ln,Austin,TX,73301,9000,3666,5334
+2700564,Christopher,Hernandez,8836 Maple Ave,Fort Worth,TX,76101,6000,4251,1749
+2700565,Elizabeth,Perez,9848 Cherry Ln,Dallas,TX,75201,3000,1976,1024
+2700569,Elizabeth,Martin,7540 Hillcrest Rd,Dallas,TX,75201,1000,371,629
+2700579,Robert,Thomas,2300 Court St,Houston,TX,77001,1000,270,730
+2700581,William,Brown,1946 Forest Ave,San Antonio,TX,78201,1000,849,151
+2700582,Daniel,Thomas,1733 3rd St,San Antonio,TX,78201,1000,724,276
+2700590,Richard,Davis,4020 3rd St,Houston,TX,77001,9000,8503,497
+2700594,Christopher,Hernandez,4799 Birch St,Houston,TX,77001,1800,1610,190
+2700597,Mary,Martinez,9073 Cedar Ln,Houston,TX,77001,2000,629,1371
+2700600,Thomas,Rodriguez,7745 Court St,Austin,TX,73301,1000,739,261
+2700606,Mary,Garcia,4352 Birch St,El Paso,TX,79901,1800,785,1015
+2700610,Margaret,Williams,3639 Pine Ave,Fort Worth,TX,76101,9000,414,8586
+2700615,Michael,Williams,9733 Forest Ave,Dallas,TX,75201,6000,3288,2712
+2700616,Nancy,Ramirez,4226 Birch St,Houston,TX,77001,3000,619,2381
+2700617,Matthew,Jones,5007 Lakeview Dr,El Paso,TX,79901,2000,1474,526
+2700633,Margaret,Smith,8417 3rd St,Austin,TX,73301,1000,676,324
+2700638,Michael,Martin,2635 Cedar Ln,Fort Worth,TX,76101,1500,670,830
+2700639,Lisa,Sanchez,4963 Main St,Austin,TX,73301,2500,654,1846
+2700643,William,Thompson,4177 4th St,El Paso,TX,79901,6000,2134,3866
+2700646,Karen,Lewis,7899 Cherry Ln,Dallas,TX,75201,3000,925,2075
+2700651,Barbara,Taylor,6235 Washington St,El Paso,TX,79901,3000,257,2743
+2700652,Michael,Brown,9660 Oak St,Austin,TX,73301,2500,1496,1004
+2700656,Richard,Gonzalez,7357 Main St,San Antonio,TX,78201,9000,553,8447
+2700660,Christopher,Thomas,4853 Pine Ave,Fort Worth,TX,76101,9000,8946,54
+2700662,Barbara,Williams,4283 Ridgeway Dr,Houston,TX,77001,2500,235,2265
+2700668,Mary,Perez,7417 3rd St,Austin,TX,73301,9000,7340,1660
+2700678,Joseph,Gonzalez,836 Main St,San Antonio,TX,78201,6000,5614,386
+2700683,Michael,Davis,3074 Court St,Fort Worth,TX,76101,12000,1655,10345
+2700685,Jennifer,Martinez,7215 Ridgeway Dr,El Paso,TX,79901,4500,3038,1462
+2700690,John,Brown,9575 3rd St,El Paso,TX,79901,2500,2229,271
+2700693,Sandra,Hernandez,6833 4th St,El Paso,TX,79901,2000,168,1832
+2700696,James,Moore,2648 Court St,San Antonio,TX,78201,1800,581,1219
+2700697,James,Jones,488 Hillcrest Rd,Houston,TX,77001,9000,3936,5064
+2700707,Margaret,Davis,3494 Cedar Ln,Dallas,TX,75201,9000,2433,6567
+2700727,Charles,Thompson,6605 Pine Ave,Fort Worth,TX,76101,9000,183,8817
+2700729,James,Harris,395 Maple Ave,Houston,TX,77001,2000,1315,685
+2700734,James,Rodriguez,3125 Walnut St,Dallas,TX,75201,3000,2359,641
+2700743,Daniel,Thompson,244 Walnut St,Houston,TX,77001,1500,526,974
+2700745,Lisa,Martinez,3662 Hillcrest Rd,El Paso,TX,79901,9000,7828,1172
+2700746,Michael,Lewis,545 Sunset Blvd,Fort Worth,TX,76101,9000,6905,2095
+2700752,Patricia,Thompson,9462 4th St,Dallas,TX,75201,4500,305,4195
+2700758,Charles,Wilson,5453 Washington St,Austin,TX,73301,1000,254,746
+2700760,Barbara,Martin,5468 Main St,Dallas,TX,75201,2000,1985,15
+2700780,Barbara,Lee,5381 Forest Ave,El Paso,TX,79901,1500,473,1027
+2700787,Thomas,Hernandez,3757 Ridgeway Dr,Dallas,TX,75201,3000,1918,1082
+2700791,Jennifer,Thomas,7181 Birch St,El Paso,TX,79901,6000,2538,3462
+2700793,Sandra,Lopez,6240 Ridgeway Dr,Dallas,TX,75201,2500,1546,954
+2700797,Charles,Gonzalez,4642 Elm St,Houston,TX,77001,9000,2329,6671
+2700806,John,Robinson,5441 2nd St,Fort Worth,TX,76101,2000,1818,182
+2700809,Sarah,Thompson,902 Pine Ave,Dallas,TX,75201,2000,814,1186
+2700829,Mark,Martinez,9278 2nd St,El Paso,TX,79901,12000,2343,9657
+2700834,Patricia,Anderson,7105 Cedar Ln,Dallas,TX,75201,6000,1928,4072
+2700840,Sandra,Martin,5036 Court St,Dallas,TX,75201,3000,757,2243
+2700842,John,Jackson,7496 Sunset Blvd,El Paso,TX,79901,3000,1418,1582
+2700853,Joseph,Sanchez,6061 Court St,Austin,TX,73301,12000,887,11113
+2700854,Thomas,Moore,2534 Washington St,San Antonio,TX,78201,1000,503,497
+2700864,Lisa,Garcia,2534 Forest Ave,El Paso,TX,79901,3000,115,2885
+2700867,Matthew,Davis,9785 Maple Ave,Houston,TX,77001,2500,1531,969
+2700868,James,Lewis,2521 Spruce St,Dallas,TX,75201,2500,2178,322
+2700869,John,Anderson,8870 Oak St,Dallas,TX,75201,2500,1760,740
+2700878,Patricia,Lopez,4690 Washington St,Austin,TX,73301,1000,969,31
+2700885,Margaret,Anderson,9828 4th St,Dallas,TX,75201,4500,3268,1232
+2700886,Sarah,Miller,4087 Walnut St,Austin,TX,73301,9000,8620,380
+2700891,Patricia,Williams,415 Lakeview Dr,Dallas,TX,75201,1000,556,444
+2700894,Michael,Thomas,7831 Forest Ave,Fort Worth,TX,76101,2000,1310,690
+2700901,Patricia,Lee,3549 2nd St,Dallas,TX,75201,2000,1398,602
+2700902,Elizabeth,White,6123 Cherry Ln,El Paso,TX,79901,3000,1258,1742
+2700903,Matthew,Jackson,6044 Pine Ave,El Paso,TX,79901,9000,6129,2871
+2700904,Jennifer,Martinez,2867 Cedar Ln,Houston,TX,77001,9000,5487,3513
+2700910,Daniel,Robinson,794 Hillcrest Rd,Houston,TX,77001,4500,4118,382
+2700915,Matthew,Johnson,8601 Maple Ave,Fort Worth,TX,76101,1500,288,1212
+2700918,Karen,Robinson,8015 Oak St,Houston,TX,77001,4500,4492,8
+2700923,John,White,7843 Ridgeway Dr,San Antonio,TX,78201,9000,7319,1681
+2700927,Joseph,Gonzalez,9105 Cedar Ln,Houston,TX,77001,1000,688,312
+2700931,Lisa,Miller,2660 Pine Ave,Dallas,TX,75201,2500,751,1749
+2700932,Elizabeth,Davis,6061 Court St,Fort Worth,TX,76101,1800,885,915
+2700934,Anthony,Thomas,9840 Birch St,Dallas,TX,75201,6000,3240,2760
+2700938,William,Jackson,3412 Court St,San Antonio,TX,78201,2500,2120,380
+2700946,Jessica,Martin,1117 Hillcrest Rd,Austin,TX,73301,6000,4883,1117
+2700950,Charles,Wilson,3130 Main St,El Paso,TX,79901,2000,1926,74
+2700952,Daniel,Hernandez,5511 Spruce St,Fort Worth,TX,76101,12000,10102,1898
+2700962,Daniel,Harris,1233 Oak St,El Paso,TX,79901,6000,1939,4061
+2700965,Jessica,Anderson,9842 Forest Ave,Fort Worth,TX,76101,1000,987,13
+2700971,Thomas,Martinez,1750 Pine Ave,Austin,TX,73301,3000,860,2140
+2700973,David,Gonzalez,781 4th St,Austin,TX,73301,1500,998,502
+2700977,Linda,Moore,7443 Cherry Ln,Fort Worth,TX,76101,2500,650,1850
+2700987,Michael,Robinson,5429 Lakeview Dr,El Paso,TX,79901,3000,2538,462
+2700989,Joseph,Lopez,355 Sunset Blvd,Houston,TX,77001,1500,1409,91
+2700993,Linda,White,9283 Sunset Blvd,El Paso,TX,79901,6000,5357,643
+2700994,Barbara,Jackson,1016 Washington St,El Paso,TX,79901,3000,2273,727
+2700995,Susan,Smith,8472 Cedar Ln,Fort Worth,TX,76101,1000,49,951
+2701003,Joseph,Garcia,1810 2nd St,Houston,TX,77001,4500,1048,3452
+2701009,William,Perez,2738 Cedar Ln,San Antonio,TX,78201,2000,1451,549
+2701022,Linda,Anderson,3087 3rd St,Fort Worth,TX,76101,2000,1444,556
+2701027,John,Harris,555 Pine Ave,Fort Worth,TX,76101,9000,38,8962
+2701035,Lisa,Smith,9410 Cedar Ln,Houston,TX,77001,12000,6538,5462
+2701038,Richard,Lee,6834 Spruce St,San Antonio,TX,78201,1000,961,39
+2701040,Mark,Taylor,7324 Washington St,Austin,TX,73301,12000,9768,2232
+2701041,Lisa,Miller,1603 Cedar Ln,Dallas,TX,75201,2500,1328,1172
+2701042,Betty,Ramirez,9893 Oak St,Fort Worth,TX,76101,1500,301,1199
+2701048,Sandra,Garcia,5469 Elm St,San Antonio,TX,78201,12000,10396,1604
+2701050,Thomas,Lee,7143 Oak St,El Paso,TX,79901,2500,355,2145
+2701068,Robert,Brown,4913 Cedar Ln,El Paso,TX,79901,9000,3588,5412
+2701071,Matthew,Johnson,8794 Walnut St,Austin,TX,73301,9000,2208,6792
+2701072,Richard,Martinez,4339 Forest Ave,Houston,TX,77001,2000,1891,109
+2701078,Michael,Davis,6447 Oak St,Houston,TX,77001,1500,812,688
+2701085,Margaret,Thomas,9677 Main St,Austin,TX,73301,2500,2093,407
+2701087,Anthony,Ramirez,177 Hillcrest Rd,San Antonio,TX,78201,1800,728,1072
+2701091,Sandra,Thompson,2482 Birch St,Austin,TX,73301,6000,4554,1446
+2701095,Sandra,Garcia,865 Hillcrest Rd,Houston,TX,77001,2500,250,2250
+2701098,Jennifer,Taylor,7740 2nd St,El Paso,TX,79901,2000,1436,564
+2701108,Barbara,Ramirez,9461 Hillcrest Rd,Dallas,TX,75201,12000,4852,7148
+2701111,Joseph,Harris,9540 Lakeview Dr,El Paso,TX,79901,9000,5096,3904
+2701113,Betty,Smith,8367 Spruce St,El Paso,TX,79901,1500,47,1453
+2701116,Matthew,Miller,2465 Forest Ave,Austin,TX,73301,1800,713,1087
+2701117,Charles,Ramirez,1142 4th St,Austin,TX,73301,2500,913,1587
+2701120,Sarah,Thomas,3294 Main St,El Paso,TX,79901,9000,5294,3706
+2701126,David,Martinez,3870 Birch St,Austin,TX,73301,12000,201,11799
+2701128,Margaret,Wilson,9426 Cherry Ln,El Paso,TX,79901,9000,4051,4949
+2701135,Jessica,Lee,5041 Main St,El Paso,TX,79901,9000,6834,2166
+2701139,Robert,Hernandez,1514 2nd St,San Antonio,TX,78201,2000,578,1422
+2701140,Nancy,Garcia,8107 Court St,Houston,TX,77001,1000,708,292
+2701142,James,Hernandez,3497 2nd St,El Paso,TX,79901,6000,4889,1111
+2701152,Richard,Clark,1716 Cherry Ln,Houston,TX,77001,9000,1889,7111
+2701153,Richard,Lewis,6439 Maple Ave,San Antonio,TX,78201,1500,1009,491
+2701154,Margaret,Rodriguez,5063 Pine Ave,Houston,TX,77001,1500,862,638
+2701156,Mary,Brown,324 Sunset Blvd,Houston,TX,77001,6000,3078,2922
+2701159,James,Clark,5736 Spruce St,Houston,TX,77001,1800,709,1091
+2701161,Barbara,Anderson,1730 Spruce St,El Paso,TX,79901,6000,4792,1208
+2701162,Margaret,Sanchez,3494 3rd St,Houston,TX,77001,3000,2883,117
+2701170,Mary,Williams,7808 4th St,Austin,TX,73301,6000,3457,2543
+2701174,Richard,Clark,9551 4th St,San Antonio,TX,78201,3000,670,2330
+2701182,Thomas,Wilson,8088 Cherry Ln,Dallas,TX,75201,1800,1751,49
+2701184,Anthony,Martin,1466 Main St,Houston,TX,77001,2000,483,1517
+2701185,John,Lewis,1943 3rd St,Austin,TX,73301,3000,215,2785
+2701186,Margaret,Rodriguez,9777 Sunset Blvd,El Paso,TX,79901,2500,1641,859
+2701187,Jennifer,Gonzalez,5442 Oak St,Dallas,TX,75201,1000,570,430
+2701203,Daniel,Williams,7931 Ridgeway Dr,Fort Worth,TX,76101,6000,1640,4360
+2701204,Nancy,Hernandez,5278 Ridgeway Dr,El Paso,TX,79901,6000,4186,1814
+2701205,Joseph,Thompson,8907 Court St,San Antonio,TX,78201,9000,2681,6319
+2701212,John,Lopez,3845 Sunset Blvd,El Paso,TX,79901,12000,9304,2696
+2701213,Lisa,Sanchez,436 Cherry Ln,San Antonio,TX,78201,6000,4422,1578
+2701214,Christopher,White,2232 Birch St,El Paso,TX,79901,12000,6078,5922
+2701217,Margaret,Lee,145 Ridgeway Dr,San Antonio,TX,78201,9000,875,8125
+2701218,Margaret,Perez,7408 4th St,San Antonio,TX,78201,6000,1097,4903
+2701219,Christopher,Wilson,7385 Oak St,Austin,TX,73301,2000,1363,637
+2701224,William,Thomas,361 Maple Ave,San Antonio,TX,78201,1500,664,836
+2701227,Sarah,Smith,9182 Cedar Ln,Dallas,TX,75201,6000,410,5590
+2701228,Christopher,Robinson,1747 4th St,Dallas,TX,75201,2500,1244,1256
+2701235,Charles,Gonzalez,2396 Washington St,Austin,TX,73301,1000,703,297
+2701238,Margaret,Williams,496 Spruce St,San Antonio,TX,78201,9000,1505,7495
+2701240,Mary,Lewis,5636 Maple Ave,San Antonio,TX,78201,6000,2000,4000
+2701250,John,Perez,445 Walnut St,Fort Worth,TX,76101,1500,543,957
+2701251,Linda,Moore,1332 Court St,Dallas,TX,75201,2000,947,1053
+2701252,William,Clark,5102 Walnut St,San Antonio,TX,78201,2500,495,2005
+2701253,Thomas,Taylor,1222 Court St,El Paso,TX,79901,4500,80,4420
+2701259,Daniel,Wilson,3693 Spruce St,Fort Worth,TX,76101,2500,304,2196
+2701260,Elizabeth,Martinez,3214 4th St,Fort Worth,TX,76101,2000,900,1100
+2701261,James,Davis,3604 Cherry Ln,Dallas,TX,75201,12000,4780,7220
+2701263,James,Harris,2007 Spruce St,El Paso,TX,79901,12000,6631,5369
+2701271,Susan,Williams,9303 Birch St,San Antonio,TX,78201,6000,4321,1679
+2701275,Daniel,Taylor,3543 Ridgeway Dr,San Antonio,TX,78201,9000,2832,6168
+2701278,Jennifer,White,2429 Main St,Austin,TX,73301,2000,1936,64
+2701287,David,Perez,2178 Pine Ave,Houston,TX,77001,1000,407,593
+2701288,Sarah,Jackson,4881 Elm St,Austin,TX,73301,2500,1751,749
+2701290,Sandra,Jackson,1473 Court St,San Antonio,TX,78201,1000,993,7
+2701293,Christopher,Clark,5907 Walnut St,Dallas,TX,75201,1000,728,272
+2701302,David,Thompson,2192 Washington St,Fort Worth,TX,76101,1000,106,894
+2701304,Matthew,Ramirez,7582 Lakeview Dr,San Antonio,TX,78201,1000,323,677
+2701313,Richard,Lewis,378 Main St,Dallas,TX,75201,1000,782,218
+2701314,Mark,Miller,4967 Court St,Fort Worth,TX,76101,9000,4270,4730
+2701319,Margaret,Davis,3325 Court St,Austin,TX,73301,1800,1085,715
+2701327,David,Brown,2953 Cherry Ln,Houston,TX,77001,1500,214,1286
+2701351,Mary,Williams,5123 Forest Ave,Fort Worth,TX,76101,2000,382,1618
+2701356,William,Wilson,5387 Forest Ave,Houston,TX,77001,6000,353,5647
+2701357,James,Martin,1287 Court St,Austin,TX,73301,6000,5629,371
+2701360,Mary,Williams,2216 Maple Ave,Austin,TX,73301,9000,7298,1702
+2701373,Sandra,Lee,8963 Court St,Dallas,TX,75201,12000,6361,5639
+2701375,Margaret,Taylor,8553 Oak St,Houston,TX,77001,6000,5469,531
+2701377,Nancy,Wilson,273 Washington St,Austin,TX,73301,1800,1265,535
+2701378,John,Harris,8434 Ridgeway Dr,Houston,TX,77001,6000,4957,1043
+2701380,Robert,Thomas,6803 Main St,Dallas,TX,75201,1800,1662,138
+2701383,Christopher,Jackson,7946 Pine Ave,El Paso,TX,79901,3000,610,2390
+2701396,Anthony,Davis,5138 Spruce St,Austin,TX,73301,2000,431,1569
+2701397,Elizabeth,Thompson,795 Walnut St,Houston,TX,77001,2000,417,1583
+2701401,Robert,Robinson,2923 4th St,Austin,TX,73301,1500,112,1388
+2701406,Sarah,Hernandez,5531 Court St,El Paso,TX,79901,2000,1495,505
+2701424,Jessica,Jones,2383 4th St,El Paso,TX,79901,2000,1747,253
+2701434,Joseph,Jones,423 Cedar Ln,Austin,TX,73301,1500,886,614
+2701446,Sarah,Martinez,7987 Ridgeway Dr,Houston,TX,77001,9000,7792,1208
+2701451,John,Anderson,6997 Main St,Houston,TX,77001,1500,1074,426
+2701452,Michael,Williams,9428 Lakeview Dr,Houston,TX,77001,2000,159,1841
+2701454,Matthew,Lopez,5677 Pine Ave,San Antonio,TX,78201,1000,921,79
+2701456,Lisa,Perez,2315 Oak St,San Antonio,TX,78201,1800,977,823
+2701458,Linda,Garcia,3840 Oak St,Austin,TX,73301,1000,21,979
+2701465,Robert,Jones,6172 Main St,Dallas,TX,75201,1500,455,1045
+2701471,Matthew,Ramirez,7124 Spruce St,El Paso,TX,79901,3000,2149,851
+2701474,Barbara,Wilson,3073 Cedar Ln,Houston,TX,77001,2500,1305,1195
+2701479,Betty,Harris,399 3rd St,Houston,TX,77001,1500,1421,79
+2701487,Richard,Martin,1888 Birch St,El Paso,TX,79901,1500,736,764
+2701490,Charles,Anderson,1681 Washington St,El Paso,TX,79901,2000,1968,32
+2701492,David,Brown,5557 Spruce St,San Antonio,TX,78201,4500,3000,1500
+2701494,Betty,Wilson,4290 Cherry Ln,Houston,TX,77001,1000,962,38
+2701497,Jennifer,Lewis,4756 Main St,El Paso,TX,79901,1000,900,100
+2701501,Christopher,Rodriguez,3690 Spruce St,Dallas,TX,75201,2500,1962,538
+2701504,Charles,Robinson,4219 Pine Ave,San Antonio,TX,78201,3000,1567,1433
+2701515,Karen,Lee,5685 Maple Ave,Houston,TX,77001,1800,1704,96
+2701519,Sarah,Gonzalez,3808 Sunset Blvd,Dallas,TX,75201,9000,1730,7270
+2701522,Margaret,Perez,3653 Cedar Ln,Houston,TX,77001,12000,9878,2122
+2701529,James,Perez,8610 4th St,San Antonio,TX,78201,6000,1513,4487
+2701530,Margaret,Lee,8777 Ridgeway Dr,El Paso,TX,79901,3000,1950,1050
+2701532,Daniel,Sanchez,5515 Main St,El Paso,TX,79901,6000,5469,531
+2701543,Lisa,Garcia,9534 Forest Ave,Fort Worth,TX,76101,2000,268,1732
+2701544,Barbara,Johnson,5674 Main St,Fort Worth,TX,76101,2000,1698,302
+2701545,James,Smith,3568 Walnut St,Dallas,TX,75201,9000,4997,4003
+2701550,Barbara,Moore,5371 Lakeview Dr,San Antonio,TX,78201,2500,898,1602
+2701558,John,Clark,6939 Cedar Ln,San Antonio,TX,78201,12000,11888,112
+2701559,Linda,Rodriguez,870 4th St,Dallas,TX,75201,12000,6178,5822
+2701561,Charles,Williams,5817 Spruce St,Fort Worth,TX,76101,3000,1491,1509
+2701572,Charles,Jackson,9567 Sunset Blvd,Houston,TX,77001,1000,22,978
+2701574,Mark,Lopez,7803 Elm St,San Antonio,TX,78201,4500,1824,2676
+2701575,Mark,Brown,5428 3rd St,Austin,TX,73301,12000,11623,377
+2701583,Joseph,Garcia,8372 Pine Ave,San Antonio,TX,78201,6000,5154,846
+2701585,Susan,Harris,7740 Main St,Houston,TX,77001,1800,196,1604
+2701586,Mark,Wilson,2566 Forest Ave,San Antonio,TX,78201,3000,1939,1061
+2701588,Mark,Wilson,1557 Main St,San Antonio,TX,78201,3000,1585,1415
+2701590,Michael,Lee,9487 Hillcrest Rd,Dallas,TX,75201,1800,334,1466
+2701593,James,Lopez,2049 Forest Ave,Houston,TX,77001,3000,1391,1609
+2701596,Nancy,Thomas,4910 3rd St,El Paso,TX,79901,1000,612,388
+2701606,Linda,Perez,366 Main St,El Paso,TX,79901,9000,2116,6884
+2701614,Joseph,Lee,6767 Sunset Blvd,Dallas,TX,75201,6000,320,5680
+2701615,Christopher,White,6200 Elm St,Houston,TX,77001,1800,330,1470
+2701620,Betty,Harris,3865 Cherry Ln,El Paso,TX,79901,4500,1069,3431
+2701621,Mark,Thomas,8076 Spruce St,El Paso,TX,79901,12000,3539,8461
+2701626,Sandra,Ramirez,4405 Ridgeway Dr,Fort Worth,TX,76101,1800,864,936
+2701629,Joseph,Sanchez,838 2nd St,Austin,TX,73301,3000,515,2485
+2701631,Daniel,Taylor,9608 Pine Ave,Fort Worth,TX,76101,1000,520,480
+2701633,Patricia,Robinson,1988 Ridgeway Dr,El Paso,TX,79901,9000,3312,5688
+2701640,Betty,Lopez,5214 4th St,Dallas,TX,75201,2000,299,1701
+2701646,Barbara,Martin,1846 Lakeview Dr,Houston,TX,77001,2500,1209,1291
+2701647,Susan,Moore,1544 Hillcrest Rd,Austin,TX,73301,2500,785,1715
+2701664,Linda,Miller,5360 Cherry Ln,Dallas,TX,75201,1000,69,931
+2701665,Sarah,Smith,4191 2nd St,San Antonio,TX,78201,1500,488,1012
+2701671,Lisa,Taylor,3916 Lakeview Dr,El Paso,TX,79901,1800,1785,15
+2701673,Robert,Lopez,9873 4th St,Dallas,TX,75201,1800,1233,567
+2701678,Elizabeth,Martinez,3479 Maple Ave,Dallas,TX,75201,9000,7707,1293
+2701679,Elizabeth,White,1072 Ridgeway Dr,San Antonio,TX,78201,2500,2072,428
+2701681,William,Lopez,3960 Lakeview Dr,Houston,TX,77001,12000,2958,9042
+2701693,Mary,Smith,7798 Birch St,Fort Worth,TX,76101,1500,1487,13
+2701695,Mark,Brown,264 Birch St,Houston,TX,77001,2000,1457,543
+2701713,Jessica,Taylor,8021 Main St,Houston,TX,77001,1000,746,254
+2701716,Jessica,Moore,9150 Washington St,Fort Worth,TX,76101,1500,1461,39
+2701727,Mark,Gonzalez,3142 Elm St,Dallas,TX,75201,9000,7184,1816
+2701732,Jessica,Clark,7658 Pine Ave,San Antonio,TX,78201,9000,8511,489
+2701733,Michael,Robinson,1215 Lakeview Dr,Houston,TX,77001,12000,1075,10925
+2701734,Anthony,Brown,8673 Walnut St,Dallas,TX,75201,1800,1297,503
+2701737,David,Moore,2752 Sunset Blvd,San Antonio,TX,78201,3000,788,2212
+2701749,Barbara,Lopez,966 Maple Ave,Dallas,TX,75201,1800,937,863
+2701757,Sandra,Sanchez,4019 Washington St,San Antonio,TX,78201,3000,2643,357
+2701763,John,Gonzalez,8126 Washington St,Dallas,TX,75201,9000,1493,7507
+2701767,Sarah,Lewis,1232 Ridgeway Dr,El Paso,TX,79901,1000,785,215
+2701769,Sandra,Thompson,4895 Cedar Ln,Fort Worth,TX,76101,6000,766,5234
+2701780,Thomas,Wilson,2408 Washington St,El Paso,TX,79901,9000,3911,5089
+2701784,Christopher,Brown,1912 Lakeview Dr,Fort Worth,TX,76101,12000,1321,10679
+2701785,Sandra,Williams,1998 Elm St,Houston,TX,77001,3000,2506,494
+2701789,Robert,Gonzalez,2009 Walnut St,Austin,TX,73301,4500,441,4059
+2701802,William,Sanchez,740 Spruce St,El Paso,TX,79901,2500,1805,695
+2701804,Lisa,Martin,1619 Cherry Ln,Houston,TX,77001,6000,533,5467
+2701806,Nancy,Robinson,8412 Pine Ave,Fort Worth,TX,76101,1000,445,555
+2701809,Barbara,Lewis,1878 Lakeview Dr,San Antonio,TX,78201,2000,302,1698
+2701812,Anthony,Gonzalez,5602 4th St,Fort Worth,TX,76101,9000,3393,5607
+2701816,Linda,White,6509 Maple Ave,El Paso,TX,79901,9000,5835,3165
+2701820,Mary,Clark,1211 Main St,El Paso,TX,79901,9000,4685,4315
+2701826,James,Jones,2689 Maple Ave,San Antonio,TX,78201,1000,79,921
+2701830,Robert,Gonzalez,6492 Court St,El Paso,TX,79901,2500,57,2443
+2701832,David,Thompson,6655 Sunset Blvd,Austin,TX,73301,1000,515,485
+2701839,Daniel,Wilson,2036 Spruce St,Dallas,TX,75201,2500,1882,618
+2701843,Joseph,Jackson,4708 Sunset Blvd,El Paso,TX,79901,12000,2331,9669
+2701844,Mary,Lopez,1472 Spruce St,San Antonio,TX,78201,4500,1755,2745
+2701847,Jennifer,Miller,452 Lakeview Dr,Fort Worth,TX,76101,2000,1403,597
+2701859,Mark,Williams,2580 Forest Ave,Fort Worth,TX,76101,3000,623,2377
+2701864,Margaret,Thompson,5527 4th St,Houston,TX,77001,9000,8573,427
+2701874,Patricia,Williams,480 Hillcrest Rd,Houston,TX,77001,3000,2571,429
+2701877,Mark,Wilson,1055 Birch St,Houston,TX,77001,6000,3491,2509
+2701883,Susan,Hernandez,9757 Cedar Ln,El Paso,TX,79901,6000,2004,3996
+2701884,Daniel,Johnson,4451 3rd St,San Antonio,TX,78201,3000,1397,1603
+2701887,Daniel,Clark,3622 Walnut St,Dallas,TX,75201,1800,1303,497
+2701899,Robert,Martin,8718 Washington St,Austin,TX,73301,1500,36,1464
+2701900,Anthony,Brown,6328 Hillcrest Rd,El Paso,TX,79901,12000,1159,10841
+2701901,Charles,Williams,7628 Lakeview Dr,Houston,TX,77001,2000,1869,131
+2701911,Nancy,Miller,3150 Washington St,Austin,TX,73301,4500,1967,2533
+2701912,Charles,Harris,9499 Washington St,Dallas,TX,75201,3000,1373,1627
+2701913,Charles,Miller,4170 Birch St,San Antonio,TX,78201,1500,852,648
+2701923,Susan,Sanchez,6403 Cherry Ln,El Paso,TX,79901,2000,1119,881
+2701926,Charles,Rodriguez,259 Pine Ave,El Paso,TX,79901,12000,8119,3881
+2701932,Jennifer,Clark,2916 Court St,Houston,TX,77001,2000,1586,414
+2701940,William,Clark,377 Walnut St,Austin,TX,73301,6000,5749,251
+2701944,Margaret,Harris,8538 2nd St,Austin,TX,73301,1000,862,138
+2701946,Susan,Wilson,5303 Forest Ave,Dallas,TX,75201,4500,1875,2625
+2701947,Jennifer,Martin,7204 Pine Ave,San Antonio,TX,78201,12000,6733,5267
+2701954,Susan,Miller,7221 Main St,San Antonio,TX,78201,1800,751,1049
+2701957,John,Gonzalez,4053 Forest Ave,Houston,TX,77001,4500,3621,879
+2701970,Linda,Jones,4303 Cedar Ln,El Paso,TX,79901,12000,4094,7906
+2701976,Linda,White,4764 Cherry Ln,Houston,TX,77001,12000,7285,4715
+2701977,Charles,Smith,7439 Washington St,Dallas,TX,75201,2000,169,1831
+2701992,Margaret,Martinez,9215 Court St,Austin,TX,73301,3000,1215,1785
+2701994,Charles,Jones,2340 Elm St,Houston,TX,77001,12000,7945,4055
+2701995,Patricia,Lewis,7864 Walnut St,Austin,TX,73301,9000,4706,4294
+2702000,Karen,Davis,2870 2nd St,Fort Worth,TX,76101,1000,71,929
+2702006,Barbara,Davis,4421 Pine Ave,Dallas,TX,75201,2000,1321,679
+2702017,Susan,Gonzalez,1006 Walnut St,San Antonio,TX,78201,2000,1122,878
+2702021,Charles,Harris,4849 Elm St,El Paso,TX,79901,1800,1588,212
+2702022,Nancy,White,7219 Elm St,Fort Worth,TX,76101,9000,8747,253
+2702025,Sarah,Williams,6609 3rd St,Dallas,TX,75201,2000,1122,878
+2702033,Susan,Sanchez,4706 Walnut St,Austin,TX,73301,1500,1253,247
+2702034,Mary,Lee,8933 Pine Ave,El Paso,TX,79901,6000,3586,2414
+2702044,Robert,Rodriguez,5916 4th St,Austin,TX,73301,1500,1210,290
+2702045,David,Martinez,2287 Sunset Blvd,Dallas,TX,75201,2500,1288,1212
+2702046,Richard,Wilson,6686 Forest Ave,Austin,TX,73301,3000,34,2966
+2702048,Susan,Hernandez,787 Main St,Dallas,TX,75201,12000,1804,10196
+2702053,Lisa,Garcia,4890 Washington St,San Antonio,TX,78201,2500,711,1789
+2702055,Mary,White,3857 Elm St,Austin,TX,73301,2000,29,1971
+2702063,Sandra,White,1294 Hillcrest Rd,El Paso,TX,79901,3000,2457,543
+2702068,Susan,White,7966 Court St,San Antonio,TX,78201,6000,426,5574
+2702080,Christopher,Lopez,3913 Washington St,El Paso,TX,79901,2000,1906,94
+2702083,Betty,Smith,4869 Sunset Blvd,Dallas,TX,75201,9000,7355,1645
+2702086,Barbara,Hernandez,2610 Maple Ave,Fort Worth,TX,76101,1500,729,771
+2702093,Thomas,Rodriguez,7430 Washington St,Austin,TX,73301,3000,1440,1560
+2702094,Joseph,Garcia,6741 Lakeview Dr,San Antonio,TX,78201,12000,4182,7818
+2702102,Anthony,Lopez,8563 Sunset Blvd,El Paso,TX,79901,2000,1300,700
+2702104,Jessica,Martin,3965 Spruce St,Houston,TX,77001,1000,540,460
+2702107,Christopher,Ramirez,5842 Birch St,Dallas,TX,75201,2500,243,2257
+2702125,Thomas,Lopez,2292 Washington St,El Paso,TX,79901,1800,897,903
+2702126,John,Lopez,8482 Birch St,Dallas,TX,75201,4500,3040,1460
+2702129,Karen,Lewis,7614 3rd St,San Antonio,TX,78201,4500,404,4096
+2702130,William,Jones,247 Pine Ave,Austin,TX,73301,3000,973,2027
+2702133,Anthony,Smith,9006 Spruce St,Fort Worth,TX,76101,2500,1907,593
+2702135,Patricia,Robinson,719 Birch St,Dallas,TX,75201,1500,1152,348
+2702139,Lisa,Garcia,6975 Hillcrest Rd,Austin,TX,73301,2500,1261,1239
+2702149,Jennifer,Jackson,1620 Main St,Houston,TX,77001,1500,1111,389
+2702150,Betty,Lewis,3204 Sunset Blvd,Austin,TX,73301,6000,1441,4559
+2702158,John,Lopez,3350 Birch St,El Paso,TX,79901,9000,1582,7418
+2702162,Betty,Brown,6276 Cedar Ln,El Paso,TX,79901,12000,6851,5149
+2702163,Betty,Smith,5225 Main St,Houston,TX,77001,2000,1548,452
+2702164,Sandra,Johnson,9949 Lakeview Dr,Austin,TX,73301,9000,5628,3372
+2702172,Jennifer,Lopez,7739 Ridgeway Dr,El Paso,TX,79901,6000,2331,3669
+2702174,Anthony,Williams,8396 Cedar Ln,Fort Worth,TX,76101,1000,783,217
+2702175,Susan,Smith,1119 Maple Ave,Houston,TX,77001,9000,2491,6509
+2702180,Elizabeth,Rodriguez,299 Walnut St,Austin,TX,73301,2000,753,1247
+2702183,Christopher,Johnson,956 Lakeview Dr,Austin,TX,73301,1500,38,1462
+2702190,Jessica,Lee,9289 Main St,Austin,TX,73301,1800,1166,634
+2702191,Sarah,Clark,7714 4th St,Houston,TX,77001,9000,1255,7745
+2702194,Margaret,Brown,1067 Pine Ave,Fort Worth,TX,76101,6000,1282,4718
+2702195,Jessica,Perez,5111 2nd St,Houston,TX,77001,2000,1742,258
+2702196,Jennifer,Wilson,4962 2nd St,Fort Worth,TX,76101,1500,653,847
+2702201,Mark,Clark,2225 Pine Ave,Austin,TX,73301,1500,1118,382
+2702202,John,Miller,9226 2nd St,El Paso,TX,79901,4500,781,3719
+2702209,Margaret,Hernandez,7330 Maple Ave,Dallas,TX,75201,2000,899,1101
+2702213,Betty,Robinson,2027 Cedar Ln,Dallas,TX,75201,1000,421,579
+2702214,Mary,Perez,9886 Walnut St,San Antonio,TX,78201,1800,457,1343
+2702220,Linda,Jones,4463 Main St,Austin,TX,73301,3000,2313,687
+2702221,Nancy,Ramirez,8264 Hillcrest Rd,San Antonio,TX,78201,12000,6313,5687
+2702223,Nancy,Wilson,2022 3rd St,El Paso,TX,79901,3000,2106,894
+2702228,Thomas,Davis,1905 Cedar Ln,Houston,TX,77001,2500,624,1876
+2702230,Linda,Rodriguez,3885 Washington St,Dallas,TX,75201,4500,657,3843
+2702231,Anthony,Miller,7865 Birch St,El Paso,TX,79901,3000,366,2634
+2702233,William,Thompson,4629 Elm St,Austin,TX,73301,2500,2029,471
+2702234,Charles,Lopez,3800 Oak St,Dallas,TX,75201,12000,11389,611
+2702238,Lisa,Martinez,5165 Cedar Ln,Houston,TX,77001,1000,357,643
+2702239,Jennifer,Gonzalez,479 Lakeview Dr,El Paso,TX,79901,2000,434,1566
+2702240,Jessica,Jones,9464 4th St,Dallas,TX,75201,1000,817,183
+2702241,Elizabeth,Jackson,3574 Sunset Blvd,Houston,TX,77001,1000,228,772
+2702244,David,Garcia,5928 Maple Ave,San Antonio,TX,78201,1800,403,1397
+2702245,Nancy,Sanchez,6167 Walnut St,Austin,TX,73301,9000,7245,1755
+2702250,Joseph,Thompson,8879 Oak St,Fort Worth,TX,76101,4500,4211,289
+2702273,Mary,Davis,5576 Maple Ave,Austin,TX,73301,1800,1245,555
+2702277,Linda,Hernandez,6559 3rd St,San Antonio,TX,78201,4500,1202,3298
+2702280,Jennifer,Garcia,5629 Pine Ave,Austin,TX,73301,6000,2629,3371
+2702290,John,Martinez,7757 Court St,San Antonio,TX,78201,1800,1530,270
+2702292,Sarah,Moore,6537 Lakeview Dr,Dallas,TX,75201,1000,971,29
+2702293,Jessica,Lewis,4344 Cedar Ln,Austin,TX,73301,2000,972,1028
+2702295,Jessica,Sanchez,2785 Court St,Houston,TX,77001,1000,670,330
+2702296,Linda,Thomas,1272 Elm St,Fort Worth,TX,76101,1000,195,805
+2702300,Matthew,Thomas,7443 Oak St,Houston,TX,77001,1500,644,856
+2702302,Joseph,Robinson,6731 Maple Ave,El Paso,TX,79901,12000,7673,4327
+2702311,Charles,Perez,7466 Maple Ave,San Antonio,TX,78201,1800,769,1031
+2702320,Karen,Jones,1716 Maple Ave,El Paso,TX,79901,3000,815,2185
+2702321,Margaret,Lopez,8718 Hillcrest Rd,Houston,TX,77001,1800,240,1560
+2702322,Christopher,White,7208 Washington St,Houston,TX,77001,3000,1941,1059
+2702323,Richard,Moore,8576 Court St,El Paso,TX,79901,4500,1721,2779
+2702324,Matthew,Wilson,752 4th St,Houston,TX,77001,1500,1401,99
+2702325,Elizabeth,Williams,9085 Ridgeway Dr,El Paso,TX,79901,4500,3583,917
+2702328,Jessica,Robinson,4123 Cherry Ln,Fort Worth,TX,76101,1500,1112,388
+2702333,Daniel,Lee,4814 4th St,San Antonio,TX,78201,6000,2851,3149
+2702335,David,White,6019 Hillcrest Rd,Fort Worth,TX,76101,2500,277,2223
+2702339,Karen,Davis,2750 Washington St,San Antonio,TX,78201,2500,1254,1246
+2702341,Joseph,Jones,3444 Washington St,San Antonio,TX,78201,3000,1846,1154
+2702350,Robert,Johnson,3801 Walnut St,Austin,TX,73301,4500,2352,2148
+2702359,Matthew,Smith,7420 Ridgeway Dr,El Paso,TX,79901,4500,646,3854
+2702361,Sandra,Hernandez,4622 Main St,Houston,TX,77001,12000,11789,211
+2702362,Christopher,Garcia,5490 Pine Ave,Houston,TX,77001,12000,8308,3692
+2702365,Joseph,Williams,4333 Maple Ave,Austin,TX,73301,9000,4965,4035
+2702376,Nancy,Rodriguez,5642 Main St,San Antonio,TX,78201,2000,1316,684
+2702388,Betty,Brown,7420 Cedar Ln,Dallas,TX,75201,12000,1650,10350
+2702392,Nancy,Garcia,8429 Elm St,San Antonio,TX,78201,4500,3130,1370
+2702403,Sandra,Jones,4968 Spruce St,Dallas,TX,75201,9000,4007,4993
+2702409,Daniel,Perez,6406 Sunset Blvd,San Antonio,TX,78201,1500,563,937
+2702411,John,Lopez,4263 3rd St,El Paso,TX,79901,1500,1089,411
+2702414,Jessica,Brown,6660 Cherry Ln,San Antonio,TX,78201,1800,516,1284
+2702415,Margaret,White,2624 Walnut St,San Antonio,TX,78201,12000,7435,4565
+2702417,Barbara,Jackson,9427 3rd St,San Antonio,TX,78201,1500,908,592
+2702420,Jennifer,Thompson,9493 2nd St,El Paso,TX,79901,12000,5789,6211
+2702423,Thomas,Jones,2377 Maple Ave,El Paso,TX,79901,4500,348,4152
+2702426,Robert,Wilson,1719 3rd St,El Paso,TX,79901,6000,5891,109
+2702428,Richard,Hernandez,8027 Pine Ave,Austin,TX,73301,2000,742,1258
+2702445,James,Hernandez,1647 3rd St,Austin,TX,73301,2500,1706,794
+2702446,Anthony,Lee,4146 Ridgeway Dr,Houston,TX,77001,12000,5968,6032
+2702455,Jessica,Miller,3052 Forest Ave,San Antonio,TX,78201,3000,2203,797
+2702457,Nancy,Miller,8385 Pine Ave,Dallas,TX,75201,1500,451,1049
+2702459,Charles,Davis,5560 Walnut St,Austin,TX,73301,6000,4969,1031
+2702473,David,Lewis,252 Washington St,Houston,TX,77001,3000,1797,1203
+2702476,Richard,Thomas,3793 Hillcrest Rd,Dallas,TX,75201,3000,2042,958
+2702480,Lisa,Lewis,8614 3rd St,Austin,TX,73301,1800,657,1143
+2702484,Sandra,Thomas,9161 Main St,Austin,TX,73301,3000,1661,1339
+2702485,Karen,Clark,2252 Elm St,El Paso,TX,79901,12000,6187,5813
+2702488,Joseph,Ramirez,9010 Cedar Ln,Houston,TX,77001,1000,518,482
+2702492,Joseph,Taylor,9804 Birch St,El Paso,TX,79901,3000,1174,1826
+2702502,Jennifer,Harris,925 Pine Ave,Houston,TX,77001,4500,199,4301
+2702506,Richard,Rodriguez,9711 Forest Ave,Fort Worth,TX,76101,12000,9990,2010
+2702507,Linda,Taylor,2104 Lakeview Dr,Houston,TX,77001,4500,132,4368
+2702510,Mark,Thomas,8122 Ridgeway Dr,Dallas,TX,75201,1500,500,1000
+2702513,Matthew,Brown,2891 3rd St,San Antonio,TX,78201,1500,1486,14
+2702540,Margaret,Clark,5844 Washington St,Fort Worth,TX,76101,2500,463,2037
+2702544,Betty,Ramirez,3855 Hillcrest Rd,Dallas,TX,75201,4500,3228,1272
+2702546,Thomas,Jackson,4932 Birch St,San Antonio,TX,78201,2500,885,1615
+2702547,Joseph,Miller,6491 Main St,Houston,TX,77001,4500,2989,1511
+2702551,Sarah,White,9936 Forest Ave,El Paso,TX,79901,6000,5631,369
+2702552,Christopher,Jones,4708 Walnut St,Dallas,TX,75201,6000,5469,531
+2702558,Susan,Rodriguez,9488 Spruce St,Dallas,TX,75201,9000,7694,1306
+2702566,Margaret,Jackson,1705 Maple Ave,San Antonio,TX,78201,4500,3704,796
+2702569,Joseph,Sanchez,8159 Maple Ave,Dallas,TX,75201,2500,1334,1166
+2702577,Thomas,Brown,7094 Cedar Ln,Dallas,TX,75201,9000,2947,6053
+2702578,Karen,Martinez,4315 Cedar Ln,Austin,TX,73301,12000,1296,10704
+2702579,Anthony,Perez,7705 Washington St,Fort Worth,TX,76101,6000,2859,3141
+2702580,Patricia,Smith,4582 Forest Ave,El Paso,TX,79901,2500,174,2326
+2702581,David,Smith,4895 Main St,San Antonio,TX,78201,2500,1719,781
+2702582,Nancy,Harris,8104 Walnut St,Dallas,TX,75201,2000,1463,537
+2702586,Margaret,Ramirez,2711 2nd St,Dallas,TX,75201,9000,1947,7053
+2702587,Christopher,Brown,8974 4th St,Houston,TX,77001,2500,750,1750
+2702588,Barbara,Smith,1592 Lakeview Dr,Dallas,TX,75201,2500,1603,897
+2702590,Karen,Taylor,8478 Court St,San Antonio,TX,78201,4500,1280,3220
+2702592,Patricia,Williams,8204 Main St,Houston,TX,77001,12000,2803,9197
+2702600,Jessica,Perez,7652 Pine Ave,Austin,TX,73301,4500,370,4130
+2702602,Karen,Lopez,6098 Sunset Blvd,San Antonio,TX,78201,1500,492,1008
+2702605,David,Wilson,1327 Pine Ave,Dallas,TX,75201,2500,817,1683
+2702608,Betty,Moore,7736 Maple Ave,Dallas,TX,75201,3000,2584,416
+2702614,Barbara,Smith,5547 Sunset Blvd,Houston,TX,77001,4500,4113,387
+2702620,Charles,Gonzalez,7934 2nd St,Dallas,TX,75201,3000,1492,1508
+2702621,Jennifer,Williams,834 Hillcrest Rd,El Paso,TX,79901,2500,1068,1432
+2702624,Nancy,Williams,9965 Elm St,San Antonio,TX,78201,3000,1592,1408
+2702627,David,Jackson,5994 Oak St,Dallas,TX,75201,1500,360,1140
+2702628,David,Harris,9526 Cedar Ln,San Antonio,TX,78201,1000,283,717
+2702631,Mark,Thomas,2645 Court St,Dallas,TX,75201,6000,5538,462
+2702635,Matthew,Davis,280 Birch St,Austin,TX,73301,1800,1118,682
+2702639,Mark,Jones,1099 Spruce St,Dallas,TX,75201,1000,168,832
+2702643,David,Jackson,8814 Sunset Blvd,El Paso,TX,79901,1800,61,1739
+2702644,Matthew,Clark,6693 Oak St,Austin,TX,73301,9000,7865,1135
+2702648,Richard,Sanchez,9705 Spruce St,Fort Worth,TX,76101,2500,573,1927
+2702652,Mark,Anderson,2197 Hillcrest Rd,Fort Worth,TX,76101,6000,1095,4905
+2702662,Mary,Sanchez,2023 Main St,Fort Worth,TX,76101,1800,1720,80
+2702664,John,Robinson,5566 Maple Ave,Dallas,TX,75201,6000,5690,310
+2702666,William,Taylor,1666 4th St,El Paso,TX,79901,1800,1494,306
+2702668,Nancy,Thompson,9562 Pine Ave,San Antonio,TX,78201,12000,8078,3922
+2702676,Betty,Thomas,4513 Main St,Fort Worth,TX,76101,4500,3360,1140
+2702685,Nancy,Sanchez,4899 3rd St,Dallas,TX,75201,2000,496,1504
+2702688,Michael,Moore,9182 Washington St,El Paso,TX,79901,12000,9468,2532
+2702692,Jessica,Miller,5310 Elm St,El Paso,TX,79901,1500,166,1334
+2702693,Karen,Lopez,7453 Maple Ave,Dallas,TX,75201,2000,62,1938
+2702701,Mark,Moore,8734 Spruce St,San Antonio,TX,78201,1500,1424,76
+2702704,Susan,Hernandez,4073 Maple Ave,El Paso,TX,79901,6000,1833,4167
+2702707,James,Davis,1838 3rd St,Austin,TX,73301,1500,503,997
+2702710,Linda,Miller,5035 Lakeview Dr,Austin,TX,73301,12000,7468,4532
+2702713,Linda,Lee,2478 Birch St,San Antonio,TX,78201,6000,5188,812
+2702715,Margaret,Anderson,4654 Elm St,El Paso,TX,79901,2000,1277,723
+2702718,Lisa,Thompson,4755 4th St,San Antonio,TX,78201,12000,1750,10250
+2702721,Matthew,Moore,7599 Cedar Ln,Dallas,TX,75201,4500,690,3810
+2702722,Richard,Sanchez,8591 Lakeview Dr,Houston,TX,77001,4500,3948,552
+2702723,Robert,Lee,5658 Main St,Fort Worth,TX,76101,3000,1568,1432
+2702725,Anthony,Thomas,1720 Spruce St,San Antonio,TX,78201,12000,3865,8135
+2702729,David,White,5847 Hillcrest Rd,Dallas,TX,75201,9000,5918,3082
+2702730,Lisa,Smith,9465 Birch St,El Paso,TX,79901,1800,966,834
+2702731,Susan,Garcia,3897 Forest Ave,Fort Worth,TX,76101,3000,2979,21
+2702732,Linda,Jones,5172 Birch St,Fort Worth,TX,76101,1500,1491,9
+2702734,Christopher,Robinson,8429 Lakeview Dr,Dallas,TX,75201,12000,2824,9176
+2702738,Joseph,Martin,6064 Oak St,San Antonio,TX,78201,4500,2748,1752
+2702741,David,White,5895 Lakeview Dr,El Paso,TX,79901,1000,839,161
+2702744,David,Brown,2023 Walnut St,Austin,TX,73301,2500,647,1853
+2702747,Margaret,Thompson,2042 Oak St,San Antonio,TX,78201,9000,8286,714
+2702751,Jennifer,Rodriguez,9374 Washington St,Houston,TX,77001,1000,161,839
+2702752,Sarah,Rodriguez,9806 Washington St,San Antonio,TX,78201,1800,951,849
+2702763,Linda,Miller,9709 Hillcrest Rd,Fort Worth,TX,76101,1000,68,932
+2702766,Elizabeth,Davis,1704 Sunset Blvd,Houston,TX,77001,6000,5775,225
+2702776,Margaret,Lopez,436 Spruce St,Dallas,TX,75201,12000,5614,6386
+2702783,Lisa,Moore,7502 Lakeview Dr,Houston,TX,77001,12000,10849,1151
+2702791,Daniel,Jackson,726 4th St,Houston,TX,77001,3000,170,2830
+2702793,Richard,Lopez,7261 Oak St,Austin,TX,73301,4500,3621,879
+2702795,Linda,Perez,3033 Court St,San Antonio,TX,78201,2500,1486,1014
+2702800,Barbara,Perez,1736 Cherry Ln,Dallas,TX,75201,6000,3209,2791
+2702803,Mary,Miller,6627 Sunset Blvd,Fort Worth,TX,76101,3000,2838,162
+2702808,Michael,Moore,242 Oak St,Dallas,TX,75201,1000,564,436
+2702809,Margaret,White,1125 Cherry Ln,El Paso,TX,79901,1500,461,1039
+2702820,Karen,Martinez,9029 Forest Ave,Dallas,TX,75201,1000,479,521
+2702821,Michael,Ramirez,3392 Washington St,Dallas,TX,75201,9000,5366,3634
+2702823,Charles,Robinson,9591 Hillcrest Rd,Dallas,TX,75201,6000,5204,796
+2702830,Daniel,Lewis,9981 Walnut St,Houston,TX,77001,4500,4460,40
+2702834,Mary,Lewis,1827 2nd St,Houston,TX,77001,2500,172,2328
+2702842,Richard,Williams,2385 Cedar Ln,San Antonio,TX,78201,1000,766,234
+2702848,Robert,Rodriguez,176 Main St,Houston,TX,77001,2000,824,1176
+2702849,Daniel,White,4413 Ridgeway Dr,San Antonio,TX,78201,3000,1431,1569
+2702853,Richard,Moore,6340 Pine Ave,San Antonio,TX,78201,2500,1566,934
+2702857,Joseph,Lewis,7407 Washington St,Austin,TX,73301,6000,4314,1686
+2702859,Karen,Williams,241 2nd St,El Paso,TX,79901,1500,1077,423
+2702865,Sandra,Jackson,3414 Spruce St,Houston,TX,77001,1500,835,665
+2702866,Robert,Taylor,855 Cedar Ln,El Paso,TX,79901,9000,359,8641
+2702871,Elizabeth,Martin,6902 Hillcrest Rd,San Antonio,TX,78201,12000,7760,4240
+2702872,Mark,Hernandez,3632 Ridgeway Dr,Austin,TX,73301,4500,1976,2524
+2702873,Barbara,Smith,4704 Hillcrest Rd,El Paso,TX,79901,2000,487,1513
+2702875,Matthew,Hernandez,1125 Spruce St,Houston,TX,77001,9000,5123,3877
+2702881,Charles,Ramirez,9999 Cherry Ln,Fort Worth,TX,76101,1800,1473,327
+2702887,Patricia,Johnson,8885 Walnut St,Houston,TX,77001,1800,28,1772
+2702888,Susan,Clark,781 Cherry Ln,Dallas,TX,75201,6000,4366,1634
+2702892,Anthony,Garcia,644 Hillcrest Rd,Houston,TX,77001,1000,779,221
+2702895,Betty,Garcia,5495 Lakeview Dr,San Antonio,TX,78201,4500,4328,172
+2702902,Susan,Anderson,5233 Main St,Dallas,TX,75201,1800,616,1184
+2702903,Joseph,Taylor,5956 Sunset Blvd,San Antonio,TX,78201,1000,104,896
+2702910,Michael,Martin,7807 Maple Ave,Austin,TX,73301,9000,6431,2569
+2702912,Patricia,Robinson,1126 3rd St,Fort Worth,TX,76101,1800,653,1147
+2702913,Lisa,Hernandez,5926 Walnut St,San Antonio,TX,78201,2500,1840,660
+2702915,Karen,Garcia,6437 Birch St,Fort Worth,TX,76101,1800,252,1548
+2702922,Mary,Davis,5491 Maple Ave,Houston,TX,77001,4500,3874,626
+2702929,Nancy,Williams,1711 3rd St,San Antonio,TX,78201,9000,3128,5872
+2702930,John,Davis,1622 Birch St,San Antonio,TX,78201,1800,1256,544
+2702935,John,Gonzalez,9059 Hillcrest Rd,Fort Worth,TX,76101,2000,409,1591
+2702938,Matthew,Perez,7528 Cherry Ln,Fort Worth,TX,76101,1500,1129,371
+2702945,Mary,Robinson,2839 Elm St,Austin,TX,73301,6000,4639,1361
+2702952,Michael,Moore,6064 4th St,Fort Worth,TX,76101,2500,1200,1300
+2702953,Betty,Lopez,3303 Sunset Blvd,El Paso,TX,79901,1500,1088,412
+2702955,Patricia,Gonzalez,2527 4th St,Austin,TX,73301,6000,3509,2491
+2702958,Sarah,Taylor,9899 Ridgeway Dr,Fort Worth,TX,76101,1800,1287,513
+2702959,Elizabeth,Robinson,8647 Washington St,Dallas,TX,75201,2000,1388,612
+2702964,Susan,Clark,2030 Walnut St,San Antonio,TX,78201,1800,705,1095
+2702965,John,Moore,4134 Pine Ave,El Paso,TX,79901,1500,692,808
+2702966,Mary,Perez,5088 Sunset Blvd,Dallas,TX,75201,9000,8252,748
+2702975,Karen,Williams,3785 Hillcrest Rd,Austin,TX,73301,1000,413,587
+2702976,Robert,Garcia,7016 Court St,Houston,TX,77001,2000,1692,308
+2702977,Lisa,Moore,3595 Court St,Houston,TX,77001,3000,2295,705
+2702987,David,Miller,9274 Sunset Blvd,Austin,TX,73301,2000,1453,547
+2702990,Richard,Smith,5151 Elm St,San Antonio,TX,78201,9000,7649,1351
+2702991,Thomas,Ramirez,2426 Hillcrest Rd,San Antonio,TX,78201,1800,1786,14
+2702994,Matthew,Davis,254 3rd St,San Antonio,TX,78201,3000,2452,548
+2702995,Christopher,Smith,8075 Pine Ave,Dallas,TX,75201,1500,326,1174
+2702996,Daniel,Lopez,9916 Main St,El Paso,TX,79901,2000,821,1179
+2703008,Barbara,Martin,4307 Cherry Ln,Houston,TX,77001,6000,772,5228
+2703009,Betty,Wilson,9713 Spruce St,Houston,TX,77001,4500,3627,873
+2703014,Susan,Harris,5787 Spruce St,San Antonio,TX,78201,12000,9247,2753
+2703022,Thomas,Perez,8412 Cedar Ln,Houston,TX,77001,9000,4505,4495
+2703040,Karen,Wilson,9256 Elm St,El Paso,TX,79901,1500,891,609
+2703042,Daniel,Martin,2246 Cedar Ln,San Antonio,TX,78201,6000,295,5705
+2703044,Nancy,Ramirez,9655 Maple Ave,Dallas,TX,75201,1800,66,1734
+2703056,Christopher,Wilson,7691 Sunset Blvd,Austin,TX,73301,1000,484,516
+2703057,Robert,Williams,710 Oak St,Austin,TX,73301,12000,290,11710
+2703059,Joseph,Jones,2415 Spruce St,Dallas,TX,75201,3000,2631,369
+2703061,Jessica,Williams,5262 Forest Ave,Dallas,TX,75201,6000,304,5696
+2703064,Margaret,Moore,1796 Main St,Houston,TX,77001,1000,723,277
+2703069,Lisa,Jones,6184 Walnut St,Houston,TX,77001,1800,1242,558
+2703073,Elizabeth,Lewis,6316 Birch St,Dallas,TX,75201,1000,49,951
+2703086,Sarah,Williams,9332 Cedar Ln,El Paso,TX,79901,12000,816,11184
+2703089,Anthony,Rodriguez,4453 Forest Ave,El Paso,TX,79901,3000,1272,1728
+2703091,Elizabeth,Lewis,5072 3rd St,Houston,TX,77001,1000,556,444
+2703095,Sarah,Martin,3968 Spruce St,San Antonio,TX,78201,9000,6876,2124
+2703097,Robert,Ramirez,4763 Court St,El Paso,TX,79901,1500,555,945
+2703099,Anthony,Lewis,2448 Main St,Dallas,TX,75201,2000,536,1464
+2703103,Charles,Ramirez,5725 Ridgeway Dr,Austin,TX,73301,9000,5040,3960
+2703104,Elizabeth,Harris,270 Spruce St,Houston,TX,77001,2500,1568,932
+2703105,William,Jackson,5857 Forest Ave,Austin,TX,73301,2000,595,1405
+2703108,Thomas,Harris,9121 Lakeview Dr,San Antonio,TX,78201,12000,1983,10017
+2703112,James,Clark,2943 Court St,Houston,TX,77001,1000,469,531
+2703114,Nancy,Lewis,7581 Birch St,El Paso,TX,79901,1500,927,573
+2703123,Daniel,Ramirez,9740 Lakeview Dr,San Antonio,TX,78201,4500,1883,2617
+2703124,Michael,Anderson,7272 Oak St,Dallas,TX,75201,12000,4855,7145
+2703127,Robert,Davis,5899 Walnut St,Fort Worth,TX,76101,1500,1057,443
+2703136,Betty,Lopez,1823 Birch St,Houston,TX,77001,1800,1474,326
+2703137,Daniel,Williams,8651 Forest Ave,Houston,TX,77001,2000,413,1587
+2703141,Thomas,Gonzalez,8303 Cedar Ln,Fort Worth,TX,76101,1000,341,659
+2703146,Betty,Jackson,5795 Maple Ave,El Paso,TX,79901,6000,2329,3671
+2703151,Lisa,Garcia,637 Elm St,San Antonio,TX,78201,1500,1005,495
+2703155,Richard,Lewis,4271 Court St,Dallas,TX,75201,2500,1656,844
+2703156,Richard,Perez,514 Cherry Ln,San Antonio,TX,78201,6000,4520,1480
+2703162,Sandra,Garcia,5472 Forest Ave,Austin,TX,73301,6000,590,5410
+2703163,William,Lewis,4173 Cherry Ln,San Antonio,TX,78201,9000,6940,2060
+2703169,Patricia,Harris,449 Forest Ave,San Antonio,TX,78201,2500,196,2304
+2703172,John,Perez,2184 4th St,Houston,TX,77001,2000,1110,890
+2703181,Matthew,Lewis,5974 Court St,El Paso,TX,79901,1800,527,1273
+2703182,Joseph,Davis,5549 Ridgeway Dr,San Antonio,TX,78201,4500,1650,2850
+2703183,Patricia,Rodriguez,3803 Oak St,Dallas,TX,75201,4500,159,4341
+2703186,John,Rodriguez,8972 Court St,Austin,TX,73301,2500,1395,1105
+2703187,Matthew,Clark,494 Elm St,Houston,TX,77001,4500,937,3563
+2703189,Jennifer,Thomas,9295 Court St,El Paso,TX,79901,6000,5259,741
+2703190,Linda,Rodriguez,8206 Washington St,Dallas,TX,75201,3000,450,2550
+2703192,Margaret,Brown,1940 Ridgeway Dr,Fort Worth,TX,76101,9000,4601,4399
+2703194,Karen,Wilson,6273 Spruce St,El Paso,TX,79901,6000,3251,2749
+2703196,Margaret,Garcia,8720 Washington St,Dallas,TX,75201,9000,435,8565
+2703197,Karen,Jackson,613 Maple Ave,El Paso,TX,79901,4500,3886,614
+2703199,Patricia,Hernandez,5717 Pine Ave,Dallas,TX,75201,9000,942,8058
+2703202,Christopher,Perez,5118 2nd St,Dallas,TX,75201,6000,3154,2846
+2703204,Richard,Gonzalez,8897 Lakeview Dr,El Paso,TX,79901,1800,1792,8
+2703208,Sandra,Perez,1868 Walnut St,Dallas,TX,75201,9000,4939,4061
+2703209,Charles,Jackson,5324 Spruce St,Houston,TX,77001,1800,1346,454
+2703210,Mark,Davis,1590 Walnut St,Fort Worth,TX,76101,1000,252,748
+2703216,Betty,Hernandez,621 Maple Ave,Austin,TX,73301,12000,0,12000
+2703226,John,Martinez,6459 Cedar Ln,Dallas,TX,75201,3000,1601,1399
+2703229,Charles,Brown,9627 Spruce St,Fort Worth,TX,76101,3000,2326,674
+2703236,Betty,Thompson,8937 Main St,Houston,TX,77001,1800,1770,30
+2703253,Sarah,Brown,3285 Lakeview Dr,Houston,TX,77001,1800,728,1072
+2703255,Anthony,Taylor,2019 Walnut St,Fort Worth,TX,76101,1500,1095,405
+2703268,John,White,1596 Washington St,Fort Worth,TX,76101,9000,3393,5607
+2703275,Michael,Brown,9754 Maple Ave,Houston,TX,77001,2000,85,1915
+2703279,Michael,Clark,7839 Cherry Ln,Austin,TX,73301,2500,1406,1094
+2703284,Christopher,Ramirez,2936 2nd St,Fort Worth,TX,76101,1000,694,306
+2703294,Elizabeth,Moore,2435 3rd St,Austin,TX,73301,12000,10662,1338
+2703301,Elizabeth,Williams,8690 Washington St,El Paso,TX,79901,3000,2413,587
+2703310,Nancy,Lewis,4424 Birch St,Dallas,TX,75201,4500,4424,76
+2703313,Karen,Anderson,6709 Cedar Ln,Fort Worth,TX,76101,1000,271,729
+2703318,Thomas,Johnson,9683 Oak St,Austin,TX,73301,9000,107,8893
+2703321,Anthony,Thomas,174 2nd St,Austin,TX,73301,12000,7289,4711
+2703323,Karen,Davis,8371 Court St,Fort Worth,TX,76101,1500,1079,421
+2703324,Barbara,Williams,2302 Lakeview Dr,Fort Worth,TX,76101,1500,436,1064
+2703326,Charles,Clark,5516 4th St,Fort Worth,TX,76101,4500,2209,2291
+2703330,David,Moore,2245 Elm St,Fort Worth,TX,76101,9000,3379,5621
+2703335,Daniel,Lee,8289 Washington St,Dallas,TX,75201,1500,1433,67
+2703339,Betty,Rodriguez,971 Ridgeway Dr,Fort Worth,TX,76101,1800,1321,479
+2703347,Margaret,Perez,8530 Cedar Ln,Dallas,TX,75201,2500,2402,98
+2703348,Jessica,Smith,5077 4th St,Houston,TX,77001,2000,35,1965
+2703353,Barbara,White,5064 Cedar Ln,San Antonio,TX,78201,2000,189,1811
+2703355,Jessica,Robinson,3900 Cherry Ln,Fort Worth,TX,76101,6000,2402,3598
+2703356,Barbara,Robinson,1467 Oak St,Dallas,TX,75201,6000,3028,2972
+2703361,Sandra,Anderson,7343 Main St,San Antonio,TX,78201,6000,2396,3604
+2703370,Mary,Williams,5213 Elm St,Dallas,TX,75201,2000,199,1801
+2703376,Lisa,White,6501 Cedar Ln,Houston,TX,77001,3000,306,2694
+2703377,Michael,Davis,3140 Ridgeway Dr,Austin,TX,73301,12000,4100,7900
+2703378,Barbara,Williams,5339 Birch St,Dallas,TX,75201,12000,2847,9153
+2703380,Sandra,Robinson,9620 Maple Ave,El Paso,TX,79901,6000,4768,1232
+2703383,Matthew,Garcia,7864 Elm St,Houston,TX,77001,1800,1433,367
+2703388,Mark,Clark,6033 Forest Ave,Austin,TX,73301,1800,1060,740
+2703389,Christopher,Jackson,8925 4th St,Austin,TX,73301,4500,3029,1471
+2703391,John,Thomas,2730 Birch St,El Paso,TX,79901,2500,1605,895
+2703410,John,Sanchez,4679 Cedar Ln,Austin,TX,73301,2500,1516,984
+2703412,Thomas,Martinez,9943 Oak St,Fort Worth,TX,76101,4500,3842,658
+2703418,John,Miller,2555 Cherry Ln,Austin,TX,73301,1500,936,564
+2703419,Joseph,Harris,9220 Ridgeway Dr,Dallas,TX,75201,4500,3700,800
+2703423,Christopher,Lewis,1405 Ridgeway Dr,Dallas,TX,75201,2500,764,1736
+2703427,Sandra,Ramirez,5959 Sunset Blvd,Houston,TX,77001,2500,2141,359
+2703428,David,Thomas,774 4th St,Dallas,TX,75201,12000,4548,7452
+2703429,Anthony,Jackson,1469 Cherry Ln,Austin,TX,73301,1800,1675,125
+2703434,Robert,Lopez,6099 Walnut St,Austin,TX,73301,1500,100,1400
+2703435,Robert,Jones,7588 Forest Ave,Houston,TX,77001,1000,791,209
+2703441,Patricia,Gonzalez,8127 Walnut St,Fort Worth,TX,76101,2000,356,1644
+2703452,Linda,Williams,2681 3rd St,Houston,TX,77001,1000,289,711
+2703455,Margaret,Davis,3948 4th St,Dallas,TX,75201,1500,218,1282
+2703462,Linda,Clark,8961 Forest Ave,El Paso,TX,79901,2500,2279,221
+2703465,Christopher,Rodriguez,2374 Spruce St,El Paso,TX,79901,4500,1545,2955
+2703469,Robert,Wilson,1994 Maple Ave,Fort Worth,TX,76101,12000,2138,9862
+2703470,Lisa,Martinez,1522 2nd St,Austin,TX,73301,9000,1173,7827
+2703472,Richard,Lee,6620 2nd St,Dallas,TX,75201,9000,8786,214
+2703474,Thomas,Brown,3527 Washington St,Fort Worth,TX,76101,4500,1826,2674
+2703477,Charles,Lee,7489 Cherry Ln,Fort Worth,TX,76101,1000,564,436
+2703483,Patricia,Taylor,3468 Birch St,Dallas,TX,75201,12000,11863,137
+2703499,Mary,Martinez,9880 Pine Ave,Dallas,TX,75201,2500,1280,1220
+2703515,Karen,Taylor,5058 Main St,Dallas,TX,75201,1000,692,308
+2703521,Anthony,Sanchez,415 Washington St,El Paso,TX,79901,3000,2742,258
+2703534,David,Lewis,3269 Cedar Ln,San Antonio,TX,78201,12000,6885,5115
+2703535,Elizabeth,Brown,8831 4th St,Austin,TX,73301,6000,2192,3808
+2703538,Charles,Taylor,8938 Cedar Ln,El Paso,TX,79901,2000,1238,762
+2703540,Anthony,Rodriguez,1629 Main St,Houston,TX,77001,12000,59,11941
+2703545,Lisa,Garcia,4964 Ridgeway Dr,Austin,TX,73301,2000,654,1346
+2703549,Sandra,Lee,5958 2nd St,Dallas,TX,75201,3000,653,2347
+2703553,Sarah,Ramirez,3436 Spruce St,El Paso,TX,79901,4500,2954,1546
+2703557,Richard,Miller,5421 Ridgeway Dr,Austin,TX,73301,1000,326,674
+2703560,Charles,White,9985 Washington St,El Paso,TX,79901,2000,1892,108
+2703562,Joseph,Rodriguez,213 Cedar Ln,El Paso,TX,79901,2500,1503,997
+2703563,Charles,Jackson,6555 Maple Ave,Austin,TX,73301,1800,1342,458
+2703564,Matthew,Johnson,4045 Walnut St,Houston,TX,77001,12000,9638,2362
+2703565,Daniel,Miller,3051 Ridgeway Dr,Fort Worth,TX,76101,6000,4403,1597
+2703574,Mary,Sanchez,8836 Elm St,Austin,TX,73301,1500,577,923
+2703579,Michael,Davis,3304 Cedar Ln,El Paso,TX,79901,2500,2457,43
+2703580,Nancy,Martinez,481 Ridgeway Dr,Dallas,TX,75201,1000,910,90
+2703582,Susan,Rodriguez,7830 4th St,El Paso,TX,79901,2500,1606,894
+2703589,Elizabeth,Lopez,1971 2nd St,El Paso,TX,79901,12000,11689,311
+2703598,Karen,Moore,4933 Maple Ave,El Paso,TX,79901,2000,1098,902
+2703603,Joseph,Anderson,9110 Elm St,El Paso,TX,79901,1000,915,85
+2703604,Sandra,Anderson,6706 Oak St,Fort Worth,TX,76101,1000,884,116
+2703609,Margaret,Gonzalez,5950 Washington St,Austin,TX,73301,6000,4211,1789
+2703612,Sandra,Anderson,960 Cherry Ln,Fort Worth,TX,76101,1800,986,814
+2703623,Nancy,Jones,7010 Ridgeway Dr,El Paso,TX,79901,4500,1525,2975
+2703625,Margaret,Wilson,3452 Oak St,Dallas,TX,75201,2500,158,2342
+2703631,Mary,Lee,7675 Pine Ave,Dallas,TX,75201,12000,8318,3682
+2703644,Susan,Miller,8795 Cherry Ln,Houston,TX,77001,1000,435,565
+2703649,Elizabeth,Lewis,4136 Cherry Ln,El Paso,TX,79901,1000,640,360
+2703650,William,Brown,4372 Oak St,Austin,TX,73301,1800,1570,230
+2703651,Thomas,Smith,4998 Cedar Ln,San Antonio,TX,78201,9000,3925,5075
+2703656,Sandra,Perez,2872 4th St,Dallas,TX,75201,1500,816,684
+2703657,Mark,Moore,746 3rd St,San Antonio,TX,78201,6000,2530,3470
+2703658,Barbara,Harris,6490 Forest Ave,Fort Worth,TX,76101,2000,1899,101
+2703659,William,Thompson,165 Spruce St,El Paso,TX,79901,4500,17,4483
+2703670,David,Sanchez,1046 2nd St,El Paso,TX,79901,2000,1007,993
+2703677,Michael,Thompson,9827 Cherry Ln,El Paso,TX,79901,1800,1139,661
+2703684,Richard,Jackson,5783 Birch St,Dallas,TX,75201,1000,579,421
+2703687,Nancy,Lee,429 Cherry Ln,Austin,TX,73301,2000,466,1534
+2703692,Mary,Harris,3473 Birch St,El Paso,TX,79901,1800,662,1138
+2703693,Mark,Taylor,3040 Walnut St,El Paso,TX,79901,1800,1525,275
+2703698,Joseph,Williams,5156 2nd St,Dallas,TX,75201,12000,2578,9422
+2703704,Michael,Brown,8427 Washington St,Houston,TX,77001,12000,10954,1046
+2703706,Thomas,Thomas,1846 2nd St,Dallas,TX,75201,1000,123,877
+2703707,Susan,Martinez,7136 Walnut St,Houston,TX,77001,12000,5975,6025
+2703710,Nancy,Thomas,5402 2nd St,Dallas,TX,75201,1500,950,550
+2703714,Richard,Lopez,1699 2nd St,Houston,TX,77001,12000,277,11723
+2703716,Patricia,Rodriguez,8753 Maple Ave,Fort Worth,TX,76101,3000,125,2875
+2703722,Patricia,Anderson,1938 4th St,Fort Worth,TX,76101,1800,1697,103
+2703728,Linda,Clark,1431 Maple Ave,San Antonio,TX,78201,6000,2230,3770
+2703737,Matthew,Williams,6524 Court St,Dallas,TX,75201,2000,980,1020
+2703740,Mary,Moore,8579 Maple Ave,Austin,TX,73301,1500,972,528
+2703748,Anthony,Brown,3409 Hillcrest Rd,Houston,TX,77001,1500,417,1083
+2703751,Anthony,Clark,2897 4th St,Dallas,TX,75201,3000,2229,771
+2703757,Mark,Sanchez,1966 Walnut St,El Paso,TX,79901,2000,1076,924
+2703760,Mary,Thompson,8257 2nd St,San Antonio,TX,78201,9000,2445,6555
+2703770,Richard,Williams,8351 Elm St,Fort Worth,TX,76101,3000,786,2214
+2703780,Matthew,Rodriguez,6324 Pine Ave,Dallas,TX,75201,1500,475,1025
+2703783,David,White,9531 Walnut St,Austin,TX,73301,9000,3695,5305
+2703787,Richard,Hernandez,8663 Ridgeway Dr,Fort Worth,TX,76101,12000,9146,2854
+2703788,Barbara,Clark,7076 Forest Ave,San Antonio,TX,78201,1800,1135,665
+2703789,Mary,Gonzalez,2967 Spruce St,Fort Worth,TX,76101,9000,1979,7021
+2703794,Daniel,Johnson,1452 Walnut St,Dallas,TX,75201,3000,329,2671
+2703796,Linda,Johnson,9470 4th St,San Antonio,TX,78201,1000,218,782
+2703797,Matthew,Smith,875 Cherry Ln,Austin,TX,73301,12000,5015,6985
+2703800,Jessica,Thompson,1335 Cherry Ln,El Paso,TX,79901,4500,2924,1576
+2703803,Jessica,Jackson,1421 Spruce St,El Paso,TX,79901,12000,7498,4502
+2703804,Mark,Johnson,2491 Hillcrest Rd,San Antonio,TX,78201,1800,1648,152
+2703808,Matthew,Lewis,4120 Lakeview Dr,El Paso,TX,79901,1800,1548,252
+2703809,Mary,Rodriguez,5341 Birch St,Fort Worth,TX,76101,3000,811,2189
+2703813,Karen,Perez,1818 Sunset Blvd,San Antonio,TX,78201,6000,5391,609
+2703824,Christopher,Moore,8036 Elm St,Dallas,TX,75201,2500,2018,482
+2703827,William,Thompson,747 2nd St,San Antonio,TX,78201,1500,636,864
+2703828,Mary,Taylor,1441 Hillcrest Rd,Fort Worth,TX,76101,6000,5969,31
+2703831,Jessica,Brown,1698 Washington St,Houston,TX,77001,2000,416,1584
+2703834,Mark,Lopez,7678 Oak St,Houston,TX,77001,1000,340,660
+2703839,Michael,Thomas,3102 Sunset Blvd,Dallas,TX,75201,3000,178,2822
+2703842,Betty,Johnson,6265 Birch St,Dallas,TX,75201,1000,679,321
+2703844,Charles,Williams,6598 Cherry Ln,Dallas,TX,75201,12000,11238,762
+2703851,Karen,Smith,5582 Forest Ave,Austin,TX,73301,9000,7073,1927
+2703856,Mark,Jackson,8222 Sunset Blvd,San Antonio,TX,78201,2000,1503,497
+2703857,Jennifer,Perez,5823 Court St,Dallas,TX,75201,9000,5748,3252
+2703859,Mark,Clark,1334 Washington St,Dallas,TX,75201,9000,5165,3835
+2703860,Robert,Lopez,1077 Cedar Ln,San Antonio,TX,78201,2500,859,1641
+2703864,Mark,Gonzalez,7591 Spruce St,El Paso,TX,79901,2500,2324,176
+2703869,James,Martinez,8814 Sunset Blvd,San Antonio,TX,78201,1800,223,1577
+2703876,Michael,Gonzalez,2374 Elm St,San Antonio,TX,78201,2000,1491,509
+2703879,Daniel,Anderson,4309 Walnut St,San Antonio,TX,78201,9000,440,8560
+2703882,Christopher,Lewis,9572 Walnut St,San Antonio,TX,78201,1800,1274,526
+2703883,Thomas,Williams,5843 3rd St,El Paso,TX,79901,2500,1050,1450
+2703887,William,Miller,7891 Pine Ave,Fort Worth,TX,76101,1500,486,1014
+2703888,Lisa,White,9469 Hillcrest Rd,Fort Worth,TX,76101,3000,2914,86
+2703891,Barbara,Gonzalez,5321 Hillcrest Rd,Austin,TX,73301,3000,1034,1966
+2703893,James,Thompson,8782 Ridgeway Dr,El Paso,TX,79901,12000,11412,588
+2703900,Mary,Thomas,4935 Walnut St,Dallas,TX,75201,2000,1207,793
+2703905,Lisa,Martin,4760 2nd St,Dallas,TX,75201,2500,2059,441
+2703910,Sandra,Lewis,7515 Washington St,Dallas,TX,75201,2500,1500,1000
+2703912,Jennifer,Taylor,9571 4th St,San Antonio,TX,78201,6000,5118,882
+2703921,Robert,Sanchez,3540 3rd St,Dallas,TX,75201,12000,5727,6273
+2703922,Charles,Harris,6271 4th St,Austin,TX,73301,6000,5880,120
+2703940,Barbara,White,9372 Washington St,San Antonio,TX,78201,6000,1003,4997
+2703942,Matthew,Johnson,6655 Hillcrest Rd,Austin,TX,73301,2500,2299,201
+2703947,Sandra,Ramirez,379 Lakeview Dr,El Paso,TX,79901,6000,4310,1690
+2703948,Mark,Sanchez,5419 2nd St,San Antonio,TX,78201,9000,7580,1420
+2703949,Thomas,Jackson,3206 Cherry Ln,Dallas,TX,75201,1800,1091,709
+2703954,Lisa,Hernandez,3453 Main St,San Antonio,TX,78201,1800,70,1730
+2703955,Joseph,Lee,7285 Pine Ave,Houston,TX,77001,1000,25,975
+2703959,Barbara,Robinson,9652 4th St,San Antonio,TX,78201,1500,1383,117
+2703962,Daniel,Brown,2106 Walnut St,San Antonio,TX,78201,4500,4446,54
+2703965,Jessica,Thomas,3958 4th St,Fort Worth,TX,76101,2000,1403,597
+2703969,Mary,Lewis,4716 Ridgeway Dr,Dallas,TX,75201,2500,2042,458
+2703976,Karen,Perez,3500 Forest Ave,El Paso,TX,79901,6000,2884,3116
+2703984,Joseph,Sanchez,4823 Washington St,Dallas,TX,75201,1800,1232,568
+2703985,Daniel,Miller,6985 3rd St,El Paso,TX,79901,12000,7647,4353
+2703992,Michael,Sanchez,1417 2nd St,Fort Worth,TX,76101,1000,806,194
+2703996,Jennifer,Jackson,8970 Cedar Ln,Austin,TX,73301,2500,1085,1415
+2703997,Sandra,Lewis,4177 Ridgeway Dr,Houston,TX,77001,1000,599,401
+2703998,Sandra,Thompson,6692 Cherry Ln,Austin,TX,73301,3000,129,2871
+2704001,Christopher,Clark,7830 Birch St,San Antonio,TX,78201,6000,3428,2572
+2704002,Susan,Lee,979 Lakeview Dr,Austin,TX,73301,6000,4720,1280
+2704004,Charles,Moore,7990 2nd St,Dallas,TX,75201,1800,1508,292
+2704007,Patricia,Hernandez,8076 4th St,Houston,TX,77001,12000,4982,7018
+2704008,James,Taylor,2555 Cherry Ln,San Antonio,TX,78201,9000,8988,12
+2704010,Charles,Martin,973 Birch St,San Antonio,TX,78201,1500,1410,90
+2704013,Patricia,Hernandez,9854 Main St,El Paso,TX,79901,1800,899,901
+2704019,Patricia,Gonzalez,7025 Maple Ave,Houston,TX,77001,12000,10277,1723
+2704020,David,Williams,3130 Court St,Dallas,TX,75201,1500,843,657
+2704028,Linda,Johnson,5371 2nd St,Dallas,TX,75201,3000,503,2497
+2704032,Christopher,Perez,8405 Spruce St,Austin,TX,73301,9000,482,8518
+2704035,Susan,Davis,6256 Main St,Dallas,TX,75201,4500,2022,2478
+2704038,Daniel,Brown,1680 Main St,Austin,TX,73301,1000,340,660
+2704040,Lisa,Taylor,3797 Hillcrest Rd,Fort Worth,TX,76101,3000,272,2728
+2704044,Robert,Taylor,7961 Cedar Ln,San Antonio,TX,78201,9000,517,8483
+2704050,Lisa,Johnson,9910 Walnut St,Fort Worth,TX,76101,3000,1240,1760
+2704051,Thomas,Williams,7112 Cedar Ln,Fort Worth,TX,76101,9000,6862,2138
+2704052,William,Lopez,9331 Forest Ave,Fort Worth,TX,76101,2000,1923,77
+2704054,Elizabeth,Taylor,7151 Sunset Blvd,Austin,TX,73301,2000,311,1689
+2704063,Robert,Lee,2848 2nd St,El Paso,TX,79901,6000,4858,1142
+2704067,Charles,Rodriguez,2923 Oak St,San Antonio,TX,78201,4500,1297,3203
+2704068,Thomas,Davis,8067 Walnut St,San Antonio,TX,78201,1500,830,670
+2704070,Jennifer,Anderson,9087 2nd St,El Paso,TX,79901,4500,430,4070
+2704071,Betty,Sanchez,2860 Spruce St,Austin,TX,73301,3000,1501,1499
+2704074,Margaret,Jones,8478 Pine Ave,Fort Worth,TX,76101,12000,1954,10046
+2704075,Matthew,Hernandez,6762 Main St,Dallas,TX,75201,1500,777,723
+2704080,James,Lee,9766 Birch St,San Antonio,TX,78201,1800,1608,192
+2704085,Patricia,Davis,3917 Spruce St,Dallas,TX,75201,4500,1809,2691
+2704086,Betty,Sanchez,7222 2nd St,Houston,TX,77001,1800,1376,424
+2704088,James,Moore,3452 Lakeview Dr,Houston,TX,77001,1500,1469,31
+2704095,John,Garcia,6741 Spruce St,Houston,TX,77001,1800,918,882
+2704098,Richard,Lopez,3239 Spruce St,Austin,TX,73301,9000,2113,6887
+2704100,Anthony,Lee,349 Elm St,Dallas,TX,75201,6000,5362,638
+2704101,William,Clark,8117 Cherry Ln,Dallas,TX,75201,2000,1869,131
+2704104,Anthony,Johnson,4486 Main St,Austin,TX,73301,2500,210,2290
+2704106,Karen,Ramirez,5663 Main St,Dallas,TX,75201,1500,1139,361
+2704109,Mary,Jackson,1256 Lakeview Dr,Austin,TX,73301,1500,1208,292
+2704113,David,Smith,2747 Birch St,El Paso,TX,79901,6000,4906,1094
+2704114,James,Martin,8617 Spruce St,Fort Worth,TX,76101,1800,437,1363
+2704117,Patricia,Johnson,5013 Cherry Ln,Austin,TX,73301,9000,197,8803
+2704118,Barbara,Brown,3588 Washington St,San Antonio,TX,78201,1500,171,1329
+2704119,Jennifer,Thompson,6307 Walnut St,Fort Worth,TX,76101,1000,147,853
+2704122,Anthony,Harris,8891 Elm St,Dallas,TX,75201,1000,217,783
+2704130,Susan,Harris,9903 Oak St,Dallas,TX,75201,2000,1579,421
+2704132,Daniel,Lopez,6480 Maple Ave,Dallas,TX,75201,3000,2368,632
+2704140,William,Rodriguez,4887 Elm St,Fort Worth,TX,76101,3000,328,2672
+2704143,Nancy,White,8473 Hillcrest Rd,San Antonio,TX,78201,1500,318,1182
+2704144,Daniel,Lewis,5925 Ridgeway Dr,Houston,TX,77001,6000,3799,2201
+2704147,Mary,Martin,5926 Court St,Dallas,TX,75201,1500,612,888
+2704150,James,Martin,4599 Washington St,Austin,TX,73301,9000,320,8680
+2704155,Michael,Lopez,1694 4th St,San Antonio,TX,78201,1800,99,1701
+2704176,Daniel,Harris,6071 Oak St,El Paso,TX,79901,2000,899,1101
+2704180,Jennifer,Brown,268 Lakeview Dr,Fort Worth,TX,76101,6000,2024,3976
+2704186,Lisa,Williams,5404 3rd St,Dallas,TX,75201,1000,645,355
+2704193,Matthew,Davis,7216 Elm St,Austin,TX,73301,2500,1967,533
+2704194,Elizabeth,Thomas,6698 Ridgeway Dr,Austin,TX,73301,3000,2210,790
+2704196,Elizabeth,Johnson,2024 Oak St,San Antonio,TX,78201,2500,2001,499
+2704206,Charles,Robinson,9977 Pine Ave,El Paso,TX,79901,1800,755,1045
+2704221,Patricia,Robinson,6851 Lakeview Dr,Austin,TX,73301,4500,158,4342
+2704227,John,Anderson,7164 Walnut St,Houston,TX,77001,9000,15,8985
+2704232,Betty,Clark,5132 Main St,Dallas,TX,75201,9000,2902,6098
+2704239,Jennifer,Hernandez,6601 Oak St,Austin,TX,73301,12000,1932,10068
+2704242,Betty,Davis,9842 Lakeview Dr,Austin,TX,73301,2000,344,1656
+2704243,Christopher,Clark,7741 Maple Ave,Austin,TX,73301,6000,2115,3885
+2704247,Sarah,Wilson,598 Main St,Houston,TX,77001,3000,1018,1982
+2704259,Sandra,Lee,8635 Walnut St,Fort Worth,TX,76101,4500,3890,610
+2704260,Elizabeth,Miller,2947 3rd St,Houston,TX,77001,3000,871,2129
+2704261,James,Lewis,8487 Cedar Ln,Houston,TX,77001,1500,855,645
+2704263,Michael,Moore,7674 Spruce St,Dallas,TX,75201,9000,4323,4677
+2704267,Barbara,Rodriguez,1696 4th St,San Antonio,TX,78201,4500,3334,1166
+2704269,Michael,Brown,9499 Main St,El Paso,TX,79901,1500,346,1154
+2704272,James,White,673 Court St,Dallas,TX,75201,1000,795,205
+2704275,Lisa,Jones,5389 Maple Ave,Houston,TX,77001,4500,1431,3069
+2704276,Betty,Martinez,4141 Cherry Ln,El Paso,TX,79901,9000,5715,3285
+2704282,Daniel,Robinson,866 Lakeview Dr,Fort Worth,TX,76101,2000,1115,885
+2704284,Betty,Moore,3387 2nd St,San Antonio,TX,78201,1000,612,388
+2704287,Thomas,Miller,1167 4th St,San Antonio,TX,78201,2500,1165,1335
+2704288,Jennifer,Lee,6633 Lakeview Dr,Houston,TX,77001,2500,283,2217
+2704293,Patricia,Rodriguez,1150 Spruce St,El Paso,TX,79901,6000,795,5205
+2704296,Patricia,Robinson,9378 Cedar Ln,Houston,TX,77001,9000,910,8090
+2704302,Thomas,Sanchez,9369 Washington St,Dallas,TX,75201,1800,1107,693
+2704303,Jennifer,Rodriguez,5840 Cherry Ln,El Paso,TX,79901,6000,2318,3682
+2704305,Sandra,Robinson,8911 Spruce St,San Antonio,TX,78201,1000,834,166
+2704306,Barbara,Martinez,4132 Maple Ave,San Antonio,TX,78201,3000,2092,908
+2704307,Jessica,Lewis,9846 Main St,Houston,TX,77001,9000,1036,7964
+2704315,Anthony,Garcia,2082 Forest Ave,Houston,TX,77001,3000,607,2393
+2704316,Jennifer,Perez,5673 Main St,Fort Worth,TX,76101,1000,442,558
+2704320,Robert,Smith,2236 Hillcrest Rd,Houston,TX,77001,9000,2071,6929
+2704322,Karen,Clark,9164 Court St,El Paso,TX,79901,6000,2996,3004
+2704328,James,Rodriguez,470 Sunset Blvd,Houston,TX,77001,12000,8140,3860
+2704329,Christopher,Thompson,6335 Oak St,Fort Worth,TX,76101,9000,5672,3328
+2704331,Nancy,Sanchez,6472 Hillcrest Rd,San Antonio,TX,78201,9000,5320,3680
+2704332,Betty,Taylor,5678 Main St,Houston,TX,77001,1000,716,284
+2704335,Lisa,Harris,9261 Walnut St,Houston,TX,77001,1800,253,1547
+2704338,Richard,Martinez,9700 Spruce St,Houston,TX,77001,1500,178,1322
+2704340,Mark,Hernandez,2728 Birch St,El Paso,TX,79901,2500,1928,572
+2704348,William,Johnson,1084 4th St,Fort Worth,TX,76101,3000,1579,1421
+2704349,Karen,Taylor,4249 Spruce St,Fort Worth,TX,76101,2500,879,1621
+2704356,Robert,White,9957 Pine Ave,Houston,TX,77001,1000,660,340
+2704360,Charles,Clark,8809 Walnut St,Dallas,TX,75201,2500,576,1924
+2704363,Margaret,Clark,6001 Lakeview Dr,Austin,TX,73301,3000,2217,783
+2704366,Patricia,Garcia,3797 Ridgeway Dr,Austin,TX,73301,3000,1380,1620
+2704367,Richard,Jones,7646 Maple Ave,San Antonio,TX,78201,3000,693,2307
+2704368,Linda,Jackson,3222 Forest Ave,Dallas,TX,75201,1800,963,837
+2704372,Daniel,Hernandez,7455 Cherry Ln,Houston,TX,77001,4500,1691,2809
+2704373,Elizabeth,Davis,1751 Elm St,Houston,TX,77001,1500,1184,316
+2704378,John,Ramirez,1221 Spruce St,Austin,TX,73301,2500,631,1869
+2704380,Jessica,Thomas,235 Birch St,El Paso,TX,79901,9000,4489,4511
+2704385,Margaret,Robinson,6654 Main St,El Paso,TX,79901,2000,1286,714
+2704387,John,Moore,8794 Main St,Austin,TX,73301,1800,1357,443
+2704395,James,Taylor,3111 2nd St,El Paso,TX,79901,2500,1368,1132
+2704403,James,Wilson,8760 2nd St,Fort Worth,TX,76101,3000,2669,331
+2704407,James,Perez,5785 Maple Ave,Austin,TX,73301,9000,55,8945
+2704412,Jessica,Robinson,2146 Lakeview Dr,El Paso,TX,79901,2500,524,1976
+2704419,David,Martin,1353 Spruce St,San Antonio,TX,78201,6000,2578,3422
+2704422,Thomas,Lopez,7026 Sunset Blvd,San Antonio,TX,78201,6000,5933,67
+2704428,Sandra,Jones,9627 Sunset Blvd,Dallas,TX,75201,12000,8929,3071
+2704429,Jessica,Brown,6892 Walnut St,Austin,TX,73301,9000,3956,5044
+2704438,Thomas,Wilson,2923 Forest Ave,Dallas,TX,75201,1500,75,1425
+2704446,Anthony,Ramirez,668 Pine Ave,Dallas,TX,75201,1000,498,502
+2704447,Charles,Thompson,1086 4th St,Austin,TX,73301,2000,812,1188
+2704451,John,Perez,2754 Pine Ave,El Paso,TX,79901,3000,1992,1008
+2704461,Richard,Thomas,8418 Lakeview Dr,El Paso,TX,79901,2500,2407,93
+2704465,Jennifer,Garcia,1883 Forest Ave,San Antonio,TX,78201,12000,8093,3907
+2704466,Linda,Jones,486 4th St,El Paso,TX,79901,1500,330,1170
+2704468,Betty,Wilson,2894 Walnut St,Austin,TX,73301,6000,5609,391
+2704482,Michael,Thomas,2653 Walnut St,San Antonio,TX,78201,1000,933,67
+2704484,Joseph,Thompson,7594 Spruce St,San Antonio,TX,78201,2000,1427,573
+2704485,Karen,Jones,1855 Court St,Dallas,TX,75201,1500,402,1098
+2704487,Mark,Brown,584 Court St,Houston,TX,77001,12000,5978,6022
+2704488,Betty,Jones,5809 Birch St,El Paso,TX,79901,2000,1498,502
+2704492,Michael,Brown,2519 Elm St,Fort Worth,TX,76101,2000,346,1654
+2704494,David,Anderson,767 Maple Ave,Houston,TX,77001,9000,1518,7482
+2704500,Nancy,Harris,9319 Cedar Ln,Dallas,TX,75201,2500,2141,359
+2704502,Jessica,Thomas,9320 Court St,Fort Worth,TX,76101,2500,1673,827
+2704503,Lisa,Harris,5017 Elm St,San Antonio,TX,78201,4500,4156,344
+2704506,Sandra,Sanchez,6309 Washington St,Austin,TX,73301,2500,2277,223
+2704520,Richard,Martin,7754 4th St,Houston,TX,77001,1500,1005,495
+2704522,Mary,Williams,4885 Ridgeway Dr,Dallas,TX,75201,1500,1059,441
+2704525,Lisa,Miller,574 Forest Ave,Fort Worth,TX,76101,9000,5485,3515
+2704526,Sarah,Hernandez,8269 3rd St,Fort Worth,TX,76101,1500,1205,295
+2704536,James,Ramirez,7221 3rd St,Dallas,TX,75201,4500,1072,3428
+2704541,Sarah,Williams,4150 Sunset Blvd,Houston,TX,77001,1800,1263,537
+2704549,Elizabeth,Lewis,2527 Walnut St,El Paso,TX,79901,3000,1878,1122
+2704555,Susan,Sanchez,6536 Ridgeway Dr,Dallas,TX,75201,9000,6989,2011
+2704557,Betty,White,2434 Lakeview Dr,El Paso,TX,79901,4500,2900,1600
+2704567,David,Moore,7035 Ridgeway Dr,Fort Worth,TX,76101,1500,108,1392
+2704568,Margaret,Johnson,2199 Walnut St,Fort Worth,TX,76101,4500,2311,2189
+2704570,Linda,Jones,7928 Cedar Ln,Fort Worth,TX,76101,2000,1261,739
+2704571,Christopher,Williams,3898 Pine Ave,Fort Worth,TX,76101,6000,4353,1647
+2704574,William,Sanchez,4562 Maple Ave,Houston,TX,77001,4500,3374,1126
+2704576,Margaret,White,5701 Cherry Ln,Dallas,TX,75201,2500,288,2212
+2704578,Lisa,Harris,6840 Ridgeway Dr,San Antonio,TX,78201,3000,2265,735
+2704581,Richard,Taylor,4980 2nd St,Houston,TX,77001,3000,1325,1675
+2704582,Susan,Johnson,7625 Lakeview Dr,San Antonio,TX,78201,2000,1285,715
+2704591,Mary,Davis,486 Court St,Fort Worth,TX,76101,9000,8560,440
+2704597,Daniel,Taylor,2648 Birch St,Fort Worth,TX,76101,4500,2306,2194
+2704598,Elizabeth,Perez,7400 Walnut St,Dallas,TX,75201,1500,596,904
+2704602,Sarah,Martinez,249 Ridgeway Dr,Fort Worth,TX,76101,6000,1772,4228
+2704606,Joseph,Sanchez,1114 Sunset Blvd,Fort Worth,TX,76101,9000,7801,1199
+2704608,Robert,Ramirez,4052 Cherry Ln,Fort Worth,TX,76101,6000,4836,1164
+2704618,Margaret,Robinson,9541 Cedar Ln,Fort Worth,TX,76101,4500,2855,1645
+2704619,Joseph,Ramirez,4177 Washington St,Austin,TX,73301,12000,6197,5803
+2704625,Anthony,Gonzalez,9248 Oak St,Houston,TX,77001,2500,847,1653
+2704643,Robert,Brown,5985 Ridgeway Dr,El Paso,TX,79901,2000,179,1821
+2704645,Lisa,Miller,2817 Sunset Blvd,Fort Worth,TX,76101,6000,4688,1312
+2704662,Matthew,Perez,8127 Ridgeway Dr,Austin,TX,73301,1800,436,1364
+2704667,Anthony,Anderson,8537 Main St,Houston,TX,77001,2000,1574,426
+2704669,Anthony,Harris,2454 Ridgeway Dr,Houston,TX,77001,1000,458,542
+2704677,Mary,Thomas,788 Maple Ave,Houston,TX,77001,1800,856,944
+2704678,Joseph,Anderson,5217 Main St,Fort Worth,TX,76101,6000,2284,3716
+2704679,Jessica,Jackson,6283 2nd St,San Antonio,TX,78201,9000,5802,3198
+2704681,Anthony,Sanchez,8472 Birch St,Houston,TX,77001,1800,460,1340
+2704683,Christopher,Gonzalez,9383 Walnut St,El Paso,TX,79901,9000,3161,5839
+2704684,Susan,Rodriguez,9529 Cherry Ln,Houston,TX,77001,1800,54,1746
+2704685,Michael,Perez,6984 Ridgeway Dr,Austin,TX,73301,4500,728,3772
+2704688,Elizabeth,Gonzalez,1331 Oak St,Houston,TX,77001,2500,85,2415
+2704692,Elizabeth,Garcia,1104 Cedar Ln,Fort Worth,TX,76101,1000,86,914
+2704694,Margaret,Harris,121 Ridgeway Dr,Fort Worth,TX,76101,2000,264,1736
+2704699,Susan,Johnson,4408 3rd St,Fort Worth,TX,76101,1800,630,1170
+2704700,Thomas,Jones,9888 3rd St,El Paso,TX,79901,2500,902,1598
+2704702,Mark,Smith,1389 4th St,Houston,TX,77001,6000,5413,587
+2704703,Nancy,Gonzalez,1195 Birch St,San Antonio,TX,78201,2500,1410,1090
+2704704,Thomas,Johnson,9683 2nd St,Houston,TX,77001,3000,1004,1996
+2704707,James,Martinez,821 Sunset Blvd,Fort Worth,TX,76101,9000,7950,1050
+2704708,Jessica,Smith,6749 Ridgeway Dr,San Antonio,TX,78201,2500,1316,1184
+2704711,David,Sanchez,392 3rd St,Dallas,TX,75201,12000,10945,1055
+2704715,Matthew,Hernandez,9941 Hillcrest Rd,Fort Worth,TX,76101,9000,1391,7609
+2704725,Joseph,Martinez,4652 Court St,El Paso,TX,79901,3000,1585,1415
+2704727,Mark,Brown,9291 Elm St,El Paso,TX,79901,12000,2380,9620
+2704728,Christopher,Martinez,1440 Forest Ave,Dallas,TX,75201,2500,1428,1072
+2704731,Linda,Smith,6252 Oak St,El Paso,TX,79901,6000,3031,2969
+2704733,Jessica,Moore,6444 Birch St,Fort Worth,TX,76101,1800,1230,570
+2704745,Sandra,Smith,8742 Main St,Austin,TX,73301,1000,275,725
+2704747,Thomas,Thompson,4582 4th St,Fort Worth,TX,76101,1500,358,1142
+2704748,Joseph,Davis,4038 Lakeview Dr,Fort Worth,TX,76101,1500,1167,333
+2704754,James,Anderson,2924 Lakeview Dr,Austin,TX,73301,12000,5348,6652
+2704757,Joseph,Garcia,1924 Main St,San Antonio,TX,78201,1800,802,998
+2704760,Michael,Martinez,4945 Oak St,Dallas,TX,75201,2500,469,2031
+2704762,Betty,Harris,4512 Walnut St,San Antonio,TX,78201,9000,1051,7949
+2704763,Matthew,White,4197 Birch St,Fort Worth,TX,76101,1500,1250,250
+2704765,Sarah,Lopez,5452 Walnut St,San Antonio,TX,78201,1800,775,1025
+2704768,Jessica,Perez,7762 Ridgeway Dr,San Antonio,TX,78201,1800,1724,76
+2704770,Anthony,White,2099 Main St,El Paso,TX,79901,4500,152,4348
+2704779,Sandra,Johnson,8411 Walnut St,Austin,TX,73301,6000,2136,3864
+2704780,Nancy,Garcia,645 4th St,El Paso,TX,79901,9000,6778,2222
+2704782,Jennifer,Johnson,9419 2nd St,San Antonio,TX,78201,3000,452,2548
+2704786,Susan,Lewis,5885 Oak St,Houston,TX,77001,2000,1288,712
+2704788,Joseph,Lee,3115 Ridgeway Dr,Houston,TX,77001,4500,8,4492
+2704790,Mark,Wilson,6578 Spruce St,Houston,TX,77001,6000,1530,4470
+2704791,Matthew,Martinez,9091 3rd St,Austin,TX,73301,2000,1974,26
+2704799,Matthew,Williams,8406 Birch St,Houston,TX,77001,9000,6222,2778
+2704801,James,Davis,9282 Elm St,El Paso,TX,79901,2500,1370,1130
+2704802,James,Garcia,3489 3rd St,San Antonio,TX,78201,9000,3255,5745
+2704803,Sarah,White,5547 Oak St,Fort Worth,TX,76101,4500,934,3566
+2704804,Jennifer,Davis,942 4th St,Austin,TX,73301,1000,617,383
+2704812,Robert,Lopez,4433 Elm St,San Antonio,TX,78201,1500,85,1415
+2704815,David,Clark,5039 Cedar Ln,Fort Worth,TX,76101,1500,653,847
+2704816,Barbara,Jones,8504 Hillcrest Rd,Dallas,TX,75201,1500,1180,320
+2704821,Elizabeth,Jackson,7304 Forest Ave,Fort Worth,TX,76101,4500,1416,3084
+2704823,Patricia,Gonzalez,2286 Ridgeway Dr,Austin,TX,73301,6000,861,5139
+2704825,William,Hernandez,7410 Pine Ave,Fort Worth,TX,76101,3000,654,2346
+2704830,Margaret,Robinson,5804 Pine Ave,Houston,TX,77001,6000,3426,2574
+2704836,Daniel,Anderson,1994 Pine Ave,Fort Worth,TX,76101,12000,11117,883
+2704837,David,Moore,8175 Cherry Ln,Austin,TX,73301,12000,7750,4250
+2704847,Anthony,White,7585 Elm St,Houston,TX,77001,1000,326,674
+2704849,Anthony,Anderson,3620 Walnut St,Fort Worth,TX,76101,12000,2803,9197
+2704858,Betty,Robinson,3932 Sunset Blvd,Houston,TX,77001,2000,1061,939
+2704859,Sarah,Ramirez,943 Cedar Ln,Dallas,TX,75201,2500,1824,676
+2704862,Jessica,Anderson,9631 Washington St,El Paso,TX,79901,12000,10020,1980
+2704868,Anthony,Wilson,2605 2nd St,Fort Worth,TX,76101,1500,806,694
+2704869,Charles,Jackson,7307 Main St,Houston,TX,77001,9000,8694,306
+2704870,Sandra,Lewis,505 Cedar Ln,Houston,TX,77001,1000,56,944
+2704875,Elizabeth,Moore,7325 Forest Ave,San Antonio,TX,78201,2500,833,1667
+2704876,Lisa,Perez,3133 Lakeview Dr,El Paso,TX,79901,1500,998,502
+2704883,Lisa,Martin,9944 Maple Ave,El Paso,TX,79901,2500,849,1651
+2704887,Barbara,Robinson,6497 Ridgeway Dr,Austin,TX,73301,3000,893,2107
+2704889,John,Davis,8170 Maple Ave,Dallas,TX,75201,12000,3810,8190
+2704890,Charles,Lopez,7197 Oak St,Fort Worth,TX,76101,1000,89,911
+2704891,Michael,Taylor,2800 Oak St,El Paso,TX,79901,6000,4382,1618
+2704893,Margaret,Taylor,7852 Birch St,San Antonio,TX,78201,4500,479,4021
+2704896,Anthony,Miller,454 Forest Ave,San Antonio,TX,78201,6000,3010,2990
+2704897,Daniel,Williams,9075 Pine Ave,Austin,TX,73301,1500,274,1226
+2704904,Jessica,Rodriguez,3301 3rd St,Houston,TX,77001,3000,938,2062
+2704906,Elizabeth,White,3419 Birch St,Austin,TX,73301,9000,390,8610
+2704907,Margaret,Davis,399 Washington St,Fort Worth,TX,76101,1800,1088,712
+2704909,William,Rodriguez,5874 4th St,San Antonio,TX,78201,1800,206,1594
+2704915,Nancy,Johnson,1575 2nd St,Fort Worth,TX,76101,2000,1646,354
+2704923,Michael,Sanchez,1863 Main St,Fort Worth,TX,76101,2500,2019,481
+2704928,Elizabeth,Taylor,8066 Lakeview Dr,Austin,TX,73301,12000,3771,8229
+2704929,Joseph,Brown,8045 Cedar Ln,Austin,TX,73301,2000,383,1617
+2704933,Karen,Lopez,988 Forest Ave,Austin,TX,73301,12000,4096,7904
+2704935,Michael,Davis,2872 Spruce St,El Paso,TX,79901,3000,309,2691
+2704938,Elizabeth,Smith,851 Elm St,Houston,TX,77001,1500,902,598
+2704941,Thomas,Brown,4935 Ridgeway Dr,San Antonio,TX,78201,6000,1518,4482
+2704950,Lisa,Robinson,2497 Walnut St,El Paso,TX,79901,2000,706,1294
+2704951,Mark,Martinez,4276 Court St,Dallas,TX,75201,3000,1714,1286
+2704953,David,Martinez,4614 Washington St,San Antonio,TX,78201,3000,1757,1243
+2704956,David,Miller,9446 Sunset Blvd,Fort Worth,TX,76101,1000,489,511
+2704960,Linda,Harris,5652 Lakeview Dr,Dallas,TX,75201,1800,1689,111
+2704964,Lisa,Thomas,1195 Cherry Ln,Fort Worth,TX,76101,2500,131,2369
+2704965,Mary,Anderson,1987 Cedar Ln,Houston,TX,77001,9000,678,8322
+2704967,Karen,Jones,4945 Spruce St,Fort Worth,TX,76101,1800,528,1272
+2704989,Thomas,Johnson,5258 Pine Ave,Dallas,TX,75201,1500,160,1340
+2704990,David,Johnson,9646 Cedar Ln,Fort Worth,TX,76101,2500,1951,549
+2704998,Jessica,Hernandez,6217 Cedar Ln,Dallas,TX,75201,6000,2914,3086
+2704999,Mark,Ramirez,5231 2nd St,Austin,TX,73301,2500,26,2474
+2705002,Linda,Miller,742 Cherry Ln,San Antonio,TX,78201,1000,120,880
+2705003,Sandra,Robinson,957 Washington St,Austin,TX,73301,6000,1436,4564
+2705023,John,Taylor,9394 Lakeview Dr,Dallas,TX,75201,6000,4040,1960
+2705027,Margaret,Harris,5300 Ridgeway Dr,Dallas,TX,75201,3000,531,2469
+2705040,Daniel,Robinson,9872 Oak St,Austin,TX,73301,4500,4042,458
+2705043,Richard,Perez,4045 Birch St,San Antonio,TX,78201,6000,3923,2077
+2705055,Jennifer,Moore,6794 Ridgeway Dr,Austin,TX,73301,4500,2826,1674
+2705060,Jennifer,Sanchez,4561 Maple Ave,San Antonio,TX,78201,3000,1910,1090
+2705062,Betty,Garcia,7689 Pine Ave,Dallas,TX,75201,3000,2618,382
+2705064,Sarah,Thomas,3763 Ridgeway Dr,El Paso,TX,79901,4500,4257,243
+2705065,Jessica,Hernandez,9443 Main St,Dallas,TX,75201,1800,508,1292
+2705072,Susan,Martin,1556 Hillcrest Rd,Austin,TX,73301,2000,42,1958
+2705078,Margaret,Moore,7966 Maple Ave,San Antonio,TX,78201,3000,2016,984
+2705079,Robert,Anderson,2934 Washington St,Houston,TX,77001,2500,2045,455
+2705080,Matthew,Johnson,7510 Walnut St,Austin,TX,73301,12000,9763,2237
+2705081,Mark,Hernandez,4216 Oak St,Austin,TX,73301,12000,3237,8763
+2705083,Thomas,Garcia,1924 Walnut St,San Antonio,TX,78201,3000,2029,971
+2705087,Barbara,Jackson,1486 Elm St,Houston,TX,77001,3000,2171,829
+2705099,David,Thomas,1326 Cherry Ln,Fort Worth,TX,76101,2000,1695,305
+2705102,Linda,Taylor,8741 Washington St,Houston,TX,77001,4500,3989,511
+2705106,Michael,Jackson,552 Ridgeway Dr,Dallas,TX,75201,9000,1445,7555
+2705107,Sarah,Hernandez,1087 4th St,Dallas,TX,75201,6000,2405,3595
+2705108,Mark,Gonzalez,7286 Lakeview Dr,Austin,TX,73301,3000,231,2769
+2705110,Barbara,Rodriguez,8222 Washington St,Houston,TX,77001,3000,1405,1595
+2705116,Mary,Lewis,2627 4th St,El Paso,TX,79901,1800,577,1223
+2705117,Robert,Johnson,8563 Cedar Ln,Dallas,TX,75201,1800,1468,332
+2705122,Jennifer,Martinez,2336 Hillcrest Rd,Fort Worth,TX,76101,1800,1104,696
+2705131,Charles,Rodriguez,7481 4th St,Fort Worth,TX,76101,9000,155,8845
+2705135,Thomas,Johnson,1004 4th St,Austin,TX,73301,1800,938,862
+2705141,Linda,Wilson,3491 Birch St,San Antonio,TX,78201,4500,970,3530
+2705144,Joseph,Lopez,5134 Maple Ave,Dallas,TX,75201,9000,2201,6799
+2705145,Mark,Lewis,184 Hillcrest Rd,El Paso,TX,79901,4500,266,4234
+2705151,Susan,Davis,1099 2nd St,El Paso,TX,79901,1000,314,686
+2705154,James,Brown,4960 Hillcrest Rd,El Paso,TX,79901,6000,5676,324
+2705156,David,Williams,1579 Hillcrest Rd,Austin,TX,73301,2500,699,1801
+2705157,Elizabeth,Lopez,392 3rd St,San Antonio,TX,78201,2000,478,1522
+2705158,Lisa,Jones,1610 Spruce St,Fort Worth,TX,76101,1500,866,634
+2705162,Thomas,Taylor,8241 Pine Ave,Houston,TX,77001,9000,2472,6528
+2705163,Margaret,Sanchez,3376 Hillcrest Rd,Houston,TX,77001,3000,2447,553
+2705168,Lisa,Harris,1275 Maple Ave,Dallas,TX,75201,1500,1259,241
+2705173,James,Anderson,5514 Main St,Dallas,TX,75201,1500,1494,6
+2705179,Joseph,Rodriguez,7040 Washington St,El Paso,TX,79901,4500,3257,1243
+2705180,Betty,Martin,4636 Elm St,Austin,TX,73301,4500,1728,2772
+2705183,James,White,8566 Oak St,Houston,TX,77001,9000,5803,3197
+2705184,Nancy,Brown,7744 Hillcrest Rd,San Antonio,TX,78201,2500,2227,273
+2705185,Susan,Anderson,6690 Spruce St,Dallas,TX,75201,1500,1080,420
+2705195,Christopher,Robinson,9906 Ridgeway Dr,Fort Worth,TX,76101,1500,150,1350
+2705199,Jennifer,Martinez,5907 Forest Ave,El Paso,TX,79901,4500,268,4232
+2705202,Sarah,Jackson,5352 Washington St,San Antonio,TX,78201,2000,1097,903
+2705207,Patricia,Miller,626 Sunset Blvd,Fort Worth,TX,76101,6000,999,5001
+2705208,Barbara,Miller,6818 Oak St,Dallas,TX,75201,12000,11363,637
+2705210,Sarah,Hernandez,9214 Oak St,San Antonio,TX,78201,6000,2504,3496
+2705214,Nancy,Lewis,3657 2nd St,Dallas,TX,75201,1800,1424,376
+2705215,Charles,Martinez,8324 3rd St,Austin,TX,73301,4500,2521,1979
+2705219,Christopher,Martin,7169 Elm St,San Antonio,TX,78201,12000,9102,2898
+2705220,Matthew,Sanchez,6985 Oak St,Dallas,TX,75201,6000,5298,702
+2705223,Lisa,Smith,2644 Cherry Ln,San Antonio,TX,78201,12000,6020,5980
+2705228,John,Taylor,6883 Maple Ave,Fort Worth,TX,76101,2500,1558,942
+2705230,Jennifer,Davis,9596 Forest Ave,El Paso,TX,79901,4500,3477,1023
+2705235,Susan,Davis,9673 2nd St,El Paso,TX,79901,1500,1034,466
+2705239,Sarah,Brown,3775 Lakeview Dr,Houston,TX,77001,1800,252,1548
+2705242,James,Thomas,4346 Ridgeway Dr,El Paso,TX,79901,1800,1265,535
+2705244,David,Clark,492 Elm St,Fort Worth,TX,76101,12000,3984,8016
+2705249,Joseph,Williams,3292 Washington St,El Paso,TX,79901,4500,1546,2954
+2705255,William,Lee,4674 Ridgeway Dr,Dallas,TX,75201,3000,768,2232
+2705259,Anthony,Davis,7986 Pine Ave,Houston,TX,77001,9000,3216,5784
+2705261,Sandra,Hernandez,4641 3rd St,San Antonio,TX,78201,1000,994,6
+2705264,Robert,Thompson,5188 Sunset Blvd,Austin,TX,73301,6000,2998,3002
+2705266,Joseph,Smith,8590 Maple Ave,Fort Worth,TX,76101,6000,3635,2365
+2705272,Susan,Thomas,176 Forest Ave,Dallas,TX,75201,3000,2919,81
+2705281,John,White,8292 Walnut St,San Antonio,TX,78201,9000,8314,686
+2705285,Susan,Williams,311 Hillcrest Rd,Austin,TX,73301,6000,429,5571
+2705291,Jennifer,Clark,2906 Cherry Ln,El Paso,TX,79901,1000,803,197
+2705294,Karen,Davis,7959 Washington St,Houston,TX,77001,9000,5211,3789
+2705295,Matthew,Martin,8716 2nd St,Dallas,TX,75201,1500,1285,215
+2705300,Sarah,Martinez,9457 Main St,Fort Worth,TX,76101,1000,56,944
+2705310,Joseph,Smith,181 Walnut St,El Paso,TX,79901,12000,3439,8561
+2705312,Karen,Brown,9375 Pine Ave,Austin,TX,73301,1500,890,610
+2705319,Jessica,Jackson,5288 Hillcrest Rd,El Paso,TX,79901,6000,4202,1798
+2705325,Sandra,Thomas,8077 Oak St,Dallas,TX,75201,9000,7607,1393
+2705326,Sarah,Robinson,9791 Cherry Ln,Houston,TX,77001,4500,1818,2682
+2705329,Margaret,Thomas,2742 Hillcrest Rd,Austin,TX,73301,4500,2754,1746
+2705335,Sandra,Thompson,776 Cedar Ln,Dallas,TX,75201,12000,8863,3137
+2705339,Jessica,Jones,798 Washington St,El Paso,TX,79901,12000,484,11516
+2705341,Richard,Anderson,9440 Spruce St,El Paso,TX,79901,12000,6755,5245
+2705344,Jessica,Ramirez,4154 Walnut St,El Paso,TX,79901,1800,1572,228
+2705345,Barbara,Lopez,8614 Cedar Ln,Fort Worth,TX,76101,6000,1979,4021
+2705348,Joseph,Lopez,2861 2nd St,El Paso,TX,79901,2500,1622,878
+2705349,Betty,Rodriguez,5372 Cedar Ln,Fort Worth,TX,76101,1500,313,1187
+2705350,Sandra,Smith,9666 Pine Ave,San Antonio,TX,78201,1500,1004,496
+2705361,Sarah,Johnson,9316 Cherry Ln,Houston,TX,77001,9000,3321,5679
+2705372,Margaret,Hernandez,6805 Lakeview Dr,Houston,TX,77001,1500,927,573
+2705383,Karen,Lee,4625 Elm St,El Paso,TX,79901,2000,40,1960
+2705384,Christopher,Lopez,1324 Maple Ave,El Paso,TX,79901,1800,558,1242
+2705388,Christopher,Perez,616 3rd St,Dallas,TX,75201,1000,713,287
+2705391,Nancy,Martin,7154 Hillcrest Rd,Fort Worth,TX,76101,2000,1713,287
+2705392,Anthony,Thompson,7386 Pine Ave,San Antonio,TX,78201,2000,764,1236
+2705403,Nancy,Lewis,3136 Oak St,Dallas,TX,75201,2000,1562,438
+2705404,Lisa,Miller,6701 Cherry Ln,Austin,TX,73301,1000,585,415
+2705406,Thomas,Garcia,3862 2nd St,San Antonio,TX,78201,1000,289,711
+2705409,Richard,Davis,9845 Main St,Austin,TX,73301,4500,512,3988
+2705412,Elizabeth,Lopez,8337 Hillcrest Rd,Austin,TX,73301,1000,480,520
+2705417,Karen,Robinson,7391 Hillcrest Rd,Fort Worth,TX,76101,3000,2816,184
+2705418,Barbara,Sanchez,2140 Oak St,San Antonio,TX,78201,2000,1483,517
+2705419,Margaret,Rodriguez,3375 3rd St,El Paso,TX,79901,9000,7083,1917
+2705427,Jessica,Moore,8417 Walnut St,Austin,TX,73301,12000,1085,10915
+2705428,Robert,Gonzalez,5057 Main St,Fort Worth,TX,76101,1800,52,1748
+2705429,Richard,Thomas,3482 Birch St,Dallas,TX,75201,1800,1700,100
+2705430,Betty,Anderson,9296 Walnut St,San Antonio,TX,78201,4500,718,3782
+2705436,Thomas,Martinez,1340 Pine Ave,Fort Worth,TX,76101,3000,903,2097
+2705438,Sandra,Clark,3055 2nd St,Austin,TX,73301,6000,5994,6
+2705441,James,Lopez,3971 Pine Ave,Austin,TX,73301,2000,545,1455
+2705444,Charles,Gonzalez,5767 2nd St,El Paso,TX,79901,3000,1760,1240
+2705452,Michael,Moore,2656 Sunset Blvd,San Antonio,TX,78201,12000,2822,9178
+2705453,Nancy,Martinez,4111 Washington St,Austin,TX,73301,4500,669,3831
+2705454,James,Davis,6528 Birch St,Fort Worth,TX,76101,2500,2034,466
+2705455,Linda,Perez,8918 3rd St,Houston,TX,77001,3000,2194,806
+2705459,Sarah,Jones,9556 Cedar Ln,El Paso,TX,79901,1000,740,260
+2705461,David,Brown,5755 Lakeview Dr,El Paso,TX,79901,6000,1138,4862
+2705469,Jessica,Clark,155 3rd St,Fort Worth,TX,76101,4500,2591,1909
+2705476,Susan,Hernandez,5389 Spruce St,Austin,TX,73301,6000,3253,2747
+2705477,Margaret,Robinson,2479 Ridgeway Dr,Dallas,TX,75201,1800,1026,774
+2705478,Patricia,Martin,4918 Oak St,Austin,TX,73301,1000,465,535
+2705488,Margaret,Williams,114 Birch St,Houston,TX,77001,3000,2287,713
+2705497,Michael,Johnson,8616 Lakeview Dr,El Paso,TX,79901,6000,2324,3676
+2705501,Sandra,Moore,8634 Lakeview Dr,El Paso,TX,79901,1800,158,1642
+2705503,Sandra,Martin,4570 Pine Ave,El Paso,TX,79901,2000,313,1687
+2705508,Matthew,Anderson,6958 Walnut St,Austin,TX,73301,6000,733,5267
+2705510,Susan,Harris,3447 Ridgeway Dr,Houston,TX,77001,1000,372,628
+2705511,Sandra,Johnson,2941 Court St,Austin,TX,73301,1800,759,1041
+2705512,Mary,Rodriguez,8968 Elm St,Houston,TX,77001,1500,514,986
+2705517,William,Thompson,4246 3rd St,Dallas,TX,75201,12000,3750,8250
+2705519,Mary,Williams,200 Spruce St,Fort Worth,TX,76101,6000,3773,2227
+2705520,William,Perez,6797 Walnut St,Houston,TX,77001,1000,320,680
+2705523,Susan,Lewis,4759 Cherry Ln,Austin,TX,73301,2500,126,2374
+2705527,Margaret,Moore,4025 Elm St,Dallas,TX,75201,2000,1578,422
+2705528,Thomas,Brown,8028 4th St,Austin,TX,73301,4500,3798,702
+2705529,Richard,Harris,1707 Sunset Blvd,Fort Worth,TX,76101,2000,1599,401
+2705530,William,Sanchez,5713 Walnut St,Houston,TX,77001,1500,709,791
+2705532,Lisa,Ramirez,9801 Walnut St,Austin,TX,73301,9000,5884,3116
+2705537,Mary,Thompson,2936 2nd St,Houston,TX,77001,1500,831,669
+2705540,Charles,Garcia,8881 Sunset Blvd,Houston,TX,77001,12000,11730,270
+2705541,Linda,Smith,5885 Lakeview Dr,Fort Worth,TX,76101,12000,838,11162
+2705547,Matthew,Williams,4217 Oak St,San Antonio,TX,78201,1000,753,247
+2705551,William,Thompson,4701 Spruce St,Fort Worth,TX,76101,1800,1701,99
+2705558,David,Brown,6765 Ridgeway Dr,Fort Worth,TX,76101,3000,1120,1880
+2705563,Matthew,Clark,2685 Maple Ave,Dallas,TX,75201,9000,3076,5924
+2705567,Sarah,Robinson,2932 Maple Ave,El Paso,TX,79901,12000,6466,5534
+2705579,Sandra,Lewis,3345 Spruce St,El Paso,TX,79901,2000,1043,957
+2705585,Michael,Williams,844 Court St,Fort Worth,TX,76101,9000,516,8484
+2705587,John,Gonzalez,9191 Washington St,El Paso,TX,79901,3000,1453,1547
+2705597,Richard,Robinson,2108 Forest Ave,Houston,TX,77001,6000,3209,2791
+2705600,Charles,Hernandez,885 Maple Ave,Houston,TX,77001,1500,1169,331
+2705601,Barbara,Robinson,8088 Pine Ave,Dallas,TX,75201,6000,5833,167
+2705603,Margaret,Sanchez,4972 2nd St,Fort Worth,TX,76101,1800,716,1084
+2705605,Robert,Lopez,5196 Spruce St,Dallas,TX,75201,1000,817,183
+2705617,Mary,Anderson,2070 Elm St,Houston,TX,77001,1500,1368,132
+2705623,Patricia,Smith,2202 Pine Ave,Dallas,TX,75201,2000,1797,203
+2705625,Michael,Lee,9923 Pine Ave,Fort Worth,TX,76101,1800,1140,660
+2705628,Christopher,Davis,9045 Ridgeway Dr,Houston,TX,77001,6000,5053,947
+2705634,Matthew,Perez,793 2nd St,San Antonio,TX,78201,1500,502,998
+2705636,Lisa,Sanchez,7091 Spruce St,Houston,TX,77001,12000,2462,9538
+2705639,Susan,White,4262 Walnut St,San Antonio,TX,78201,2500,2496,4
+2705641,James,Brown,1805 Main St,El Paso,TX,79901,9000,6416,2584
+2705642,Sarah,Hernandez,1343 Hillcrest Rd,Dallas,TX,75201,1800,1382,418
+2705645,Jessica,Smith,9236 Walnut St,El Paso,TX,79901,4500,1534,2966
+2705650,Daniel,Martin,9422 Washington St,Austin,TX,73301,3000,405,2595
+2705656,John,Sanchez,6794 Cedar Ln,San Antonio,TX,78201,4500,973,3527
+2705669,Betty,Sanchez,6131 Maple Ave,San Antonio,TX,78201,4500,1346,3154
+2705671,Jessica,Anderson,1013 Spruce St,Fort Worth,TX,76101,6000,1720,4280
+2705677,Sarah,Ramirez,8545 Spruce St,Fort Worth,TX,76101,2500,1315,1185
+2705681,Susan,Rodriguez,476 Forest Ave,El Paso,TX,79901,12000,1814,10186
+2705682,Sandra,Martinez,8754 Main St,Houston,TX,77001,2500,2488,12
+2705683,Robert,Martinez,4603 Cedar Ln,El Paso,TX,79901,1500,759,741
+2705684,Mary,Lopez,3681 Court St,Austin,TX,73301,3000,2359,641
+2705687,Elizabeth,White,3539 2nd St,Fort Worth,TX,76101,12000,9193,2807
+2705693,Patricia,Lewis,1699 Ridgeway Dr,Houston,TX,77001,1800,46,1754
+2705695,Linda,Perez,5168 Elm St,Houston,TX,77001,3000,14,2986
+2705696,Mary,Wilson,3210 Cherry Ln,Austin,TX,73301,1800,474,1326
+2705699,Nancy,Hernandez,4770 Lakeview Dr,Houston,TX,77001,2000,809,1191
+2705700,Matthew,Brown,9560 4th St,Fort Worth,TX,76101,3000,650,2350
+2705704,John,Thomas,3072 Cherry Ln,Houston,TX,77001,1500,1228,272
+2705705,Thomas,Taylor,5029 Washington St,San Antonio,TX,78201,4500,4054,446
+2705707,Elizabeth,Moore,6758 Main St,Houston,TX,77001,12000,11698,302
+2705708,Elizabeth,Gonzalez,1021 3rd St,Austin,TX,73301,2500,1687,813
+2705709,Matthew,Johnson,7898 Maple Ave,Houston,TX,77001,6000,3977,2023
+2705710,Nancy,Brown,355 Court St,Fort Worth,TX,76101,3000,846,2154
+2705712,Betty,Lewis,1876 Lakeview Dr,Houston,TX,77001,2000,1511,489
+2705713,Anthony,Williams,2171 Lakeview Dr,Houston,TX,77001,3000,2508,492
+2705714,Anthony,Wilson,9070 Washington St,San Antonio,TX,78201,1500,1472,28
+2705718,Mark,Smith,6795 Hillcrest Rd,Austin,TX,73301,3000,1438,1562
+2705721,Margaret,Thomas,8131 Forest Ave,Fort Worth,TX,76101,4500,637,3863
+2705733,Joseph,Thomas,2293 Ridgeway Dr,Houston,TX,77001,1000,951,49
+2705740,John,Moore,2136 Court St,San Antonio,TX,78201,6000,4689,1311
+2705751,Richard,Lee,7115 Spruce St,Austin,TX,73301,4500,2844,1656
+2705753,Thomas,Smith,8501 Lakeview Dr,El Paso,TX,79901,3000,2167,833
+2705754,James,Sanchez,6487 Birch St,El Paso,TX,79901,12000,5438,6562
+2705761,Richard,Hernandez,7117 Walnut St,Austin,TX,73301,4500,1537,2963
+2705767,Daniel,Martinez,9700 Sunset Blvd,Fort Worth,TX,76101,3000,979,2021
+2705770,Thomas,Ramirez,973 Pine Ave,Dallas,TX,75201,2500,1314,1186
+2705772,Charles,Martinez,2693 Lakeview Dr,Houston,TX,77001,6000,1904,4096
+2705775,Joseph,Rodriguez,8350 Elm St,San Antonio,TX,78201,1800,621,1179
+2705780,Jennifer,Wilson,3523 Birch St,Dallas,TX,75201,2000,427,1573
+2705781,David,Rodriguez,2378 Hillcrest Rd,Fort Worth,TX,76101,1500,603,897
+2705786,Michael,Thompson,2011 Oak St,El Paso,TX,79901,3000,1236,1764
+2705787,Mary,Lee,6327 Pine Ave,Fort Worth,TX,76101,1000,54,946
+2705788,James,Thomas,7966 Forest Ave,Dallas,TX,75201,2500,1287,1213
+2705796,Margaret,Perez,4850 Cherry Ln,El Paso,TX,79901,2000,1813,187
+2705802,Mark,Rodriguez,8053 Pine Ave,Dallas,TX,75201,12000,1368,10632
+2705804,Linda,Brown,6127 Main St,Fort Worth,TX,76101,3000,2202,798
+2705806,Anthony,Thomas,9051 2nd St,Austin,TX,73301,2500,2375,125
+2705811,Thomas,Moore,1047 3rd St,San Antonio,TX,78201,4500,981,3519
+2705816,James,Johnson,6155 Forest Ave,Houston,TX,77001,9000,2863,6137
+2705818,Barbara,Jackson,638 Lakeview Dr,Austin,TX,73301,1000,482,518
+2705819,Margaret,Thomas,9949 Washington St,Fort Worth,TX,76101,1000,397,603
+2705823,James,Williams,7585 Lakeview Dr,Austin,TX,73301,12000,3688,8312
+2705824,Susan,Johnson,103 Birch St,Austin,TX,73301,9000,6752,2248
+2705828,Jessica,Robinson,4994 Main St,El Paso,TX,79901,3000,2103,897
+2705829,Michael,Moore,3324 Cherry Ln,Houston,TX,77001,6000,2473,3527
+2705843,John,Hernandez,4177 Court St,Houston,TX,77001,1500,204,1296
+2705845,Linda,Sanchez,6156 Forest Ave,San Antonio,TX,78201,1500,1189,311
+2705847,Robert,Brown,8485 Cedar Ln,Fort Worth,TX,76101,3000,1724,1276
+2705851,James,White,6840 Hillcrest Rd,Houston,TX,77001,12000,11667,333
+2705853,Thomas,Robinson,1925 Pine Ave,Fort Worth,TX,76101,1000,649,351
+2705857,James,Brown,8993 Maple Ave,Austin,TX,73301,6000,5769,231
+2705863,William,Johnson,3657 Cedar Ln,Austin,TX,73301,4500,3869,631
+2705867,Karen,Ramirez,9713 Cedar Ln,San Antonio,TX,78201,3000,2619,381
+2705868,William,Thompson,8962 Oak St,Houston,TX,77001,3000,178,2822
+2705871,Sandra,Moore,7269 Washington St,Austin,TX,73301,1800,883,917
+2705873,Charles,White,8525 Cherry Ln,Austin,TX,73301,2000,161,1839
+2705877,Elizabeth,Rodriguez,3412 Forest Ave,El Paso,TX,79901,6000,3556,2444
+2705880,Lisa,Lopez,6926 3rd St,Dallas,TX,75201,9000,6345,2655
+2705884,Nancy,Thomas,4014 3rd St,Dallas,TX,75201,3000,2822,178
+2705890,Michael,Miller,4661 Court St,Houston,TX,77001,12000,4544,7456
+2705891,Sandra,Wilson,5280 Birch St,Fort Worth,TX,76101,1500,961,539
+2705894,Susan,Harris,4640 Main St,Austin,TX,73301,4500,1525,2975
+2705901,James,Lopez,2293 Lakeview Dr,Fort Worth,TX,76101,1500,145,1355
+2705905,Richard,Martin,1837 Hillcrest Rd,San Antonio,TX,78201,2000,1981,19
+2705909,Mark,Sanchez,4674 Hillcrest Rd,Dallas,TX,75201,6000,2883,3117
+2705910,Jennifer,Perez,7923 3rd St,El Paso,TX,79901,2500,1431,1069
+2705911,David,Martin,9188 4th St,Austin,TX,73301,3000,1472,1528
+2705914,Michael,Garcia,3154 3rd St,Austin,TX,73301,3000,1162,1838
+2705927,Linda,Moore,6870 Forest Ave,Houston,TX,77001,4500,1577,2923
+2705928,Charles,Brown,2748 3rd St,Austin,TX,73301,4500,1581,2919
+2705934,Jennifer,Harris,3254 Ridgeway Dr,Fort Worth,TX,76101,1000,363,637
+2705936,Lisa,Davis,8271 Elm St,El Paso,TX,79901,9000,1437,7563
+2705937,Betty,Johnson,4573 Maple Ave,Houston,TX,77001,1000,601,399
+2705941,Mary,Williams,8658 Sunset Blvd,Austin,TX,73301,2500,1921,579
+2705944,Anthony,Clark,7121 2nd St,Austin,TX,73301,1000,987,13
+2705949,Charles,Anderson,2989 Washington St,Dallas,TX,75201,4500,921,3579
+2705950,William,Lewis,8403 Walnut St,San Antonio,TX,78201,4500,1762,2738
+2705951,James,Ramirez,9505 Sunset Blvd,Houston,TX,77001,2000,1486,514
+2705952,Matthew,Taylor,7607 Birch St,El Paso,TX,79901,1800,1125,675
+2705956,Anthony,Martin,3946 Cedar Ln,Houston,TX,77001,6000,465,5535
+2705958,Karen,Rodriguez,1993 Court St,Dallas,TX,75201,12000,8716,3284
+2705960,Elizabeth,Harris,4594 Sunset Blvd,Fort Worth,TX,76101,1000,839,161
+2705967,Robert,Garcia,3241 Forest Ave,San Antonio,TX,78201,4500,3511,989
+2705971,Christopher,Lewis,8664 3rd St,San Antonio,TX,78201,2500,2337,163
+2705973,Elizabeth,Miller,8840 Main St,Houston,TX,77001,3000,1863,1137
+2705988,Mary,Smith,7539 3rd St,Houston,TX,77001,6000,845,5155
+2705995,Michael,Harris,8245 Walnut St,Fort Worth,TX,76101,12000,2660,9340
+2706003,Daniel,Hernandez,6025 Washington St,Fort Worth,TX,76101,4500,4442,58
+2706015,Thomas,Ramirez,1761 4th St,El Paso,TX,79901,1000,724,276
+2706021,Matthew,Brown,3600 Lakeview Dr,Fort Worth,TX,76101,2500,1666,834
+2706026,Jennifer,Hernandez,771 Main St,Fort Worth,TX,76101,1800,502,1298
+2706032,Barbara,Martin,1310 Birch St,Austin,TX,73301,1800,156,1644
+2706035,Robert,Harris,1616 3rd St,Houston,TX,77001,4500,3116,1384
+2706036,Mark,Harris,9703 4th St,Fort Worth,TX,76101,12000,4455,7545
+2706037,Thomas,Rodriguez,7932 Maple Ave,Fort Worth,TX,76101,4500,1329,3171
+2706040,Daniel,Clark,6419 Elm St,San Antonio,TX,78201,1000,924,76
+2706045,Margaret,Garcia,4399 3rd St,Houston,TX,77001,1500,730,770
+2706048,Sandra,Johnson,5426 Sunset Blvd,Houston,TX,77001,1800,948,852
+2706057,Christopher,Brown,8329 4th St,El Paso,TX,79901,2000,1496,504
+2706058,Betty,Davis,149 3rd St,Dallas,TX,75201,3000,2010,990
+2706061,Jessica,Martinez,8767 Lakeview Dr,El Paso,TX,79901,1000,131,869
+2706068,Mark,Ramirez,432 Washington St,Houston,TX,77001,9000,814,8186
+2706069,David,Garcia,9818 Spruce St,Austin,TX,73301,2500,169,2331
+2706071,Thomas,Lewis,5331 Main St,Austin,TX,73301,1800,711,1089
+2706072,Mary,Hernandez,6666 Forest Ave,El Paso,TX,79901,1000,632,368
+2706074,James,Moore,9621 4th St,Austin,TX,73301,9000,7253,1747
+2706075,Betty,Jackson,2780 Oak St,Fort Worth,TX,76101,6000,1272,4728
+2706076,Daniel,White,7785 Washington St,El Paso,TX,79901,2500,2243,257
+2706079,Anthony,Martinez,8840 Ridgeway Dr,Austin,TX,73301,4500,950,3550
+2706080,Barbara,Robinson,2614 Forest Ave,Austin,TX,73301,4500,1804,2696
+2706082,Margaret,Sanchez,8729 Elm St,Dallas,TX,75201,3000,2020,980
+2706085,Margaret,Gonzalez,299 4th St,Austin,TX,73301,3000,2045,955
+2706086,Anthony,Perez,2665 3rd St,San Antonio,TX,78201,1500,299,1201
+2706088,William,Smith,7074 Maple Ave,El Paso,TX,79901,9000,7025,1975
+2706089,Thomas,Clark,2708 Hillcrest Rd,Houston,TX,77001,2500,1200,1300
+2706096,Barbara,Anderson,5206 Elm St,El Paso,TX,79901,6000,3241,2759
+2706097,James,Perez,8595 Pine Ave,El Paso,TX,79901,6000,5853,147
+2706111,Jessica,White,3683 Ridgeway Dr,El Paso,TX,79901,1000,494,506
+2706114,Elizabeth,Jones,7744 4th St,Houston,TX,77001,9000,774,8226
+2706120,Nancy,Moore,2973 Main St,San Antonio,TX,78201,1800,1210,590
+2706122,Thomas,Sanchez,4894 Forest Ave,Fort Worth,TX,76101,1800,550,1250
+2706123,Daniel,Harris,9372 Main St,Fort Worth,TX,76101,2500,196,2304
+2706124,Betty,Thompson,4685 Pine Ave,Dallas,TX,75201,2000,1361,639
+2706126,Daniel,Martin,9497 Court St,Houston,TX,77001,2000,228,1772
+2706133,James,Martin,9616 Spruce St,Fort Worth,TX,76101,4500,2443,2057
+2706134,Susan,Brown,2753 Elm St,El Paso,TX,79901,9000,7904,1096
+2706135,Sarah,Clark,2255 3rd St,San Antonio,TX,78201,2500,131,2369
+2706138,James,Anderson,8331 4th St,Austin,TX,73301,6000,2786,3214
+2706140,Sandra,Robinson,1780 Main St,El Paso,TX,79901,1500,1161,339
+2706150,Thomas,Lopez,161 Elm St,Dallas,TX,75201,4500,3020,1480
+2706151,Mark,Anderson,5251 Spruce St,Fort Worth,TX,76101,3000,2382,618
+2706152,Charles,Sanchez,9377 Cedar Ln,El Paso,TX,79901,3000,1380,1620
+2706153,Mark,Lee,4167 Cherry Ln,Fort Worth,TX,76101,1500,351,1149
+2706169,Linda,Martin,2968 2nd St,San Antonio,TX,78201,1800,783,1017
+2706175,Linda,Perez,5702 Main St,Dallas,TX,75201,9000,8151,849
+2706176,Lisa,Sanchez,9371 Birch St,San Antonio,TX,78201,2500,1633,867
+2706177,Karen,Martin,4700 Oak St,El Paso,TX,79901,4500,607,3893
+2706181,Elizabeth,Martinez,1632 4th St,Fort Worth,TX,76101,1800,334,1466
+2706182,Matthew,Sanchez,7218 2nd St,Dallas,TX,75201,2000,1298,702
+2706196,Patricia,Lopez,5583 Elm St,Dallas,TX,75201,1800,1191,609
+2706197,Barbara,Williams,4089 Sunset Blvd,Fort Worth,TX,76101,6000,1316,4684
+2706199,Betty,Smith,7859 Ridgeway Dr,El Paso,TX,79901,3000,1444,1556
+2706205,Anthony,Anderson,3940 Pine Ave,Fort Worth,TX,76101,3000,1429,1571
+2706207,Mary,Wilson,8283 Court St,El Paso,TX,79901,9000,3899,5101
+2706212,Thomas,Wilson,3945 Sunset Blvd,Fort Worth,TX,76101,9000,862,8138
+2706221,David,Hernandez,5421 Cherry Ln,Austin,TX,73301,6000,2594,3406
+2706228,Thomas,Lopez,1478 Elm St,Fort Worth,TX,76101,4500,713,3787
+2706265,Mark,Johnson,111 Lakeview Dr,El Paso,TX,79901,12000,10445,1555
+2706271,John,Johnson,8494 Hillcrest Rd,San Antonio,TX,78201,3000,1992,1008
+2706289,William,Perez,3883 Hillcrest Rd,El Paso,TX,79901,1500,503,997
+2706299,Barbara,Martinez,8859 Birch St,Houston,TX,77001,9000,6977,2023
+2706302,John,Wilson,1270 Sunset Blvd,Fort Worth,TX,76101,12000,9036,2964
+2706305,Barbara,Moore,9985 Elm St,Houston,TX,77001,2500,1458,1042
+2706317,Sandra,Lee,9188 Birch St,Dallas,TX,75201,9000,8717,283
+2706320,Linda,Hernandez,2639 Walnut St,Dallas,TX,75201,9000,7449,1551
+2706323,Thomas,Ramirez,8409 Oak St,El Paso,TX,79901,1000,748,252
+2706326,Jennifer,Robinson,4658 Birch St,Houston,TX,77001,1000,688,312
+2706329,Susan,Johnson,6948 Lakeview Dr,Austin,TX,73301,2000,349,1651
+2706330,Matthew,White,1738 2nd St,Dallas,TX,75201,9000,2105,6895
+2706347,Matthew,Moore,3522 Main St,El Paso,TX,79901,3000,1971,1029
+2706349,William,Moore,9797 2nd St,Houston,TX,77001,1800,478,1322
+2706351,Mark,Gonzalez,2896 Court St,Fort Worth,TX,76101,1500,984,516
+2706358,Robert,Jones,3913 Spruce St,Fort Worth,TX,76101,12000,3878,8122
+2706359,Joseph,Jackson,8129 Cedar Ln,Houston,TX,77001,3000,1841,1159
+2706373,Daniel,Martinez,5475 Elm St,Houston,TX,77001,3000,1047,1953
+2706381,Thomas,Miller,7347 Oak St,Fort Worth,TX,76101,2000,1558,442
+2706382,Sandra,Clark,252 3rd St,Houston,TX,77001,2000,115,1885
+2706384,Christopher,Thompson,6629 Maple Ave,Dallas,TX,75201,4500,2232,2268
+2706386,Thomas,White,1678 Cedar Ln,Fort Worth,TX,76101,3000,2931,69
+2706390,Lisa,Smith,1953 Hillcrest Rd,Houston,TX,77001,9000,4895,4105
+2706392,Susan,Hernandez,155 Walnut St,Austin,TX,73301,2500,1124,1376
+2706398,Mark,Lopez,2663 Pine Ave,El Paso,TX,79901,2000,586,1414
+2706400,Anthony,Davis,9849 Cedar Ln,Fort Worth,TX,76101,6000,2755,3245
+2706404,John,Miller,9439 Spruce St,San Antonio,TX,78201,1800,904,896
+2706405,Linda,Thomas,990 Ridgeway Dr,Dallas,TX,75201,1500,1490,10
+2706416,Mary,Miller,1282 Maple Ave,Houston,TX,77001,4500,2215,2285
+2706419,Mary,Wilson,8733 Cedar Ln,El Paso,TX,79901,9000,841,8159
+2706423,Mark,Smith,7494 Forest Ave,Fort Worth,TX,76101,4500,2231,2269
+2706424,Mark,Jones,9713 Maple Ave,El Paso,TX,79901,2500,1430,1070
+2706436,Nancy,Miller,3745 Pine Ave,Fort Worth,TX,76101,2500,1824,676
+2706442,Barbara,Taylor,5333 2nd St,Houston,TX,77001,12000,8537,3463
+2706446,David,Miller,1082 Forest Ave,Houston,TX,77001,9000,5144,3856
+2706452,Barbara,Miller,8166 Cherry Ln,Houston,TX,77001,4500,1576,2924
+2706468,Christopher,Hernandez,9305 Ridgeway Dr,Houston,TX,77001,9000,1758,7242
+2706474,James,Lewis,4432 Court St,Dallas,TX,75201,2500,1117,1383
+2706478,Patricia,Clark,760 Birch St,Austin,TX,73301,2500,543,1957
+2706479,Jennifer,Miller,4163 Forest Ave,San Antonio,TX,78201,3000,2789,211
+2706488,Richard,Robinson,2836 Cherry Ln,El Paso,TX,79901,1500,846,654
+2706490,Jessica,Sanchez,3561 Cedar Ln,San Antonio,TX,78201,2500,409,2091
+2706496,Lisa,Gonzalez,719 Elm St,Fort Worth,TX,76101,1500,1133,367
+2706499,Michael,White,5387 Birch St,Dallas,TX,75201,9000,772,8228
+2706509,Patricia,White,3647 Spruce St,Houston,TX,77001,12000,8365,3635
+2706513,Karen,Taylor,706 4th St,El Paso,TX,79901,12000,11176,824
+2706518,Barbara,Thomas,751 Birch St,Houston,TX,77001,4500,3624,876
+2706520,Mary,Lopez,5050 Court St,Austin,TX,73301,9000,8112,888
+2706523,Mark,Lee,3026 Lakeview Dr,Austin,TX,73301,1800,172,1628
+2706531,Lisa,Williams,7247 Sunset Blvd,Houston,TX,77001,12000,9394,2606
+2706532,Matthew,Anderson,6782 Sunset Blvd,El Paso,TX,79901,1800,1371,429
+2706533,Jessica,Martinez,2556 Pine Ave,Austin,TX,73301,1800,394,1406
+2706536,Nancy,Martin,6859 Walnut St,Houston,TX,77001,9000,1558,7442
+2706541,Sarah,Moore,7653 Court St,El Paso,TX,79901,2500,974,1526
+2706547,Jennifer,Robinson,2938 Birch St,Austin,TX,73301,2000,699,1301
+2706549,William,Wilson,828 Washington St,El Paso,TX,79901,2500,340,2160
+2706551,Mary,Brown,3896 Hillcrest Rd,El Paso,TX,79901,4500,4212,288
+2706552,Lisa,Harris,7191 Washington St,San Antonio,TX,78201,9000,3625,5375
+2706557,Anthony,Miller,1305 Walnut St,Dallas,TX,75201,9000,6897,2103
+2706559,Barbara,Rodriguez,6850 Spruce St,Austin,TX,73301,12000,4063,7937
+2706575,Linda,Moore,1685 Spruce St,Austin,TX,73301,6000,3368,2632
+2706580,Margaret,Johnson,4945 Maple Ave,Houston,TX,77001,1000,817,183
+2706582,Robert,Rodriguez,6968 Sunset Blvd,Dallas,TX,75201,6000,3252,2748
+2706587,Lisa,Ramirez,5441 Birch St,Houston,TX,77001,3000,1775,1225
+2706592,Robert,Miller,3472 Elm St,Dallas,TX,75201,12000,11468,532
+2706597,Karen,Thompson,6079 Oak St,Fort Worth,TX,76101,1000,567,433
+2706600,John,Johnson,5766 4th St,Dallas,TX,75201,1500,680,820
+2706604,Richard,Moore,1020 4th St,Dallas,TX,75201,6000,5671,329
+2706606,Anthony,Harris,4758 Hillcrest Rd,Austin,TX,73301,6000,5070,930
+2706607,Linda,Johnson,5670 4th St,Fort Worth,TX,76101,3000,2099,901
+2706610,Patricia,Lewis,8012 Cherry Ln,Austin,TX,73301,1800,969,831
+2706619,Mary,Martinez,5296 Walnut St,Dallas,TX,75201,1000,226,774
+2706621,Susan,Ramirez,757 Court St,Houston,TX,77001,6000,2781,3219
+2706622,Matthew,Hernandez,6303 4th St,Houston,TX,77001,2500,1700,800
+2706625,Charles,Thomas,6153 3rd St,Dallas,TX,75201,6000,5922,78
+2706629,Susan,Sanchez,8198 Birch St,Fort Worth,TX,76101,2500,292,2208
+2706630,Matthew,Thompson,198 Forest Ave,Dallas,TX,75201,4500,4369,131
+2706632,Jennifer,Anderson,1602 Cherry Ln,Houston,TX,77001,9000,7278,1722
+2706633,Nancy,Wilson,6072 Hillcrest Rd,Austin,TX,73301,2500,192,2308
+2706634,Daniel,Smith,6194 3rd St,Houston,TX,77001,3000,1141,1859
+2706639,Anthony,Johnson,8521 4th St,Fort Worth,TX,76101,3000,2934,66
+2706645,William,Martinez,1091 Cherry Ln,El Paso,TX,79901,1000,348,652
+2706656,Sarah,Ramirez,8276 Court St,Houston,TX,77001,2000,1347,653
+2706660,Robert,Moore,8970 Hillcrest Rd,San Antonio,TX,78201,4500,3066,1434
+2706664,Betty,Jones,6265 Lakeview Dr,Austin,TX,73301,9000,1281,7719
+2706665,Michael,Johnson,8540 Main St,Houston,TX,77001,1000,865,135
+2706666,Joseph,Perez,9963 Elm St,Fort Worth,TX,76101,2000,1172,828
+2706667,Jennifer,Anderson,7912 Oak St,Houston,TX,77001,2000,1522,478
+2706670,Anthony,Martin,2448 Spruce St,Houston,TX,77001,6000,925,5075
+2706679,Michael,Hernandez,1258 3rd St,El Paso,TX,79901,1000,848,152
+2706682,Mark,Rodriguez,7311 Sunset Blvd,Fort Worth,TX,76101,4500,1074,3426
+2706683,Richard,Jackson,9363 Lakeview Dr,San Antonio,TX,78201,9000,1586,7414
+2706690,Matthew,Harris,1178 Cherry Ln,El Paso,TX,79901,12000,10032,1968
+2706693,Joseph,Perez,7983 Spruce St,Houston,TX,77001,1800,1707,93
+2706694,Betty,Moore,8437 Sunset Blvd,Fort Worth,TX,76101,1000,807,193
+2706697,Lisa,Thompson,7545 Elm St,Austin,TX,73301,4500,43,4457
+2706700,Karen,Ramirez,3870 Washington St,Houston,TX,77001,3000,370,2630
+2706701,Betty,Brown,7912 Birch St,Fort Worth,TX,76101,9000,7375,1625
+2706703,Michael,Miller,7239 Pine Ave,Houston,TX,77001,9000,4392,4608
+2706706,Jennifer,Robinson,3560 Washington St,El Paso,TX,79901,12000,11387,613
+2706707,Mary,Martinez,9427 Walnut St,Houston,TX,77001,3000,1239,1761
+2706710,Sandra,Robinson,8595 Main St,Fort Worth,TX,76101,1000,628,372
+2706711,Nancy,Lee,2069 Forest Ave,Fort Worth,TX,76101,1800,1071,729
+2706725,Anthony,Wilson,5041 Sunset Blvd,Houston,TX,77001,3000,2681,319
+2706727,James,Smith,8483 Walnut St,Dallas,TX,75201,1500,1020,480
+2706729,Robert,Gonzalez,4638 Cedar Ln,El Paso,TX,79901,12000,8032,3968
+2706737,Charles,Clark,8440 2nd St,Austin,TX,73301,9000,1756,7244
+2706738,Thomas,Martin,8450 Ridgeway Dr,Austin,TX,73301,1800,1485,315
+2706743,Mary,Robinson,9774 Pine Ave,El Paso,TX,79901,2500,2073,427
+2706744,Margaret,Perez,1567 Walnut St,Fort Worth,TX,76101,2000,846,1154
+2706748,John,Smith,8993 Cherry Ln,San Antonio,TX,78201,9000,4610,4390
+2706749,Margaret,Johnson,3406 Pine Ave,El Paso,TX,79901,9000,378,8622
+2706750,Betty,Lopez,8371 Pine Ave,Fort Worth,TX,76101,12000,4492,7508
+2706753,Richard,Jones,2257 3rd St,Fort Worth,TX,76101,6000,3207,2793
+2706762,Daniel,Moore,3202 Oak St,Fort Worth,TX,76101,12000,6364,5636
+2706764,Sandra,Robinson,3491 Cedar Ln,San Antonio,TX,78201,4500,2429,2071
+2706766,Michael,Robinson,3854 Main St,San Antonio,TX,78201,1000,725,275
+2706767,Patricia,Hernandez,2552 Lakeview Dr,Austin,TX,73301,9000,671,8329
+2706770,Mark,Thomas,7484 4th St,El Paso,TX,79901,4500,3290,1210
+2706771,Barbara,Smith,2060 Hillcrest Rd,Houston,TX,77001,2000,335,1665
+2706775,Charles,Martinez,657 Court St,Austin,TX,73301,9000,5266,3734
+2706777,Nancy,Anderson,1547 Lakeview Dr,Austin,TX,73301,3000,1136,1864
+2706780,Mark,Miller,8124 Cherry Ln,Dallas,TX,75201,1800,1587,213
+2706786,William,Clark,8969 Oak St,San Antonio,TX,78201,12000,8193,3807
+2706794,Jessica,Martinez,5825 Walnut St,San Antonio,TX,78201,2500,64,2436
+2706798,Lisa,Lopez,2333 Washington St,San Antonio,TX,78201,2500,194,2306
+2706800,Nancy,Davis,157 Forest Ave,Austin,TX,73301,1000,619,381
+2706809,Joseph,Moore,9750 2nd St,Dallas,TX,75201,3000,512,2488
+2706812,Daniel,Harris,1491 Cedar Ln,Fort Worth,TX,76101,9000,6976,2024
+2706814,Daniel,Thomas,7554 Washington St,Fort Worth,TX,76101,3000,2334,666
+2706818,Matthew,Johnson,5105 Ridgeway Dr,El Paso,TX,79901,2000,1519,481
+2706837,David,Sanchez,9701 Forest Ave,El Paso,TX,79901,6000,965,5035
+2706842,Matthew,Williams,9524 Court St,Fort Worth,TX,76101,4500,2935,1565
+2706845,Charles,White,8208 Court St,Fort Worth,TX,76101,2500,1310,1190
+2706849,Thomas,Brown,4745 Lakeview Dr,San Antonio,TX,78201,4500,538,3962
+2706854,William,Gonzalez,2734 Ridgeway Dr,Austin,TX,73301,12000,4670,7330
+2706858,David,Perez,4993 Lakeview Dr,San Antonio,TX,78201,2000,167,1833
+2706860,Elizabeth,Hernandez,3413 Elm St,Houston,TX,77001,3000,2189,811
+2706865,Christopher,Harris,6843 Hillcrest Rd,El Paso,TX,79901,4500,780,3720
+2706870,John,Moore,8799 Elm St,Austin,TX,73301,4500,3678,822
+2706878,John,Hernandez,8438 Lakeview Dr,Houston,TX,77001,3000,2432,568
+2706879,Margaret,Williams,6421 Washington St,San Antonio,TX,78201,3000,1313,1687
+2706884,Charles,Thomas,9266 Spruce St,Houston,TX,77001,1800,163,1637
+2706889,John,Garcia,2892 Cedar Ln,Austin,TX,73301,2000,423,1577
+2706901,Robert,Martin,2600 Walnut St,Austin,TX,73301,9000,8358,642
+2706903,Thomas,Ramirez,6639 Lakeview Dr,Dallas,TX,75201,4500,1908,2592
+2706906,David,Gonzalez,9760 Elm St,Houston,TX,77001,12000,10797,1203
+2706913,Robert,Perez,8242 Washington St,Fort Worth,TX,76101,1800,1482,318
+2706919,Joseph,Lee,4439 Elm St,El Paso,TX,79901,3000,1162,1838
+2706920,Michael,Lewis,9113 Maple Ave,Houston,TX,77001,2000,1562,438
+2706928,William,Hernandez,765 Maple Ave,San Antonio,TX,78201,2000,944,1056
+2706939,Jessica,Perez,8066 Court St,Houston,TX,77001,2000,1005,995
+2706940,Michael,Moore,2024 Cedar Ln,El Paso,TX,79901,1800,1155,645
+2706943,Sarah,Moore,4639 Sunset Blvd,San Antonio,TX,78201,1800,1647,153
+2706946,Joseph,Gonzalez,5769 Spruce St,Austin,TX,73301,6000,5955,45
+2706957,James,White,6101 Main St,San Antonio,TX,78201,12000,5805,6195
+2706968,Joseph,Gonzalez,4178 Washington St,San Antonio,TX,78201,12000,8822,3178
+2706972,Margaret,Smith,8496 Lakeview Dr,Fort Worth,TX,76101,12000,9267,2733
+2706973,Joseph,Moore,7788 Spruce St,El Paso,TX,79901,2500,433,2067
+2706976,Jennifer,Garcia,9129 Lakeview Dr,Dallas,TX,75201,4500,577,3923
+2706977,Jennifer,Hernandez,6212 Maple Ave,Houston,TX,77001,1800,1135,665
+2706978,Thomas,Jackson,7470 Hillcrest Rd,El Paso,TX,79901,4500,1855,2645
+2706981,Charles,Sanchez,2326 Oak St,Fort Worth,TX,76101,9000,8426,574
+2706988,Linda,Clark,5999 Spruce St,Houston,TX,77001,1000,459,541
+2706990,David,Miller,7953 Spruce St,San Antonio,TX,78201,2500,813,1687
+2706993,Robert,Harris,9655 Spruce St,El Paso,TX,79901,1000,312,688
+2706997,Anthony,Gonzalez,8921 Cedar Ln,Austin,TX,73301,2000,1008,992
+2707003,Elizabeth,Moore,8739 2nd St,El Paso,TX,79901,1000,465,535
+2707005,Robert,Anderson,7116 Cedar Ln,Houston,TX,77001,2000,740,1260
+2707006,Christopher,Hernandez,1633 4th St,Dallas,TX,75201,9000,1627,7373
+2707011,Lisa,Perez,2293 Cedar Ln,Austin,TX,73301,1000,143,857
+2707018,Thomas,Ramirez,6342 4th St,San Antonio,TX,78201,12000,1042,10958
+2707020,Michael,Lee,6521 Elm St,Houston,TX,77001,1000,835,165
+2707021,Sandra,Robinson,5101 Lakeview Dr,Dallas,TX,75201,1000,345,655
+2707034,Joseph,Ramirez,6458 2nd St,Dallas,TX,75201,1000,301,699
+2707035,Mark,Davis,5163 Sunset Blvd,Fort Worth,TX,76101,3000,2681,319
+2707037,Anthony,Robinson,4477 Lakeview Dr,Fort Worth,TX,76101,2500,837,1663
+2707039,Lisa,Ramirez,5587 Sunset Blvd,San Antonio,TX,78201,3000,925,2075
+2707040,Joseph,Davis,2465 Ridgeway Dr,Fort Worth,TX,76101,9000,3394,5606
+2707041,Susan,Moore,8241 2nd St,Austin,TX,73301,1500,16,1484
+2707044,Margaret,Hernandez,7681 Birch St,San Antonio,TX,78201,6000,5597,403
+2707046,Linda,Williams,740 Hillcrest Rd,Austin,TX,73301,2000,1868,132
+2707050,Lisa,Williams,6776 Ridgeway Dr,Austin,TX,73301,4500,4057,443
+2707052,Charles,Miller,3230 Oak St,San Antonio,TX,78201,1000,100,900
+2707057,James,Hernandez,7439 Lakeview Dr,El Paso,TX,79901,1000,164,836
+2707060,Joseph,Smith,685 Court St,Austin,TX,73301,1500,564,936
+2707061,Jessica,Williams,9573 3rd St,Houston,TX,77001,2500,2461,39
+2707063,Robert,Smith,4972 Main St,Austin,TX,73301,4500,2889,1611
+2707066,James,Smith,1890 Cedar Ln,Houston,TX,77001,2000,1871,129
+2707068,Nancy,White,5039 Sunset Blvd,El Paso,TX,79901,12000,8765,3235
+2707077,Michael,Perez,8853 Pine Ave,Dallas,TX,75201,4500,727,3773
+2707081,Margaret,Johnson,6518 Main St,Houston,TX,77001,9000,1757,7243
+2707082,Mark,Lopez,7777 2nd St,San Antonio,TX,78201,1500,211,1289
+2707084,James,Miller,9924 Lakeview Dr,San Antonio,TX,78201,3000,2312,688
+2707088,James,Johnson,5208 Birch St,El Paso,TX,79901,6000,4123,1877
+2707093,Michael,Brown,8939 Walnut St,Austin,TX,73301,9000,4259,4741
+2707104,John,Martin,9322 Court St,Dallas,TX,75201,1500,1285,215
+2707109,Mary,Williams,6328 Birch St,Fort Worth,TX,76101,4500,374,4126
+2707112,Robert,Davis,1713 4th St,Dallas,TX,75201,1800,1710,90
+2707114,Barbara,Thomas,3826 Cedar Ln,San Antonio,TX,78201,4500,3074,1426
+2707115,Karen,Williams,7525 2nd St,Houston,TX,77001,6000,4774,1226
+2707119,Matthew,Thomas,8199 Cedar Ln,Austin,TX,73301,3000,173,2827
+2707121,Mark,Rodriguez,8517 Maple Ave,El Paso,TX,79901,3000,383,2617
+2707123,Daniel,Hernandez,6694 Maple Ave,Austin,TX,73301,4500,4174,326
+2707129,Sandra,Martinez,2063 Pine Ave,San Antonio,TX,78201,3000,468,2532
+2707133,Nancy,Rodriguez,5868 Elm St,El Paso,TX,79901,1000,945,55
+2707134,Thomas,Brown,2936 Washington St,Houston,TX,77001,2000,904,1096
+2707138,Daniel,Ramirez,8924 Main St,Dallas,TX,75201,6000,449,5551
+2707156,Lisa,Jones,1426 Oak St,Houston,TX,77001,6000,3619,2381
+2707157,Michael,Moore,4339 Birch St,El Paso,TX,79901,1000,810,190
+2707168,David,Lee,598 Cherry Ln,El Paso,TX,79901,4500,4420,80
+2707172,Thomas,Harris,8779 Birch St,El Paso,TX,79901,2500,640,1860
+2707178,Karen,Thomas,9897 Washington St,Dallas,TX,75201,1000,651,349
+2707181,Robert,Anderson,3975 Oak St,Dallas,TX,75201,2500,1114,1386
+2707182,Barbara,Williams,9310 Oak St,El Paso,TX,79901,2000,1183,817
+2707193,Mark,Sanchez,8116 Main St,San Antonio,TX,78201,2000,60,1940
+2707195,Christopher,Robinson,9578 Forest Ave,San Antonio,TX,78201,12000,11485,515
+2707197,Elizabeth,Wilson,8864 Sunset Blvd,Houston,TX,77001,3000,1196,1804
+2707202,Sandra,Hernandez,6165 2nd St,Dallas,TX,75201,1500,166,1334
+2707203,Jennifer,Lopez,725 Maple Ave,Fort Worth,TX,76101,3000,791,2209
+2707204,Mary,Lee,6526 Oak St,Dallas,TX,75201,1000,688,312
+2707208,Matthew,Rodriguez,1442 4th St,Dallas,TX,75201,4500,2980,1520
+2707209,Margaret,Miller,603 Pine Ave,El Paso,TX,79901,1800,1253,547
+2707214,Mary,Martin,5224 Spruce St,Houston,TX,77001,3000,1088,1912
+2707216,Margaret,Brown,6629 Washington St,Austin,TX,73301,3000,2621,379
+2707218,James,Davis,314 2nd St,El Paso,TX,79901,2500,1207,1293
+2707224,James,Jones,9749 Lakeview Dr,Fort Worth,TX,76101,4500,4058,442
+2707230,Daniel,Thompson,1866 Main St,Fort Worth,TX,76101,1500,1414,86
+2707231,Joseph,Ramirez,5950 Sunset Blvd,San Antonio,TX,78201,2000,168,1832
+2707234,David,Anderson,2920 Court St,Fort Worth,TX,76101,1000,46,954
+2707235,Lisa,Davis,1549 Ridgeway Dr,Dallas,TX,75201,1000,871,129
+2707238,Barbara,Johnson,5545 Court St,Fort Worth,TX,76101,4500,1998,2502
+2707240,Susan,Martin,7326 Hillcrest Rd,Austin,TX,73301,2000,1733,267
+2707247,Mary,Johnson,6701 Cedar Ln,Austin,TX,73301,1500,782,718
+2707248,Matthew,Anderson,8430 Ridgeway Dr,Fort Worth,TX,76101,1000,995,5
+2707250,Linda,Lee,5101 Oak St,Fort Worth,TX,76101,4500,2728,1772
+2707260,Nancy,Brown,7394 Walnut St,Fort Worth,TX,76101,1500,1131,369
+2707262,Mary,Perez,5362 Ridgeway Dr,Fort Worth,TX,76101,2000,736,1264
+2707264,Jennifer,Jones,534 Lakeview Dr,Houston,TX,77001,2000,1014,986
+2707266,Sandra,Clark,151 Birch St,Dallas,TX,75201,6000,5395,605
+2707277,Anthony,Thomas,6573 4th St,San Antonio,TX,78201,4500,3040,1460
+2707279,William,White,9550 Sunset Blvd,El Paso,TX,79901,2000,1857,143
+2707281,Margaret,Lee,2174 Cedar Ln,Houston,TX,77001,6000,3274,2726
+2707286,Betty,Ramirez,675 Court St,Houston,TX,77001,1500,543,957
+2707290,Thomas,Taylor,4734 Pine Ave,Dallas,TX,75201,9000,7409,1591
+2707292,Richard,Moore,8549 2nd St,El Paso,TX,79901,2500,1600,900
+2707293,Karen,Moore,5538 2nd St,Fort Worth,TX,76101,1800,948,852
+2707294,James,Davis,2541 Pine Ave,El Paso,TX,79901,3000,475,2525
+2707295,Jessica,Smith,9179 Cherry Ln,Austin,TX,73301,3000,2868,132
+2707301,Margaret,Davis,3938 Elm St,El Paso,TX,79901,1500,246,1254
+2707310,James,Gonzalez,2479 Washington St,Dallas,TX,75201,1000,529,471
+2707311,Sarah,Miller,5201 Ridgeway Dr,Fort Worth,TX,76101,2000,1458,542
+2707324,Sandra,Perez,2975 Oak St,Fort Worth,TX,76101,9000,521,8479
+2707333,Nancy,Wilson,5934 Elm St,Austin,TX,73301,2000,1573,427
+2707334,Richard,White,4601 3rd St,Dallas,TX,75201,9000,6096,2904
+2707339,Linda,Anderson,1191 Hillcrest Rd,El Paso,TX,79901,6000,3514,2486
+2707351,Linda,Lopez,9279 Washington St,Dallas,TX,75201,1500,35,1465
+2707354,Charles,Rodriguez,8582 Main St,Houston,TX,77001,6000,4877,1123
+2707365,Elizabeth,Harris,9716 Walnut St,San Antonio,TX,78201,1800,370,1430
+2707366,Elizabeth,Robinson,1389 Birch St,Fort Worth,TX,76101,1000,54,946
+2707372,Christopher,Davis,2161 Lakeview Dr,El Paso,TX,79901,2500,1645,855
+2707383,Elizabeth,Lopez,6993 Cedar Ln,Dallas,TX,75201,6000,4307,1693
+2707385,Jennifer,Harris,5618 3rd St,Fort Worth,TX,76101,2500,1245,1255
+2707386,Nancy,Johnson,4380 4th St,Houston,TX,77001,9000,6735,2265
+2707387,Michael,Sanchez,4587 Forest Ave,El Paso,TX,79901,1800,1355,445
+2707395,Mary,Perez,3129 Hillcrest Rd,El Paso,TX,79901,1000,51,949
+2707396,Jessica,Harris,8120 Washington St,El Paso,TX,79901,2000,41,1959
+2707403,Linda,Garcia,9388 3rd St,Houston,TX,77001,4500,519,3981
+2707408,Sandra,Ramirez,8375 Lakeview Dr,San Antonio,TX,78201,12000,11338,662
+2707423,Elizabeth,Miller,734 3rd St,Austin,TX,73301,12000,612,11388
+2707424,Jennifer,Jackson,5507 Cherry Ln,Houston,TX,77001,4500,2468,2032
+2707426,Sarah,Garcia,5324 Oak St,San Antonio,TX,78201,9000,8822,178
+2707432,John,Robinson,164 Walnut St,San Antonio,TX,78201,3000,924,2076
+2707433,Elizabeth,Jackson,8802 Sunset Blvd,El Paso,TX,79901,2500,1852,648
+2707440,Anthony,Sanchez,9175 Maple Ave,San Antonio,TX,78201,3000,1151,1849
+2707443,John,Perez,7764 Pine Ave,Houston,TX,77001,12000,287,11713
+2707447,Robert,Smith,5850 Sunset Blvd,El Paso,TX,79901,4500,1576,2924
+2707448,Patricia,Wilson,1147 Walnut St,Austin,TX,73301,2500,1002,1498
+2707450,Sandra,Smith,3532 3rd St,El Paso,TX,79901,2000,1825,175
+2707451,Michael,Thompson,8582 Forest Ave,Fort Worth,TX,76101,6000,1081,4919
+2707458,Nancy,Miller,6723 3rd St,Austin,TX,73301,6000,4534,1466
+2707461,Thomas,Johnson,5727 Oak St,Austin,TX,73301,12000,3855,8145
+2707463,Jennifer,Perez,7093 Cherry Ln,Fort Worth,TX,76101,2000,700,1300
+2707474,Elizabeth,Ramirez,7371 Hillcrest Rd,Austin,TX,73301,2500,681,1819
+2707478,Patricia,Jackson,3841 Ridgeway Dr,San Antonio,TX,78201,1000,713,287
+2707490,David,Lee,3375 Cherry Ln,Austin,TX,73301,2000,637,1363
+2707493,Joseph,Johnson,7262 Main St,Fort Worth,TX,76101,1800,1482,318
+2707494,Sarah,Thompson,8541 Maple Ave,Dallas,TX,75201,6000,4536,1464
+2707497,David,Wilson,1971 Ridgeway Dr,Fort Worth,TX,76101,12000,119,11881
+2707498,Christopher,Sanchez,8308 Walnut St,El Paso,TX,79901,6000,1222,4778
+2707503,Christopher,White,3921 Washington St,San Antonio,TX,78201,9000,947,8053
+2707508,Christopher,Lee,9497 4th St,San Antonio,TX,78201,2000,890,1110
+2707509,Lisa,Harris,8491 Cherry Ln,Dallas,TX,75201,9000,7171,1829
+2707512,Charles,Sanchez,9217 Lakeview Dr,Dallas,TX,75201,6000,5845,155
+2707515,Sarah,Taylor,7881 Forest Ave,El Paso,TX,79901,9000,5918,3082
+2707518,Sarah,Martinez,461 3rd St,Austin,TX,73301,3000,816,2184
+2707519,Richard,Brown,5646 Elm St,Fort Worth,TX,76101,4500,912,3588
+2707520,Betty,Jackson,8793 Court St,El Paso,TX,79901,1500,184,1316
+2707530,Nancy,Lewis,3194 3rd St,Austin,TX,73301,6000,3177,2823
+2707532,John,Martinez,6996 Ridgeway Dr,San Antonio,TX,78201,6000,2606,3394
+2707545,Anthony,Rodriguez,2083 Pine Ave,El Paso,TX,79901,3000,1038,1962
+2707547,Thomas,Johnson,5458 Maple Ave,Houston,TX,77001,1500,746,754
+2707555,Lisa,Thompson,6823 Cherry Ln,Dallas,TX,75201,2000,295,1705
+2707557,Sandra,Davis,4047 Cherry Ln,Houston,TX,77001,1800,1022,778
+2707560,Matthew,Jackson,8574 2nd St,Houston,TX,77001,1500,1149,351
+2707561,Charles,Perez,1197 Court St,Fort Worth,TX,76101,6000,4826,1174
+2707570,Michael,Gonzalez,7588 Birch St,Austin,TX,73301,4500,1442,3058
+2707575,Anthony,Wilson,3009 Oak St,Fort Worth,TX,76101,4500,2950,1550
+2707576,Karen,Brown,5426 Maple Ave,Dallas,TX,75201,1500,426,1074
+2707578,John,Rodriguez,1304 4th St,Fort Worth,TX,76101,1800,26,1774
+2707580,Jennifer,Jones,4376 Cedar Ln,El Paso,TX,79901,1800,744,1056
+2707591,Sarah,Sanchez,5982 Washington St,Fort Worth,TX,76101,1500,376,1124
+2707594,Margaret,Perez,9274 Oak St,San Antonio,TX,78201,3000,2137,863
+2707596,Sandra,Jones,519 Hillcrest Rd,Houston,TX,77001,3000,1178,1822
+2707597,Mark,Anderson,4311 Cherry Ln,El Paso,TX,79901,12000,8984,3016
+2707602,Thomas,Harris,6392 Washington St,Austin,TX,73301,2500,2367,133
+2707603,Michael,Sanchez,5085 3rd St,El Paso,TX,79901,4500,996,3504
+2707608,Sarah,Brown,4700 Lakeview Dr,Houston,TX,77001,6000,1322,4678
+2707623,Richard,Perez,3166 Cedar Ln,San Antonio,TX,78201,2500,2374,126
+2707626,Richard,Brown,9080 Sunset Blvd,Dallas,TX,75201,2500,1538,962
+2707632,Robert,Robinson,7738 Spruce St,Houston,TX,77001,12000,9462,2538
+2707633,David,Lee,2502 3rd St,Austin,TX,73301,1500,492,1008
+2707634,Lisa,Moore,6606 4th St,El Paso,TX,79901,9000,2262,6738
+2707635,John,Gonzalez,8809 Maple Ave,San Antonio,TX,78201,2500,1950,550
+2707637,Sarah,Ramirez,3027 Walnut St,Austin,TX,73301,1000,565,435
+2707639,Jessica,Martin,9911 Cedar Ln,Fort Worth,TX,76101,12000,8391,3609
+2707641,Jennifer,Davis,785 Hillcrest Rd,Dallas,TX,75201,6000,435,5565
+2707652,James,Taylor,7642 Pine Ave,Dallas,TX,75201,1000,744,256
+2707655,Matthew,Lee,9904 Pine Ave,Houston,TX,77001,9000,1535,7465
+2707657,Christopher,Gonzalez,8383 Cedar Ln,Fort Worth,TX,76101,1800,313,1487
+2707659,Karen,Thomas,8670 Sunset Blvd,San Antonio,TX,78201,9000,5912,3088
+2707661,Mark,Hernandez,1496 4th St,Fort Worth,TX,76101,3000,480,2520
+2707689,Robert,Jones,8480 Birch St,Dallas,TX,75201,12000,6589,5411
+2707690,Jennifer,White,1932 Walnut St,Fort Worth,TX,76101,2000,1242,758
+2707692,Mark,Wilson,7536 4th St,Houston,TX,77001,3000,1679,1321
+2707695,Charles,Robinson,9721 Elm St,Fort Worth,TX,76101,12000,5330,6670
+2707696,Charles,Rodriguez,6654 Elm St,Dallas,TX,75201,2500,867,1633
+2707697,Matthew,Jones,5449 Washington St,El Paso,TX,79901,6000,2773,3227
+2707700,Michael,Wilson,2485 Oak St,Fort Worth,TX,76101,4500,3573,927
+2707704,Karen,Smith,5059 Spruce St,Houston,TX,77001,2000,532,1468
+2707708,Betty,Jones,6846 Oak St,El Paso,TX,79901,9000,8641,359
+2707712,Sandra,Clark,3173 Maple Ave,El Paso,TX,79901,1500,1297,203
+2707713,David,Martin,3923 Ridgeway Dr,El Paso,TX,79901,1000,102,898
+2707720,Mark,Taylor,147 Oak St,El Paso,TX,79901,12000,7755,4245
+2707727,Betty,Hernandez,9576 Main St,El Paso,TX,79901,4500,3004,1496
+2707728,Betty,Garcia,5782 Court St,Austin,TX,73301,1500,1447,53
+2707731,James,Taylor,2121 3rd St,San Antonio,TX,78201,6000,5130,870
+2707733,Jennifer,Davis,6697 Pine Ave,Dallas,TX,75201,2500,110,2390
+2707735,Lisa,Robinson,2431 Birch St,San Antonio,TX,78201,1000,225,775
+2707749,Robert,Anderson,7456 Court St,Austin,TX,73301,6000,226,5774
+2707752,Richard,Miller,5888 Pine Ave,Dallas,TX,75201,4500,2129,2371
+2707753,Matthew,Lewis,8216 4th St,El Paso,TX,79901,3000,1276,1724
+2707755,David,Anderson,452 Pine Ave,San Antonio,TX,78201,1800,1397,403
+2707757,William,Hernandez,7191 Cedar Ln,San Antonio,TX,78201,1000,564,436
+2707758,Mary,Robinson,6416 Forest Ave,Fort Worth,TX,76101,2500,769,1731
+2707759,Thomas,Harris,3484 Oak St,Houston,TX,77001,4500,389,4111
+2707761,Jennifer,Jackson,4439 Ridgeway Dr,San Antonio,TX,78201,3000,2139,861
+2707765,Mary,Thomas,6174 Lakeview Dr,Dallas,TX,75201,1000,399,601
+2707767,Michael,White,7281 Washington St,Austin,TX,73301,1000,961,39
+2707769,William,Clark,751 Walnut St,San Antonio,TX,78201,3000,1959,1041
+2707775,David,Gonzalez,7635 Spruce St,El Paso,TX,79901,2500,164,2336
+2707778,Anthony,Ramirez,2645 2nd St,Houston,TX,77001,9000,5755,3245
+2707779,Lisa,Taylor,2084 Hillcrest Rd,El Paso,TX,79901,2000,482,1518
+2707783,Charles,Gonzalez,1304 Sunset Blvd,Austin,TX,73301,1000,644,356
+2707790,Nancy,Lopez,8785 Pine Ave,San Antonio,TX,78201,3000,1719,1281
+2707795,Joseph,Williams,1006 Court St,El Paso,TX,79901,2500,545,1955
+2707797,Joseph,Davis,5301 Pine Ave,El Paso,TX,79901,3000,1756,1244
+2707800,Elizabeth,Lee,6141 Elm St,El Paso,TX,79901,1800,1296,504
+2707803,Richard,Davis,210 Spruce St,Austin,TX,73301,1500,1119,381
+2707808,Margaret,Jones,6658 Sunset Blvd,Austin,TX,73301,2500,260,2240
+2707811,Daniel,Robinson,9800 Pine Ave,El Paso,TX,79901,6000,102,5898
+2707812,Charles,Lee,4394 Lakeview Dr,Dallas,TX,75201,1500,1235,265
+2707814,Joseph,Moore,3507 2nd St,Austin,TX,73301,1800,1325,475
+2707819,Patricia,Thomas,9531 Oak St,Fort Worth,TX,76101,1500,1387,113
+2707825,Jessica,Thomas,1251 Washington St,Fort Worth,TX,76101,1800,1042,758
+2707828,Barbara,Hernandez,1661 Pine Ave,El Paso,TX,79901,9000,1963,7037
+2707840,Michael,Thomas,6496 Birch St,Austin,TX,73301,4500,4172,328
+2707841,Mark,Garcia,6977 4th St,Dallas,TX,75201,1800,1105,695
+2707847,Daniel,Taylor,5681 Cedar Ln,Fort Worth,TX,76101,6000,2521,3479
+2707851,Patricia,Martinez,6814 Hillcrest Rd,Houston,TX,77001,3000,976,2024
+2707852,Charles,Brown,8798 Elm St,El Paso,TX,79901,4500,1428,3072
+2707853,Patricia,Garcia,752 Court St,Austin,TX,73301,1800,1625,175
+2707855,Matthew,White,6659 Spruce St,San Antonio,TX,78201,6000,4892,1108
+2707859,Daniel,Brown,5054 Lakeview Dr,Dallas,TX,75201,4500,403,4097
+2707863,Joseph,Robinson,3094 Lakeview Dr,Austin,TX,73301,9000,8665,335
+2707866,Matthew,Ramirez,1545 Oak St,Fort Worth,TX,76101,3000,2966,34
+2707869,Barbara,Brown,7997 Cedar Ln,El Paso,TX,79901,2500,1632,868
+2707874,Richard,Lee,2695 Birch St,Austin,TX,73301,3000,869,2131
+2707879,Karen,Rodriguez,264 Sunset Blvd,El Paso,TX,79901,1500,1378,122
+2707880,Daniel,Lee,8352 Court St,Houston,TX,77001,2000,736,1264
+2707885,Jennifer,Lopez,6584 Washington St,San Antonio,TX,78201,1800,1202,598
+2707888,Richard,Miller,4550 Court St,El Paso,TX,79901,3000,2393,607
+2707894,Mary,Miller,4752 Cherry Ln,Dallas,TX,75201,1000,367,633
+2707896,Karen,Jones,5206 3rd St,Houston,TX,77001,1800,374,1426
+2707904,Michael,Lewis,8328 Elm St,Houston,TX,77001,6000,290,5710
+2707905,Susan,Lopez,2850 Elm St,Austin,TX,73301,2500,1722,778
+2707911,Daniel,Moore,5398 Pine Ave,Austin,TX,73301,12000,8060,3940
+2707912,Barbara,Gonzalez,9490 Oak St,Dallas,TX,75201,1800,646,1154
+2707914,Betty,Clark,1189 Spruce St,San Antonio,TX,78201,9000,1050,7950
+2707916,Jennifer,Martin,3989 4th St,Austin,TX,73301,6000,4532,1468
+2707919,Karen,Perez,8359 Cherry Ln,Fort Worth,TX,76101,4500,2889,1611
+2707931,Linda,Brown,4406 Elm St,Houston,TX,77001,2000,618,1382
+2707936,Michael,Lopez,9338 2nd St,Houston,TX,77001,1000,328,672
+2707941,Elizabeth,Anderson,2357 Lakeview Dr,Fort Worth,TX,76101,9000,1889,7111
+2707942,James,Jackson,2943 Cherry Ln,Austin,TX,73301,9000,366,8634
+2707943,Daniel,Anderson,6731 3rd St,Fort Worth,TX,76101,1800,1187,613
+2707949,Thomas,Lewis,1981 Forest Ave,Fort Worth,TX,76101,3000,1610,1390
+2707950,Lisa,Miller,4878 Main St,San Antonio,TX,78201,2000,613,1387
+2707951,William,Lopez,1102 2nd St,San Antonio,TX,78201,2000,1616,384
+2707953,Mark,Harris,7646 Lakeview Dr,Dallas,TX,75201,12000,10307,1693
+2707956,Charles,Martinez,8283 Sunset Blvd,San Antonio,TX,78201,1000,293,707
+2707958,Thomas,Sanchez,5673 Spruce St,Houston,TX,77001,9000,2125,6875
+2707959,John,Lewis,3954 Pine Ave,Dallas,TX,75201,6000,902,5098
+2707964,Sarah,White,6316 Spruce St,San Antonio,TX,78201,6000,2756,3244
+2707965,Jennifer,Thomas,2171 Birch St,Austin,TX,73301,4500,71,4429
+2707968,William,Johnson,2523 Walnut St,Fort Worth,TX,76101,12000,9477,2523
+2707969,Joseph,Jackson,4558 4th St,Dallas,TX,75201,9000,7761,1239
+2707971,Christopher,Brown,6104 Spruce St,Austin,TX,73301,1000,931,69
+2707975,Mary,Gonzalez,2033 Main St,Fort Worth,TX,76101,1500,859,641
+2707979,Betty,White,1684 Pine Ave,Fort Worth,TX,76101,1800,1207,593
+2707981,Sandra,Thomas,8569 Birch St,Dallas,TX,75201,6000,3839,2161
+2707992,John,Lopez,5427 Elm St,San Antonio,TX,78201,1000,857,143
+2707993,Matthew,Lee,4532 Walnut St,Austin,TX,73301,3000,1927,1073
+2707999,Barbara,Lee,3730 Forest Ave,San Antonio,TX,78201,1500,1091,409
+2708000,Thomas,Robinson,3865 Elm St,San Antonio,TX,78201,3000,374,2626
+2708006,Jessica,Jackson,4396 Elm St,Dallas,TX,75201,2500,217,2283
+2708010,Charles,Garcia,6173 4th St,El Paso,TX,79901,2500,1277,1223
+2708012,Thomas,Thomas,7589 Pine Ave,Houston,TX,77001,1000,93,907
+2708014,Joseph,Smith,249 Washington St,San Antonio,TX,78201,4500,3533,967
+2708019,Betty,Lee,3085 Washington St,Houston,TX,77001,2500,1416,1084
+2708025,Margaret,Jackson,4173 4th St,El Paso,TX,79901,4500,2751,1749
+2708027,Daniel,Sanchez,5043 Main St,El Paso,TX,79901,9000,5865,3135
+2708033,Jennifer,Lewis,8576 Court St,Fort Worth,TX,76101,1500,1005,495
+2708038,Christopher,Williams,7932 Hillcrest Rd,Fort Worth,TX,76101,9000,1997,7003
+2708039,Betty,Williams,5972 Ridgeway Dr,Austin,TX,73301,9000,1902,7098
+2708040,James,Lewis,7029 Elm St,Houston,TX,77001,2500,347,2153
+2708047,Charles,Martin,6789 2nd St,Austin,TX,73301,1500,536,964
+2708049,Robert,Jones,3990 Lakeview Dr,San Antonio,TX,78201,1000,194,806
+2708053,Michael,Lee,7162 Pine Ave,Houston,TX,77001,9000,6804,2196
+2708054,Anthony,Johnson,1075 Birch St,Dallas,TX,75201,4500,503,3997
+2708061,Jennifer,Davis,8959 Cedar Ln,Houston,TX,77001,12000,617,11383
+2708063,Joseph,Martinez,3240 Spruce St,Fort Worth,TX,76101,3000,2494,506
+2708069,Mary,Davis,9863 3rd St,Houston,TX,77001,2000,1388,612
+2708073,Betty,Martinez,6323 Cedar Ln,Austin,TX,73301,3000,521,2479
+2708078,Matthew,Perez,3432 Elm St,Austin,TX,73301,12000,7218,4782
+2708080,Mary,Lopez,2196 Washington St,Austin,TX,73301,3000,2944,56
+2708089,Daniel,Thomas,1088 Birch St,Houston,TX,77001,6000,4864,1136
+2708092,Elizabeth,Moore,7985 Ridgeway Dr,Houston,TX,77001,1800,840,960
+2708093,Christopher,Johnson,2648 Cherry Ln,San Antonio,TX,78201,4500,2484,2016
+2708095,Nancy,Taylor,6122 Pine Ave,El Paso,TX,79901,2000,49,1951
+2708096,Richard,Miller,105 Lakeview Dr,San Antonio,TX,78201,2500,1611,889
+2708097,Lisa,Moore,5622 Maple Ave,Houston,TX,77001,1500,527,973
+2708101,Jennifer,Jones,1402 Forest Ave,Fort Worth,TX,76101,1000,556,444
+2708102,David,Martin,4352 Sunset Blvd,Fort Worth,TX,76101,12000,9746,2254
+2708105,Matthew,Moore,8414 Walnut St,Houston,TX,77001,9000,5757,3243
+2708108,Patricia,Anderson,2083 Washington St,Dallas,TX,75201,9000,4884,4116
+2708115,Michael,Lopez,533 Lakeview Dr,El Paso,TX,79901,2500,1729,771
+2708117,Mark,Gonzalez,9719 Cherry Ln,Fort Worth,TX,76101,12000,7617,4383
+2708119,Barbara,Garcia,5158 Oak St,Fort Worth,TX,76101,1800,575,1225
+2708125,John,Johnson,2250 Washington St,Austin,TX,73301,4500,3202,1298
+2708131,Nancy,Lopez,2271 Oak St,Dallas,TX,75201,2000,1622,378
+2708136,Christopher,Perez,7883 Ridgeway Dr,Houston,TX,77001,12000,68,11932
+2708137,Joseph,Lee,4997 2nd St,San Antonio,TX,78201,6000,79,5921
+2708139,Betty,Wilson,1199 Lakeview Dr,El Paso,TX,79901,1800,441,1359
+2708140,Joseph,Jones,4451 Washington St,Houston,TX,77001,3000,2305,695
+2708155,Jennifer,Gonzalez,9332 Elm St,El Paso,TX,79901,2000,300,1700
+2708159,William,Williams,7857 2nd St,Fort Worth,TX,76101,2500,2332,168
+2708165,Patricia,Smith,1013 Oak St,El Paso,TX,79901,1000,79,921
+2708166,Margaret,Harris,979 Birch St,Austin,TX,73301,3000,1127,1873
+2708171,John,Clark,4202 Cherry Ln,Austin,TX,73301,4500,1910,2590
+2708176,James,Smith,7929 Oak St,Dallas,TX,75201,6000,3518,2482
+2708178,Nancy,Wilson,5018 2nd St,Dallas,TX,75201,3000,1853,1147
+2708187,Lisa,Jones,8391 Cherry Ln,Dallas,TX,75201,9000,4870,4130
+2708191,Jessica,Ramirez,574 4th St,San Antonio,TX,78201,1500,1482,18
+2708196,Linda,Rodriguez,5761 Walnut St,Fort Worth,TX,76101,6000,550,5450
+2708206,Thomas,Harris,9005 3rd St,El Paso,TX,79901,1000,560,440
+2708207,Lisa,Davis,2391 Cherry Ln,Dallas,TX,75201,1500,349,1151
+2708208,Thomas,Smith,3823 3rd St,Austin,TX,73301,2500,182,2318
+2708211,David,Smith,1761 4th St,San Antonio,TX,78201,1000,217,783
+2708213,Matthew,Anderson,196 Cedar Ln,Houston,TX,77001,1800,5,1795
+2708220,Barbara,Johnson,6019 Cherry Ln,Fort Worth,TX,76101,1500,495,1005
+2708221,Linda,Garcia,1502 Cherry Ln,Houston,TX,77001,1500,1224,276
+2708231,Mary,Lewis,7666 Lakeview Dr,San Antonio,TX,78201,1800,248,1552
+2708239,Charles,Garcia,1391 Oak St,El Paso,TX,79901,1800,1737,63
+2708243,Betty,Brown,7264 2nd St,Houston,TX,77001,1800,1768,32
+2708245,Patricia,Hernandez,5360 Maple Ave,San Antonio,TX,78201,1000,26,974
+2708248,James,Anderson,942 Lakeview Dr,El Paso,TX,79901,1500,931,569
+2708251,Lisa,Davis,7495 Pine Ave,Austin,TX,73301,1000,931,69
+2708255,Karen,Clark,2730 Cherry Ln,Austin,TX,73301,6000,1567,4433
+2708256,Anthony,Miller,2531 4th St,Houston,TX,77001,1800,468,1332
+2708265,Anthony,Lewis,5533 2nd St,El Paso,TX,79901,9000,8654,346
+2708266,Mary,Garcia,7146 Forest Ave,San Antonio,TX,78201,4500,3424,1076
+2708276,Nancy,Robinson,4006 Cedar Ln,El Paso,TX,79901,1500,943,557
+2708279,Richard,Taylor,5665 4th St,El Paso,TX,79901,1500,103,1397
+2708281,Michael,Williams,9839 2nd St,San Antonio,TX,78201,4500,1512,2988
+2708283,Betty,Perez,8648 Walnut St,El Paso,TX,79901,1500,868,632
+2708285,Michael,Robinson,6336 Maple Ave,San Antonio,TX,78201,1000,98,902
+2708287,Daniel,Brown,540 Hillcrest Rd,Austin,TX,73301,9000,1123,7877
+2708293,David,Garcia,5678 3rd St,San Antonio,TX,78201,2000,1104,896
+2708294,Matthew,Anderson,5896 Spruce St,El Paso,TX,79901,1500,1141,359
+2708295,David,Lee,8665 3rd St,Fort Worth,TX,76101,1500,1483,17
+2708306,Christopher,Thompson,6157 Ridgeway Dr,Dallas,TX,75201,1800,602,1198
+2708307,Anthony,Clark,4393 Maple Ave,Houston,TX,77001,2500,1410,1090
+2708309,Nancy,Hernandez,6191 Main St,Dallas,TX,75201,1500,1248,252
+2708313,Anthony,Anderson,5495 Court St,Dallas,TX,75201,1500,1478,22
+2708314,Charles,Williams,5505 Sunset Blvd,El Paso,TX,79901,6000,5533,467
+2708315,Mary,Harris,928 Cedar Ln,Austin,TX,73301,3000,2894,106
+2708324,Richard,Brown,8834 Court St,Austin,TX,73301,9000,4096,4904
+2708328,Susan,Perez,1722 Sunset Blvd,San Antonio,TX,78201,9000,2114,6886
+2708339,Nancy,Perez,332 Sunset Blvd,El Paso,TX,79901,12000,7044,4956
+2708341,Anthony,Davis,1498 Forest Ave,Austin,TX,73301,4500,2278,2222
+2708342,Betty,Davis,1083 3rd St,Fort Worth,TX,76101,2000,237,1763
+2708347,Mary,Miller,9407 Court St,Dallas,TX,75201,12000,6142,5858
+2708350,Mary,Rodriguez,433 Lakeview Dr,El Paso,TX,79901,2500,2309,191
+2708351,William,Jones,5467 2nd St,El Paso,TX,79901,1800,806,994
+2708355,Sarah,Harris,9410 Forest Ave,Fort Worth,TX,76101,1000,342,658
+2708358,Sandra,Harris,6119 Forest Ave,Houston,TX,77001,1500,280,1220
+2708367,Mary,Wilson,7967 Lakeview Dr,Austin,TX,73301,9000,8046,954
+2708368,Margaret,White,8672 Birch St,Fort Worth,TX,76101,1000,458,542
+2708378,Elizabeth,Harris,6148 4th St,San Antonio,TX,78201,4500,4258,242
+2708392,Betty,Martin,1104 Lakeview Dr,Austin,TX,73301,12000,4552,7448
+2708395,Mary,Brown,3872 Spruce St,El Paso,TX,79901,12000,4106,7894
+2708396,Patricia,Jones,4495 3rd St,El Paso,TX,79901,1500,572,928
+2708402,Jessica,Johnson,2430 2nd St,San Antonio,TX,78201,12000,10438,1562
+2708408,Michael,Perez,777 Pine Ave,Houston,TX,77001,1500,357,1143
+2708416,Richard,Wilson,451 Walnut St,El Paso,TX,79901,1000,648,352
+2708418,Mark,Brown,275 Maple Ave,Houston,TX,77001,1500,105,1395
+2708419,Jennifer,Rodriguez,671 Maple Ave,Fort Worth,TX,76101,1800,131,1669
+2708424,David,Harris,3414 2nd St,Fort Worth,TX,76101,6000,4205,1795
+2708437,Joseph,Wilson,6322 Cedar Ln,El Paso,TX,79901,1800,238,1562
+2708439,Thomas,Anderson,2507 Walnut St,Dallas,TX,75201,1800,935,865
+2708447,David,Gonzalez,9370 Washington St,Dallas,TX,75201,4500,1033,3467
+2708451,Karen,Gonzalez,1628 Maple Ave,Austin,TX,73301,2000,339,1661
+2708453,Margaret,White,8570 Pine Ave,Houston,TX,77001,1000,272,728
+2708461,Charles,Hernandez,2024 Cedar Ln,San Antonio,TX,78201,1000,608,392
+2708464,Sandra,Hernandez,6172 Oak St,Fort Worth,TX,76101,1800,1704,96
+2708466,Elizabeth,Rodriguez,8380 Elm St,Fort Worth,TX,76101,3000,1976,1024
+2708467,Jessica,Moore,9040 Ridgeway Dr,Fort Worth,TX,76101,1500,738,762
+2708469,Charles,Smith,1128 Lakeview Dr,Dallas,TX,75201,2500,1474,1026
+2708470,Susan,Thompson,889 Sunset Blvd,El Paso,TX,79901,1000,870,130
+2708472,Susan,Martinez,8830 3rd St,Fort Worth,TX,76101,9000,8326,674
+2708477,Joseph,Miller,1216 Maple Ave,Fort Worth,TX,76101,4500,4406,94
+2708478,Jennifer,Martinez,7049 Elm St,Dallas,TX,75201,6000,5053,947
+2708479,James,Moore,1073 Maple Ave,Fort Worth,TX,76101,6000,940,5060
+2708480,Jennifer,Lopez,3333 3rd St,Austin,TX,73301,6000,2452,3548
+2708488,David,Jackson,6635 3rd St,Fort Worth,TX,76101,1000,148,852
+2708489,James,Thompson,4442 Oak St,Austin,TX,73301,4500,1032,3468
+2708490,David,Lee,411 Forest Ave,Dallas,TX,75201,2500,939,1561
+2708494,Linda,Sanchez,3633 Cherry Ln,Dallas,TX,75201,1500,1174,326
+2708501,Jessica,White,3817 Elm St,San Antonio,TX,78201,2000,1936,64
+2708507,Anthony,Lee,8673 3rd St,Austin,TX,73301,4500,1842,2658
+2708513,Daniel,Jackson,2337 Spruce St,Houston,TX,77001,1500,917,583
+2708521,Margaret,Taylor,8534 Oak St,Austin,TX,73301,1800,1250,550
+2708522,Daniel,Wilson,6663 Lakeview Dr,Austin,TX,73301,12000,3241,8759
+2708529,David,Lee,4351 Spruce St,El Paso,TX,79901,1000,373,627
+2708531,Linda,Smith,8178 2nd St,San Antonio,TX,78201,4500,3482,1018
+2708537,Jessica,Williams,4022 Cedar Ln,Dallas,TX,75201,9000,4064,4936
+2708538,Mark,Rodriguez,4679 Main St,Austin,TX,73301,9000,6313,2687
+2708540,Robert,Sanchez,5146 Ridgeway Dr,Dallas,TX,75201,2000,766,1234
+2708546,James,Lee,3304 Elm St,Dallas,TX,75201,9000,3671,5329
+2708549,Linda,Miller,5037 2nd St,Fort Worth,TX,76101,2500,2184,316
+2708552,Sandra,Rodriguez,9214 Oak St,Houston,TX,77001,4500,1804,2696
+2708556,Christopher,Robinson,1725 Maple Ave,San Antonio,TX,78201,1500,99,1401
+2708557,Daniel,Ramirez,250 Cherry Ln,El Paso,TX,79901,2000,1468,532
+2708558,Richard,Thomas,4834 Oak St,San Antonio,TX,78201,12000,6341,5659
+2708567,Margaret,Thompson,8355 Maple Ave,Austin,TX,73301,9000,3914,5086
+2708568,David,Jones,9755 Cherry Ln,San Antonio,TX,78201,9000,4398,4602
+2708569,Mark,Brown,2479 Maple Ave,Houston,TX,77001,2000,504,1496
+2708574,Mark,Wilson,5453 Walnut St,Dallas,TX,75201,1800,1193,607
+2708575,James,Wilson,8830 Main St,San Antonio,TX,78201,3000,1772,1228
+2708578,Jessica,Perez,3106 Hillcrest Rd,Houston,TX,77001,9000,5971,3029
+2708583,Linda,Sanchez,1526 Sunset Blvd,Houston,TX,77001,1800,83,1717
+2708584,Karen,Anderson,1819 Walnut St,Austin,TX,73301,1000,546,454
+2708589,Christopher,White,6531 Walnut St,El Paso,TX,79901,9000,8103,897
+2708591,Nancy,Sanchez,3396 Elm St,Fort Worth,TX,76101,3000,83,2917
+2708595,Susan,Jackson,2454 Spruce St,Dallas,TX,75201,1800,794,1006
+2708596,Mark,Ramirez,626 Elm St,El Paso,TX,79901,2500,1523,977
+2708597,Robert,Rodriguez,3119 Lakeview Dr,San Antonio,TX,78201,9000,3726,5274
+2708603,Linda,Jackson,2105 Birch St,Houston,TX,77001,12000,9278,2722
+2708604,Anthony,Moore,1888 Forest Ave,Austin,TX,73301,1000,430,570
+2708612,Christopher,Brown,8207 Birch St,El Paso,TX,79901,1800,995,805
+2708615,Jessica,Garcia,2882 Pine Ave,Houston,TX,77001,1500,1368,132
+2708617,Lisa,Taylor,8132 Spruce St,Houston,TX,77001,1000,768,232
+2708618,Mark,Miller,4650 Birch St,Austin,TX,73301,1500,1166,334
+2708620,David,White,8530 Walnut St,Houston,TX,77001,9000,4807,4193
+2708625,Linda,Anderson,4073 Hillcrest Rd,El Paso,TX,79901,12000,605,11395
+2708629,Jessica,Martinez,9941 Oak St,Austin,TX,73301,2000,819,1181
+2708639,Thomas,Lee,712 Hillcrest Rd,Dallas,TX,75201,1000,585,415
+2708646,Richard,Jackson,8172 Walnut St,Fort Worth,TX,76101,1000,499,501
+2708651,Michael,Sanchez,2233 Pine Ave,Houston,TX,77001,1500,1408,92
+2708654,Charles,Smith,9192 Elm St,El Paso,TX,79901,2500,446,2054
+2708657,Robert,Williams,2044 Sunset Blvd,Austin,TX,73301,12000,6192,5808
+2708663,Richard,Ramirez,465 Maple Ave,Dallas,TX,75201,1800,1257,543
+2708666,Matthew,White,7751 Pine Ave,El Paso,TX,79901,2000,493,1507
+2708667,Richard,Brown,3048 Court St,Houston,TX,77001,1500,1489,11
+2708688,Linda,Thomas,7944 Hillcrest Rd,Dallas,TX,75201,1800,965,835
+2708691,Susan,Jackson,3027 Walnut St,Austin,TX,73301,1800,1065,735
+2708692,David,Sanchez,8948 Cedar Ln,Houston,TX,77001,1500,267,1233
+2708694,John,Jones,9530 Maple Ave,San Antonio,TX,78201,12000,6707,5293
+2708697,Charles,Garcia,4253 Spruce St,San Antonio,TX,78201,12000,4434,7566
+2708698,Margaret,Taylor,3128 Birch St,Dallas,TX,75201,6000,3905,2095
+2708699,Michael,Perez,4851 4th St,San Antonio,TX,78201,2000,18,1982
+2708701,Sarah,Lopez,9598 Oak St,San Antonio,TX,78201,1500,196,1304
+2708702,David,Moore,5102 Washington St,Houston,TX,77001,1500,170,1330
+2708711,James,Johnson,3243 Court St,Dallas,TX,75201,4500,3573,927
+2708715,Daniel,Davis,5517 Court St,San Antonio,TX,78201,3000,2830,170
+2708724,Richard,Martin,3010 Cedar Ln,San Antonio,TX,78201,6000,3796,2204
+2708727,Joseph,Lewis,8583 Forest Ave,Houston,TX,77001,3000,2417,583
+2708733,Betty,Davis,2998 Ridgeway Dr,El Paso,TX,79901,2000,38,1962
+2708735,David,Lewis,9754 Walnut St,Houston,TX,77001,9000,1900,7100
+2708736,Mary,Davis,1219 Court St,Dallas,TX,75201,6000,3646,2354
+2708737,Robert,Wilson,441 Spruce St,Houston,TX,77001,1000,652,348
+2708743,Mark,Taylor,9271 Elm St,El Paso,TX,79901,9000,6027,2973
+2708750,Richard,Brown,3098 2nd St,Dallas,TX,75201,1000,684,316
+2708753,James,Thompson,8810 Oak St,Fort Worth,TX,76101,4500,3677,823
+2708755,Charles,Lewis,6863 Washington St,El Paso,TX,79901,1800,473,1327
+2708762,Barbara,Wilson,3042 2nd St,Fort Worth,TX,76101,1500,644,856
+2708765,Karen,Harris,4959 Maple Ave,Fort Worth,TX,76101,12000,3606,8394
+2708770,Christopher,Clark,4071 Maple Ave,Dallas,TX,75201,6000,2187,3813
+2708772,Matthew,Martinez,870 Forest Ave,El Paso,TX,79901,3000,576,2424
+2708774,Jessica,Davis,6689 Spruce St,Austin,TX,73301,1500,1441,59
+2708775,Joseph,Davis,597 Walnut St,El Paso,TX,79901,1800,1052,748
+2708777,Margaret,Garcia,580 3rd St,Austin,TX,73301,1000,278,722
+2708793,Betty,Moore,7060 Main St,Houston,TX,77001,6000,2563,3437
+2708795,Jennifer,Gonzalez,2017 Spruce St,Fort Worth,TX,76101,2000,827,1173
+2708800,Richard,Lee,4971 Cedar Ln,Dallas,TX,75201,1500,927,573
+2708808,Mark,Brown,2508 Oak St,San Antonio,TX,78201,2000,1625,375
+2708813,Matthew,Harris,7062 Hillcrest Rd,Dallas,TX,75201,4500,750,3750
+2708814,Mary,Jackson,1848 Lakeview Dr,Austin,TX,73301,4500,3136,1364
+2708817,Richard,Ramirez,3176 Oak St,El Paso,TX,79901,3000,546,2454
+2708823,Anthony,Johnson,6412 3rd St,Houston,TX,77001,3000,456,2544
+2708826,Sarah,Thompson,1523 Maple Ave,Dallas,TX,75201,6000,4505,1495
+2708827,Matthew,Rodriguez,590 Cedar Ln,Austin,TX,73301,12000,10664,1336
+2708829,Lisa,Jackson,1228 Forest Ave,Dallas,TX,75201,9000,2912,6088
+2708835,Linda,Smith,7670 Birch St,Austin,TX,73301,1000,169,831
+2708841,Elizabeth,Harris,3171 2nd St,San Antonio,TX,78201,6000,1250,4750
+2708844,Nancy,Davis,1774 Hillcrest Rd,San Antonio,TX,78201,4500,2190,2310
+2708849,Thomas,Robinson,9483 3rd St,Fort Worth,TX,76101,1000,102,898
+2708854,Robert,White,9070 Court St,Austin,TX,73301,12000,1467,10533
+2708859,Sandra,Garcia,2205 3rd St,El Paso,TX,79901,12000,874,11126
+2708860,James,Davis,5432 Maple Ave,El Paso,TX,79901,6000,162,5838
+2708871,Margaret,Lewis,2253 Elm St,Houston,TX,77001,1500,727,773
+2708872,Lisa,White,9535 Spruce St,El Paso,TX,79901,6000,4417,1583
+2708873,Jessica,Garcia,876 Cherry Ln,Dallas,TX,75201,9000,3925,5075
+2708881,Margaret,Clark,3354 Forest Ave,Austin,TX,73301,1000,376,624
+2708885,Matthew,Garcia,7799 Spruce St,Dallas,TX,75201,2500,1640,860
+2708892,Charles,Taylor,5930 Walnut St,Austin,TX,73301,9000,8633,367
+2708897,Susan,Lee,8287 Elm St,Fort Worth,TX,76101,1000,404,596
+2708901,Christopher,Davis,1655 Main St,Dallas,TX,75201,9000,8469,531
+2708907,Mary,Ramirez,9963 Walnut St,Houston,TX,77001,1000,851,149
+2708908,Thomas,Williams,4632 Washington St,Dallas,TX,75201,1500,229,1271
+2708920,James,Thomas,5179 Hillcrest Rd,Houston,TX,77001,4500,3106,1394
+2708924,Daniel,Martinez,9347 3rd St,Dallas,TX,75201,6000,1632,4368
+2708926,Robert,Miller,1420 Walnut St,San Antonio,TX,78201,2000,499,1501
+2708930,Linda,Moore,7357 Pine Ave,Fort Worth,TX,76101,2500,1905,595
+2708939,Jennifer,Harris,9046 Forest Ave,Houston,TX,77001,12000,9043,2957
+2708940,Daniel,Jones,7894 3rd St,Austin,TX,73301,6000,5002,998
+2708942,Linda,Wilson,6927 Maple Ave,Dallas,TX,75201,3000,2265,735
+2708944,William,Smith,4157 Oak St,Austin,TX,73301,1800,1063,737
+2708952,Robert,Wilson,193 4th St,Houston,TX,77001,2500,1967,533
+2708959,Mary,White,9380 Pine Ave,Houston,TX,77001,2500,1071,1429
+2708965,Betty,Miller,6640 Maple Ave,Houston,TX,77001,1500,761,739
+2708968,Matthew,Thomas,1274 Lakeview Dr,Houston,TX,77001,4500,3193,1307
+2708970,John,Jackson,5791 Hillcrest Rd,Houston,TX,77001,1800,13,1787
+2708971,Karen,Davis,3066 Pine Ave,Dallas,TX,75201,4500,3619,881
+2708983,Jessica,White,1718 3rd St,San Antonio,TX,78201,6000,3897,2103
+2708988,Matthew,Thomas,3488 Lakeview Dr,Dallas,TX,75201,4500,2670,1830
+2708990,Joseph,White,4236 Elm St,Austin,TX,73301,6000,553,5447
+2708993,Patricia,Taylor,7382 Maple Ave,Houston,TX,77001,1500,19,1481
+2708997,James,Wilson,1060 Forest Ave,El Paso,TX,79901,2500,1697,803
+2708998,Robert,Williams,6230 Maple Ave,Houston,TX,77001,2500,314,2186
+2709003,Karen,Williams,1221 Spruce St,San Antonio,TX,78201,3000,923,2077
+2709007,Susan,Robinson,6084 Oak St,Fort Worth,TX,76101,2000,812,1188
+2709018,Christopher,Moore,5028 Lakeview Dr,San Antonio,TX,78201,4500,2883,1617
+2709022,Barbara,White,7725 Cherry Ln,Fort Worth,TX,76101,4500,3210,1290
+2709023,David,Lewis,1447 Maple Ave,Houston,TX,77001,12000,9030,2970
+2709025,Thomas,Moore,6444 Court St,San Antonio,TX,78201,2500,1162,1338
+2709030,Linda,Rodriguez,8365 Sunset Blvd,Fort Worth,TX,76101,1000,652,348
+2709032,James,Thomas,474 Maple Ave,San Antonio,TX,78201,3000,1099,1901
+2709035,Michael,Garcia,5503 2nd St,Fort Worth,TX,76101,4500,753,3747
+2709042,Betty,Taylor,9771 Walnut St,Austin,TX,73301,1000,207,793
+2709045,Sandra,Moore,1675 4th St,Dallas,TX,75201,2000,814,1186
+2709047,James,Martinez,3244 Lakeview Dr,San Antonio,TX,78201,1500,490,1010
+2709052,Nancy,Brown,762 Cedar Ln,Dallas,TX,75201,2000,314,1686
+2709053,Patricia,Smith,4625 Ridgeway Dr,San Antonio,TX,78201,2000,446,1554
+2709054,Mark,Rodriguez,8878 Ridgeway Dr,Dallas,TX,75201,2500,2004,496
+2709057,Sarah,Williams,9031 Pine Ave,Fort Worth,TX,76101,1000,694,306
+2709066,Christopher,Williams,7767 Main St,El Paso,TX,79901,1800,675,1125
+2709069,Elizabeth,Robinson,6350 Elm St,El Paso,TX,79901,3000,1167,1833
+2709072,David,Anderson,5009 Maple Ave,Dallas,TX,75201,2500,1484,1016
+2709076,James,Robinson,6640 Elm St,El Paso,TX,79901,2000,542,1458
+2709078,John,Robinson,4483 Walnut St,El Paso,TX,79901,1800,1290,510
+2709081,Sandra,Hernandez,9342 Ridgeway Dr,Austin,TX,73301,6000,4393,1607
+2709085,William,Ramirez,5792 Spruce St,Houston,TX,77001,2000,238,1762
+2709087,James,Lopez,7080 Sunset Blvd,Dallas,TX,75201,9000,1139,7861
+2709089,Mary,Ramirez,3327 Washington St,Dallas,TX,75201,6000,4132,1868
+2709092,Richard,Miller,6354 Hillcrest Rd,El Paso,TX,79901,3000,1811,1189
+2709093,James,Lewis,427 Walnut St,El Paso,TX,79901,3000,185,2815
+2709097,Jessica,Perez,5875 Elm St,El Paso,TX,79901,1500,476,1024
+2709099,Elizabeth,Smith,5497 Sunset Blvd,El Paso,TX,79901,12000,7006,4994
+2709100,Daniel,Gonzalez,1484 Spruce St,San Antonio,TX,78201,12000,6127,5873
+2709105,Susan,White,8093 Lakeview Dr,El Paso,TX,79901,3000,1940,1060
+2709115,Mark,Sanchez,3967 Spruce St,San Antonio,TX,78201,3000,292,2708
+2709118,Linda,Rodriguez,5371 2nd St,Houston,TX,77001,2000,476,1524
+2709122,Anthony,Moore,1788 Washington St,Austin,TX,73301,1800,829,971
+2709128,Michael,Miller,9102 Spruce St,El Paso,TX,79901,2500,2112,388
+2709133,James,Martinez,9603 Cherry Ln,Houston,TX,77001,2500,1760,740
+2709134,Joseph,Robinson,9382 Elm St,San Antonio,TX,78201,12000,3886,8114
+2709135,Daniel,Lewis,5826 Pine Ave,Fort Worth,TX,76101,6000,1094,4906
+2709140,Karen,Thomas,8535 2nd St,Dallas,TX,75201,4500,1721,2779
+2709141,Michael,Gonzalez,3815 Oak St,Houston,TX,77001,4500,3114,1386
+2709144,Margaret,Martin,4238 Walnut St,Houston,TX,77001,3000,259,2741
+2709145,Mark,Ramirez,1775 Lakeview Dr,Houston,TX,77001,4500,3771,729
+2709146,Margaret,Harris,1567 Main St,San Antonio,TX,78201,12000,3868,8132
+2709147,Elizabeth,Wilson,189 Elm St,El Paso,TX,79901,1000,360,640
+2709150,Patricia,Anderson,5783 4th St,San Antonio,TX,78201,2000,245,1755
+2709158,Michael,Jackson,729 Oak St,San Antonio,TX,78201,4500,2312,2188
+2709160,Thomas,Martinez,9248 Hillcrest Rd,San Antonio,TX,78201,3000,396,2604
+2709161,Mary,Davis,8154 4th St,Austin,TX,73301,6000,3786,2214
+2709170,Nancy,Anderson,129 3rd St,El Paso,TX,79901,4500,3984,516
+2709172,Charles,Martinez,2397 4th St,El Paso,TX,79901,12000,1369,10631
+2709181,David,Hernandez,6245 Forest Ave,Austin,TX,73301,1000,38,962
+2709183,Joseph,Sanchez,9399 Court St,Dallas,TX,75201,3000,655,2345
+2709184,Nancy,Anderson,1937 Pine Ave,El Paso,TX,79901,1000,739,261
+2709203,Anthony,Wilson,8880 Oak St,San Antonio,TX,78201,2500,1633,867
+2709206,Elizabeth,Hernandez,1758 Hillcrest Rd,Austin,TX,73301,1800,218,1582
+2709208,Thomas,Lee,7524 Hillcrest Rd,Fort Worth,TX,76101,1800,768,1032
+2709214,Lisa,Jones,1590 Walnut St,San Antonio,TX,78201,2500,2155,345
+2709217,Anthony,Gonzalez,959 Cedar Ln,Dallas,TX,75201,4500,510,3990
+2709221,Jennifer,Miller,3715 Cedar Ln,San Antonio,TX,78201,2000,1498,502
+2709226,William,Robinson,9012 4th St,San Antonio,TX,78201,1500,280,1220
+2709231,Anthony,Martinez,9503 4th St,Fort Worth,TX,76101,4500,2669,1831
+2709233,Nancy,Davis,4077 Spruce St,Austin,TX,73301,2500,2069,431
+2709238,Joseph,Moore,4202 Ridgeway Dr,El Paso,TX,79901,6000,2029,3971
+2709241,Barbara,Harris,2391 Main St,Fort Worth,TX,76101,9000,48,8952
+2709242,Michael,Lopez,7968 Forest Ave,San Antonio,TX,78201,3000,2505,495
+2709243,Joseph,Thomas,7765 Forest Ave,El Paso,TX,79901,2500,84,2416
+2709244,Anthony,Lopez,2594 Elm St,Houston,TX,77001,6000,73,5927
+2709245,David,Jones,2540 Cedar Ln,Dallas,TX,75201,1800,1732,68
+2709246,Thomas,Harris,515 Elm St,San Antonio,TX,78201,6000,4031,1969
+2709257,John,Ramirez,9199 4th St,San Antonio,TX,78201,2500,318,2182
+2709259,Sandra,Miller,4953 Hillcrest Rd,Austin,TX,73301,4500,1672,2828
+2709265,Barbara,Smith,2992 4th St,Fort Worth,TX,76101,4500,0,4500
+2709267,Michael,Smith,2455 Oak St,Houston,TX,77001,1500,731,769
+2709268,Thomas,Thompson,4224 3rd St,San Antonio,TX,78201,3000,1534,1466
+2709271,Charles,Thomas,5238 Court St,Fort Worth,TX,76101,9000,2147,6853
+2709272,Lisa,Johnson,6481 Maple Ave,El Paso,TX,79901,1800,121,1679
+2709282,Mary,Martin,5634 3rd St,Austin,TX,73301,9000,2024,6976
+2709284,Christopher,Johnson,9349 Maple Ave,Houston,TX,77001,1500,1018,482
+2709288,Michael,Johnson,5963 2nd St,San Antonio,TX,78201,4500,4312,188
+2709290,Elizabeth,Hernandez,6021 Oak St,Austin,TX,73301,12000,2344,9656
+2709291,Jessica,Jackson,7411 Oak St,Houston,TX,77001,9000,2459,6541
+2709297,James,Martin,3509 Maple Ave,El Paso,TX,79901,1800,77,1723
+2709300,Barbara,Davis,5333 Washington St,Austin,TX,73301,3000,969,2031
+2709303,Barbara,Brown,5867 Oak St,Dallas,TX,75201,12000,6360,5640
+2709306,Matthew,Williams,6379 Spruce St,Austin,TX,73301,1500,386,1114
+2709309,Matthew,Anderson,9047 Lakeview Dr,Houston,TX,77001,3000,2343,657
+2709321,Susan,Lopez,4907 Lakeview Dr,San Antonio,TX,78201,4500,2381,2119
+2709322,Daniel,Martin,1326 Hillcrest Rd,Austin,TX,73301,12000,595,11405
+2709323,Nancy,Garcia,9636 Oak St,Austin,TX,73301,2500,1296,1204
+2709328,Anthony,Garcia,4539 Cedar Ln,San Antonio,TX,78201,12000,4408,7592
+2709332,Linda,Lopez,2949 Walnut St,El Paso,TX,79901,1500,886,614
+2709335,John,Lee,7261 Main St,Fort Worth,TX,76101,3000,2104,896
+2709340,Patricia,Brown,6349 Spruce St,Houston,TX,77001,4500,2416,2084
+2709341,William,Harris,2674 Spruce St,Austin,TX,73301,3000,1065,1935
+2709349,Richard,Thomas,6403 Ridgeway Dr,Austin,TX,73301,1800,1654,146
+2709353,John,Moore,742 Washington St,El Paso,TX,79901,4500,2730,1770
+2709358,Mark,Johnson,832 Cherry Ln,Houston,TX,77001,9000,1989,7011
+2709361,Jessica,Rodriguez,1464 Cedar Ln,Dallas,TX,75201,2000,173,1827
+2709363,Anthony,Jones,4373 2nd St,Houston,TX,77001,9000,587,8413
+2709364,John,White,2419 Ridgeway Dr,Dallas,TX,75201,4500,4335,165
+2709369,Anthony,Martinez,205 Cedar Ln,Austin,TX,73301,2000,746,1254
+2709376,Nancy,Perez,1103 Forest Ave,El Paso,TX,79901,12000,5790,6210
+2709386,Betty,Clark,954 Walnut St,Austin,TX,73301,12000,5267,6733
+2709393,Linda,Lewis,5081 Sunset Blvd,Austin,TX,73301,1800,1197,603
+2709394,Barbara,Taylor,1262 Court St,San Antonio,TX,78201,6000,4340,1660
+2709395,Daniel,Wilson,8181 Spruce St,El Paso,TX,79901,1000,413,587
+2709411,Lisa,Moore,6806 Ridgeway Dr,San Antonio,TX,78201,9000,444,8556
+2709414,Jessica,Clark,2181 Spruce St,Austin,TX,73301,1000,728,272
+2709418,Daniel,Rodriguez,1931 Forest Ave,San Antonio,TX,78201,1500,598,902
+2709420,Jennifer,Sanchez,5842 Sunset Blvd,Dallas,TX,75201,12000,1579,10421
+2709423,Linda,Williams,5909 Oak St,Austin,TX,73301,2000,126,1874
+2709425,Betty,Martinez,1786 Walnut St,Austin,TX,73301,3000,2583,417
+2709429,James,Clark,3041 Ridgeway Dr,San Antonio,TX,78201,1800,1577,223
+2709435,Matthew,Perez,2117 Sunset Blvd,Fort Worth,TX,76101,2500,1920,580
+2709442,Patricia,Williams,3519 4th St,Houston,TX,77001,1800,1261,539
+2709446,Richard,Brown,7719 Sunset Blvd,El Paso,TX,79901,9000,6684,2316
+2709447,Linda,Anderson,2531 Cedar Ln,El Paso,TX,79901,1000,579,421
+2709448,Daniel,Perez,6785 Cherry Ln,Fort Worth,TX,76101,3000,2173,827
+2709450,Karen,Smith,5556 Spruce St,Dallas,TX,75201,2000,1089,911
+2709451,James,Jackson,327 Spruce St,El Paso,TX,79901,2500,1196,1304
+2709453,Karen,Thompson,5687 Hillcrest Rd,Houston,TX,77001,3000,33,2967
+2709454,Sarah,Garcia,3874 Court St,San Antonio,TX,78201,2000,1422,578
+2709456,Richard,Anderson,8445 3rd St,San Antonio,TX,78201,9000,5444,3556
+2709460,Christopher,Thompson,696 3rd St,Dallas,TX,75201,12000,3561,8439
+2709461,Sarah,Jackson,2546 Lakeview Dr,Houston,TX,77001,3000,2280,720
+2709466,Mark,Lee,9927 Cedar Ln,Dallas,TX,75201,1800,161,1639
+2709467,Susan,Davis,3507 Cherry Ln,Dallas,TX,75201,12000,6118,5882
+2709468,Robert,Johnson,149 4th St,Houston,TX,77001,2000,485,1515
+2709474,Patricia,Williams,9481 Oak St,San Antonio,TX,78201,1000,39,961
+2709476,Michael,Johnson,1446 Sunset Blvd,El Paso,TX,79901,12000,2888,9112
+2709479,Mary,Johnson,1765 Pine Ave,Houston,TX,77001,12000,2995,9005
+2709480,Daniel,Moore,2986 Main St,El Paso,TX,79901,1500,179,1321
+2709482,Lisa,Anderson,2779 Hillcrest Rd,El Paso,TX,79901,2500,2194,306
+2709486,James,Thomas,4337 Cedar Ln,Dallas,TX,75201,9000,8528,472
+2709495,Betty,Garcia,6342 Cedar Ln,El Paso,TX,79901,1800,77,1723
+2709499,Nancy,Jones,5462 Cherry Ln,Houston,TX,77001,1500,600,900
+2709502,Sandra,Jones,3811 Cedar Ln,Austin,TX,73301,1000,244,756
+2709506,Matthew,Brown,8479 Oak St,Fort Worth,TX,76101,1000,52,948
+2709513,Lisa,Hernandez,6725 Court St,Austin,TX,73301,9000,7228,1772
+2709519,Patricia,Ramirez,9365 Birch St,San Antonio,TX,78201,9000,5104,3896
+2709522,Lisa,Taylor,3530 Ridgeway Dr,Fort Worth,TX,76101,1800,227,1573
+2709523,Richard,Martinez,8299 Lakeview Dr,Dallas,TX,75201,4500,1842,2658
+2709524,Nancy,Moore,8760 Washington St,San Antonio,TX,78201,1000,424,576
+2709526,Thomas,Thompson,6010 Spruce St,Dallas,TX,75201,9000,6634,2366
+2709527,Mary,Garcia,4838 Cherry Ln,Dallas,TX,75201,9000,1147,7853
+2709533,Margaret,Ramirez,9171 Court St,Austin,TX,73301,1800,1189,611
+2709535,John,Lopez,4345 Cherry Ln,Austin,TX,73301,2000,1007,993
+2709540,Patricia,White,3123 Cherry Ln,Houston,TX,77001,3000,38,2962
+2709546,Lisa,Jones,3742 Spruce St,El Paso,TX,79901,3000,166,2834
+2709549,Susan,Martinez,1531 Ridgeway Dr,Austin,TX,73301,3000,1455,1545
+2709552,Linda,Lopez,4439 Walnut St,El Paso,TX,79901,1500,456,1044
+2709557,Lisa,Jones,9868 Cedar Ln,Austin,TX,73301,2500,1810,690
+2709558,William,Garcia,7667 Ridgeway Dr,Dallas,TX,75201,2000,1516,484
+2709560,Elizabeth,Perez,9976 Birch St,Austin,TX,73301,4500,2976,1524
+2709567,James,Martinez,9804 Forest Ave,Dallas,TX,75201,4500,1259,3241
+2709568,Jennifer,Gonzalez,1279 4th St,San Antonio,TX,78201,4500,522,3978
+2709570,David,Harris,5879 4th St,Fort Worth,TX,76101,6000,2045,3955
+2709572,Sandra,Martinez,3353 Forest Ave,Fort Worth,TX,76101,1500,283,1217
+2709576,Joseph,Williams,3593 Main St,Austin,TX,73301,2500,1738,762
+2709586,James,Thomas,6297 Spruce St,Dallas,TX,75201,9000,5227,3773
+2709591,Matthew,Smith,4796 Cedar Ln,El Paso,TX,79901,1000,272,728
+2709594,Christopher,Perez,9458 Sunset Blvd,Fort Worth,TX,76101,2000,1719,281
+2709596,David,Garcia,7972 Washington St,Austin,TX,73301,1800,1794,6
+2709604,Michael,Lee,177 Cedar Ln,Fort Worth,TX,76101,1800,642,1158
+2709607,John,Sanchez,6251 Spruce St,El Paso,TX,79901,4500,1492,3008
+2709611,Lisa,Moore,7852 Ridgeway Dr,Austin,TX,73301,1500,1252,248
+2709614,Mark,Hernandez,1489 Birch St,Fort Worth,TX,76101,2000,452,1548
+2709615,Nancy,Jackson,7530 2nd St,Fort Worth,TX,76101,2500,696,1804
+2709617,Susan,Robinson,3126 Hillcrest Rd,Austin,TX,73301,2500,104,2396
+2709618,Thomas,Martin,5833 Elm St,Dallas,TX,75201,12000,924,11076
+2709619,Robert,Clark,9603 Court St,San Antonio,TX,78201,2500,1952,548
+2709628,Christopher,Lewis,7917 Oak St,San Antonio,TX,78201,6000,3092,2908
+2709630,Anthony,Anderson,2607 Washington St,Austin,TX,73301,1800,1576,224
+2709651,Betty,White,6302 Cedar Ln,Houston,TX,77001,12000,8162,3838
+2709658,Nancy,Lee,1176 Court St,El Paso,TX,79901,1800,1591,209
+2709659,Linda,Wilson,6805 Washington St,Dallas,TX,75201,1500,687,813
+2709662,Betty,Thompson,5955 Lakeview Dr,San Antonio,TX,78201,2000,772,1228
+2709665,Robert,Jones,8449 Oak St,Austin,TX,73301,12000,10568,1432
+2709672,Matthew,Garcia,672 Washington St,Houston,TX,77001,2500,534,1966
+2709674,Matthew,Thompson,3490 Spruce St,Austin,TX,73301,1000,963,37
+2709682,Karen,Davis,7430 Pine Ave,El Paso,TX,79901,1500,250,1250
+2709683,Karen,Ramirez,9681 Washington St,El Paso,TX,79901,6000,4170,1830
+2709686,Thomas,Davis,270 Elm St,El Paso,TX,79901,9000,2913,6087
+2709688,Linda,Robinson,8158 Elm St,El Paso,TX,79901,9000,1257,7743
+2709691,Thomas,Rodriguez,1434 Lakeview Dr,San Antonio,TX,78201,4500,652,3848
+2709694,Betty,Lopez,4588 Court St,El Paso,TX,79901,1800,1170,630
+2709697,Nancy,Sanchez,7229 Cherry Ln,El Paso,TX,79901,2500,140,2360
+2709698,Anthony,Perez,9608 3rd St,El Paso,TX,79901,9000,126,8874
+2709703,Patricia,Anderson,205 Birch St,Austin,TX,73301,1800,1295,505
+2709707,Betty,Thomas,7013 Cherry Ln,Houston,TX,77001,3000,1844,1156
+2709711,Robert,Hernandez,801 3rd St,San Antonio,TX,78201,6000,517,5483
+2709713,James,Martin,6749 Washington St,Houston,TX,77001,1000,225,775
+2709721,Linda,Moore,6838 Pine Ave,El Paso,TX,79901,1500,829,671
+2709726,Jennifer,Hernandez,1665 Sunset Blvd,San Antonio,TX,78201,4500,2591,1909
+2709728,Christopher,Garcia,5457 Cedar Ln,Dallas,TX,75201,3000,759,2241
+2709729,Charles,Martinez,9114 Oak St,San Antonio,TX,78201,12000,8657,3343
+2709732,Jessica,Garcia,3208 Pine Ave,Dallas,TX,75201,6000,1617,4383
+2709734,Mark,Jackson,6082 Spruce St,El Paso,TX,79901,6000,3132,2868
+2709745,David,Lewis,4171 Forest Ave,Dallas,TX,75201,4500,3549,951
+2709754,William,Davis,6750 Court St,San Antonio,TX,78201,9000,562,8438
+2709760,Karen,Jones,1677 Birch St,Dallas,TX,75201,6000,1595,4405
+2709761,Nancy,Ramirez,528 Cherry Ln,Austin,TX,73301,9000,5660,3340
+2709764,Margaret,White,7349 Birch St,Dallas,TX,75201,1800,12,1788
+2709770,David,Thompson,1375 Main St,Dallas,TX,75201,1800,374,1426
+2709773,Lisa,Johnson,8166 Pine Ave,Dallas,TX,75201,2000,1299,701
+2709774,Joseph,Williams,8826 Sunset Blvd,Fort Worth,TX,76101,2000,1224,776
+2709775,Richard,Perez,1123 Court St,San Antonio,TX,78201,1500,1395,105
+2709776,William,Jones,1338 Court St,Houston,TX,77001,1500,84,1416
+2709777,Nancy,Taylor,414 Cedar Ln,Austin,TX,73301,6000,3154,2846
+2709778,Christopher,Martinez,8037 Pine Ave,Houston,TX,77001,2000,925,1075
+2709779,Susan,Martinez,1502 Ridgeway Dr,Austin,TX,73301,6000,3273,2727
+2709786,Elizabeth,Jackson,1242 Elm St,Austin,TX,73301,1000,185,815
+2709789,Mark,Miller,5305 Washington St,Austin,TX,73301,2500,495,2005
+2709792,Karen,Jackson,434 Lakeview Dr,El Paso,TX,79901,12000,3192,8808
+2709795,Jessica,Anderson,4133 4th St,Dallas,TX,75201,1800,280,1520
+2709797,William,Clark,933 Spruce St,Fort Worth,TX,76101,4500,335,4165
+2709799,Lisa,Hernandez,611 Cedar Ln,Fort Worth,TX,76101,9000,5481,3519
+2709803,Betty,Perez,9752 Walnut St,Houston,TX,77001,2500,1124,1376
+2709811,Jessica,Miller,3898 Sunset Blvd,Dallas,TX,75201,1000,474,526
+2709818,Daniel,Thompson,3728 Forest Ave,El Paso,TX,79901,12000,9650,2350
+2709819,Barbara,Smith,5325 Ridgeway Dr,Houston,TX,77001,2000,558,1442
+2709826,Betty,Garcia,6701 Pine Ave,Fort Worth,TX,76101,6000,5459,541
+2709827,Patricia,Jackson,9119 3rd St,Dallas,TX,75201,2000,184,1816
+2709833,Karen,Johnson,376 Forest Ave,Austin,TX,73301,2000,1883,117
+2709834,Matthew,Johnson,4055 Cedar Ln,Austin,TX,73301,4500,4439,61
+2709840,John,Davis,5122 2nd St,Fort Worth,TX,76101,12000,1878,10122
+2709847,Sarah,Smith,2040 Birch St,El Paso,TX,79901,1000,118,882
+2709858,Sarah,Ramirez,5685 Sunset Blvd,Houston,TX,77001,2500,466,2034
+2709861,Joseph,Lopez,4316 Washington St,Houston,TX,77001,1500,1345,155
+2709864,Robert,Garcia,8289 Washington St,Houston,TX,77001,12000,3883,8117
+2709891,William,Clark,7167 Hillcrest Rd,San Antonio,TX,78201,1500,972,528
+2709898,Anthony,Smith,4928 Maple Ave,Austin,TX,73301,9000,3513,5487
+2709902,Thomas,Rodriguez,8947 Pine Ave,El Paso,TX,79901,4500,2676,1824
+2709906,Mary,Rodriguez,3979 2nd St,Fort Worth,TX,76101,12000,954,11046
+2709907,Daniel,Smith,8554 Washington St,Houston,TX,77001,12000,5975,6025
+2709912,Patricia,Harris,8407 Hillcrest Rd,Austin,TX,73301,1800,417,1383
+2709919,Michael,Thomas,5595 Maple Ave,Dallas,TX,75201,9000,968,8032
+2709930,Susan,Williams,5523 Lakeview Dr,Austin,TX,73301,2500,165,2335
+2709935,James,Davis,837 Main St,Houston,TX,77001,9000,7082,1918
+2709940,Barbara,Moore,3410 Birch St,El Paso,TX,79901,3000,2332,668
+2709941,Michael,Robinson,3947 Cherry Ln,El Paso,TX,79901,9000,244,8756
+2709942,Richard,Wilson,3396 Forest Ave,Austin,TX,73301,1500,205,1295
+2709945,Joseph,Thomas,2648 2nd St,Austin,TX,73301,4500,2402,2098
+2709947,Barbara,Ramirez,3635 Washington St,Houston,TX,77001,3000,1959,1041
+2709953,Margaret,Garcia,6453 Court St,El Paso,TX,79901,6000,3084,2916
+2709958,Nancy,Rodriguez,1556 4th St,Fort Worth,TX,76101,6000,3183,2817
+2709962,Robert,Williams,4798 3rd St,Fort Worth,TX,76101,4500,3192,1308
+2709968,Joseph,Garcia,8472 Sunset Blvd,Houston,TX,77001,1500,487,1013
+2709969,Lisa,Lee,2945 Washington St,Austin,TX,73301,6000,260,5740
+2709970,James,Thomas,2999 Forest Ave,Dallas,TX,75201,12000,3637,8363
+2709979,Mary,Taylor,3178 Cedar Ln,Austin,TX,73301,1500,1394,106
+2709981,Mark,Smith,5552 Ridgeway Dr,Austin,TX,73301,4500,1621,2879
+2709986,Linda,Miller,3892 Spruce St,Austin,TX,73301,12000,11998,2
+2709989,Anthony,Lee,2559 Sunset Blvd,Dallas,TX,75201,3000,1660,1340
+2709990,Jessica,Lee,311 Cedar Ln,El Paso,TX,79901,2000,879,1121
+2709991,John,Brown,9635 Birch St,Fort Worth,TX,76101,2500,943,1557
+2709997,Lisa,Wilson,5272 3rd St,Houston,TX,77001,12000,10198,1802
+2710000,Elizabeth,White,2145 Lakeview Dr,Fort Worth,TX,76101,6000,5352,648

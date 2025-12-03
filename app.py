@@ -102,7 +102,89 @@ def parse_file(file):
         tmp_path = tmp.name
     try:
         if ext == 'csv':
-            return {"type": "csv", "data": pd.read_csv(tmp_path)}
+            # ROBUST CSV PARSING - handles title rows, different separators, encoding issues
+            
+            # Strategy 1: Try multiple separator and skiprows combinations
+            for sep in [',', '\t', ';', '|']:
+                for skip in range(0, 10):  # Try skipping 0 to 9 rows
+                    for encoding in ['utf-8', 'latin1', 'cp1252', 'iso-8859-1']:
+                        try:
+                            df = pd.read_csv(
+                                tmp_path, 
+                                sep=sep, 
+                                skiprows=skip, 
+                                encoding=encoding,
+                                on_bad_lines='skip',
+                                engine='python'
+                            )
+                            
+                            # Validate the DataFrame
+                            # 1. Must have rows
+                            # 2. Must not have all "Unnamed" columns (indicates wrong header row)
+                            # 3. Must have at least one non-empty column
+                            if len(df) > 0 and not df.columns.str.contains('Unnamed').all():
+                                # Drop completely empty rows/columns
+                                df = df.dropna(how='all').dropna(axis=1, how='all')
+                                
+                                if len(df) > 0:
+                                    st.success(f"✅ Loaded CSV: **{file.name}** ({len(df):,} rows, {len(df.columns)} columns, sep='{sep}', skipped {skip} rows, encoding={encoding})")
+                                    return {"type": "csv", "data": df}
+                        except Exception as e:
+                            continue
+            
+            # Strategy 2: Find the header row by searching for known column names
+            st.warning(f"⚠️ Standard parsing failed. Searching for header row in {file.name}...")
+            try:
+                with open(tmp_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    lines = f.readlines()
+                
+                # Look for common bail bond column names
+                header_indicators = ['DefendantID', 'BondPowerNumber', 'PrintDate', 'CustomerName', 
+                                   'Email', 'Phone', 'State', 'Address', 'Payment', 'Balance']
+                
+                header_row = 0
+                for i, line in enumerate(lines[:20]):  # Check first 20 lines
+                    if any(indicator in line for indicator in header_indicators):
+                        header_row = i
+                        st.info(f"🔍 Found header row at line {i+1}")
+                        break
+                
+                # Try parsing from the detected header row
+                for sep in [',', '\t', ';', '|']:
+                    try:
+                        df = pd.read_csv(
+                            tmp_path, 
+                            skiprows=header_row, 
+                            sep=sep,
+                            encoding='utf-8',
+                            on_bad_lines='skip',
+                            engine='python'
+                        )
+                        
+                        if len(df) > 0:
+                            df = df.dropna(how='all').dropna(axis=1, how='all')
+                            if len(df) > 0:
+                                st.success(f"✅ Loaded CSV: **{file.name}** ({len(df):,} rows, {len(df.columns)} columns, header at row {header_row+1})")
+                                return {"type": "csv", "data": df}
+                    except:
+                        continue
+                
+            except Exception as e:
+                st.error(f"❌ Header detection failed: {str(e)}")
+            
+            # Strategy 3: Show preview of file content for debugging
+            st.error(f"❌ Could not parse CSV: **{file.name}**")
+            try:
+                with open(tmp_path, 'r', encoding='utf-8', errors='ignore') as f:
+                    preview = f.read(1000)
+                st.code(preview, language='text')
+                st.info("💡 **Tip:** Your CSV might have:\n- Title rows at the top\n- Unusual separator (not comma)\n- Encoding issues\n\nTry opening the file in Excel and re-saving as a clean CSV.")
+            except:
+                pass
+            
+            # Return empty DataFrame as last resort
+            return {"type": "csv", "data": pd.DataFrame()}
+            
         elif ext == 'pdf':
             text = "\n".join([p.extract_text() or "" for p in PdfReader(tmp_path).pages])
             return {"type": "text", "data": text}

@@ -72,9 +72,9 @@ def enhance_query_prompt(df: pd.DataFrame, question: str) -> str:
     if any(w in q_lower for w in ['all', 'every', 'full', 'everything', 'entire']):
         show_suggestions = False
         
-    suggestions_text = ', '.join(suggested_cols) if suggested_cols and show_suggestions else 'None (Select ALL columns)'
+    suggestions_text = ', '.join(suggested_cols) if suggested_cols and show_suggestions else 'ALL columns (user wants everything)'
     
-    prompt = f"""You are an expert data analyst. Convert natural language to ROBUST pandas code.
+    prompt = f"""You are a data analyst converting natural language to pandas code.
 
 USER QUERY: "{question}"
 
@@ -83,79 +83,77 @@ DATASET SCHEMA:
 
 **Suggested Columns:** {suggestions_text}
 
-**Smart Column Hints:**
+**Column Hints:**
 {hint_text}
 
-**MANDATORY MATCHING PATTERN (ALWAYS FOLLOW THIS):**
+**CRITICAL RULES - FOLLOW EXACTLY:**
 
-For ANY text/string filtering, you MUST use this exact pattern:
-```python
-df[df['ColumnName'].astype(str).str.strip().str.contains('value', case=False, na=False)]
-```
+1. **For text/string filtering, ALWAYS use this pattern:**
+   ```python
+   df[df['ColumnName'].astype(str).str.strip().str.contains('value', case=False, na=False)]
+   ```
+   
+2. **State filtering - include BOTH abbreviation and full name:**
+   - Texas: `'TX|Texas'`
+   - California: `'CA|California'`
+   - New York: `'NY|New York'`
 
-BREAKDOWN:
-1. `.astype(str)` - Convert to string (handles mixed types)
-2. `.str.strip()` - Remove leading/trailing whitespace
-3. `.str.contains('value', case=False, na=False)` - Fuzzy match, case-insensitive, ignore NaN
+3. **NEVER use `==` for text columns** - it's too strict and will miss matches
 
-**NEVER use `==` for text columns!** It's too strict and will miss matches.
+4. **Always store result in `result` variable**
+
+5. **Validate your code:**
+   - Does it answer the user's question?
+   - Are you using the correct columns?
+   - Will it return the data the user asked for?
 
 **CORRECT EXAMPLES:**
 
 Example 1: "Show customers from Texas"
 ```python
-# CORRECT - Robust matching
+# Correct - handles TX, Texas, tx, " TX ", etc.
 result = df[df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)]
 ```
 
-Example 2: "Find emails with gmail"
+Example 2: "Get all data" or "Show everything"
 ```python
-# CORRECT - Handles case and whitespace
-result = df[df['Email'].astype(str).str.strip().str.contains('gmail', case=False, na=False)]
+# Correct - return all rows and columns
+result = df
 ```
 
-Example 3: "Customers in California with balance over 1000"
+Example 3: "Customers with balance over 1000"
 ```python
-# CORRECT - Combine text and numeric filters
-mask_state = df['State'].astype(str).str.strip().str.contains('CA|California', case=False, na=False)
+# Correct - numeric comparison
+result = df[df['Balance'] > 1000]
+```
+
+Example 4: "Texas customers with balance over 1000"
+```python
+# Correct - combine filters
+mask_state = df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)
 mask_balance = df['Balance'] > 1000
 result = df[mask_state & mask_balance]
 ```
 
-Example 4: "Show all customers" (no filtering)
-```python
-# CORRECT - Return all rows
-result = df
-```
+**WRONG EXAMPLES - DO NOT DO THIS:**
+❌ `df[df['State'] == 'TX']` - Too strict!
+❌ `df[df['State'].str.contains('TX')]` - Missing astype, strip, case, na handling
+❌ Using wrong column names not in the schema
 
-Example 5: "Top 10 by balance"
-```python
-# CORRECT - No text filtering needed
-result = df.nlargest(10, 'Balance')
-```
-
-**WRONG EXAMPLES (DO NOT DO THIS):**
-
-❌ `df[df['State'] == 'TX']` - Too strict! Will miss " TX", "tx", "Texas"
-❌ `df[df['State'].str.contains('TX')]` - Missing astype(str), strip(), case=False, na=False
-❌ `df[df['Email'] == 'test@gmail.com']` - Exact match only, will miss whitespace
-
-**RULES:**
-1. **Text columns**: ALWAYS use `.astype(str).str.strip().str.contains(..., case=False, na=False)`
-2. **Numeric columns**: Use direct comparison (`>`, `<`, `==`)
-3. **Multiple conditions**: Use `&` (and) or `|` (or) with masks
-4. **State names**: Include both abbreviation and full name: `'TX|Texas'`, `'CA|California'`
-5. **Result**: Always assign to `result`
-
-**Response Format:**
-Thought: [Brief reasoning]
+**Your Response Format:**
+Thought: [Brief explanation of what you're doing and why]
 Action:
 ```python
-# Your robust code here
-result = df[...]
+# Your code here with comments
+result = ...
 ```
 
-Write ROBUST code following the MANDATORY PATTERN above:
+**BEFORE YOU RESPOND:**
+- Double-check you're using the correct column names from the schema
+- Verify your code will return what the user asked for
+- Make sure you're using the MANDATORY pattern for text filtering
+
+Now write the code:
 """
     return prompt
 

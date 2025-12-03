@@ -77,43 +77,13 @@ def generate_pdf_report(df: pd.DataFrame, title: str = "Data Report", filename: 
     metadata_para = Paragraph(metadata_text, subtitle_style)
     elements.append(metadata_para)
     
-    # SMART COLUMN SELECTION for wide datasets
-    if num_cols > 12:
-        # Too many columns - select the most important ones
+    # Add warning for very wide datasets
+    if num_cols > 15:
         elements.append(Paragraph(
-            f"<b>Note:</b> Dataset has {num_cols} columns. Showing most important columns. Download CSV for full data.",
-            ParagraphStyle('Note', parent=styles['Normal'], fontSize=8, textColor=colors.red, alignment=TA_CENTER)
+            f"<b>Note:</b> This is a wide dataset with {num_cols} columns. Some text may be truncated for readability.",
+            ParagraphStyle('Note', parent=styles['Normal'], fontSize=8, textColor=colors.HexColor('#ff6b6b'), alignment=TA_CENTER)
         ))
         elements.append(Spacer(1, 0.1 * inch))
-        
-        # Select important columns intelligently
-        important_cols = []
-        
-        # Priority 1: ID/Key columns (first few columns usually)
-        for col in df.columns[:3]:
-            important_cols.append(col)
-        
-        # Priority 2: Name columns
-        name_cols = [c for c in df.columns if any(x in c.lower() for x in ['name', 'customer', 'defendant', 'client'])]
-        for col in name_cols[:2]:
-            if col not in important_cols:
-                important_cols.append(col)
-        
-        # Priority 3: Contact columns
-        contact_cols = [c for c in df.columns if any(x in c.lower() for x in ['email', 'phone', 'address', 'city', 'state'])]
-        for col in contact_cols[:3]:
-            if col not in important_cols and len(important_cols) < 10:
-                important_cols.append(col)
-        
-        # Priority 4: Financial columns
-        money_cols = [c for c in df.columns if any(x in c.lower() for x in ['balance', 'amount', 'payment', 'total', 'due', 'price'])]
-        for col in money_cols[:2]:
-            if col not in important_cols and len(important_cols) < 12:
-                important_cols.append(col)
-        
-        # Use selected columns
-        df = df[important_cols]
-        num_cols = len(df.columns)
     
     # Prepare table data
     max_rows_per_page = 35  # Reduced for better readability
@@ -141,31 +111,42 @@ def generate_pdf_report(df: pd.DataFrame, title: str = "Data Report", filename: 
         # Calculate column widths dynamically
         available_width = pagesize[0] - 40  # Account for margins
         
-        # Smart column width allocation
+        # Dynamic font sizing based on number of columns
         if num_cols <= 6:
+            header_font_size = 8
+            data_font_size = 7
             col_width = available_width / num_cols
         elif num_cols <= 10:
+            header_font_size = 7
+            data_font_size = 6
             col_width = available_width / num_cols * 0.95
+        elif num_cols <= 15:
+            header_font_size = 6
+            data_font_size = 5
+            col_width = available_width / num_cols * 0.92
         else:
-            col_width = available_width / num_cols * 0.9
+            # Very wide datasets - use smallest readable font
+            header_font_size = 5
+            data_font_size = 4
+            col_width = available_width / num_cols * 0.90
         
         # Minimum width check
-        if col_width < 0.6 * inch:
-            col_width = 0.6 * inch
+        if col_width < 0.5 * inch:
+            col_width = 0.5 * inch
         
         col_widths = [col_width] * num_cols
         
         # Create table
         table = Table(data, colWidths=col_widths, repeatRows=1)
         
-        # Style the table
+        # Style the table with dynamic font sizes
         table_style = TableStyle([
             # Header styling
             ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1f4788')),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
             ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
             ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE', (0, 0), (-1, 0), 8),
+            ('FONTSIZE', (0, 0), (-1, 0), header_font_size),
             ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
             ('TOPPADDING', (0, 0), (-1, 0), 8),
             ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
@@ -175,7 +156,7 @@ def generate_pdf_report(df: pd.DataFrame, title: str = "Data Report", filename: 
             ('TEXTCOLOR', (0, 1), (-1, -1), colors.black),
             ('ALIGN', (0, 1), (-1, -1), 'LEFT'),
             ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
-            ('FONTSIZE', (0, 1), (-1, -1), 7),
+            ('FONTSIZE', (0, 1), (-1, -1), data_font_size),
             ('TOPPADDING', (0, 1), (-1, -1), 4),
             ('BOTTOMPADDING', (0, 1), (-1, -1), 4),
             ('LEFTPADDING', (0, 0), (-1, -1), 3),

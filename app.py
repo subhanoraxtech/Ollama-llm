@@ -473,6 +473,25 @@ CURRENT REQUEST: {question}
         exec(code, {}, namespace)
         result = namespace.get("result")
         
+        # ===== RESULT VALIDATION =====
+        # Validate that the result makes sense given the user's query
+        q_lower = question.lower()
+        
+        # Check 1: If user asked for data but got empty result, this is likely wrong
+        if isinstance(result, pd.DataFrame) and len(result) == 0:
+            # Check if user was asking for specific data (not a count/sum/etc)
+            asking_for_data = any(word in q_lower for word in ['show', 'give', 'get', 'list', 'find', 'display', 'all', 'who'])
+            if asking_for_data and len(df) > 0:
+                # Original df has data, but result is empty - likely wrong filter
+                st.warning(f"⚠️ Query returned 0 rows, but dataset has {len(df):,} rows. The filter might be too strict. Trying fallback...")
+                return smart_fallback_query(df, question)
+        
+        # Check 2: Validate result type
+        if result is None:
+            st.error("❌ LLM generated code but didn't produce a result. Using fallback...")
+            return smart_fallback_query(df, question)
+        
+        # Check 3: If result is a DataFrame with data, proceed
         if isinstance(result, pd.DataFrame) and len(result) > 0:
             # Check if we have the columns user asked for
             requested_cols = result.columns.tolist()
@@ -487,13 +506,23 @@ CURRENT REQUEST: {question}
             
             thought_display = f"**🧠 Thought:** _{thought}_\n\n" if thought else ""
             
-            answer = f"{thought_display}Found {len(result)} records with {len(requested_cols)} columns ({', '.join(requested_cols)}):\n\n{examples}\n\nShowing all in the table below."
+            # Add filter info to help user verify correctness
+            filter_info = ""
+            if len(result) < len(df):
+                filter_info = f" (filtered from {len(df):,} total rows)"
+            
+            answer = f"{thought_display}✅ Found {len(result):,} records{filter_info} with {len(requested_cols)} columns:\n\n**Columns:** {', '.join(requested_cols)}\n\n**Sample data:**\n{examples}\n\nShowing all in the table below."
             
             return {"messages": [AIMessage(content=answer)], "filtered_df": result}
         else:
-             return {"messages": [AIMessage(content=f"Result: {result}")]}
+             # Result is a scalar value (count, sum, etc.)
+             return {"messages": [AIMessage(content=f"**Result:** {result}\n\n**Thought:** {thought}" if thought else f"**Result:** {result}")]}
 
     except Exception as e:
+        # Log the error for debugging
+        error_msg = str(e)
+        st.error(f"❌ Code execution failed: {error_msg[:200]}")
+        
         # Smart fallback
         return smart_fallback_query(df, question)
 

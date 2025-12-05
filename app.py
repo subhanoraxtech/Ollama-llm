@@ -1311,7 +1311,7 @@ def display_paginated_data():
                 )
 
 # ========================= STREAMLIT UI =========================
-st.set_page_config(page_title="Multi-Agent System", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Bailbooks AI", page_icon="🤖", layout="wide")
 # st.title("🤖 Intelligent Multi-Agent RAG System") # Removed
 # st.markdown("*Powered by 6 specialized AI agents that analyze your queries and provide intelligent responses*") # Removed
 
@@ -1345,137 +1345,64 @@ elif st.session_state.current_chat_id:
 # === Main Interface Logic ===
 user_input = None
 
-# ═══════════════════════════════════════════════════════════════════
-# FINAL & PERFECT FIXED BOTTOM CHAT INPUT (2025 Streamlit)
-# ═══════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-    /* Give space for the fixed bar */
-    .main > .block-container {
-        padding-bottom: 100px !important;
-    }
-
-    /* Completely hide Streamlit's default bottom bar (we'll style it ourselves) */
-    section[data-testid="stBottom"] {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-    }
-
-    /* Our custom fixed input bar */
-    .custom-chat-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--background-color);
-        border-top: 1px solid var(--secondary-background-color);
-        padding: 12px 16px;
-        z-index: 9999;
-        box-shadow: 0 -6px 20px rgba(0,0,0,0.1);
-    }
-
-    .custom-chat-bar .inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        align-items: flex-end;
-        gap: 12px;
-    }
-
-    /* Attachment button - perfect circle */
-    .attach-btn {
-        background: var(--secondary-background-color);
-        border: 1px solid #444;
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        flex-shrink: 0;
-        font-size: 20px;
-    }
-
-    /* Chat input - clean, full width, no weird padding */
-    .custom-chat-bar [data-testid="stChatInput"] {
-        flex: 1;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .custom-chat-bar [data-testid="stChatInput"] > div {
-        margin: 0 !important;
-        padding: 0 !important;
-        background: transparent !important;
-    }
-
-    .custom-chat-bar textarea {
-        background: var(--secondary-background-color) !important;
-        border: 1px solid #444 !important;
-        border-radius: 24px !important;
-        padding: 14px 56px 14px 18px !important;
-        font-size: 16px !important;
-        height: 48px !important;
-        resize: none !important;
-        box-shadow: none !important;
-    }
-
-    .custom-chat-bar textarea:focus {
-        border-color: var(--primary-color) !important;
-        box-shadow: 0 0 0 2px rgba(0,123,255,0.25) !important;
-    }
-
-    /* Send button - perfectly centered on the right */
-    .custom-chat-bar button[kind="primary"] {
-        position: absolute !important;
-        right: 8px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        background: var(--primary-color) !important;
-        border: none !important;
-        border-radius: 50% !important;
-        width: 36px !important;
-        height: 36px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
-    }
-
-    .custom-chat-bar button[kind="primary"] svg {
-        width: 20px !important;
-        height: 20px !important;
         margin-left: 2px !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 if not st.session_state.messages:
-    # === Centered Landing Page ===
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.markdown("<div style='height: 20vh;'></div>", unsafe_allow_html=True) # Spacer
-        st.markdown("<h1 style='text-align: center;'>Bailbooks AI</h1>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: #888;'>Your Fastest Path To Defendant Data </p>", unsafe_allow_html=True)
+    # === Clean Landing Page Layout ===
+    
+    # Custom CSS for autocomplete removal and styling
+    st.markdown("""
+    <style>
+        /* Remove autocomplete suggestions */
+        input[type="text"] {
+            autocomplete: off !important;
+        }
         
-        # File Uploader in Center
+        input[type="text"]::-webkit-contacts-auto-fill-button,
+        input[type="text"]::-webkit-credentials-auto-fill-button {
+            visibility: hidden;
+            display: none !important;
+            pointer-events: none;
+        }
+        
+        /* Improve input field styling */
+        .stTextInput input {
+            border-radius: 8px !important;
+            padding: 12px 16px !important;
+            font-size: 16px !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Top spacer
+    st.markdown("<div style='height: 15vh;'></div>", unsafe_allow_html=True)
+    
+    # Centered content
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        st.markdown("<h1 style='text-align: center; margin-bottom: 10px;'>Bailbooks AI</h1>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: #888; margin-bottom: 30px;'>Your Fastest Path To Defendant Data</p>", unsafe_allow_html=True)
+        
+        # File Uploader
         uploaded_files = st.file_uploader(
             "Upload files (CSV, PDF, DOCX)", 
             type=["pdf", "docx", "doc", "csv"], 
             accept_multiple_files=True,
             label_visibility="collapsed"
         )
-        
-        # Spacer between uploader and input
-        st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-        
-        # Centered Input with Send Button
-        col_in, col_btn = st.columns([6, 1])
+    
+    # Middle spacer - pushes input down
+    st.markdown("<div style='height: 25vh;'></div>", unsafe_allow_html=True)
+    
+    # Bottom input area (not fixed, just naturally at bottom)
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        col_in, col_btn = st.columns([10, 1])
         with col_in:
             user_input = st.text_input(
                 "Ask me anything...", 
@@ -1484,33 +1411,22 @@ if not st.session_state.messages:
                 label_visibility="collapsed"
             )
         with col_btn:
-            # Use a form submit button look-alike or just a button
-            # To make it align better, we might need some top margin or custom CSS, 
-            # but standard columns are a good start.
-            # Using a unicode arrow for the send icon
-            submitted = st.button("➤", key="landing_submit", help="Send message")
-        
-        if user_input or submitted:
-            # If button pressed but no input, we might want to handle that, 
-            # but usually user types then presses enter OR button.
-            # If button pressed, we need to grab the input value. 
-            # Limitation: st.button doesn't automatically submit the text_input unless it's in a form.
-            # But putting it in a form prevents 'Enter' from working nicely without 'clear_on_submit' issues sometimes.
-            # Let's stick to simple logic: if user_input is present (Enter key) OR (Button pressed AND user_input is accessible).
+            submitted = st.button("➤", key="landing_submit", help="Send message", use_container_width=True)
+    
+    # Bottom padding
+    st.markdown("<div style='height: 5vh;'></div>", unsafe_allow_html=True)
+    
+    if user_input or submitted:
+        val = st.session_state.get("landing_input", "")
+        if val:
+            # Create chat ID if this is the first message
+            if st.session_state.current_chat_id is None:
+                st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
             
-            # Actually, if button is pressed, 'user_input' might be empty in this rerun if they didn't hit enter.
-            # We rely on session state or just the fact that text_input preserves value on rerun if key is set.
-            
-            val = st.session_state.get("landing_input", "")
-            if val:
-                # Create chat ID if this is the first message
-                if st.session_state.current_chat_id is None:
-                    st.session_state.current_chat_id = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                    os.makedirs(get_chat_path(st.session_state.current_chat_id), exist_ok=True)
-                
-                st.session_state.messages.append(HumanMessage(content=val))
-                save_chat(st.session_state.current_chat_id) # Save before rerun to prevent data loss
-                st.rerun()
+            st.session_state.messages.append(HumanMessage(content=val))
+            save_chat(st.session_state.current_chat_id) # Save before rerun to prevent data loss
+            st.rerun()
 
 else:
     # === Your normal chat messages (keep exactly as you had) ===

@@ -1197,7 +1197,7 @@ def load_chat(chat_id):
         df_path = os.path.join(path, f"dataframe_{i}.csv")
         if os.path.exists(df_path):
             try:
-                loaded_dfs.append(pd.read_csv(df_path))
+                loaded_dfs.append(pd.read_csv(df_path, low_memory=False))
                 i += 1
             except Exception:
                 break
@@ -1209,7 +1209,7 @@ def load_chat(chat_id):
         legacy_path = os.path.join(path, "dataframe.csv")
         if os.path.exists(legacy_path):
             try:
-                loaded_dfs.append(pd.read_csv(legacy_path))
+                loaded_dfs.append(pd.read_csv(legacy_path, low_memory=False))
             except Exception:
                 pass
     
@@ -1218,7 +1218,7 @@ def load_chat(chat_id):
     # Load filtered_df (CRITICAL for showing tables)
     filtered_df_path = os.path.join(path, "filtered_df.csv")
     if os.path.exists(filtered_df_path):
-        st.session_state.filtered_df = pd.read_csv(filtered_df_path)
+        st.session_state.filtered_df = pd.read_csv(filtered_df_path, low_memory=False)
         # Also set as active_df for display if not explicitly saved
         if not os.path.exists(os.path.join(path, "active_df.csv")):
             st.session_state.active_df = st.session_state.filtered_df
@@ -1229,7 +1229,7 @@ def load_chat(chat_id):
     # Load active_df (for table display)
     active_df_path = os.path.join(path, "active_df.csv")
     if os.path.exists(active_df_path):
-        st.session_state.active_df = pd.read_csv(active_df_path)
+        st.session_state.active_df = pd.read_csv(active_df_path, low_memory=False)
     
     # Load vectorstore
     faiss_path = os.path.join(path, "faiss_index")

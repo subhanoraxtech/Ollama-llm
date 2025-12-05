@@ -81,17 +81,30 @@ class CSVSchemaAnalyzer:
         
         # Type-specific stats
         if info["type"] == "numeric":
-            info["stats"] = {
-                "min": float(series.min()) if not series.empty else None,
-                "max": float(series.max()) if not series.empty else None,
-                "mean": float(series.mean()) if not series.empty else None,
-                "median": float(series.median()) if not series.empty else None
-            }
+            # Only compute numeric stats if the series is actually numeric
+            # This prevents TypeError with mixed-type columns
+            try:
+                # Try to convert to numeric, coercing errors to NaN
+                numeric_series = pd.to_numeric(series, errors='coerce')
+                if not numeric_series.dropna().empty:
+                    info["stats"] = {
+                        "min": float(numeric_series.min()) if not numeric_series.empty else None,
+                        "max": float(numeric_series.max()) if not numeric_series.empty else None,
+                        "mean": float(numeric_series.mean()) if not numeric_series.empty else None,
+                        "median": float(numeric_series.median()) if not numeric_series.empty else None
+                    }
+                else:
+                    info["stats"] = {}
+            except Exception:
+                info["stats"] = {}
         elif info["type"] == "text":
-            info["stats"] = {
-                "avg_length": series.str.len().mean() if not series.empty else 0,
-                "max_length": series.str.len().max() if not series.empty else 0
-            }
+            try:
+                info["stats"] = {
+                    "avg_length": series.astype(str).str.len().mean() if not series.empty else 0,
+                    "max_length": series.astype(str).str.len().max() if not series.empty else 0
+                }
+            except Exception:
+                info["stats"] = {}
         
         return info
     

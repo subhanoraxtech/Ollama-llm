@@ -81,37 +81,44 @@ USER QUERY: "{question}"
 DATASET SCHEMA:
 {analyzer.get_prompt_context(max_columns=25)}
 
-**Suggested Columns:** {suggestions_text}
+**Suggested Columns for Filtering:** {suggestions_text}
 
 **Column Hints:**
 {hint_text}
 
 **CRITICAL RULES - FOLLOW EXACTLY:**
 
-1. **For text/string filtering, ALWAYS use this pattern:**
+1. **RETURN ALL COLUMNS BY DEFAULT**: When users ask for data (e.g., "give me users in TX", "show customers", "list people"), 
+   return ALL columns from the dataframe, NOT just a subset. The suggested columns above are for FILTERING/CONDITIONS only.
+   
+   ✅ CORRECT: `result = df[df['State'].str.contains('TX', case=False, na=False)]` (returns ALL columns)
+   ❌ WRONG: `result = df[df['State'].str.contains('TX', case=False, na=False)][['Name', 'State']]` (only returns 2 columns)
+
+2. **For text/string filtering, ALWAYS use this pattern:**
    ```python
    df[df['ColumnName'].astype(str).str.strip().str.contains('value', case=False, na=False)]
    ```
    
-2. **State filtering - include BOTH abbreviation and full name:**
+3. **State filtering - include BOTH abbreviation and full name:**
    - Texas: `'TX|Texas'`
    - California: `'CA|California'`
    - New York: `'NY|New York'`
 
-3. **NEVER use `==` for text columns** - it's too strict and will miss matches
+4. **NEVER use `==` for text columns** - it's too strict and will miss matches
 
-4. **Always store result in `result` variable**
+5. **Always store result in `result` variable**
 
-5. **Validate your code:**
+6. **Validate your code:**
    - Does it answer the user's question?
-   - Are you using the correct columns?
-   - Will it return the data the user asked for?
+   - Are you using the correct columns for FILTERING?
+   - Are you returning ALL columns (not just a subset)?
+   - Will it return the complete data the user asked for?
 
 **CORRECT EXAMPLES:**
 
-Example 1: "Show customers from Texas"
+Example 1: "Show customers from Texas" or "Give me list of users in TX"
 ```python
-# Correct - handles TX, Texas, tx, " TX ", etc.
+# Correct - filters by State but returns ALL columns
 result = df[df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)]
 ```
 
@@ -123,21 +130,29 @@ result = df
 
 Example 3: "Customers with balance over 1000"
 ```python
-# Correct - numeric comparison
+# Correct - numeric comparison, returns ALL columns
 result = df[df['Balance'] > 1000]
 ```
 
 Example 4: "Texas customers with balance over 1000"
 ```python
-# Correct - combine filters
+# Correct - combine filters, returns ALL columns
 mask_state = df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)
 mask_balance = df['Balance'] > 1000
 result = df[mask_state & mask_balance]
 ```
 
+Example 5: "Show me name and email of Texas customers" (User explicitly asks for specific columns)
+```python
+# Correct - user explicitly requested only certain columns
+filtered = df[df['State'].astype(str).str.strip().str.contains('TX|Texas', case=False, na=False)]
+result = filtered[['Name', 'Email']]
+```
+
 **WRONG EXAMPLES - DO NOT DO THIS:**
 ❌ `df[df['State'] == 'TX']` - Too strict!
 ❌ `df[df['State'].str.contains('TX')]` - Missing astype, strip, case, na handling
+❌ `df[df['State'].str.contains('TX', case=False, na=False)][['Name', 'State']]` - Don't limit columns unless user explicitly asks!
 ❌ Using wrong column names not in the schema
 
 **Your Response Format:**
@@ -152,6 +167,7 @@ result = ...
 - Double-check you're using the correct column names from the schema
 - Verify your code will return what the user asked for
 - Make sure you're using the MANDATORY pattern for text filtering
+- IMPORTANT: Make sure you're returning ALL columns unless user explicitly asks for specific ones
 
 Now write the code:
 """
